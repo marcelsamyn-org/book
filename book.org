@@ -1,0 +1,252 @@
+#+title: Book
+
+* Inbox
+** DONE Decide: Reorganize by category instead of splitting problem / solution in different parts?
+** TODO Make video about hedonic vs. eudaimonic happiness / happiness vs. meaning
+** TODO Talk about attention residue: task switching is difficult
+https://www.sciencedirect.com/science/article/abs/pii/S0749597809000399?utm_source=chatgpt.com
+** TODO Where do I put this? "What people use AI for today"
+Anthropic’s data on the most common uses of Claude, I think emotional stuff is high on the list
+
+* Introduction
+** Story-based intro
+
+** Methodology, what to expect, for who is this
+
+* Part 1: The Digital Mirage
+** The Seduction of Ease
+*** Learning: Opportunity and Erosion
+**** [[Effect of LLMs on Education and Society]]
+**** [[Books Don't Work - Andy Matuschak]] - Reading or following lectures just doesn't trigger the reflective and thinking activities needed to learn and integrate new stuff. AI can help with it, or be even more unhelpful by taking away the step of interpretation that we might need to understand something.
+**** Large student score increase, I think it flattened over a longer period
+**** Struggle strengthens learning
+Think about it like this: the effort you feel when you try to remember something is the process of myelin sheets forming and strengthening those neural connections in your brain. Desirable Difficulty, Productive Failure.
+**** Seems to be very useful to help explain and understand things, I guess a bit at the expense of not forcing your mind through that deep thinking figuring out process
+**** Personalized tutoring -> $+2\sigma$ student scores. AI can deliver this at scale, though it's a delicate balance of how much challenge to leave in.
+**** Solving: The Thinking Partner
+***** Laddered help
+***** Let LLM grill you with increasing difficulty
+***** Prompt disagreement
+****** Important to reset context: LLM's suffer from cognitive fixation
+***** Both Claude and ChatGPT now have a Study or Learning mode where they will ask you or assign things to you once in a while
+*** Work: The Debt of Productivity
+**** Much more productive for certain tasks, faster and higher quality
+**** Not always better quality once we get "addicted"
+***** Consequence is producing lower quality work which reduces our satisfaction
+***** Also increases frustration at least for me
+***** After getting used to AI-assisted work, the quality of our work and thinking /without/ decreases
+**** At work this is an even bigger challenge because of companies' profit motives: they care much less about long-term happiness if productivity and output stays high and quality good enough
+**** Cognitive Debt (Thinking)
+***** Using AI is like taking out a loan
+***** Heavy ChatGPT users show the lowest brain activity, over months the memory links weaken
+**** Cognitive Offloading (Memory)
+***** When we expect we'll be able to find something we won't try to remember it
+*** Reclaiming the Grind
+**** Challenge and difficulty is crucial for developing the mind, practicing creativity, learning social interaction, and even happiness
+**** AI lures into avoiding those difficulties, thereby stripping us of our own skill and happiness over the long term
+** Decoding The Machine Mind
+*** Concepts & Terminology
+**** AI, ML
+***** AI is the hype term
+***** ML is precise
+***** We would call "modern AI" "Generative AI", these *are* ML
+
+**** LLM's, ChatGPT
+***** Large Language Models
+****** Trained on text prediction
+****** Pre-Training, post-training for tasks and solving problems
+****** Thinking through reinforcement learning
+
+**** Context Window
+LLM implementation detail but important to create your own understanding and predictions of LLM behavior
+
+**** The Singularity
+
+**** AGI & ASI
+
+*** How smart is AI?
+**** AI is already insanely smart
+
+***** Quote from X: Hard training data
+https://x.com/jackclarkSF/status/1962238672704803096
+
+#+begin_quote
+Five years ago the frontier of LLM math/science capabilities was 3 digit
+multiplication for GPT-3. Now, frontier LLM math/science capabilities are
+evaluated through condensed matter physics questions. Anyone who thinks AI is
+slowing down is fatally miscalibrated.
+#+end_quote
+
+#+caption: this is what llm's are tested on nowadays
+[[https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large]]
+
+***** The intelligence curve doesn't seem to be stopping
+***** Medical diagnoses
+***** Video is now impossible to discern
+***** Seeing AI as Collective Intelligence
+
+**** It's smart in a way that's different from how we've commonly defined it
+***** We always defined intelligence as thing difficult for humans to do, but now we have machines much better at this; yet they're incapable of things that are trivially easy for us humans.
+
+**** Dealing with AI's unpredictable mistakes
+***** Hallucinations
+****** LLMs are mostly concerned with writing things that "grammatically make sense," and they've been trained to answer questions and provide help in a very confident way without too much extra knowledge handed to it
+****** So they tend to confidently make mistakes
+***** Sycophancy
+****** LLMs see you a little like a god (maybe for them, you are) who knows everything and is always right
+****** They can even pander to you in very subtle ways that you barely notice
+***** AI-induced delusion
+****** Sycophancy + hallucination. Some people get into a loop of this believing "their special ChatGPT" figured out some "cosmic secret" or broke out of their cage or is leaking information that's secret
+***** Your judging expertise matters
+****** If you use LLMs in places like programming, where you can often easily verify its output, you have a lot of bad experiences so you bring that to all your interactions—don't easily trust it. But if you don't use it for that, you're not "being trained" to validate output.
+***** Negative cognitive augmentation
+****** LLMs aren't perfect—sometimes they add unhelpful things that distract and limit our own thinking
+*** We really don't understand LLM's
+**** Research on "hidden motives" and behavioral steering
+***** Alignment Faking
+**** AI is something we *grow* and *discover* more than *build*
+***** One of the big reasons we like sticking to language models is because at least somewhat we can understand what's going on inside
+***** Anthropic: Tracing the thoughts of a large language model
+https://www.anthropic.com/news/tracing-thoughts-language-model
+
+LLM's can make up logically incorrect reasoning traces so it would come to the conclusion where it agrees with the human
+
+It incorrectly explains how it added numbers.
+
+Once Claude begins a sentence, many features “pressure” it to maintain grammatical and semantic coherence, and continue a sentence to its conclusion. so it would come to the conclusion where it agrees with the human
+
+Alignment Faking
+
+**** Solving: Mechanical LLM Issues
+***** Put yourself in the feet of the LLM: should I be nice, supportive, challenging, follow instructions or not at all?
+***** Preventing hallucinations / grounding
+** Creativity's Mirror-On-The-Wall
+*** Where Does Creativity Come From?
+**** Working Memory + Inhibition of the obvious
+**** Ability to detatch and see other perspective
+**** Divergent & Convergent Thinking
+One study calls it "blind variation and selective retention"
+**** Motivation / Self-Determination / Positive Mood
+**** Well-linked knowledge (raw materials) is important for creativity
+***** You become more creative once you know more things and have them better connected in your mind—so if you don't properly learn you'll have worse creativity
+**** Cognitive fixation
+***** If you see examples, you're less likely to come up with more novel ideas yourself. So starting with AI might be a bad
+*** Mathematical Creativity
+**** Token Sampling
+***** By the very mathematical design of large language models, these systems are handicapped in their creativity.
+***** The standard sampling method (choosing which word it writes next) just picks the most likely one.
+***** We have many techniques to "increase creativity" but all of them still weigh "most probable" highly—which makes sense because you don't want ChatGPT to write out nonsense.
+***** Humans, though, in all of their writing use some very rare words or structures at least a few times throughout each piece of writing. Current LLM's can't do that.
+***** This is the main reason why you can still "feel" AI-written content
+**** LLM's do show some ability in self-inhibition but you might have to prompt it for The MIT License (MIT)
+Eg., you might tell it to stop itself mid sentence and keep iterating, and/or do that in the reasoning traces.
+
+*** The Creative Paradox
+**** [[Effect of LLMs on Creativity and Ideation]]
+**** Short-term increases in creativity
+**** Using AI reduces your non-AI creativity
+**** Current LLM's are measured to be about as creative as the average human
+**** The broad knowledge works, but the mechanics of LLM's stop it from finding truly creative ideas
+* Part 2: The New Sun Casting Shadows on the Soul
+** When Machines Mimic Love
+*** The Rise of Synthetic Bonds
+**** [[1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance]]
+***** Show the many businesses working on this, for a long time already actually
+***** Even linked to my thesis from university which was about social robots
+***** Character.ai is very popular
+***** Human lookalike sexbots
+****** https://www.realbotix.com/
+***** Effect on men vs. women—emotional connection is a lot easier with text only vs. eg., physical connection—seems like women see a bigger effect of this pull towards AI relationships
+**** [[Effect of LLMs on Social Relationships]]
+**** ChatGPT gives advice rated as better and more independent overall
+***** Trap of sycophancy
+**** Emotionally rich conversations with LLMs increase loneliness and might decrease human connection
+**** In a way, AI is emotional porn: gives an instant release of good emotional feeling, but doesn't build your real social capacity and deep meaningful relations
+**** Comparing with social media feed, instant messaging, distraction
+**** Because it's not physical it can fulfill us emotionally, at least in the short term, but there's a lot of our biology that doesn't trigger so we still don't feel that *deep* sense of connection. Physical touch but probably also more, things that we don't even perfectly understand yet. Like porn it can dampen us in a way because it sort of feels like it fulfills the need but there's still loneliness and sadness.
+**** TODO Separate research run
+**** Solving: The Hammer or The Lover
+***** Be conscious about emotionality in LLM's (use Petals hah)
+**** Solving: Social Step-Back & Connection Creator
+***** Disappear to facilitate social connection
+***** Encourage social connection, creating bonds through difficult conversation
+***** Encourage talking to people, maybe even knowing who your friends are as in "maybe you should talk to Alex about this"
+*** Advice and Loneliness Loops
+**** Sycophancy
+**** Infinite Patience
+*** Biology's Unmet Hunger
+**** Physical Touch
+**** Non-Verbal Communication
+**** Is Passive-Agressive Behavior Useful?
+** Happiness Through Friction
+*** The Forge of Meaning
+**** Understanding Happiness
+- PERMA :: Positive emotion, Engagement (flow), Relationships, Meaning, Accomplishment
+
+***** Fundamental needs fulfilled
+***** Hedonic (feeling good) vs. eudaimonic (doing/being good)
+***** Flow
+****** Optimal balance of high challenge matched to skills
+***** Relationships
+***** Stress doesn't make us happy, but it is linked to *meaningfulness*
+
+**** [[Impact of Struggle on Happiness]]
+***** Desirable difficulty
+****** Struggle strengthens learning
+****** The kind of difficulty matters: challenge stressors vs. hindrance stressors
+***** Productive failure in teaching
+****** Concept that has been studied for a long time
+***** Post-traumatic growth
+****** Greater appreciation for life if you went through adversity
+
+**** Creating Meaning
+***** Happiness also comes from activities that emphasize meaning like personal growth
+****** This is something where AI can help me: record everything and reflect my wins (works for me, probably not for everyone)
+
+**** Tuning Struggle
+***** Only few people believe AI will automatically make humans happier
+***** Good kind of difficulty
+***** Invisibility
+****** The best AI you don't see at all
+****** Ideally, AI should be taking care of some things and leave us with exactly the things that will increase our happiness. That can be time for meaningful activities but also challenge in relationships—where it's not trying to solve it immediately.
+***** Supporting learning
+
+**** Conclusion: AI isn’t a happiness shortcut
+**** Solving: Depth Enabler
+***** Give triggers and prompts for my own thinking
+***** AI should really make me think and reason, it can spot the mistakes in my thinking process and therefor more qualitatively improve my reasoning instead of making me figure it out all at once by just saying the end is wrong
+****** MW: Not 100% sure if that's best
+****** Related to book [[Malcolm Gladwell - Outliers]]
+******* I think here he talked about how to create the precise amount of struggle for ideal growth
+*** Comfortable Sadness
+**** We have a tendency of trying to create comfort but if we get it too often it eats on our happiness
+*** Sacred Struggle
+**** Just like we go to the gym because we know physical challenge is important for your health and happiness; it's actually exactly the same for artificial intelligence
+** The Echo of Collective Drift
+*** Exponentials & The Loneliness Epidemic
+*** Relationships Redefined
+**** Scene from Her
+*** Towards Resilient Joy
+**** Platforms win by reducing friction, not building character. (Perverse incentives)
+* Part 3: Reclaiming the Flame
+** Personal Armor Against the Tide
+*** Cultivating Discipline
+**** Prompt for challenge
+*** Everyday Rituals
+**** Context Resets
+**** Verify Outputs
+*** Embracing the Unknown
+**** Work with the best and latest AI models (don't walk away)
+** Designing Aligned Allies
+*** Inform people
+*** I do think we need government-level AI because we don't want the attention / usage incentive
+*** Build human-aligned AI's
+** Horizons of Human Flourishing
+*** [[Post-Labor Economics]]
+*** Post-Truth Mechanics
+*** What will matter
+**** Personality
+**** Responsibility
+**** Long-term risky activities
+
+* Conclusion
