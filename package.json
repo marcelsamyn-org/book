@@ -1,0 +1,31 @@
+{
+  "name": "book-research",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "research:run": "bun run src/index.ts",
+    "research:questions": "bun run src/tools/generate-questions.ts",
+    "research:dashboard": "bun run src/tools/research-dashboard.tsx"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "@opentui/core": "^0.1.25",
+    "@opentui/core-darwin-arm64": "^0.1.25",
+    "@opentui/solid": "^0.1.25",
+    "openai": "^4.56.0",
+    "pino": "^10.0.0",
+    "pino-pretty": "^13.1.1",
+    "solid-js": "^1.9.9",
+    "yoga-layout": "^3.1.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.23",
+    "@types/node": "^22.7.4",
+    "tsx": "^4.16.2",
+    "typescript": "^5.6.3"
+  }
+}

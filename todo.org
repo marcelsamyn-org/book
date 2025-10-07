@@ -1,0 +1,9 @@
+#+title: Todo
+
+* Inbox
+** DONE Decide: Reorganize by category instead of splitting problem / solution in different parts?
+** TODO Make video about hedonic vs. eudaimonic happiness / happiness vs. meaning
+** TODO Talk about attention residue: task switching is difficult
+https://www.sciencedirect.com/science/article/abs/pii/S0749597809000399?utm_source=chatgpt.com
+** TODO Where do I put this? "What people use AI for today"
+Anthropic’s data on the most common uses of Claude, I think emotional stuff is high on the list
