@@ -1,12 +1,9 @@
 #+title: Book
 
-* Inbox
-** DONE Decide: Reorganize by category instead of splitting problem / solution in different parts?
-** TODO Make video about hedonic vs. eudaimonic happiness / happiness vs. meaning
-** TODO Talk about attention residue: task switching is difficult
-https://www.sciencedirect.com/science/article/abs/pii/S0749597809000399?utm_source=chatgpt.com
-** TODO Where do I put this? "What people use AI for today"
-Anthropic’s data on the most common uses of Claude, I think emotional stuff is high on the list
+* Overview
+This book asks a simple but high-stakes question: when LLM-based chats become woven into everyday life, what do they do to our creativity, our intelligence, and our ability to relate to others? The central thesis—“Sacred Struggle”—holds that friction and challenge are not bugs but features of human flourishing: we learn deeper, create better, and feel more alive when we face difficulty on purpose. The book resists both doom and hype; it treats AI as a powerful scaffold that can either amplify human agency or erode it into homogenization, over-reliance, and learned helplessness. The aim is to translate evidence into design principles for AI, personal practices for users, and social norms that keep the human in the loop—so the technology strengthens taste, judgment, and connection rather than numbing them.
+
+For research and writing support, I’m looking for rigorous, recent, and citable work (ideally RCTs, field experiments, meta-analyses, high-quality qualitative studies) on: productivity and quality shifts; originality/novelty measures; learning depth, transfer and calibration; collaboration and relationship effects; attention/affect (addiction, distraction); and long-run skill development. I want both failure modes (homogenization, over-trust, mode collapse in thinking) and countermeasures (deliberate difficulty, sampling diverse outputs, active-recall/reflective prompts, constraint-based workflows, light “Dopamine Nutrition Label” ideas). The end product should convert findings into actionable heuristics for designers, concrete use-protocols for knowledge workers, and cultural guidance for a post-AI world that prizes strong character, responsible decision-making, long-term ambitious projects, and disciplined taste.
 
 * Introduction
 ** Story-based intro
@@ -14,6 +11,16 @@ Anthropic’s data on the most common uses of Claude, I think emotional stuff is
 ** Methodology, what to expect, for who is this
 
 * Part 1: The Digital Mirage
+** Research Key Points
+
+- Plan a preregistered longitudinal MRI study of AI memory offloading with two arms (AI-offloading vs. control): baseline, mid, end, and post-follow-up; target hippocampus, PFC, DMN, and FPN connectivity.
+- Incorporate guardrails and explicit memory-goal instructions as mitigation; design tasks with episodic memory content and content crafted for AI offloading; collect AI-use metrics and self-report data for mediation/moderation analyses.
+- Address practical logistics up front: ensure sufficient sample size, manage attrition, optimize scheduling, and assess multi-site feasibility.
+- Conduct a rigorous within-course RCT of AI tutoring with three arms—Laddered Adaptive ITS, Traditional Instructor-Led, and Static AI; primary outcomes are long-term retention and transfer via delayed post-tests and novel-context tasks.
+- Detail ITS architecture and learner modeling: domain, learner, tutor, UI; employ knowledge tracing or knowledge-space; implement laddered hints and adaptive difficulty.
+- Ensure robust reporting and equity considerations: report effect sizes and p-values, domain mastery rates, align with UDL, disclose AI usage, protect data privacy, and monitor bias.
+- Pre-register hypotheses and analysis plans; specify clustering considerations; plan mediation/moderation analyses; discuss generalizability and the need for replication.
+
 ** The Seduction of Ease
 *** Learning: Opportunity and Erosion
 **** [[Effect of LLMs on Education and Society]]
@@ -30,6 +37,46 @@ Think about it like this: the effort you feel when you try to remember something
 ****** Important to reset context: LLM's suffer from cognitive fixation
 ***** Both Claude and ChatGPT now have a Study or Learning mode where they will ask you or assign things to you once in a while
 *** Work: The Debt of Productivity
+Work is where we spend most of our waking hours and has some peculiar characteristics that make it especially AI-prone. In a way, /work/ has for the entire history of humanity been the main target of technological innovation. From the fire that we used to extract more nutrients from our food to robot drones inspecting our crops, automation has been at the core of working.
+
+Since our society decided to interpret businesses as entities separate from humans, they can act in ways counter to what would be best for the people in them. Or rather, a business doesn't really care. People get fired, get assigned a job that depresses them (like moderating TikTok video) or just ruthlessly get swapped out for a robot dog.
+
+But those examples are quite clearly "bad." What happens when we muddy the waters a little more---say by replacing the deeply satisfying work of a master sculptor with prefab moulds?
+
+You see, our work /is/ for many people our main source of fulfillment. We get to create something meaningful for this world and that gives us happiness and satisfaction. Being social animals, we've evolved with a deep-rooted need to give back to our community. But imagine you're Mother Evolution (I can already hear the biologists screaming you're not supposed to do that---bear with me, we're only indulging for a few sedonds). How could you "program" your little humans so they understand what's meaningful to contribute? Well, it seems to be that our old brains created the rule that *if it's hard to do it's valuable, and it will satisfy you if you do it and succeed.*
+
+This is a nice little shortcut that has served our species immensely for many thousands of years. But already today we're seeing the cracks in this unsatiable need for doing things that are difficult: /what happens when we're done?/ What when our own ambition did its job /so damn well/ that there's nothing really left to sweat, cry and bleed for?
+
+This isn't a problem you can solve without consequences. We could keep the laser crop-weeding machine in the shed and pull out the weeds with our bare hands, but are we willing to suffer through having less food because of that? Not to mention how silly it would feel to be "working hard while the robots could do it better but our puny little human minds need to believe they're important."
+
+Luckily, business sidesteps this problem by only caring about productivity and efficiency. But that introduces a new problem potentially exacerbating all of this even more: what if you find a new technology that produces at 80% of the quality of what you had before at only 1% of the cost? This has been the plight of our world since the dawn of industrialization. We can make houses, clothes and objects many times cheaper---they're just a little ugly and devoid of any 'soul.' Surrounded by this, we get reminded over and over that automation and machines built most of this at a staggering speed, much faster than we ourseleves could ever hope to do it. And as clearly evidenced, people generally prefer the cheap machine things.
+
+TODO talk about depression and meaning numbers from studies
+
+So looking out into our future we might see a continuation of this same trend: we can get more things for a lot less money---with the trade-off of being more "boring" and "simple." We'll talk more about this later because it's likely more complicated than that. But for now, let's look at what AI does to our work /today/.
+
+**** The Good-Enough Rocket
+
+At this point in time, large language models have gotten susprisingly good at many tasks for which we consider that you need a certain level of intelligence. Tasks like summarizing text or writing something have been great strengths of these tools for years. It's definitely not perfect, though. I'm still writing large parts of this book by hand---not just because writing helps me flesh out the ideas from the book, but also because something in human writing still stands out. Like we discussed before, this probably has something to do with sampling, or how we choose the words to write down.
+
+But books aren't the only thing we write down. In fact, most of our writing is unbothered by barely-perceived huffs of poetry. We just need to get the email out to ask for approval, or get a list down of the ten key findings of the report.
+
+Most of our writing just needs to clearly, concisely make a point---and that's exactly what the infrastructure of a large language model works best for. In fact, some studies have found *[TODO: Citation]* that people usually prefer AI writing, unless they know it's written by AI.
+
+So right now, we are handing in some writing quality in exchange for a multiple-digit increase in how much we can write. It's a little sad that this means we lose the creativity and artistry that's around us almost randomly, but it's a trade-off that's almost crazy to *not* make.
+
+**** Disappearing Depth
+
+In fact, we do see that in many critical tasks, artificial intelligence tools (or even better, when human experts cooperate with these tools) produce higher quality outputs /and/ are much faster than humans alone. This is great, but there's a slippery trap that looks a lot like another one humanity has been battling for a good decade: media feeds.
+
+The addictive power of our "social" media feeds is so ingrained that we almost expect every single person to spend hours each day scrolling around. We can't help ourselves because these feeds show us things we like to see---and dose it with some less-interesting things, that makes it even more addictive. This is surprisingly similar to working with ChatGPT: mose of the times, you instantly get rewarded with something great, and sometimes you get a response you don't like. The only issue is that while we unanimously understand that "doomscrolling" is bad for us, our AI's still do useful productive work for us. There's no way people are going to delete their ChatGPT app because they're spending a little too much time on it at the expense of real social interaction or just resting their mind.
+
+Since our brains are so smart, they try to save energy. In Kahneman's book /Thinking, Fast and Slow/ he splits our thinking systems in /System 1/ and /System 2/. System 1 is quick intuitive estimates, and System 2 is deep, logical reasoning. Our brains tend to avoid logical reasoning (it uses more energy) in favor of making quick guesses or estimations, and the book shows plenty of examples where this ends up leading people to make the wrong judgement.
+
+With an AI that tries to fullfill every request you give it, there's nothing for you to do except to describe what you want to happen. After a short amount of time, you'll have trained your mind that there's no need to think deeply about things anymore, and you can instead just prompt the chatbot to do things for you. That's fine, but just like social media does, it shortens our attention span and makes it much more difficult to actually do deep thinking when it's needed. People who have gotten very used to working with AI (myself included) are finding it more and more difficult to sit down in the quiet and think deeply about something.
+
+This has worse consequences than might be immediately obvious.
+
 **** Much more productive for certain tasks, faster and higher quality
 **** Not always better quality once we get "addicted"
 ***** Consequence is producing lower quality work which reduces our satisfaction
