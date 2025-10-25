@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { ChapterSummaryResult } from "../pipeline/summarizeReports.js";
 import { parseOrgOutline } from "./parseOutline.js";
+import { OrgHeading } from "./types.js";
 
 const HEADING_TITLE = "Research Key Points";
 
@@ -27,7 +28,7 @@ export const applyResearchKeyPoints = async (
 
 const applySingle = async (content: string, update: ChapterSummaryResult): Promise<string> => {
   const outline = parseOrgOutline(content);
-  const chapter = outline.headings.find((heading) => heading.id === update.chapterId);
+  const chapter = findHeadingById(outline.headings, update.chapterId);
   if (!chapter) {
     throw new Error(`Chapter with id ${update.chapterId} not found in outline`);
   }
@@ -50,6 +51,32 @@ const applySingle = async (content: string, update: ChapterSummaryResult): Promi
   const withBlock = [...lines];
   withBlock.splice(insertIndex, 0, ...blockLines);
   return withBlock.join("\n");
+};
+
+const findHeadingById = (
+  headings: readonly OrgHeading[],
+  targetId: string,
+): OrgHeading | null => {
+  for (const heading of headings) {
+    const located = locateHeading(heading, targetId);
+    if (located) {
+      return located;
+    }
+  }
+  return null;
+};
+
+const locateHeading = (heading: OrgHeading, targetId: string): OrgHeading | null => {
+  if (heading.id === targetId) {
+    return heading;
+  }
+  for (const child of heading.children) {
+    const located = locateHeading(child, targetId);
+    if (located) {
+      return located;
+    }
+  }
+  return null;
 };
 
 const buildBlockLines = (headingPrefix: string, keyPoints: readonly string[]): string[] => {

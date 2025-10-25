@@ -45,8 +45,8 @@ const defaultConfig: ResearchConfig = {
     chapterSummaries: "gpt-5-nano",
   },
   execution: {
-    maxParallelDispatch: 12,
-    dispatchLimit: 25,
+    maxParallelDispatch: 20,
+    dispatchLimit: 40,
     researchRequestTimeoutMs: 15 * 60 * 1000,
   },
   questionGeneration: {

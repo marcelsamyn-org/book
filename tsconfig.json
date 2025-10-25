@@ -16,7 +16,7 @@
     "allowSyntheticDefaultImports": false,
     "jsx": "preserve",
     "jsxImportSource": "@opentui/solid",
-    "types": ["node"]
+    "types": ["node", "bun-types"]
   },
   "include": ["src"]
 }
