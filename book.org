@@ -71,13 +71,24 @@ Assistant:
 If the model now needs to /complete the text/, it makes much more sense to give the answer, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation.) The LLM's you're using day-to-day not only have a scaffolding like this around the conversation, but they're also specifically *instruction fine-tuned*, which means that we've let humans (or other language models) come up with thousands of examples where this "friendly AI assistant" is behaving in the way we'd like it to. This way, we teach the models that it should answer questions, follow instructions and for example refuse to explain how to build a bomb.
 
 **** Tokens And The Context Window
-The only thing a machine learning algorithm can do is working with numbers (mostly adding and multiplying) but sentences aren't numbers. So, before the actual model runs, your input is *tokenized*: it's converted to *tokens*. What exactly a token /is/ is also /learned/ by a (different) model, and it usually ends up being someting like three quarters of a word. Common words like "the" often become a single token, and you'll see tokens for stems of words and suffixes (eg., "work" and "ing"). So if you multiply the amount of words in your input (prompt) by 4/3, you'll get an estimate of how many tokens it would count.
+The only thing a machine learning algorithm can do is working with numbers (mostly adding and multiplying) but sentences aren't numbers. So, before the actual model runs, your input is *tokenized*: it's converted to *tokens*. What exactly a token /is/ is also /learned/ by a (different) model, and it usually ends up being someting like three quarters of a word. Common words like "the" often become a single token, and you'll also see tokens for stems of words and suffixes (eg., "work" and "ing"). So if you multiply the amount of words in your input (prompt) by 4/3, you'll get an estimate of how many tokens it would count.
 
 The model represents each token as a /vector/, a list of numbers. The list is always exactly as long as the entire dictionary of possible tokens (about 32,000 usually) and it's all zeroes except for the current token that it's reading---then it's a 1. Each of these vectors are placed, one by one, in the input, which results in some output vector. Part of the output is what we'll pass back in for the next token (we interpret this as the LLM's memory) and another part is the output: another vector of the same length as the input with all kinds of numbers. These numbers are between 0 and 1 so we interpret them as the probability that this token is the next one in the sequence. We'll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that's the next token ChatGPT is "writing out." Then we add that memory + output token back to the input and we do the whole thing again.
 
 An important technical detail to understand about LLM's is that /they read the entire conversation fully, every time they predict the next token/. Every new token needs to consider the entire conversation so you can imagine that, if these all need to be multiplied with hundreds of billions of other numbers over and over again, it takes quite some computational power. The power needed grows with the /square of the input/, which is why we need to have limits on how long our input can be.
 
 In practice, this means that when your conversation becomes long enough, it will be truncated at some point and the LLM will "forget" the first part. Usually the context can be a few books' worth of content but in real life we do notice these models start forgetting and behaving weirdly long before they reach this technical limit. All that to say: it's very important to get right what you put in the model's context.
+
+**** Agents: How We Make AI Act
+
+The chat and instruction-following skills of large language models are already very useful. We can use them to summarize text, write e-mails, translate, reformat, brainstorm ideas, explain things in a simple way, get advice for our relationships, and much more. But can we actually make it *do* things? Can we have this AI actually send the email for us, or research something, or give a refund in a customer support chat?
+
+It turns out we can and it's simpler than we initially thought. These days, the LLM's are optimized for agentic behavior but even before that was the case, we could make them take actions for us.
+
+Here's how it works, conceptually: instead of chatting with a real person, the LLM is chatting with a piece of software. This software would ask something like "someone asked to return their order, what would you do now?" and the LLM would say something like "well, I would ask for the order number" or "I would like to see their order's current status." The software that's running the agent would then interpret this message, execute the action and respond in that computer-to-computer chat. For example it could say "the order was placed last week and had a value of $99. What would you like to do now?" This back and forth continues until someone decides to stop it.
+
+When you chat in ChatGPT today, there's a form of this system running within the chat, too. Both you and the ChatGPT software are talking with the language model in a kind of group chat. This allows ChatGPT to do things like search the internet or browse a website when you ask it to.
+
 
 *** How smart is AI?
 
@@ -93,8 +104,24 @@ The nature of machines is different from the nature of humans, so things that ar
 
 One common argument against "true" AI intelligence is an observation that it seems like these models are indeed succeeding in many things where we considered you need to be extremely intelligent for (programming, researching, writing prose), but they're surprisingly /bad/ at the things we don't have tests for. =TODO CITATION=
 
+Recently, a friend of mine shared how he prompted multiple AI's and got them to collectively figure out a solution to a scientific problem some researchers had been agonizing over for weeks. I thought it would be fun to build a "group chat" with multiple large language models. So I told them to count to ten together, one after the other, and it was incredibly difficult to get it right. They would count multiple times, restart, et cetera. We're dealing with a strange kind of technology indeed.
+
+Another example is *Simple Bench*, a benchmark built by a YouTube influencer that asks questions that involve some misdirection but ultimately have answers that are very obvious to us humans. For example, it gives a whole bunch of physics details and formulas to ask how much of some ice cubes will be left on a hot pan---of course the answer is they all melt but somehow these language models don't realize.
+
+Most benchmarks though, no matter how "difficult," have a surprisingly short lifespan. When a new benchmark just hits the scene, all the models do a poor job and we think we finally found the test for true intelligence, then six months later every model scores 90% or more. This has been happening over and over and over again, to the point that much of the bottleneck towards general intelligence seems to be our ability to test for it.
+
 
 **** AGI & ASI and The Singularity
+
+These terms are the real hype words that every reseacher, developer and company is trying to build towards.
+
+AGI is *Artificial General Intelligence*, a level of intelligence where we would consider the AI to be intelligent in pretty much everything, similar to humans. While the public has not agreed that we reached this level of intelligence yet, I do think we can make a compelling case that we are very close, if not already there. ChatGPT already knows a lot more about a lot of things than most human beings and is almost universally helpful. Not perfectly, and it makes mistakes that make us humans think it's really dumb, hence there's no agreement whether we've reached this or not.
+
+When we have reached Artificial General Intelligence, the next phase is Artificial SuperIntelligence, ASI. This is a level of AI that is vastly superior to any human, can improve itself and can solve problems that no human can solve.
+
+The thing about ASI is that it's a relatively small step from AGI. Already with intelligence in general there models are obeying the "scaling laws" (give an LLM more compute power and it will get more inteligent) so the step to superintelligence will mostly come down to allocating more energy to our AGI system. Note that we routinely find significant efficency increases---for example OpenAI increased their efficency for running the ARC-AGI benchmark by 390× over the course of 2024---but these facts are definitely causing political and environmental tensions across the world. China is rapidly ramping up energy production (mostly coal) and Europe is shutting down nuclear reactors, but do we want to be last in building a superintelligent system?
+
+Then we come to the grand finale: The Singularity, the moment where our AI is more intelligent than all of humanity combined. This is the "real scary moment" because we have no idea what will happen to us humans---by definition we don't have the capacity to imagine what an entity like this would think. Will it be benevolent, evil or not care about us at all? Think about how you interact with something much less intelligent than you, say an ant. We could imagine this ASI to feel about us with the same indifference. This is where /alignment research/ comes into play: the study on what makes AI aligned with human interests, and not unimportantly, do that transparently. There have been many observed cases of language models cheating and lying. But we'll cover this in a dedicated chapter later on.
 
 **** AI is already insanely smart
 
@@ -120,6 +147,11 @@ slowing down is fatally miscalibrated.
 ***** We always defined intelligence as thing difficult for humans to do, but now we have machines much better at this; yet they're incapable of things that are trivially easy for us humans.
 
 *** Dealing with AI's unpredictable mistakes
+
+AI doesn't think in the same way we humans do. Sometimes we're surprised by how well it thinks, sometimes we get frustrated by how it could be making those kinds of "stupid" mistakes.
+
+What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what it says?
+
 **** Hallucinations
 ***** LLMs are mostly concerned with writing things that "grammatically make sense," and they've been trained to answer questions and provide help in a very confident way without too much extra knowledge handed to it
 ***** So they tend to confidently make mistakes
@@ -159,6 +191,12 @@ I'm always baffled when I think about the students of today and what an incredib
 There's one catch, though. A friend of mine who went back to university is using ChatGPT to help find good analogies for the concepts he learns in law school and while they're always clear, they are plain wrong embarassingly often. Currently, large language models are a slightly risky sword but the benefit of 24/7 personal tutoring already far outweighs that. We've already seen enormous improvements in hallucinations so I expect this to be a non-issue in a few years.
 
 So is it good that we have an infinitely patient all-knowing tutor in our pockets? My main strategy of studying mathematics was not looking at my course, but forcing myself to solve exam questions immediately. I vividly remember sitting on the floor for /hours/ trying to figure out how I could solve a problem. It was not the fastest way of absorbing the subject matter but it trained me at what is maybe even more important: the skill of retrieving and surfacing the knowledge that was already in my mind.
+
+How We Learn
+
+Every time we do or think something, a sequence of neurons in our brains fire. This means an electrical signal goes through the neurons, and between neurons there's communication via chemical signals: neurotransmitters. Along the long parts of these neurons, the axons, they are wrapped /myelin/, insulating cells that protect the electrical signal against interference. It is believed that one of the main ways that learning and skill acquisition work is through the buildup of more myelin along the neural pathways we use more often. All that to say: you get better at what you do more often.
+
+But practically, just focusing on repetition will not help us in many cases. It might work for something like playing an instrument but not so much for grasping a new intellectual topic.
 
 **** [[Effect of LLMs on Education and Society]]
 **** [[Books Don't Work - Andy Matuschak]] - Reading or following lectures just doesn't trigger the reflective and thinking activities needed to learn and integrate new stuff. AI can help with it, or be even more unhelpful by taking away the step of interpretation that we might need to understand something.
@@ -264,6 +302,17 @@ Eg., you might tell it to stop itself mid sentence and keep iterating, and/or do
 * Part 2: The New Sun Casting Shadows on the Soul
 ** When Machines Mimic Love
 *** The Rise of Synthetic Bonds
+
+Humans are so dang difficult to deal with! One minute they give us all this love and understanding---and the next they make a mistake, they hurt us, they misunderstand us, they cheat and lie...and then they expect us to forgive them? We don't know if they went too far or if we're the ones being too difficult, maybe they sound mean but it's just our own inner child being afraid of some imagined doom. Maybe they do want the best for us, or maybe not, maybe they're right, maybe not. All these questions that are impossible to answer...
+
+Wouldn't it be nice if we could talk to someone who always said the right thing? Someone with infinite patience, who always understands us, who sounds nuanced enough for us to believe them but who still always agrees with us? We could train an AI so that it will only say things we like and prefer!
+
+I hope you intuitively started cringing a little bit reading that last part. I think most of us intuitively understand that it's exactly the difficulties in dealing with other real, messy people that create unbreakable bonds between us, that teach us our biggest life lessons, that are actually the same things that cause our greatest moments of joy. "I learned to love our differences" has a very different energy to it than "we always seem to think the same thing."
+
+The thing is, this is exactly how AI is trained: we show a human two responses to the same prompt and they pick the one they prefer. The whole thing is optimized for what you would like to hear right now, irrespective of the rest of your life and any sense of long-term happiness. And we're not stupid: you wouldn't /choose/ to spend more time with someone who consistently frustrates you, that would be silly. But because humans are so beautifully messy, once in a while they will end up hurting us. That's unpleasant to say the least, but more often than not, when we emerge from those tears and shouts we do so with a deeper understanding of ourselves, better social calibration, and appreciation for all the good things we do have in our life. Easy positive interactions are addictive, but when we lose the effort we also lose both growth and meaning.
+
+So we will always be attracted to "someone" that says what we want to hear and all AI's are optimized for this (how else would you train it). When you undestand that, you immediately understand the meteoric rise of people having relationships with virtual chatbots. In a 2024 study (a long time ago in AI-time), 1 in 4 young adults believed AI has the potential to replace romantic relationships. The amount of people in such a relationship was much smaller---1% claimed to have an AI friend---but these are early days. I draw a parallel to compulsive social media and porn consumption: these are also optimized for short-term appeal and addiction, and pretty much everyone spends more time on "social" media than they wished they would.
+
 **** [[1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance]]
 ***** Show the many businesses working on this, for a long time already actually
 ***** Even linked to my thesis from university which was about social robots
@@ -355,6 +404,7 @@ Eg., you might tell it to stop itself mid sentence and keep iterating, and/or do
 *** Inform people
 *** I do think we need government-level AI because we don't want the attention / usage incentive
 *** Build human-aligned AI's
+*** Alignment Research
 ** Horizons of Human Flourishing
 *** [[Post-Labor Economics]]
 *** Post-Truth Mechanics
