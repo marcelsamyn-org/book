@@ -1,0 +1,14 @@
+{
+  "chapterId": "personal-armor-against-the-tide-239",
+  "questionId": "bc97f525-5165-4747-8307-4218e6ab8d05",
+  "keyPoints": [
+    "Anchor the chapter on a verify-outputs checklist as the core guardrail: citations, confidence estimates, and truth checks, integrated with retrieval grounding.",
+    "Quantify throughput impacts across task complexity using staged verification and selective gating to preserve user experience.",
+    "Outline a concrete experimental design with baseline, citations-only, confidence, truth checks, and retrieval-gating conditions.",
+    "Articulate failure modes (hallucinations, over-trust, mode collapse) and concrete countermeasures (deliberate difficulty, diverse outputs, reflective prompts).",
+    "Deliver actionable heuristics for designers and practical use-protocols for knowledge workers to sustain taste, judgment, and long-term discipline.",
+    "Emphasize provenance, calibration (ECE), and robust evaluation benchmarks (TruthfulQA, HallucinationEval) as evaluation anchors.",
+    "Incorporate governance and transparency cues, including abstention and human-in-the-loop for high-stakes outputs."
+  ],
+  "generatedAt": "2025-10-07T14:15:30.840Z"
+}

@@ -1,0 +1,13 @@
+{
+  "chapterId": "personal-armor-against-the-tide-239",
+  "questionId": "9953754c-de75-41bb-a660-bc4190aedc10",
+  "keyPoints": [
+    "Frame the study as testing context resets versus uninterrupted context within a 4-week AB/BA cross-over among knowledge workers.",
+    "Position context resets as adaptive calibration cues threaded with transparent explanations and user controls.",
+    "Define calibration and over-reliance metrics (calibration curves, Brier score, d′, and reliance rates) as primary outcomes.",
+    "Describe the cross-over protocol with randomization, washout periods, and task diversity across domains.",
+    "Balance explanation modalities (local/global/hybrid) and uncertainty signals to explore interaction with resets.",
+    "Anticipate cognitive load and carryover challenges, and plan pilot work to tune prompts and workflow integration."
+  ],
+  "generatedAt": "2025-10-07T14:15:29.304Z"
+}

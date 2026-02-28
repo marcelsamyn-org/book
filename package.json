@@ -6,7 +6,11 @@
   "scripts": {
     "research:run": "bun run src/index.ts",
     "research:questions": "bun run src/tools/generate-questions.ts",
-    "research:dashboard": "bun run src/tools/research-dashboard.tsx"
+    "research:dashboard": "bun run src/tools/research-dashboard.tsx",
+    "build:css": "bunx tailwindcss -i ./src/publish/templates/input.css -o ./dist/styles.css --minify",
+    "build:site": "bun run build:css && bun run src/publish/build.ts",
+    "dev:site": "bun run src/publish/dev.ts",
+    "netlify": "netlify"
   },
   "engines": {
     "node": ">=18.18"
@@ -23,8 +27,11 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
     "@types/bun": "^1.2.23",
     "@types/node": "^22.7.4",
+    "netlify-cli": "^24.0.1",
+    "tailwindcss": "^4.2.1",
     "tsx": "^4.16.2",
     "typescript": "^5.6.3"
   }

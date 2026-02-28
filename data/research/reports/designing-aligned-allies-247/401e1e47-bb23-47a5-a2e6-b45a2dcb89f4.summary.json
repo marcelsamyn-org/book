@@ -1,0 +1,15 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "401e1e47-bb23-47a5-a2e6-b45a2dcb89f4",
+  "keyPoints": [
+    "Longitudinal multi-arm design (AI-on, AI-off, control; optional hybrid) to test autonomy and dependency over 6–12 months.",
+    "Explicit AI-off or fading phases to quantify autonomous performance without AI support.",
+    "Standardized engagement dose metrics (frequency, duration, modality, dialog depth) for cross-study comparability.",
+    "Co-include both domain-specific skill measures and domain-general problem-solving to assess transfer and autonomy.",
+    "Explicit autonomy/dependency outcomes (independence, self-regulated learning, override willingness) and AI-off resilience tasks.",
+    "Human-in-the-loop safeguards and ethical governance (explainability, overrides, guardrails) to preserve autonomy and safety.",
+    "Pre-registration of hypotheses and analysis plan with effect sizes and confidence intervals for reproducibility.",
+    "Incorporation of qualitative methods (think-aloud or interviews) to illuminate autonomy development and perceived dependency."
+  ],
+  "generatedAt": "2025-10-07T14:38:39.118Z"
+}

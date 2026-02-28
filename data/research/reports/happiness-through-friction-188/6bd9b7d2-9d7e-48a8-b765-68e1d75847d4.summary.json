@@ -1,0 +1,14 @@
+{
+  "chapterId": "happiness-through-friction-188",
+  "questionId": "6bd9b7d2-9d7e-48a8-b765-68e1d75847d4",
+  "keyPoints": [
+    "Deliberate desirable-difficulty prompts embedded in AI-assisted learning (reasoning explanations, misstep anticipation, partial-solution generation).",
+    "Long-run transfer measured with novel-context tasks and 4–8 week delays, plus PERMA-like engagement metrics.",
+    "Multi-arm RCT designs to parse depth-prompts, spacing/interleaving, and retrieval components.",
+    "Domain breadth to test domain-general transfer across physics, math, language, and beyond.",
+    "Rigorous governance and QA to mitigate AI hallucinations and ensure instructional alignment.",
+    "Actionable design templates: prompt taxonomy, prompt templates, spacing/interleaving schedules, and evaluation plans.",
+    "Explicit articulation of failure modes (homogenization, over-trust) and countermeasures (deliberate difficulty, diverse outputs, reflective prompts)."
+  ],
+  "generatedAt": "2025-10-07T14:15:16.023Z"
+}

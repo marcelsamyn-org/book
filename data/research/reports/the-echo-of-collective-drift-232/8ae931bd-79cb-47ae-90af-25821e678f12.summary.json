@@ -1,0 +1,15 @@
+{
+  "chapterId": "the-echo-of-collective-drift-232",
+  "questionId": "8ae931bd-79cb-47ae-90af-25821e678f12",
+  "keyPoints": [
+    "No published six-week slow-mode RCT measuring loneliness and perceived conversational depth.",
+    "Latency effects as social cues vary by context and user characteristics.",
+    "Loneliness reductions mediated by feeling heard and perceived emotional support.",
+    "Perceived conversational depth driven by social presence and warmth, not latency alone.",
+    "Multi-arm design needed to disentangle latency, prompts, and social-cue effects.",
+    "Longitudinal mediation analyses with week-by-week trajectories and preregistered hypotheses.",
+    "Pilot testing latency window and prompts before full six-week trial.",
+    "Adaptive or personalized latency policies to account for user differences."
+  ],
+  "generatedAt": "2025-10-07T14:15:28.152Z"
+}

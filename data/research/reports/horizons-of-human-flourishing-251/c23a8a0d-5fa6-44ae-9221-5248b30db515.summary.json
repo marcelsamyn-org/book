@@ -1,0 +1,15 @@
+{
+  "chapterId": "horizons-of-human-flourishing-251",
+  "questionId": "c23a8a0d-5fa6-44ae-9221-5248b30db515",
+  "keyPoints": [
+    "Causal effects of AI-enabled scaffolds (SMMs, role rotation, AI moderation) on relationship quality, trust, and joint problem solving over 12 months.",
+    "Adopt a rigorous multi-arm longitudinal design with randomization or quasi-experiments.",
+    "Operationalize and harmonize SMMs, trust, relationship quality, and joint problem-solving metrics with validated AI-context instruments.",
+    "Account for team composition (dyad vs triad) and cross-disciplinary heterogeneity as potential moderators.",
+    "Test mediation pathways from scaffolds to SMM alignment to trust and joint problem solving.",
+    "Plan for measurement timing: baseline, 3, 6, 9, 12 months, with mixed-methods data (surveys, tasks, interviews).",
+    "Include governance, ethics, and AI transparency considerations in scaffold design and evaluation.",
+    "Pre-register hypotheses and analysis plans; emphasize cross-domain generalizability and replicability."
+  ],
+  "generatedAt": "2025-10-07T14:38:46.113Z"
+}

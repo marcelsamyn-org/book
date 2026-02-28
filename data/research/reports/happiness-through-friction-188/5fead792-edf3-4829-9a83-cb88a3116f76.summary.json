@@ -1,0 +1,14 @@
+{
+  "chapterId": "happiness-through-friction-188",
+  "questionId": "5fead792-edf3-4829-9a83-cb88a3116f76",
+  "keyPoints": [
+    "Metacognitive design elements (reflective prompts, confidence judgments, explanations, error-spotting feedback) shaping calibration across domains.",
+    "Differentiation between metacognitive calibration and short-term performance gains, with calibration benefits emerging in transfer and long-term use.",
+    "Explicit calibration metrics (calibration curves, Brier scores, confidence–accuracy correlations) required in evaluation.",
+    "Risks of AI-induced overconfidence and algorithmic self-deception without safeguards (uncertainty signaling, human-in-the-loop checks).",
+    "Interventions that couple confidence judgments with evidence-based feedback and direct error analysis, while managing cognitive load.",
+    "Prompt personalization to learner profiles (prior performance, cognitive traits, domain expertise) to maximize calibration and minimize burden.",
+    "Robust, preregistered, longitudinal, multi-domain study designs with calibration metrics reported alongside performance."
+  ],
+  "generatedAt": "2025-10-07T14:15:14.469Z"
+}

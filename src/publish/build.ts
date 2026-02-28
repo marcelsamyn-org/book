@@ -1,0 +1,103 @@
+#!/usr/bin/env bun
+import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { parseOrgOutline } from "../org/parseOutline.js";
+import { filterOutlineByLevel } from "./filter.js";
+import { renderHeadingToHtml, extractTocEntries } from "./render.js";
+import { generateHtml } from "./htmlGenerator.js";
+import {
+  getLastCommitMetadata,
+  getRecentCommits,
+  formatRelativeDate,
+  formatLineChanges,
+} from "./git.js";
+
+interface BuildOptions {
+  orgPath: string;
+  outputPath: string;
+  maxHeadingLevel: number;
+  templatePath: string | undefined;
+}
+
+const parseBuildOptions = (): BuildOptions => {
+  const orgPath = process.env["PUBLISH_ORG_PATH"] ?? "book.org";
+  const outputPath = process.env["PUBLISH_OUTPUT_PATH"] ?? "dist/index.html";
+  const maxHeadingLevel = parseInt(
+    process.env["PUBLISH_MAX_HEADING_LEVEL"] ?? "3",
+    10,
+  );
+  const templatePath = process.env["PUBLISH_TEMPLATE"];
+
+  if (isNaN(maxHeadingLevel) || maxHeadingLevel < 1 || maxHeadingLevel > 6) {
+    throw new Error(
+      "PUBLISH_MAX_HEADING_LEVEL must be between 1 and 6",
+    );
+  }
+
+  return { orgPath, outputPath, maxHeadingLevel, templatePath };
+};
+
+const ensureOutputDirectory = async (outputPath: string): Promise<void> => {
+  const dir = dirname(outputPath);
+  await mkdir(dir, { recursive: true });
+};
+
+const buildSite = async (): Promise<void> => {
+  console.log("🚀 Building site...");
+
+  const options = parseBuildOptions();
+  console.log(`   Org file: ${options.orgPath}`);
+  console.log(`   Output: ${options.outputPath}`);
+  console.log(`   Max heading level: ${options.maxHeadingLevel}`);
+
+  const orgContent = await readFile(options.orgPath, "utf-8");
+  console.log(`   Read ${orgContent.split("\n").length} lines from org file`);
+
+  const outline = parseOrgOutline(orgContent);
+  console.log(`   Parsed ${outline.headings.length} top-level headings`);
+
+  const filteredOutline = filterOutlineByLevel(outline.headings, {
+    maxLevel: options.maxHeadingLevel,
+  });
+  console.log(
+    `   Filtered to ${filteredOutline.length} headings (level ≤ ${options.maxHeadingLevel})`,
+  );
+
+  const contentHtml = filteredOutline
+    .map((heading) => renderHeadingToHtml(heading))
+    .join("\n\n");
+  console.log(`   Generated HTML content`);
+
+  const tocEntries = filteredOutline.flatMap(extractTocEntries);
+  console.log(`   Generated ${tocEntries.length} TOC entries`);
+
+  console.log(`   Extracting git metadata...`);
+  const lastCommit = getLastCommitMetadata(options.orgPath);
+  const lastUpdated = formatRelativeDate(lastCommit.date);
+  const lineChanges = formatLineChanges(lastCommit.lineChanges);
+  console.log(`   Last updated: ${lastUpdated} (${lineChanges})`);
+
+  const recentCommits = getRecentCommits(options.orgPath, 10);
+  console.log(`   Found ${recentCommits.length} recent commits`);
+
+  const html = await generateHtml({
+    contentHtml,
+    tocEntries,
+    lastUpdated,
+    lineChanges,
+    commits: recentCommits,
+  });
+
+  await ensureOutputDirectory(options.outputPath);
+  await writeFile(options.outputPath, html, "utf-8");
+  console.log(`   ✓ Wrote ${options.outputPath}`);
+
+  console.log(`\n✨ Build complete!`);
+  console.log(`   File: ${resolve(options.outputPath)}`);
+  console.log(`   Size: ${(html.length / 1024).toFixed(2)} KB`);
+};
+
+buildSite().catch((error) => {
+  console.error("❌ Build failed:", error.message);
+  process.exit(1);
+});

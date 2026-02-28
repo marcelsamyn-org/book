@@ -1,0 +1,13 @@
+{
+  "chapterId": "the-echo-of-collective-drift-232",
+  "questionId": "384c576c-ef9c-4e42-8c67-1f31cda6413a",
+  "keyPoints": [
+    "Friction budget: daily cap on AI prompts paired with nudges toward real-world social engagement.",
+    "Three-arm 12-week randomized design: control unrestricted AI use; FB; FB+HP.",
+    "Primary outcomes: Belonging and Well-being; secondary outcomes: loneliness, real-world socialization, AI dependence.",
+    "Hypotheses: reduced AI duration mediates increased human contact and belonging; bounded, personal AI interactions outperform simple caps.",
+    "Measurement plan: baseline, weekly AI-use logs, mid-point, end, optional follow-up; validated scales; privacy safeguards; preregistration.",
+    "Design considerations: safety nets, heterogeneity, adaptive budgets; actionable design guidelines for practitioners."
+  ],
+  "generatedAt": "2025-10-07T14:15:28.959Z"
+}

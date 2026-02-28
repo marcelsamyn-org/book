@@ -1,0 +1,13 @@
+{
+  "chapterId": "story-based-intro-9",
+  "questionId": "82641231-26ed-4af6-b3af-bde689bae7cc",
+  "keyPoints": [
+    "Boundary conditions spanning self-assessment, source credibility, data-domain mismatch, and task-structure.",
+    "Constraint-based workflows with grounding, verification, abstention, and traceable confidence signals prototyped within a single project cycle.",
+    "Grounding in verifiable sources with citations and provenance attached to every claim.",
+    "Calibrated confidence signals and domain-aware evaluation metrics (e.g., Flex-ECE) for measuring trustworthiness.",
+    "Abstention gates and human-in-the-loop governance for high-stakes outputs.",
+    "Trade-offs between grounding depth, latency, and compute costs acknowledged in design choices."
+  ],
+  "generatedAt": "2025-10-07T14:39:11.149Z"
+}

@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@source "../**/*.ts";
+@source "./**/*.html";
+
+:root {
+  --ink: #1C1917;
+  --ink-secondary: #57534E;
+  --ink-muted: #A8A29E;
+  --paper: #FAF9F6;
+  --paper-inset: #F0EFEB;
+  --rule: #E7E5E4;
+  --accent: #92400E;
+  --accent-hover: #78350F;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #E7E5E4;
+    --ink-secondary: #A8A29E;
+    --ink-muted: #78716C;
+    --paper: #151311;
+    --paper-inset: #211F1C;
+    --rule: #3A3733;
+    --accent: #D97706;
+    --accent-hover: #FBBF24;
+  }
+}
+
+@theme extend {
+  --font-serif: "Lora", Georgia, "Times New Roman", serif;
+  --font-display: "Lora", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-paper: var(--paper);
+  --color-paper-inset: var(--paper-inset);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* ── Content typography ─────────────────────────────────── */
+
+main p {
+  line-height: 1.7;
+  margin-bottom: 1.35em;
+  font-size: 0.9rem;
+}
+
+main > :first-child {
+  margin-top: 0;
+}
+
+main :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  position: relative;
+  color: var(--ink);
+}
+
+main h1 { font-size: 1.75rem; margin: 3.5rem 0 0.75rem; }
+main h2 { font-size: 1.375rem; margin: 2.75rem 0 0.625rem; }
+main h3 { font-size: 1.125rem; margin: 2rem 0 0.5rem; }
+main h4 { font-size: 1rem; margin: 1.5rem 0 0.5rem; font-style: italic; }
+
+main :is(h1, h2, h3, h4):hover .heading-anchor {
+  opacity: 0.5;
+}
+
+.heading-anchor {
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  color: var(--ink-muted);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.heading-anchor:hover {
+  opacity: 1 !important;
+  color: var(--accent);
+}
+
+main strong {
+  font-weight: 600;
+}
+
+main a:not(.heading-anchor) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+main a:not(.heading-anchor):hover {
+  text-decoration-color: var(--accent);
+}
+
+main code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+  background: var(--paper-inset);
+  border-radius: 0.2rem;
+}
+
+main blockquote {
+  margin: 1.75em 0;
+  padding: 1rem 1.25rem;
+  border-left: 2px solid var(--accent);
+  background: var(--paper-inset);
+  border-radius: 0 0.25rem 0.25rem 0;
+  font-style: italic;
+  color: var(--ink-secondary);
+}
+
+main blockquote p {
+  margin-bottom: 0.5em;
+}
+
+main blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Table of contents ──────────────────────────────────── */
+
+.toc-entry + .toc-entry {
+  margin-top: 0.125rem;
+}
+
+.toc-link {
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.toc-link:hover {
+  color: var(--accent);
+}
+
+.toc-parent {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+  padding: 0.3rem 0;
+}
+
+.toc-children {
+  border-left: 1px solid var(--rule);
+  margin-left: 0.125rem;
+  padding-left: 1rem;
+}
+
+.toc-child {
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  padding: 0.175rem 0;
+}
+
+/* ── Commit history ─────────────────────────────────────── */
+
+.commit-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.3rem 0;
+  font-size: 0.8125rem;
+}
+
+.commit-date {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+}
+
+.commit-msg {
+  color: var(--ink-secondary);
+}
+
+@media (max-width: 48rem) {
+  .heading-anchor {
+    display: none;
+  }
+}

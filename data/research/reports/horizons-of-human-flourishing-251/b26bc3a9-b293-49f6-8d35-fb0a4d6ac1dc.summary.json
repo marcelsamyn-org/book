@@ -1,0 +1,14 @@
+{
+  "chapterId": "horizons-of-human-flourishing-251",
+  "questionId": "b26bc3a9-b293-49f6-8d35-fb0a4d6ac1dc",
+  "keyPoints": [
+    "Surface diverse, non-aggregated AI outputs with explicit uncertainty and provenance cues to surface error modes and calibration signals.",
+    "Treat trust calibration as alignment between AI reliability and user reliance, prioritizing avoidance of overtrust and undertrust.",
+    "Incorporate cognitive forcing functions (e.g., Active Verification) to reduce overreliance and improve decision accuracy.",
+    "Plan a 6–12 month longitudinal, cross-domain study across high- and low-stakes domains with multiple waves.",
+    "Build epistemic-hygiene training and exposure to diverse perspectives to foster verification habits and misinformation resilience.",
+    "Use calibration metrics (Brier score, calibration curves) and resilience measures (misinformation belief revision) alongside task performance.",
+    "Ensure governance/ethics through transparency about uncertainty, provenance, and mis/disinformation risk."
+  ],
+  "generatedAt": "2025-10-07T14:38:56.681Z"
+}

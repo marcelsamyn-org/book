@@ -1,0 +1,14 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "5d4e0091-94ab-4ec3-89b9-4a17966323a7",
+  "keyPoints": [
+    "Frame the chapter around the 3-month cross-domain transfer test of post-task active-recall prompts after AI-assisted work",
+    "Anchor design in retrieval-practice literature with AI-context specifics (prompt timing, feedback, spacing, and domain transfer demands)",
+    "Distinguish a three-arm field design: Treatment with active-recall prompts, active-control, and no prompts, with cross-domain transfer tasks as the primary endpoint",
+    "Prioritize cross-domain transfer measures at 3 months as the primary outcome, with effect sizes and preregistration",
+    "Log and report prompt quality, engagement, feedback content, and potential moderating factors like prior knowledge",
+    "Articulate actionable design heuristics for designers and concrete use-protocols for knowledge workers, grounded in retrieval-practice theory and transfer science",
+    "Acknowledge gaps and caveats, especially field evidence scarcity for AI-enabled 3-month cross-domain transfer, and outline rigorous steps to address them"
+  ],
+  "generatedAt": "2025-10-07T14:38:39.511Z"
+}

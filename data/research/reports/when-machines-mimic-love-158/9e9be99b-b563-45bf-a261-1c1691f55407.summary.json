@@ -1,0 +1,14 @@
+{
+  "chapterId": "when-machines-mimic-love-158",
+  "questionId": "9e9be99b-b563-45bf-a261-1c1691f55407",
+  "keyPoints": [
+    "No direct published A/B field test of explicit social step-back prompts in AI-enabled apps.",
+    "Design a three-arm randomized trial: Control, Step-Back Pause, Step-Back Pause + Real-Person Referral.",
+    "Primary outcomes: real-world social interactions and parasocial time; loneliness as a key secondary outcome.",
+    "Mediation and moderation: test whether effects operate via reduced AI usage, increased real-world actions, and whether baseline loneliness or attachment to AI moderates effects.",
+    "Rigorous measurement: objective in-app analytics plus validated loneliness and parasocial scales; privacy-preserving proxies for real-world activity.",
+    "Pre-register hypotheses, analysis plan, sample size, and data handling; include false discovery control.",
+    "Ground design in social-recognition theory and ethics, balancing AI support with real-world social opportunities and guardrails against parasocial harms."
+  ],
+  "generatedAt": "2025-10-07T14:15:14.490Z"
+}

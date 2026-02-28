@@ -1,0 +1,13 @@
+{
+  "chapterId": "when-machines-mimic-love-158",
+  "questionId": "9fcba061-2e00-4626-812d-48d1408df25d",
+  "keyPoints": [
+    "Longitudinal, multi-wave design with randomized or quasi-experimental AI exposure arms to track change in nonverbal skills and empathy.",
+    "Triangulate validated self-report empathy scales (IRI, EQ, QCAE) with objective nonverbal-behavior measures (NVS, RMET, gaze, posture, gesture, synchrony via MEA/OpenPose).",
+    "Incorporate behavioral assessments during AI and human interactions, coded video and simulated-conversation tasks to elicit measurable nonverbal responses.",
+    "Test mediation, especially whether perceived “feeling heard” and perceived listening quality mediate AI exposure effects on empathy and nonverbal calibration.",
+    "Assess mechanisms like nonverbal synchrony dynamics (cross-wavelet coherence) and potential negative spillovers (narrowed expressive repertoires, overreliance).",
+    "Embed ethical safeguards and governance: privacy, consent, data security, pre-registration; transparency about platform heterogeneity."
+  ],
+  "generatedAt": "2025-10-07T14:15:18.989Z"
+}

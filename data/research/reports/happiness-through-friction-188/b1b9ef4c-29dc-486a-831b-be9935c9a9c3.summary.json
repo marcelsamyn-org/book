@@ -1,0 +1,14 @@
+{
+  "chapterId": "happiness-through-friction-188",
+  "questionId": "b1b9ef4c-29dc-486a-831b-be9935c9a9c3",
+  "keyPoints": [
+    "Autonomy-supportive prompts prioritizing deliberate practice over blind AI reliance.",
+    "Confidently label outputs with core DNL components: confidence, estimated effort, and next steps.",
+    "Safeguards and opt-out options to prevent cognitive overload and preserve user control.",
+    "RCT-driven evaluation framing with experimental and factorial arms to parse granularity and advisor presets.",
+    "Primary outcomes: self-regulation, satisfaction, persistence, and AI-dependence proxies; secondary outcomes include performance and calibration.",
+    "Account for domain and user-context moderators (task difficulty, expertise) to map generalizability.",
+    "Ethical transparency, data provenance, and governance embedded in design and reporting."
+  ],
+  "generatedAt": "2025-10-07T14:15:20.980Z"
+}

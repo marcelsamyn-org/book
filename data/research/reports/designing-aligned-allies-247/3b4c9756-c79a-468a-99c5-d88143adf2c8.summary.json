@@ -1,0 +1,13 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "3b4c9756-c79a-468a-99c5-d88143adf2c8",
+  "keyPoints": [
+    "Constraint-based workflows defined: pre-specified prompts, mandatory checks, bounded iterations.",
+    "Within-subject randomized design to establish causal effects on over-trust, mode-collapse, and speed.",
+    "Outcome measures specified: speed metrics, decision quality, trust calibration, over-trust proxies, mode-diversity, and governance traceability.",
+    "Translate findings into actionable design heuristics and user protocols emphasizing auditability and human-in-the-loop governance.",
+    "Acknowledge evidence gaps and domain specificity; plan preregistration, replication, and cross-domain generalization considerations.",
+    "Benchmark expectations against Kang (2024) results, noting speed–quality trade-offs and practical interpretation for practitioners."
+  ],
+  "generatedAt": "2025-10-07T14:38:42.986Z"
+}

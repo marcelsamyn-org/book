@@ -1,0 +1,14 @@
+{
+  "chapterId": "horizons-of-human-flourishing-251",
+  "questionId": "68078cb1-836f-41c2-ba75-b1139ab1b797",
+  "keyPoints": [
+    "Adaptive display intensity aligned with task demand, user expertise, and curiosity.",
+    "Personalize DNL cues via expertise profiles and opt-in controls with adaptive tuning.",
+    "Align labeling with task type: strong cues for high-control tasks; milder cues for routine tasks.",
+    "Frame cues to support mastery and autonomy while avoiding undermining intrinsic motivation through extrinsic rewards.",
+    "Incorporate fatigue safeguards: breaks, reflective prompts, throttling, and transparent opt-out options.",
+    "Plan controlled validation across display intensity, task type, and expertise; measure motivation, fatigue, intrinsic interest, and long-term engagement.",
+    "Acknowledge boundary conditions: novelty dynamics, habituation, and the need for varied, context-relevant cues."
+  ],
+  "generatedAt": "2025-10-07T14:38:47.843Z"
+}

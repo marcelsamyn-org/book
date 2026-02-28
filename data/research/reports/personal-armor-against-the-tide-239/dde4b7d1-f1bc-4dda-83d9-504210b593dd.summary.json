@@ -1,0 +1,14 @@
+{
+  "chapterId": "personal-armor-against-the-tide-239",
+  "questionId": "dde4b7d1-f1bc-4dda-83d9-504210b593dd",
+  "keyPoints": [
+    "6-week randomized field study comparing Prompt-for-Challenge vs baseline prompts among professional writers.",
+    "Primary outcomes: originality/novelty (automated indices plus blinded expert originality ratings) and blinded quality ratings.",
+    "Blinding integrity, structured rubrics, and inter-rater reliability (ICC) as measurement safeguards.",
+    "Four core PFC affordances—trade-off analysis, mitigation generation, similar-by-schema, card-level Q&A—plus traceable prompt logs.",
+    "Comprehensive data capture of drafts, prompt interactions, version histories, iteration counts, and time-on-task.",
+    "Mixed-effects analysis plan with writer and week as random effects and condition as fixed effect, plus robustness checks and trajectory insights.",
+    "Interpretation scaffolds for potential outcomes to guide design implications and post-AI workflow recommendations."
+  ],
+  "generatedAt": "2025-10-07T14:15:32.623Z"
+}

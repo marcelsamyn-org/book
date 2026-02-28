@@ -1,0 +1,15 @@
+{
+  "chapterId": "the-echo-of-collective-drift-232",
+  "questionId": "97aac0bc-9d74-4804-8b0c-ab1f08cf17c6",
+  "keyPoints": [
+    "Reiterate central research question and causal pathway from diversity prompt to perceived conversational diversity and social capital (4–8 week field trial).",
+    "Ground design in online social capital theory (bonding/bridging/linking) and multi-dimensional measurement (cognitive, relational, structural).",
+    "Distinguish primary outcomes (perceived diversity, belonging) from secondary social-capital proxies (network measures, engagement).",
+    "Ensure a rigorous longitudinal field design (randomized or cluster-randomized) with baseline, mid-point, endline, and optional follow-up.",
+    "Specify the diversity-prompt implementation (three distinct perspectives) and logging of per-reply perspectives, length, source attribution, and engagement.",
+    "Prioritize ethics, governance, transparency, opt-out, and safety safeguards per NIST SP 1270 guidance.",
+    "Predefine analyses: mixed-effects models, longitudinal network analysis, mediation/moderation, and preregistration for transparency.",
+    "Anticipate heterogeneity and boundary conditions (user type, platform context, identity compatibility) and discuss diffusion dynamics and potential harms."
+  ],
+  "generatedAt": "2025-10-07T14:16:03.675Z"
+}

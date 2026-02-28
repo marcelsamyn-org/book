@@ -1,0 +1,14 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "dfebd8fd-baa2-4e57-a12a-f7b5c0c746ac",
+  "keyPoints": [
+    "Two-arm comparison of public-interest AI versus private AI to assess impact on collaboration quality and output diversity.",
+    "Treat governance dimensions—public justification, equality/human rights safeguards, deliberation/co-design, technical safeguards, and openness to validation—as central mediators/moderators of outcomes.",
+    "Employ a robust mixed-methods design (quantitative plus qualitative) with validated HAIC and novelty measures to capture process and product effects.",
+    "Prioritize rigorous experimental designs (randomized or stepped-wedge) with pre-registration and mediation/moderation analyses.",
+    "Center governance artifacts (deliberation depth, transparency, auditability, public-interest framing) as primary data sources.",
+    "Acknowledge limitations and design for cross-domain replication to assess generalizability beyond a single sector.",
+    "Translate findings into practical design heuristics for engineers and policy recommendations for public-interest AI deployment."
+  ],
+  "generatedAt": "2025-10-07T14:38:38.065Z"
+}

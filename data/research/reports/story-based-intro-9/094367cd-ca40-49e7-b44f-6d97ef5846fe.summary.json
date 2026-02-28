@@ -1,0 +1,13 @@
+{
+  "chapterId": "story-based-intro-9",
+  "questionId": "094367cd-ca40-49e7-b44f-6d97ef5846fe",
+  "keyPoints": [
+    "Measuring homogenization via TAFD and multi-metric drift (JS/KL/PSI/Hellinger/Wasserstein) within a single project cycle.",
+    "Deploy independent countermeasure arms (deliberate difficulty, diverse sampling, output variation prompts) and evaluate them with per-feature drift and TAFD metrics.",
+    "Emphasize per-feature and per-prompt analytics (feature-level JS/KL/PSI, embedding dispersion) to detect convergence across prompts.",
+    "Anchor evaluation in a task taxonomy with TAFD to ensure diversity is meaningfully task-relevant.",
+    "Use a time-resolved drift dashboard with moving baselines plus static baselines to aid interpretability and compare arms.",
+    "Prioritize reproducibility by documenting prompts, model versions, seeds, and evaluation criteria for cross-team replication."
+  ],
+  "generatedAt": "2025-10-07T14:38:51.818Z"
+}

@@ -1,0 +1,14 @@
+{
+  "chapterId": "personal-armor-against-the-tide-239",
+  "questionId": "66538906-3852-4e7f-8570-445b4705f79b",
+  "keyPoints": [
+    "Prioritize prompts that force active credibility evaluation (cite sources, rate confidence, assess bias) as the chapter’s central design lever.",
+    "Mandate explicit source citations and provenance verification for AI-generated claims.",
+    "Embed credibility prompts within auditable workflows aligned with reporting standards and governance tools (PRISMA/ROSES/PROBAST+AI).",
+    "Pair credibility prompts with retrieval-grounded checks and uncertainty signaling to anchor claims in verifiable evidence.",
+    "Design robust evaluation plans using calibration metrics (ECE, reliability curves, Brier score) and misjudgment rates, with preregistered protocols.",
+    "Maintain strong human‑in‑the‑loop validation and user training to mitigate over-trust and exploit domain expertise.",
+    "Acknowledge domain-specific limits and avoid universal claims while prioritizing transparent reporting and cross-domain testing."
+  ],
+  "generatedAt": "2025-10-07T14:38:35.791Z"
+}

@@ -1,0 +1,14 @@
+{
+  "chapterId": "the-echo-of-collective-drift-232",
+  "questionId": "8520cc98-a003-49c5-b837-018bdf79392d",
+  "keyPoints": [
+    "Three-arm field design: constraint-based prompts, diversity-promoting prompts, unconstrained control.",
+    "Cross-cultural and multi-domain participant recruitment to test generalizability.",
+    "Longitudinal evaluation over 8–12 weeks with 2–4 week post-intervention follow-up.",
+    "Multi-metric outcomes: stylistic diversity (lexical, syntactic, embedding-based) and content diversity.",
+    "Long-run taste calibration assessed by expert blind raters across waves; assess stability and alignment.",
+    "Fidelity, cultural equivalence, and ethics governance embedded; document deviations and plan for governance.",
+    "Pre-register hypotheses and analysis plan; detailed prompt configurations, model versions, evaluation rubrics for reproducibility."
+  ],
+  "generatedAt": "2025-10-07T14:15:20.928Z"
+}

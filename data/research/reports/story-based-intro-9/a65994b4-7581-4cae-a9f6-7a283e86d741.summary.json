@@ -1,0 +1,14 @@
+{
+  "chapterId": "story-based-intro-9",
+  "questionId": "a65994b4-7581-4cae-a9f6-7a283e86d741",
+  "keyPoints": [
+    "Retrieval-practice after LLM-guided study improves transfer when prompts require reconstruction or problem solving that align with the target task (TAP).",
+    "Design prompts using modular structure (context, question, format, examples) to mirror final-task demands and support informative feedback.",
+    "Incorporate near-transfer and far-transfer probes and measure calibration (confidence-accuracy) to map learning across contexts.",
+    "Use spaced retrieval and delayed testing to boost durability and transfer in AI-assisted learning.",
+    "Embed deliberate difficulty, diverse prompts, and constraint-based workflows to guard against homogenization and over-reliance.",
+    "Adopt rigorous research design (randomized/quasi-experimental, adequate power, pre-registration) with moderation analyses for initial retrieval success, prior knowledge, and task complexity.",
+    "Provide content with meaningful principles and scaffolds; ensure AI prompts avoid hallucinations and stay aligned with learning objectives."
+  ],
+  "generatedAt": "2025-10-07T14:38:58.962Z"
+}

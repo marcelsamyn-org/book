@@ -1,0 +1,13 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "1869c60c-5dd4-4d70-a653-389fa1e28c7f",
+  "keyPoints": [
+    "Emphasize the diversity-sampling intervention (Arm B) with 3–5 diverse options and explicit contrastive explanations per task.",
+    "Ground the chapter in QUEST: adopt Planning, Implementation/Adjudication, and Scoring phases, with evaluator training and pre-registered hypotheses.",
+    "Operationalize originality, calibration, and factual accuracy with concrete metrics: diversity/novelty scores, reliability calibration metrics (ECE/MCE/Brier), and expert fact-check adjudication.",
+    "Implement concurrent A/B design in real-work tasks: random assignment, task-type blocking, and ecological-validity considerations across domains.",
+    "Prioritize adjudication reliability: multiple rounds, inter-rater reliability stats (kappa/ICC), blinded scoring, and reconciliation processes.",
+    "Integrate risk management and governance: monitor factual accuracy, include fact-check gates, provide explainability/opt-out, preregister protocol, and emphasize reproducibility."
+  ],
+  "generatedAt": "2025-10-07T14:38:41.872Z"
+}

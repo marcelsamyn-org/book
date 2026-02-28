@@ -1,0 +1,13 @@
+{
+  "chapterId": "horizons-of-human-flourishing-251",
+  "questionId": "be370472-c0cb-4052-9b88-c205095417a4",
+  "keyPoints": [
+    "Center constraint-based AI workflows (generation quotas, independent recall, and mandatory justification) as core mechanisms for testing creative quality and risk-taking.",
+    "Articulate boundary conditions by domain and user experience to explain when constraints boost versus hinder creativity.",
+    "Make HITL governance and explicit verification essential drivers of quality, accountability, and trust in constraint designs.",
+    "Differentiate expected effects by domain risk profile: high-stakes domains demand explainability and rigorous verification; creative domains accept more exploratory constraint patterns with governance.",
+    "Highlight differential user-experience effects: novices are more vulnerable to overreliance; experts may need lighter or more tailored constraint regimes.",
+    "Provide actionable design knobs and measurement plans: domain-specific quotas, transparent disclosures, diverse output sampling, and creativity plus risk metrics to guide deployment."
+  ],
+  "generatedAt": "2025-10-07T14:38:51.188Z"
+}

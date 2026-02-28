@@ -1,0 +1,13 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "0cf943f0-6e9c-434d-9f6a-a0d72e0e49bd",
+  "keyPoints": [
+    "Aligned-ally friction design vs conventional AI tested over four weeks in frontier-aware tasks.",
+    "Measure productivity, quality, and learning depth with weekly outputs and expert rubrics.",
+    "Leverage reflection-depth as the main mediator for learning depth through mandatory prompts and justification prompts.",
+    "Balance frontier and outside-frontier tasks and randomize at the individual level to assess boundary conditions.",
+    "Embed governance, ethics, explainability, and audit trails in the interface and data handling.",
+    "Pre-register endpoints and use mixed-effects analysis, ITT and per-protocol checks, and moderator tests for frontier status."
+  ],
+  "generatedAt": "2025-10-07T14:38:40.920Z"
+}

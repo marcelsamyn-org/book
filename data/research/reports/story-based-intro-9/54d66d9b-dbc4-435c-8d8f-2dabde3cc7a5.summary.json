@@ -1,0 +1,14 @@
+{
+  "chapterId": "story-based-intro-9",
+  "questionId": "54d66d9b-dbc4-435c-8d8f-2dabde3cc7a5",
+  "keyPoints": [
+    "Friction-design patterns framed as deliberate scaffolds to amplify human agency with robust evaluation and oversight.",
+    "Target question and real-world tasks clarified: constrained vs unconstrained prompts across coding, design, writing, and marketing with multi-model benchmarking.",
+    "Concise taxonomy of patterns presented (timeboxing, forced recall, constraint-based prompts/RTCF, CoT/ToT, GPS, multilingual prompts, activation-steering) with practical implications.",
+    "Gains framed as task- and model-dependent; require staged collaboration and cross-model validation.",
+    "Concrete design heuristics for practitioners (RTCF baseline, CoT/ToT for reasoning, TTCT-inspired metrics) and a structured evaluation rubric.",
+    "Failure modes and countermeasures highlighted (homogenization, over-trust, mode collapse; deliberate difficulty, diverse outputs, reflective prompts, light 'Dopamine Nutrition Label' ideas).",
+    "Roadmap for actionable outcomes provided: friction-pattern library, two-phase workflows, cross-domain validation, and explicit discussion of limitations."
+  ],
+  "generatedAt": "2025-10-07T14:38:55.379Z"
+}

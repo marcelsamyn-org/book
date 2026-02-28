@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Struggle — Work in Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-mono text-ink bg-paper antialiased">
+  <div class="w-full bg-stone-600 text-white font-mono text-center py-2 text-sm uppercase">
+    Work in progress
+  </div>
+
+  <div class="max-w-prose mx-auto px-6 py-16 max-md:px-5 max-md:py-10">
+    <header class="mb-10">
+      <h1 class="font-display text-5xl max-md:text-[2.5rem] text-ink leading-[1.1] tracking-tight">Sacred Struggle</h1>
+      <p class="text-ink font-display italic mt-4">
+        Finding meaning and fulfillment in a world where AI makes everything too easy.
+      </p>
+
+      <details class="mt-8 group">
+        <summary class="cursor-pointer list-none flex items-center gap-2 text-xs text-ink-muted hover:text-ink-secondary transition-colors">
+          <span class="text-[10px] group-open:rotate-90 transition-transform duration-200">▶</span>
+          <span>Updated {{LAST_UPDATED}}</span>
+          <span class="opacity-40">{{LINE_CHANGES}}</span>
+        </summary>
+        <div class="mt-4 pt-4 border-t border-rule">
+          {{COMMITS_HTML}}
+        </div>
+      </details>
+    </header>
+
+    <nav class="mb-16">
+      <details class="group">
+        <summary class="cursor-pointer list-none flex items-center gap-2 text-xs text-ink-muted hover:text-ink-secondary transition-colors">
+          <span class="text-[10px] group-open:rotate-90 transition-transform duration-200">▶</span>
+          <span>Contents</span>
+        </summary>
+        <div class="mt-5 pt-5 border-t border-rule">
+          {{TOC_HTML}}
+        </div>
+      </details>
+    </nav>
+
+    <main class="prose prose-lg leading-relaxed">
+      {{CONTENT_HTML}}
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

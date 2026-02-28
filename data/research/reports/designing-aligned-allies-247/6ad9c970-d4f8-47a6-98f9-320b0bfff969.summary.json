@@ -1,0 +1,14 @@
+{
+  "chapterId": "designing-aligned-allies-247",
+  "questionId": "6ad9c970-d4f8-47a6-98f9-320b0bfff969",
+  "keyPoints": [
+    "Balance depth of signals with cognitive load by designing adaptive, multi-signal DNL (confidence, novelty, bias, cognitive load) tailored to task and user expertise.",
+    "Differentiate trust calibration, reliance, and decision quality in cross-domain, longitudinal study designs.",
+    "Pair confidence signals with interpretable rationales and data provenance cues to improve interpretability and calibration.",
+    "Plan per-task and per-output transparency, with optional deeper rationale on demand.",
+    "Incorporate safeguards against over-trust and cognitive overload, including explicit verification prompts for high-stakes decisions.",
+    "Define domain-general metrics (calibration curves, PPV/NPV, likelihood ratios, decision accuracy) and cross-domain evaluation plan.",
+    "Provide practical designer heuristics and user-use protocols focusing on creativity, planning, and factual decision tasks."
+  ],
+  "generatedAt": "2025-10-07T14:38:59.378Z"
+}

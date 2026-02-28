@@ -1,0 +1,7 @@
+{
+  "source": "openai/skills",
+  "sourceType": "git",
+  "repoUrl": "https://github.com/openai/skills",
+  "subpath": "skills/.curated/netlify-deploy",
+  "installedAt": "2026-02-28T09:44:57.778Z"
+}
