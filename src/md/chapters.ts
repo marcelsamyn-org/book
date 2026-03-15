@@ -1,13 +1,13 @@
-import { OrgHeading, OrgOutline } from "./types.js";
+import { Heading, Outline } from "./types.js";
 
 export interface ChapterOutline {
   readonly id: string;
   readonly title: string;
   readonly narrative: string;
-  readonly heading: OrgHeading;
+  readonly heading: Heading;
   readonly partTitle: string | null;
   readonly partDescription: string | null;
-  readonly partHeading: OrgHeading | null;
+  readonly partHeading: Heading | null;
 }
 
 const OVERVIEW_TITLE = "overview";
@@ -18,7 +18,7 @@ interface SerializeHeadingOptions {
 }
 
 export const serializeHeading = (
-  heading: OrgHeading,
+  heading: Heading,
   { depth = heading.level, includeChildren = true }: SerializeHeadingOptions = {},
 ): string => {
   const prefix = "#".repeat(Math.max(depth, 1));
@@ -36,7 +36,7 @@ export const serializeHeading = (
   return lines.join("\n");
 };
 
-const collectHeadingDescription = (heading: OrgHeading): string | null => {
+const collectHeadingDescription = (heading: Heading): string | null => {
   const description = heading.contentLines
     .map((line) => line.trim())
     .filter((line) => line.length > 0)
@@ -44,13 +44,13 @@ const collectHeadingDescription = (heading: OrgHeading): string | null => {
   return description.length > 0 ? description : null;
 };
 
-const isOverviewHeading = (heading: OrgHeading): boolean => {
+const isOverviewHeading = (heading: Heading): boolean => {
   return heading.level === 1 && heading.title.trim().toLowerCase() === OVERVIEW_TITLE;
 };
 
 const createChapterOutline = (
-  chapterHeading: OrgHeading,
-  partHeading: OrgHeading | null,
+  chapterHeading: Heading,
+  partHeading: Heading | null,
 ): ChapterOutline => {
   const partTitle = partHeading ? partHeading.title : null;
   const partDescription = partHeading ? collectHeadingDescription(partHeading) : null;
@@ -68,8 +68,8 @@ const createChapterOutline = (
 
 const appendChapterHeadings = (
   accumulator: ChapterOutline[],
-  heading: OrgHeading,
-  partHeading: OrgHeading | null,
+  heading: Heading,
+  partHeading: Heading | null,
 ): void => {
   if (heading.level === 2) {
     accumulator.push(createChapterOutline(heading, partHeading));
@@ -81,7 +81,7 @@ const appendChapterHeadings = (
   });
 };
 
-export const deriveChapters = (outline: OrgOutline): readonly ChapterOutline[] => {
+export const deriveChapters = (outline: Outline): readonly ChapterOutline[] => {
   const chapters: ChapterOutline[] = [];
 
   outline.headings.forEach((heading) => {
@@ -104,7 +104,7 @@ export const deriveChapters = (outline: OrgOutline): readonly ChapterOutline[] =
   return chapters;
 };
 
-export const extractOverview = (outline: OrgOutline): string | null => {
+export const extractOverview = (outline: Outline): string | null => {
   const overviewHeading = outline.headings.find(isOverviewHeading);
   if (!overviewHeading) {
     return null;

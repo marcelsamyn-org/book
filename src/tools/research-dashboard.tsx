@@ -9,7 +9,7 @@ import { loadConfig } from "../config.js";
 import { synchronizeQuestions } from "../pipeline/questionSync.js";
 import { dispatchResearchTasks } from "../pipeline/researchDispatch.js";
 import { summarizeReports } from "../pipeline/summarizeReports.js";
-import { applyResearchKeyPoints } from "../org/updateResearchKeyPoints.js";
+import { applyResearchKeyPoints } from "../md/updateResearchKeyPoints.js";
 import { createLogger, type LogLevelName, type LogMessage } from "../utils/logger.js";
 import type { ResearchDispatchObserver, SummarizationObserver } from "../pipeline/observers.js";
 import type { ResearchQuestionStatus } from "../tracking/types.js";

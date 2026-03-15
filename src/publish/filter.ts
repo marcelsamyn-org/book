@@ -1,20 +1,20 @@
-import { OrgHeading } from "../org/types.js";
+import { Heading } from "../md/types.js";
 
 export interface FilterOptions {
   maxLevel: number;
 }
 
 export const filterHeadingByLevel = (
-  heading: OrgHeading,
+  heading: Heading,
   options: FilterOptions,
-): OrgHeading | null => {
+): Heading | null => {
   if (heading.level > options.maxLevel) {
     return null;
   }
 
   const filteredChildren = heading.children
     .map((child) => filterHeadingByLevel(child, options))
-    .filter((child): child is OrgHeading => child !== null);
+    .filter((child): child is Heading => child !== null);
 
   return {
     ...heading,
@@ -23,10 +23,10 @@ export const filterHeadingByLevel = (
 };
 
 export const filterOutlineByLevel = (
-  headings: readonly OrgHeading[],
+  headings: readonly Heading[],
   options: FilterOptions,
-): readonly OrgHeading[] => {
+): readonly Heading[] => {
   return headings
     .map((heading) => filterHeadingByLevel(heading, options))
-    .filter((heading): heading is OrgHeading => heading !== null);
+    .filter((heading): heading is Heading => heading !== null);
 };

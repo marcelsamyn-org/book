@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { parseOrgOutline } from "../org/parseOutline.js";
+import { parseOutline } from "../md/parseOutline.js";
 import { filterOutlineByLevel } from "./filter.js";
 import { renderHeadingToHtml, extractTocEntries } from "./render.js";
 import { generateHtml } from "./htmlGenerator.js";
@@ -13,14 +13,17 @@ import {
 } from "./git.js";
 
 interface BuildOptions {
-  orgPath: string;
+  mdPath: string;
   outputPath: string;
   maxHeadingLevel: number;
   templatePath: string | undefined;
 }
 
+const stripNotes = (content: string): string =>
+  content.replace(/<!--\s*notes\s*-->[\s\S]*?<!--\s*\/notes\s*-->/g, "");
+
 const parseBuildOptions = (): BuildOptions => {
-  const orgPath = process.env["PUBLISH_ORG_PATH"] ?? "book.org";
+  const mdPath = process.env["PUBLISH_MD_PATH"] ?? "book.md";
   const outputPath = process.env["PUBLISH_OUTPUT_PATH"] ?? "dist/index.html";
   const maxHeadingLevel = parseInt(
     process.env["PUBLISH_MAX_HEADING_LEVEL"] ?? "3",
@@ -34,7 +37,7 @@ const parseBuildOptions = (): BuildOptions => {
     );
   }
 
-  return { orgPath, outputPath, maxHeadingLevel, templatePath };
+  return { mdPath, outputPath, maxHeadingLevel, templatePath };
 };
 
 const ensureOutputDirectory = async (outputPath: string): Promise<void> => {
@@ -46,14 +49,15 @@ const buildSite = async (): Promise<void> => {
   console.log("🚀 Building site...");
 
   const options = parseBuildOptions();
-  console.log(`   Org file: ${options.orgPath}`);
+  console.log(`   Markdown file: ${options.mdPath}`);
   console.log(`   Output: ${options.outputPath}`);
   console.log(`   Max heading level: ${options.maxHeadingLevel}`);
 
-  const orgContent = await readFile(options.orgPath, "utf-8");
-  console.log(`   Read ${orgContent.split("\n").length} lines from org file`);
+  const rawContent = await readFile(options.mdPath, "utf-8");
+  console.log(`   Read ${rawContent.split("\n").length} lines from book`);
 
-  const outline = parseOrgOutline(orgContent);
+  const content = stripNotes(rawContent);
+  const outline = parseOutline(content);
   console.log(`   Parsed ${outline.headings.length} top-level headings`);
 
   const filteredOutline = filterOutlineByLevel(outline.headings, {
@@ -72,12 +76,12 @@ const buildSite = async (): Promise<void> => {
   console.log(`   Generated ${tocEntries.length} TOC entries`);
 
   console.log(`   Extracting git metadata...`);
-  const lastCommit = getLastCommitMetadata(options.orgPath);
+  const lastCommit = getLastCommitMetadata(options.mdPath);
   const lastUpdated = formatRelativeDate(lastCommit.date);
   const lineChanges = formatLineChanges(lastCommit.lineChanges);
   console.log(`   Last updated: ${lastUpdated} (${lineChanges})`);
 
-  const recentCommits = getRecentCommits(options.orgPath, 10);
+  const recentCommits = getRecentCommits(options.mdPath, 10);
   console.log(`   Found ${recentCommits.length} recent commits`);
 
   const html = await generateHtml({

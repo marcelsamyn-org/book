@@ -1,34 +1,34 @@
-import { OrgHeading, OrgOutline } from "./types.js";
+import { Heading, Outline } from "./types.js";
 import { slugify } from "../utils/slug.js";
 
-interface MutableOrgHeading {
+interface MutableHeading {
   id: string;
   title: string;
   level: number;
   startLine: number;
   endLine?: number;
   contentLines: string[];
-  children: MutableOrgHeading[];
+  children: MutableHeading[];
 }
 
-export const parseOrgOutline = (content: string): OrgOutline => {
+export const parseOutline = (content: string): Outline => {
   const lines = content.split(/\r?\n/);
-  const rootHeadings: MutableOrgHeading[] = [];
-  const headingStack: MutableOrgHeading[] = [];
+  const rootHeadings: MutableHeading[] = [];
+  const headingStack: MutableHeading[] = [];
 
-  const finalizeHeading = (heading: MutableOrgHeading, endLine: number) => {
+  const finalizeHeading = (heading: MutableHeading, endLine: number) => {
     heading.endLine = endLine;
   };
 
   lines.forEach((line, index) => {
     const lineNumber = index + 1;
-    const headingMatch = /^(\*+)\s+(.*)$/.exec(line);
+    const headingMatch = /^(#{1,6})\s+(.*)$/.exec(line);
 
     if (headingMatch) {
       const level = headingMatch[1]!.length;
       const title = headingMatch[2]!.trim();
       const id = `${slugify(title)}-${lineNumber}`;
-      const heading: MutableOrgHeading = {
+      const heading: MutableHeading = {
         id,
         title,
         level,
@@ -70,8 +70,8 @@ export const parseOrgOutline = (content: string): OrgOutline => {
     }
   }
 
-  const convert = (heading: MutableOrgHeading): OrgHeading => {
-    const base: OrgHeading = {
+  const convert = (heading: MutableHeading): Heading => {
+    const base: Heading = {
       id: heading.id,
       title: heading.title,
       level: heading.level,

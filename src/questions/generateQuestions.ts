@@ -2,7 +2,7 @@ import OpenAI from "openai";
 import { z } from "zod";
 import type { ResponseFormatTextJSONSchemaConfig } from "openai/resources/responses/responses";
 import { ResearchConfig } from "../config.js";
-import { ChapterOutline } from "../org/chapters.js";
+import { ChapterOutline } from "../md/chapters.js";
 import { ResearchQuestionCandidate } from "./types.js";
 
 const questionSchema = z.object({

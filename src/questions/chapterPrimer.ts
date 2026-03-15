@@ -2,7 +2,7 @@ import OpenAI from "openai";
 import type { ResponseFormatTextJSONSchemaConfig } from "openai/resources/responses/responses";
 import { z } from "zod";
 import { ResearchConfig } from "../config.js";
-import type { ChapterOutline } from "../org/chapters.js";
+import type { ChapterOutline } from "../md/chapters.js";
 
 const outputSchema = z.object({
   output_text: z.string().min(1),

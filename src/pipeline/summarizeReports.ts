@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import type { Logger } from "pino";
 import { ResearchConfig } from "../config.js";
-import { deriveChapters, extractOverview, type ChapterOutline } from "../org/chapters.js";
-import { parseOrgOutline } from "../org/parseOutline.js";
+import { deriveChapters, extractOverview, type ChapterOutline } from "../md/chapters.js";
+import { parseOutline } from "../md/parseOutline.js";
 import { AsyncLock } from "../utils/lock.js";
 import { runWithConcurrency } from "../utils/concurrency.js";
 import { saveTrackingData, setQuestionSummaryPath } from "../tracking/store.js";
@@ -55,7 +55,7 @@ export const summarizeReports = async (
 
   const outlinePath = resolve(config.outlinePath);
   const outlineContent = await readFile(outlinePath, "utf8");
-  const outline = parseOrgOutline(outlineContent);
+  const outline = parseOutline(outlineContent);
   const bookOverview = extractOverview(outline);
   const chapterOutlines = deriveChapters(outline);
   const chapterById = new Map<string, ChapterOutline>();

@@ -1,4 +1,4 @@
-import { OrgHeading } from "../org/types.js";
+import { Heading } from "../md/types.js";
 
 const escapeHtml = (text: string): string => {
   const escapeMap: Record<string, string> = {
@@ -11,7 +11,7 @@ const escapeHtml = (text: string): string => {
   return text.replace(/[&<>"']/g, (char) => escapeMap[char]!);
 };
 
-const formatOrgInline = (text: string): string => {
+const formatInline = (text: string): string => {
   let result = escapeHtml(text);
 
   result = result.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
@@ -21,8 +21,7 @@ const formatOrgInline = (text: string): string => {
     '<a href="$2" target="_blank" rel="noopener">$1</a>',
   );
   result = result.replace(/_([^_]+)_/g, "<u>$1</u>");
-  result = result.replace(/=([^=]+)=/g, "<code>$1</code>");
-  result = result.replace(/~([^~]+)~/g, "<code>$1</code>");
+  result = result.replace(/`([^`]+)`/g, "<code>$1</code>");
 
   return result;
 };
@@ -31,43 +30,45 @@ const renderContentLines = (lines: readonly string[]): string => {
   if (lines.length === 0) return "";
 
   const renderedLines: string[] = [];
+  let inBlockquote = false;
 
   for (const line of lines) {
     const trimmed = line.trim();
 
-    if (trimmed.length === 0) continue;
-
-    if (trimmed.startsWith("#+begin_quote")) {
-      renderedLines.push("<blockquote>");
-      continue;
-    }
-
-    if (trimmed.startsWith("#+end_quote")) {
-      renderedLines.push("</blockquote>");
-      continue;
-    }
-
-    if (trimmed.startsWith("#+")) continue;
-
-    if (trimmed.startsWith("[[")) {
-      const linkMatch = trimmed.match(/\[\[([^\]]+)\]\[([^\]]+)\]\]/);
-      if (linkMatch) {
-        const url = linkMatch[1]!;
-        const text = linkMatch[2]!;
-        const isExternal = url.startsWith("http");
-        const targetAttr = isExternal ? ' target="_blank" rel="noopener"' : "";
-        renderedLines.push(`<a href="${url}"${targetAttr}>${text}</a>`);
-        continue;
+    if (trimmed.length === 0) {
+      if (inBlockquote) {
+        renderedLines.push("</blockquote>");
+        inBlockquote = false;
       }
+      continue;
     }
 
-    renderedLines.push(`<p>${formatOrgInline(trimmed)}</p>`);
+    if (trimmed.startsWith("> ")) {
+      const quoteContent = trimmed.slice(2);
+      if (!inBlockquote) {
+        renderedLines.push("<blockquote>");
+        inBlockquote = true;
+      }
+      renderedLines.push(`<p>${formatInline(quoteContent)}</p>`);
+      continue;
+    }
+
+    if (inBlockquote) {
+      renderedLines.push("</blockquote>");
+      inBlockquote = false;
+    }
+
+    renderedLines.push(`<p>${formatInline(trimmed)}</p>`);
+  }
+
+  if (inBlockquote) {
+    renderedLines.push("</blockquote>");
   }
 
   return renderedLines.join("\n");
 };
 
-export const renderHeadingToHtml = (heading: OrgHeading): string => {
+export const renderHeadingToHtml = (heading: Heading): string => {
   const tag = `h${Math.min(heading.level, 6)}`;
   const anchor = `<a href="#${heading.id}" class="heading-anchor" aria-hidden="true">#</a>`;
   const headingHtml = `<${tag} id="${heading.id}">${anchor}${escapeHtml(heading.title)}</${tag}>`;
@@ -81,7 +82,7 @@ export const renderHeadingToHtml = (heading: OrgHeading): string => {
 };
 
 export const extractTocEntries = (
-  heading: OrgHeading,
+  heading: Heading,
 ): Array<{
   id: string;
   title: string;

@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { ResearchConfig } from "../config.js";
-import { parseOrgOutline } from "../org/parseOutline.js";
-import { deriveChapters, extractOverview } from "../org/chapters.js";
+import { parseOutline } from "../md/parseOutline.js";
+import { deriveChapters, extractOverview } from "../md/chapters.js";
 import { sha256 } from "../utils/hash.js";
 import { ChapterPrimerGenerator } from "./chapterPrimer.js";
 import { ChapterQuestionContext, QuestionGenerator } from "./generateQuestions.js";
@@ -27,7 +27,7 @@ export const generateQuestionsFromOutline = async (
 ): Promise<QuestionsGenerationResult> => {
   const outlinePath = resolve(config.outlinePath);
   const outlineContent = await readFile(outlinePath, "utf8");
-  const outline = parseOrgOutline(outlineContent);
+  const outline = parseOutline(outlineContent);
   const outlineHash = sha256(outlineContent);
   const chapters = deriveChapters(outline);
   const overview = extractOverview(outline);

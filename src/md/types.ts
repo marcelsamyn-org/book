@@ -1,13 +1,13 @@
-export interface OrgHeading {
+export interface Heading {
   readonly id: string;
   readonly title: string;
   readonly level: number;
   readonly startLine: number;
   readonly endLine?: number;
   readonly contentLines: readonly string[];
-  readonly children: readonly OrgHeading[];
+  readonly children: readonly Heading[];
 }
 
-export interface OrgOutline {
-  readonly headings: readonly OrgHeading[];
+export interface Outline {
+  readonly headings: readonly Heading[];
 }
