@@ -24,7 +24,7 @@
       <details class="mt-8 group">
         <summary class="cursor-pointer list-none flex items-center gap-2 text-xs text-ink-muted hover:text-ink-secondary transition-colors">
           <span class="text-[10px] group-open:rotate-90 transition-transform duration-200">▶</span>
-          <span>Updated {{LAST_UPDATED}}</span>
+          <span>Updated <span data-timestamp="{{LAST_UPDATED_ISO}}"></span></span>
           <span class="opacity-40">{{LINE_CHANGES}}</span>
         </summary>
         <div class="mt-4 pt-4 border-t border-rule">
@@ -60,6 +60,30 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    function formatRelativeDate(date) {
+      const now = new Date();
+      const diffSec = Math.floor((now - date) / 1000);
+      const units = [
+        [60 * 60 * 24 * 365, 'year'],
+        [60 * 60 * 24 * 30, 'month'],
+        [60 * 60 * 24 * 7, 'week'],
+        [60 * 60 * 24, 'day'],
+        [60 * 60, 'hour'],
+        [60, 'minute'],
+      ];
+      const formatter = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
+      for (const [secs, unit] of units) {
+        const value = Math.floor(diffSec / secs);
+        if (value > 0) return formatter.format(-value, unit);
+      }
+      return formatter.format(0, 'second');
+    }
+
+    document.querySelectorAll('[data-timestamp]').forEach(el => {
+      const date = new Date(el.dataset.timestamp);
+      el.textContent = formatRelativeDate(date);
     });
   </script>
 </body>

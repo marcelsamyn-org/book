@@ -1,6 +1,5 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { formatRelativeDate } from "./git.js";
 
 interface HtmlGeneratorOptions {
   contentHtml: string;
@@ -10,7 +9,7 @@ interface HtmlGeneratorOptions {
     level: number;
     children: Array<{ id: string; title: string; level: number }>;
   }>;
-  lastUpdated: string;
+  lastUpdatedIso: string;
   lineChanges: string;
   commits: Array<{ date: Date; message: string }>;
   templatePath?: string;
@@ -22,7 +21,7 @@ export const generateHtml = async (
   const {
     contentHtml,
     tocEntries,
-    lastUpdated,
+    lastUpdatedIso,
     lineChanges,
     commits,
     templatePath,
@@ -36,7 +35,7 @@ export const generateHtml = async (
   const commitsHtml = generateCommitsHtml(commits);
 
   return template
-    .replace("{{LAST_UPDATED}}", lastUpdated)
+    .replace("{{LAST_UPDATED_ISO}}", lastUpdatedIso)
     .replace("{{LINE_CHANGES}}", lineChanges)
     .replace("{{COMMITS_HTML}}", commitsHtml)
     .replace("{{TOC_HTML}}", tocHtml)
@@ -75,10 +74,9 @@ const generateCommitsHtml = (
   }
 
   return commits
-    .map((commit) => {
-      const relativeDate = formatRelativeDate(commit.date);
-      return `<div class="commit-row"><span class="commit-date">${relativeDate}</span><span class="commit-msg">${escapeHtml(commit.message)}</span></div>`;
-    })
+    .map((commit) =>
+      `<div class="commit-row"><span class="commit-date" data-timestamp="${commit.date.toISOString()}"></span><span class="commit-msg">${escapeHtml(commit.message)}</span></div>`,
+    )
     .join("");
 };
 

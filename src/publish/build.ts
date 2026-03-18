@@ -8,7 +8,6 @@ import { generateHtml } from "./htmlGenerator.js";
 import {
   getLastCommitMetadata,
   getRecentCommits,
-  formatRelativeDate,
   formatLineChanges,
 } from "./git.js";
 
@@ -77,9 +76,9 @@ const buildSite = async (): Promise<void> => {
 
   console.log(`   Extracting git metadata...`);
   const lastCommit = getLastCommitMetadata(options.mdPath);
-  const lastUpdated = formatRelativeDate(lastCommit.date);
+  const lastUpdatedIso = lastCommit.date.toISOString();
   const lineChanges = formatLineChanges(lastCommit.lineChanges);
-  console.log(`   Last updated: ${lastUpdated} (${lineChanges})`);
+  console.log(`   Last updated: ${lastUpdatedIso} (${lineChanges})`);
 
   const recentCommits = getRecentCommits(options.mdPath, 10);
   console.log(`   Found ${recentCommits.length} recent commits`);
@@ -87,7 +86,7 @@ const buildSite = async (): Promise<void> => {
   const html = await generateHtml({
     contentHtml,
     tocEntries,
-    lastUpdated,
+    lastUpdatedIso,
     lineChanges,
     commits: recentCommits,
   });
