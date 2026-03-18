@@ -1,7 +1,14 @@
 # Overview
-This book asks a simple but high-stakes question: when LLM-based chats become woven into everyday life, what do they do to our creativity, our intelligence, and our ability to relate to others? The central thesis—“Sacred Struggle”—holds that friction and challenge are not bugs but features of human flourishing: we learn deeper, create better, and feel more alive when we face difficulty on purpose. The book resists both doom and hype; it treats AI as a powerful scaffold that can either amplify human agency or erode it into homogenization, over-reliance, and learned helplessness. The aim is to translate evidence into design principles for AI, personal practices for users, and social norms that keep the human in the loop—so the technology strengthens taste, judgment, and connection rather than numbing them.
 
-For research and writing support, I’m looking for rigorous, recent, and citable work (ideally RCTs, field experiments, meta-analyses, high-quality qualitative studies) on: productivity and quality shifts; originality/novelty measures; learning depth, transfer and calibration; collaboration and relationship effects; attention/affect (addiction, distraction); and long-run skill development. I want both failure modes (homogenization, over-trust, mode collapse in thinking) and countermeasures (deliberate difficulty, sampling diverse outputs, active-recall/reflective prompts, constraint-based workflows, light “Dopamine Nutrition Label” ideas). The end product should convert findings into actionable heuristics for designers, concrete use-protocols for knowledge workers, and cultural guidance for a post-AI world that prizes strong character, responsible decision-making, long-term ambitious projects, and disciplined taste.
+When AI takes over most of the way we work, live and even love---what's left for us?
+
+The entire world is racing towards making everything as easy, comfortable and automated as possible. We're celebrating our newfound freedom, our magical robots doing the hard work for us, even our new friends who are nicer than the real ones.
+
+But what if all this ease is exactly what is making us unhappy?
+
+In this book I argue that just like when agriculture took away our need for physical effort, we needed to start consciously stressing our bodies with sport---now with artificial intelligence we will have to take the same care of our minds, if we want to be happy and fulfilled.
+
+We'll build our understanding of these new technologies from the ground up, so you can deeply understand the consequences and continue to understand this exciting world as it seems to change every week. By understanding both the technology and our old meat-and-flesh biology, we'll be able to understand the good, the bad and the ugly of AI. But most of all, we'll figure out what to *do* so that we use these new powers in service of our beautiful humanity instead of being used by it.
 
 # Introduction
 ## Story-based intro
