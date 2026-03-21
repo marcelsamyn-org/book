@@ -5,6 +5,7 @@ import { parseOutline } from "../md/parseOutline.js";
 import { filterOutlineByLevel } from "./filter.js";
 import { renderHeadingToHtml, extractTocEntries } from "./render.js";
 import { generateHtml } from "./htmlGenerator.js";
+import { computeBookProgress } from "./progress.js";
 import {
   getLastCommitMetadata,
   getRecentCommits,
@@ -59,6 +60,11 @@ const buildSite = async (): Promise<void> => {
   const outline = parseOutline(content);
   console.log(`   Parsed ${outline.headings.length} top-level headings`);
 
+  const progress = computeBookProgress(outline.headings);
+  console.log(
+    `   Progress: ${progress.totalWords.toLocaleString()} / ${progress.targetWords.toLocaleString()} words (${progress.percentage}%)`,
+  );
+
   const filteredOutline = filterOutlineByLevel(outline.headings, {
     maxLevel: options.maxHeadingLevel,
   });
@@ -89,6 +95,7 @@ const buildSite = async (): Promise<void> => {
     lastUpdatedIso,
     lineChanges,
     commits: recentCommits,
+    progress,
   });
 
   await ensureOutputDirectory(options.outputPath);
