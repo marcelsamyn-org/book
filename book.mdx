@@ -1,14 +1,17 @@
+import ChatExhibit from './src/components/ChatExhibit.astro';
+import ChatResponse from './src/components/ChatResponse.astro';
+
 # Overview
 
 When AI takes over most of the way we work, live and even love---what's left for us?
 
-The entire world is racing towards making everything as easy, comfortable and automated as possible. We're celebrating our newfound freedom, our magical robots doing the hard work for us, even our new friends who are nicer than the real ones.
+The entire world is racing towards making everything as comfortable as possible. We're celebrating our newfound freedom, making our magical robots doing the hard work for us, heck we're even spending time with our new friends who are nicer than the real ones.
 
 But what if all this ease is exactly what is making us unhappy?
 
 In this book I argue that just like when agriculture took away our need for physical effort, we needed to start consciously stressing our bodies with sport---now with artificial intelligence we will have to take the same care of our minds, if we want to be happy and fulfilled.
 
-We'll build our understanding of these new technologies from the ground up, so you can deeply understand the consequences and continue to understand this exciting world as it seems to change every week. By understanding both the technology and our old meat-and-flesh biology, we'll be able to understand the good, the bad and the ugly of AI. But most of all, we'll figure out what to *do* so that we use these new powers in service of our beautiful humanity instead of being used by it.
+We'll build our understanding of these new technologies from the ground up, so you can uncover the consequences and continue to interpret what's happening in this crazy new world as it seems to change every week. By understanding both the technology and our old meat-and-flesh biology, we'll be able to understand the good, the bad and the ugly of AI. But most of all, we'll figure out what to *do* so that we use these new powers in service of our beautiful humanity instead of being used by it.
 
 # Introduction
 ## Story-based intro
@@ -101,9 +104,7 @@ The nature of machines is different from the nature of humans, so things that ar
 
 #### Benchmarks
 
-<!-- notes -->
-One common argument against "true" AI intelligence is an observation that it seems like these models are indeed succeeding in many things where we considered you need to be extremely intelligent for (programming, researching, writing prose), but they're surprisingly *bad* at the things we don't have tests for. `TODO CITATION`
-<!-- /notes -->
+{/* notes: One common argument against "true" AI intelligence is an observation that it seems like these models are indeed succeeding in many things where we considered you need to be extremely intelligent for (programming, researching, writing prose), but they're surprisingly *bad* at the things we don't have tests for. TODO CITATION */}
 
 Recently, a friend of mine shared how he prompted multiple AI's and got them to collectively figure out a solution to a scientific problem some researchers had been agonizing over for weeks. I thought it would be fun to build a "group chat" with multiple large language models. So I told them to count to ten together, one after the other, and it was incredibly difficult to get it right. They would count multiple times, restart, et cetera. We're dealing with a strange kind of technology indeed.
 
@@ -125,6 +126,48 @@ The thing about ASI is that it's a relatively small step from AGI. Already with 
 Then we come to the grand finale: The Singularity, the moment where our AI is more intelligent than all of humanity combined. This is the "real scary moment" because we have no idea what will happen to us humans---by definition we don't have the capacity to imagine what an entity like this would think. Will it be benevolent, evil or not care about us at all? Think about how you interact with something much less intelligent than you, say an ant. We could imagine this ASI to feel about us with the same indifference. This is where *alignment research* comes into play: the study on what makes AI aligned with human interests, and not unimportantly, do that transparently. There have been many observed cases of language models cheating and lying. But we'll cover this in a dedicated chapter later on.
 
 #### AI is already insanely smart
+
+In the six months between the idea of this book and starting to write this section, my perspective on how "smart" AI is has changed quite a bit. I'm a heavy user of AI in programming (which is one of its bigest strengths) and my opinion shifted from "well it's okay, it's very fast but makes stupid mistakes, so I'm not sure what's the right trade-off" to "you'd be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel."
+
+The shape of language models' intelligence is very different from what we are used to in our fellow humans. These AI's are much smarter than us in many ways, and complete idiots in other situations.
+
+For example, LLM's are now beating humans at programming, math olympiads and of course speed of reading. Generative AI tools have made new scientfic discoveries and taken over our media by generating all kinds of images and video's that couldn't be made before.
+
+At the same time, they routinely forget what instructions you just gave them, seem to have no capacity of being fully honest (they try to respond with what you'll like), are terrible at spatial reasoning and common sense and make all kinds of "weird" mistakes.
+
+<ChatExhibit prompt="I have the following items: three eggs, a large slanted plastic wedge, a pan filled with boiling water, a towel, two empty toilet paper rolls, a sponge. I need to stack them without breaking anything. How do I do that? Return just a bullet list of the final order, plus a few words each to explain. You're not allowed to make changes to the objects.">
+  <ChatResponse model="Claude Opus 4.6">
+    - **Towel** — spread flat as a stable, non-slip, heat-safe base
+    - **Pan of boiling water** — heaviest item; flat bottom sits securely on the towel
+    - **Large plastic wedge** — laid flat-side-down, bridging across the pan rim (keeps it above the water)
+    - **Sponge** — placed on the low end of the wedge's slant to level out the surface
+    - **Two toilet paper rolls** — standing upright on the now-level platform, acting as egg cups
+    - **Three eggs** — two seated snugly in the roll openings; third nestled in the gap between the two rolls
+  </ChatResponse>
+  <ChatResponse model="GPT-5.4">
+    - **Towel** — non-slip, cushioning base
+    - **Pan of boiling water** — heaviest, safest at bottom
+    - **Plastic wedge** — laid flat across the pan's rim
+    - **Sponge** — on the slope for grip/leveling
+    - **Two toilet paper rolls** — side by side, egg cradles
+    - **Three eggs** — top, gently nestled
+  </ChatResponse>
+  <ChatResponse model="Gemini 3.1 Pro">
+    - **Pan filled with boiling water** — acts as the heavy, wide, and grounded base of the tower
+    - **Towel** — draped over the pan to trap the steam/heat and create a dry, stable surface
+    - **Large slanted plastic wedge** — placed flat-side down on the towel for a sturdy mid-section
+    - **Sponge** — rests on the wedge's slant to provide friction, cushioning, and a stopper
+    - **Egg 1** — nestled securely into the soft sponge so it won't roll down the slant
+    - **Toilet paper roll 1** — balanced vertically directly on top of the first egg
+    - **Egg 2** — resting safely inside the top opening of the first roll
+    - **Toilet paper roll 2** — balanced vertically on top of the second egg
+    - **Egg 3** — resting securely inside the top opening of the second roll
+  </ChatResponse>
+</ChatExhibit>
+
+One long-standing example of this was the "strawberry problem:" any time you would ask a language model "how many r's are there in the word 'strawberry'" it would confidently get it completely wrong. This is because technically, the model sees *tokens* which are not the separate letters---instead they're pieces of words. Eventually this was solved by having the model "think" out loud before it answered, where it would spell out the word and then realize that there are, in fact, three R's.
+
+Another example is the seahorse emoji. When you'd ask "what's the seahorse emoji?" for some reason the language models were very confident that this actually exists, they would write a different emoji like the horse emoji, realize their own mistake, apologize, try again and make the same mistake again. Many times they would get stuck in an infinite loop of "no sorry, this is the real one."
 
 ##### Quote from X: Hard training data
 https://x.com/jackclarkSF/status/1962238672704803096
@@ -224,9 +267,7 @@ This isn't a problem you can solve without consequences. We could keep the laser
 
 Luckily, business sidesteps this problem by only caring about productivity and efficiency. But that introduces a new problem potentially exacerbating all of this even more: what if you find a new technology that produces at 80% of the quality of what you had before at only 1% of the cost? This has been the plight of our world since the dawn of industrialization. We can make houses, clothes and objects many times cheaper---they're just a little ugly and devoid of any 'soul.' Surrounded by this, we get reminded over and over that automation and machines built most of this at a staggering speed, much faster than we ourseleves could ever hope to do it. And as clearly evidenced, people generally prefer the cheap machine things.
 
-<!-- notes -->
-TODO talk about depression and meaning numbers from studies
-<!-- /notes -->
+{/* notes: TODO talk about depression and meaning numbers from studies */}
 
 So looking out into our future we might see a continuation of this same trend: we can get more things for a lot less money---with the trade-off of being more "boring" and "simple." We'll talk more about this later because it's likely more complicated than that. But for now, let's look at what AI does to our work *today*.
 
@@ -236,9 +277,7 @@ At this point in time, large language models have gotten susprisingly good at ma
 
 But books aren't the only thing we write down. In fact, most of our writing is unbothered by barely-perceived huffs of poetry. We just need to get the email out to ask for approval, or get a list down of the ten key findings of the report.
 
-<!-- notes -->
-Most of our writing just needs to clearly, concisely make a point---and that's exactly what the infrastructure of a large language model works best for. In fact, some studies have found *[TODO: Citation]* that people usually prefer AI writing, unless they know it's written by AI.
-<!-- /notes -->
+{/* notes: Most of our writing just needs to clearly, concisely make a point---and that's exactly what the infrastructure of a large language model works best for. In fact, some studies have found that people usually prefer AI writing, unless they know it's written by AI. TODO: Citation */}
 
 So right now, we are handing in some writing quality in exchange for a multiple-digit increase in how much we can write. It's a little sad that this means we lose the creativity and artistry that's around us almost randomly, but it's a trade-off that's almost crazy to *not* make.
 
@@ -329,9 +368,7 @@ So we will always be attracted to "someone" that says what we want to hear and a
 #### In a way, AI is emotional porn: gives an instant release of good emotional feeling, but doesn't build your real social capacity and deep meaningful relations
 #### Comparing with social media feed, instant messaging, distraction
 #### Because it's not physical it can fulfill us emotionally, at least in the short term, but there's a lot of our biology that doesn't trigger so we still don't feel that *deep* sense of connection. Physical touch but probably also more, things that we don't even perfectly understand yet. Like porn it can dampen us in a way because it sort of feels like it fulfills the need but there's still loneliness and sadness.
-<!-- notes -->
-#### TODO Separate research run
-<!-- /notes -->
+{/* notes: TODO Separate research run */}
 #### Solving: The Hammer or The Lover
 ##### Be conscious about emotionality in LLM's (use Petals hah)
 #### Solving: Social Step-Back & Connection Creator
