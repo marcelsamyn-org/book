@@ -12,10 +12,9 @@ interface LineChanges {
   deletions: number;
 }
 
-const validateGitRepo = (path: string): void => {
-  const gitDir = path.replace(/\/[^/]*$/, "/.git");
-  if (!existsSync(gitDir)) {
-    throw new Error(`Not a git repository or .git not found at ${gitDir}`);
+const validateGitRepo = (): void => {
+  if (!existsSync(".git")) {
+    throw new Error("Not a git repository: .git not found in cwd");
   }
 };
 
@@ -26,17 +25,24 @@ export const getLastCommitMetadata = (
   date: Date;
   lineChanges: LineChanges;
 } => {
-  validateGitRepo(filePath);
+  validateGitRepo();
 
-  const hash = execSync(`git log -1 --format="%H" -- "${filePath}"`, {
+  const hash = execSync(`git log -1 --follow --format="%H" -- "${filePath}"`, {
     encoding: "utf-8",
     cwd: process.cwd(),
   }).trim();
 
-  const timestamp = execSync(`git log -1 --format="%ct" -- "${filePath}"`, {
-    encoding: "utf-8",
-    cwd: process.cwd(),
-  }).trim();
+  if (!hash) {
+    return { hash: "", date: new Date(), lineChanges: { additions: 0, deletions: 0 } };
+  }
+
+  const timestamp = execSync(
+    `git log -1 --follow --format="%ct" -- "${filePath}"`,
+    {
+      encoding: "utf-8",
+      cwd: process.cwd(),
+    },
+  ).trim();
 
   const lineStats = execSync(`git diff --stat HEAD~1 HEAD -- "${filePath}"`, {
     encoding: "utf-8",
@@ -56,10 +62,10 @@ export const getRecentCommits = (
   filePath: string,
   limit: number = 10,
 ): Array<{ date: Date; message: string; hash: string }> => {
-  validateGitRepo(filePath);
+  validateGitRepo();
 
   const output = execSync(
-    `git log -${limit} --format="%H|%ct|%s" -- "${filePath}"`,
+    `git log -${limit} --follow --format="%H|%ct|%s" -- "${filePath}"`,
     {
       encoding: "utf-8",
       cwd: process.cwd(),

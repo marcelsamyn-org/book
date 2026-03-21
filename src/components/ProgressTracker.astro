@@ -1,0 +1,62 @@
+---
+import type { BookProgress, SectionProgress, SectionStatus } from "../publish/progress.js";
+
+interface Props {
+  progress: BookProgress;
+}
+
+const { progress } = Astro.props;
+
+const STATUS_CSS: Record<SectionStatus, string> = {
+  notes: "progress-status-notes",
+  outline: "progress-status-outline",
+  sketched: "progress-status-sketched",
+  draft: "progress-status-draft",
+  revised: "progress-status-revised",
+};
+
+const formatWordCount = (count: number): string =>
+  count.toLocaleString("en-US");
+
+const barWidth = 40;
+const filled = Math.round((progress.percentage / 100) * barWidth);
+const empty = barWidth - filled;
+---
+
+<div class="progress-overview">
+  <div class="progress-bar" aria-label={`${progress.percentage}% complete`}>
+    <span class="progress-bar-filled">{"\u2593".repeat(filled)}</span>
+    <span class="progress-bar-empty">{"\u2591".repeat(empty)}</span>
+  </div>
+  <div class="progress-stat">
+    {formatWordCount(progress.totalWords)} of {formatWordCount(progress.targetWords)} words &middot; {progress.percentage}%
+  </div>
+</div>
+
+<div class="progress-sections">
+  {progress.sections.map((section) => {
+    const h2Children = section.children.filter((c) => c.level === 2);
+    return (
+      <>
+        <div class="progress-section">
+          <span class="progress-title">{section.title}</span>
+          <span class="progress-leader"></span>
+          <span class="progress-words">{formatWordCount(section.totalWordCount)}</span>
+          <span class={STATUS_CSS[section.status]}>{section.status}</span>
+        </div>
+        {h2Children.length > 0 && (
+          <div class="progress-chapters">
+            {h2Children.map((child) => (
+              <div class="progress-section">
+                <span class="progress-title">{child.title}</span>
+                <span class="progress-leader"></span>
+                <span class="progress-words">{formatWordCount(child.totalWordCount)}</span>
+                <span class={STATUS_CSS[child.status]}>{child.status}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </>
+    );
+  })}
+</div>

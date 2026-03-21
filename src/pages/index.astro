@@ -1,0 +1,64 @@
+---
+import { readFile } from "node:fs/promises";
+import GithubSlugger from "github-slugger";
+import BookLayout from "../layouts/BookLayout.astro";
+import ProgressTracker from "../components/ProgressTracker.astro";
+import CommitHistory from "../components/CommitHistory.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import { parseOutline } from "../md/parseOutline.js";
+import { computeBookProgress } from "../publish/progress.js";
+import {
+  getLastCommitMetadata,
+  getRecentCommits,
+  formatLineChanges,
+} from "../publish/git.js";
+import { filterOutlineByLevel } from "../publish/filter.js";
+import type { Heading } from "../md/types.js";
+
+// Read raw book for progress/TOC computation (separate from MDX rendering)
+const rawContent = await readFile("book.mdx", "utf-8");
+const outline = parseOutline(rawContent);
+
+// Progress
+const progress = computeBookProgress(outline.headings);
+const progressSummary = `~${progress.totalWords.toLocaleString("en-US")} of ${progress.targetWords.toLocaleString("en-US")} words`;
+
+// TOC — generate IDs matching Astro's github-slugger output
+const filtered = filterOutlineByLevel(outline.headings, { maxLevel: 3 });
+const slugger = new GithubSlugger();
+
+const toSlug = (title: string): string => slugger.slug(title);
+
+const tocEntries = filtered.map((h) => ({
+  id: toSlug(h.title),
+  title: h.title,
+  children: h.children.map((c) => ({
+    id: toSlug(c.title),
+    title: c.title,
+  })),
+}));
+
+// Git metadata
+const lastCommit = getLastCommitMetadata("book.mdx");
+const recentCommits = getRecentCommits("book.mdx", 10);
+
+// MDX content
+const { Content } = await import("../../book.mdx");
+---
+
+<BookLayout
+  lastUpdatedIso={lastCommit.date.toISOString()}
+  lineChanges={formatLineChanges(lastCommit.lineChanges)}
+>
+  <Fragment slot="commits">
+    <CommitHistory commits={recentCommits} />
+  </Fragment>
+  <span slot="progress-summary" class="opacity-40">{progressSummary}</span>
+  <Fragment slot="progress">
+    <ProgressTracker progress={progress} />
+  </Fragment>
+  <Fragment slot="toc">
+    <TableOfContents entries={tocEntries} />
+  </Fragment>
+  <Content />
+</BookLayout>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  prompt: string;
+}
+
+const { prompt } = Astro.props;
+---
+
+<aside class="chat-exhibit" aria-label="AI model comparison">
+  <div class="chat-exhibit-prompt">
+    <span class="chat-exhibit-label">Prompt</span>
+    <p>{prompt}</p>
+  </div>
+  <div class="chat-exhibit-responses">
+    <slot />
+  </div>
+</aside>

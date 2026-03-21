@@ -1,0 +1,14 @@
+---
+interface Props {
+  model: string;
+}
+
+const { model } = Astro.props;
+---
+
+<div class="chat-response">
+  <span class="chat-response-model">{model}</span>
+  <div class="chat-response-body">
+    <slot />
+  </div>
+</div>

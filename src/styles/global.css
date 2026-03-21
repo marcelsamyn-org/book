@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-@source "../**/*.ts";
-@source "./**/*.html";
+@source "../**/*.astro";
+@source "../**/*.mdx";
 
 :root {
   --ink: #1C1917;
@@ -133,6 +133,26 @@ main blockquote p {
 
 main blockquote p:last-child {
   margin-bottom: 0;
+}
+
+/* ── Lists ──────────────────────────────────────────────── */
+
+main ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1.35em;
+}
+
+main ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1.35em;
+}
+
+main li {
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 0.25em;
 }
 
 /* ── Table of contents ──────────────────────────────────── */
@@ -334,5 +354,127 @@ main blockquote p:last-child {
 @media (max-width: 48rem) {
   .heading-anchor {
     display: none;
+  }
+}
+
+/* ── Chat exhibit ──────────────────────────────────────── */
+
+.chat-exhibit {
+  --breakout-extra: 16rem;
+  margin-left: calc(-1 * var(--breakout-extra));
+  margin-right: calc(-1 * var(--breakout-extra));
+  container-type: inline-size;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 72rem) {
+  .chat-exhibit {
+    --breakout-extra: 0rem;
+  }
+}
+
+.chat-exhibit-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.375rem;
+}
+
+.chat-exhibit-prompt {
+  border-left: 2px solid var(--accent);
+  background: var(--paper-inset);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  margin-bottom: 1.25rem;
+  max-width: 65ch;
+}
+
+.chat-exhibit-prompt p {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.chat-exhibit-responses {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.chat-response {
+  min-width: 0;
+}
+
+.chat-response-model {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.chat-response-body {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.chat-response-body p {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  margin-bottom: 0.75em;
+}
+
+.chat-response-body p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-response-body strong {
+  font-weight: 600;
+}
+
+.chat-response-body em {
+  font-style: italic;
+}
+
+.chat-response-body code {
+  font-size: 0.8em;
+  padding: 0.1em 0.3em;
+  background: var(--paper-inset);
+  border-radius: 0.2rem;
+}
+
+@container (min-width: 50rem) {
+  .chat-exhibit-responses {
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 0;
+  }
+
+  .chat-response {
+    border-left: 1px solid var(--rule);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .chat-response:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .chat-response:last-child {
+    padding-right: 0;
   }
 }

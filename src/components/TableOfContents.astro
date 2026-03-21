@@ -1,0 +1,26 @@
+---
+interface TocEntry {
+  id: string;
+  title: string;
+  children: Array<{ id: string; title: string }>;
+}
+
+interface Props {
+  entries: TocEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+{entries.map((entry) => (
+  <div class="toc-entry">
+    <a href={`#${entry.id}`} class="toc-link toc-parent">{entry.title}</a>
+    {entry.children.length > 0 && (
+      <div class="toc-children">
+        {entry.children.map((child) => (
+          <a href={`#${child.id}`} class="toc-link toc-child">{child.title}</a>
+        ))}
+      </div>
+    )}
+  </div>
+))}

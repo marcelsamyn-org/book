@@ -1,0 +1,18 @@
+---
+interface Props {
+  commits: Array<{ date: Date; message: string }>;
+}
+
+const { commits } = Astro.props;
+---
+
+{commits.length === 0 ? (
+  <p class="text-ink-secondary text-sm">No commit history available.</p>
+) : (
+  commits.map((commit) => (
+    <div class="commit-row">
+      <span class="commit-date" data-timestamp={commit.date.toISOString()}></span>
+      <span class="commit-msg">{commit.message}</span>
+    </div>
+  ))
+)}

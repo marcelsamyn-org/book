@@ -1,4 +1,4 @@
-import { Heading, Outline } from "./types.js";
+import type { Heading, Outline } from "./types.js";
 import { slugify } from "../utils/slug.js";
 
 interface MutableHeading {

@@ -35,7 +35,7 @@ export interface ResearchConfig {
 }
 
 const defaultConfig: ResearchConfig = {
-  outlinePath: "book.md",
+  outlinePath: "book.mdx",
   trackingPath: "data/research/tracking.json",
   reportsDir: "data/research/reports",
   a2aEndpoint: "http://localhost:41241",

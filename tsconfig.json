@@ -1,22 +1,17 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "strict": true,
-    "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "esModuleInterop": false,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": false,
-    "jsx": "preserve",
-    "jsxImportSource": "@opentui/solid",
     "types": ["node", "bun-types"]
   },
-  "include": ["src"]
+  "include": ["src", "book.mdx", "astro.config.ts"]
 }

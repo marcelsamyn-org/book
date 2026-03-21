@@ -1,5 +1,6 @@
 # Local Netlify folder
 .netlify
 dist/
+.astro/
 logs/
 node_modules/

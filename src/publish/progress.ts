@@ -1,4 +1,4 @@
-import { Heading } from "../md/types.js";
+import type { Heading } from "../md/types.js";
 
 export type SectionStatus =
   | "notes"
