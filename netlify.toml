@@ -1,6 +1,9 @@
 [build]
-  command = "bun run build:site"
+  command = "bun install --frozen-lockfile && bun run build:site"
   publish = "dist"
+
+[build.environment]
+  BUN_VERSION = "1.2.23"
 
 [[headers]]
   for = "/*"
