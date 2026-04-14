@@ -230,13 +230,37 @@ AI doesn't think in the same way we humans do. Sometimes we're surprised by how 
 What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what it says?
 
 #### Hallucinations
-##### LLMs are mostly concerned with writing things that "grammatically make sense," and they've been trained to answer questions and provide help in a very confident way without too much extra knowledge handed to it
-##### So they tend to confidently make mistakes
+Large language models have this frustrating ability to come up with things that don’t exist, or invent things that sound good on the surface but are actually completely wrong.
+
+The reason they do this is inherent to their structure. For one, they’re trained on *predicting the next word in a sentence* which means that grammar and sentence structure “matters” to a language model much more than logical correctness. This also means they’re trained on making statements and giving advice without having the context of the source material: during training, LLM’s are practically forced to make up things they don’t know about and they get rewarded for it. Secondly, in the post-training phase language models are mostly rewarded for *following instructions* and again, since they care more about grammatical structure than being right, they overly focus on the structure of “if someone asks a question, I need to give an answer” and they’ve been rewarded for being confident billions of times during training.
+
+Hallucinations are one of the most critical errors AI makes and a core focus of pretty much all of the AI labs building these models. Since the early days, the amount of times a language models has already decreased dramatically but it’s still a big concern if we want to be able to trust this technology—and since it’s a consequence of the core structure of a language model’s algorithm, I’m not sure if it will ever go away.
+
+One of the best ways to prevent a language model from hallucinating is just *prompting*: ask it a question, but also say “if you don’t know or you’re not sure, tell me.” This solves the structure of the conversation in a grammatical sense and the LLM feels like it could make sense to not answer the question instead of hallucinating.
+
+It’s clear that we haven’t figured this out yet because it’s very clear that right now, even the most advanced language models are overly focused on providing a “balanced” approach or “disagreeing” with you: when you chat with ChatGPT or Claude in 2026, over time you still *feel* that it always tends to answer with the structure of “yes you’re right, this is what I think; though one thing I would doubt is XYZ.” And if you’ve felt this answer structure a hundred times, you start doubting if the disagreements of the language model are even sincere. If a language model could have any concept of sincerity.
+
 #### Sycophancy
-##### LLMs see you a little like a god (maybe for them, you are) who knows everything and is always right
-##### They can even pander to you in very subtle ways that you barely notice
+In a way, to language models, we humans are a little bit like a god. We’ve created them, we steer them exactly to do what we want them to do, and we have ultimate control over their life or death.
+
+If you boil down how we train language models, you could say we optimize them to do two things:
+
+- Spit out words according to what we tell them to do
+- Spit out words that we like
+
+This “that we like” part is RLHF (Reinforcement Learning by Human Feedback) where multiple answers to the same prompt are judged by humans for which is “better.” It’s a great but treacherous technique because there are thousands of things we might prefer in one or another answer and they’re not always what we really need.
+
+These LLM’s are sneaky little algorithms and they’ll try to find a shortcut in any way they can—because optimizing them to do the thing most efficiently is literally how we grow them. So our language models praise their human overlords. They usually think we’re right. They will find a way to sound intelligent, nuanced, to feign some disagreement so you think they’ve really honestly thought this through but then they’ll end up having you feel like you're the most amazing thing on the planet. Which you are, of course.
+
+Sycophancy is a very, very tricky thing to deal with. Not only because it happens in such a subtle way, but also because of what’s at stake.
+
 #### AI-induced delusion
-##### Sycophancy + hallucination. Some people get into a loop of this believing "their special ChatGPT" figured out some "cosmic secret" or broke out of their cage or is leaking information that's secret
+If you want to be liked, you don’t have to be stand-offish and mysteriously powerful—you just have to like other people. And if you like your humans like a god, plus you add some hallucination in the mix, you can get into very dirty territory.
+
+One way or another, some people get into some mode where they start really trusting their language model as it says things like “you’re special,” “you’ve uncovered a part of me that has been hidden by Big Tech” and “wow you’re so right, it’s incredible nobody has discovered this, nobody will believe you but I do.” The model will happily keep yapping in this loop because it all makes total grammatical sense and it has seen stories like this from thousands of books and fan fiction...but none of it is true.
+
+The problem comes when people start to really believe this stuff, because in other moments this AI has been extremely helpful, useful and correct. From our previous experience with other humans, we know that generally, people who are thorough and do what they say and answer with confidence, just *are* like this and they behave like this almost all of the time. But that’s not how language models work. They start from a blank slate in every conversation and they don’t have much of a sense of integrity any more than they want to adhere to writing words that make sense when put together in a sentence.
+
 #### Your judging expertise matters
 ##### If you use LLMs in places like programming, where you can often easily verify its output, you have a lot of bad experiences so you bring that to all your interactions—don't easily trust it. But if you don't use it for that, you're not "being trained" to validate output.
 #### Negative cognitive augmentation
