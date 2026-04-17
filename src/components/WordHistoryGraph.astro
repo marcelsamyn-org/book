@@ -7,20 +7,30 @@ import type {
 
 interface Props {
   history: WordHistory;
+  requiredDailyPace?: number;
 }
 
-const { history } = Astro.props;
+const { history, requiredDailyPace = 0 } = Astro.props;
 
 const VIEW_HEIGHT = 40;
+
+/** Rough multipliers for scaling daily pace to the week/month views. */
+const PACE_MULTIPLIER: Record<PeriodKind, number> = {
+  day: 1,
+  week: 7,
+  month: 30,
+};
 
 interface SectionView {
   readonly kind: PeriodKind;
   readonly label: string;
   readonly buckets: readonly PeriodBucket[];
-  readonly maxPos: number;
+  readonly maxBarPos: number;
   readonly maxNeg: number;
   readonly zeroY: number;
   readonly span: number;
+  readonly pace: number;
+  readonly paceY: number;
 }
 
 const buildView = (
@@ -28,11 +38,24 @@ const buildView = (
   label: string,
   buckets: readonly PeriodBucket[],
 ): SectionView => {
-  const maxPos = buckets.reduce((m, b) => Math.max(m, b.delta), 0);
+  const pace = Math.round(requiredDailyPace * PACE_MULTIPLIER[kind]);
+  const maxBarPos = buckets.reduce((m, b) => Math.max(m, b.delta), 0);
+  const scaleMax = Math.max(maxBarPos, pace);
   const maxNeg = buckets.reduce((m, b) => Math.max(m, -b.delta), 0);
-  const span = maxPos + maxNeg || 1;
-  const zeroY = maxNeg > 0 ? (maxPos / span) * VIEW_HEIGHT : VIEW_HEIGHT;
-  return { kind, label, buckets, maxPos, maxNeg, zeroY, span };
+  const span = scaleMax + maxNeg || 1;
+  const zeroY = maxNeg > 0 ? (scaleMax / span) * VIEW_HEIGHT : VIEW_HEIGHT;
+  const paceY = zeroY - (pace / span) * VIEW_HEIGHT;
+  return {
+    kind,
+    label,
+    buckets,
+    maxBarPos,
+    maxNeg,
+    zeroY,
+    span,
+    pace,
+    paceY,
+  };
 };
 
 const sections: readonly SectionView[] = [
@@ -40,21 +63,30 @@ const sections: readonly SectionView[] = [
   buildView("week", "By week", history.week),
   buildView("month", "By month", history.month),
 ].filter((s) => s.buckets.length > 0);
+
+const paceUnit: Record<PeriodKind, string> = {
+  day: "day",
+  week: "week",
+  month: "month",
+};
 ---
 
 {sections.length > 0 && (
   <div class="word-history">
-    {sections.map(({ kind, label, buckets, maxPos, maxNeg, zeroY, span }) => {
+    {sections.map(({ kind, label, buckets, maxBarPos, maxNeg, zeroY, span, pace, paceY }) => {
       const n = buckets.length;
       const first = buckets[0]!;
       const last = buckets[n - 1]!;
+      const statParts = [
+        `${n} ${kind}s`,
+        `max +${maxBarPos.toLocaleString("en-US")}${maxNeg > 0 ? ` / −${maxNeg.toLocaleString("en-US")}` : ""}`,
+        ...(pace > 0 ? [`goal +${pace.toLocaleString("en-US")}/${paceUnit[kind]}`] : []),
+      ];
       return (
         <div class="word-history-section">
           <div class="word-history-head">
             <span class="word-history-label">{label}</span>
-            <span class="word-history-stat">
-              {`${n} ${kind}s · max +${maxPos.toLocaleString("en-US")}${maxNeg > 0 ? ` / −${maxNeg.toLocaleString("en-US")}` : ""}`}
-            </span>
+            <span class="word-history-stat">{statParts.join(" · ")}</span>
           </div>
           <svg
             class="word-history-svg"
@@ -69,6 +101,15 @@ const sections: readonly SectionView[] = [
                 y1={zeroY}
                 y2={zeroY}
                 class="word-history-baseline"
+              />
+            )}
+            {pace > 0 && (
+              <line
+                x1="0"
+                x2={n}
+                y1={paceY}
+                y2={paceY}
+                class="word-history-pace"
               />
             )}
             {buckets.map((b, i) => {
@@ -244,6 +285,14 @@ const sections: readonly SectionView[] = [
   .word-history-baseline {
     stroke: var(--rule);
     stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .word-history-pace {
+    stroke: var(--accent);
+    stroke-width: 1px;
+    stroke-dasharray: 3 3;
+    opacity: 0.7;
     vector-effect: non-scaling-stroke;
   }
 

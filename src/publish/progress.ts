@@ -23,9 +23,21 @@ export interface BookProgress {
   readonly targetWords: number;
   readonly percentage: number;
   readonly sections: readonly SectionProgress[];
+  readonly deadlineIso: string;
+  readonly daysRemaining: number;
+  readonly requiredDailyPace: number;
 }
 
 const TARGET_WORDS = 55_000;
+const DEADLINE_ISO = "2026-09-15";
+
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+const daysUntil = (iso: string, now: Date): number => {
+  const target = new Date(`${iso}T00:00:00`);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.ceil((target.getTime() - today.getTime()) / MS_PER_DAY);
+};
 
 /** Target word counts per H1 section title. */
 const SECTION_TARGETS: Record<string, number> = {
@@ -109,6 +121,7 @@ const resolveTarget = (heading: Heading, fallback: number): number =>
 
 export const computeBookProgress = (
   headings: readonly Heading[],
+  now: Date = new Date(),
 ): BookProgress => {
   const fallbackPerSection = Math.round(TARGET_WORDS / headings.length);
   const sections = headings.map((h) =>
@@ -120,5 +133,20 @@ export const computeBookProgress = (
     Math.round((totalWords / TARGET_WORDS) * 100),
   );
 
-  return { totalWords, targetWords: TARGET_WORDS, percentage, sections };
+  const daysRemaining = daysUntil(DEADLINE_ISO, now);
+  const wordsToGo = Math.max(0, TARGET_WORDS - totalWords);
+  const requiredDailyPace =
+    daysRemaining > 0 && wordsToGo > 0
+      ? Math.ceil(wordsToGo / daysRemaining)
+      : 0;
+
+  return {
+    totalWords,
+    targetWords: TARGET_WORDS,
+    percentage,
+    sections,
+    deadlineIso: DEADLINE_ISO,
+    daysRemaining,
+    requiredDailyPace,
+  };
 };

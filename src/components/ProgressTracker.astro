@@ -31,7 +31,32 @@ const empty = barWidth - filled;
   <div class="progress-stat">
     {formatWordCount(progress.totalWords)} of {formatWordCount(progress.targetWords)} words &middot; {progress.percentage}%
   </div>
+  <div class="progress-pace">
+    {progress.daysRemaining > 0 && progress.requiredDailyPace > 0 && (
+      <>
+        {formatWordCount(progress.daysRemaining)} days until <span data-deadline={progress.deadlineIso}>{progress.deadlineIso}</span> &middot; need ~{formatWordCount(progress.requiredDailyPace)} words/day
+      </>
+    )}
+    {progress.daysRemaining > 0 && progress.requiredDailyPace === 0 && (
+      <>Target reached &middot; {formatWordCount(progress.daysRemaining)} days to spare</>
+    )}
+    {progress.daysRemaining <= 0 && progress.requiredDailyPace === 0 && (
+      <>Past deadline (<span data-deadline={progress.deadlineIso}>{progress.deadlineIso}</span>)</>
+    )}
+  </div>
 </div>
+
+<script>
+  const DEADLINE_FMT = new Intl.DateTimeFormat(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  document.querySelectorAll<HTMLElement>("[data-deadline]").forEach((el) => {
+    const iso = el.dataset["deadline"];
+    if (iso) el.textContent = DEADLINE_FMT.format(new Date(`${iso}T00:00:00`));
+  });
+</script>
 
 <div class="progress-sections">
   {progress.sections.map((section) => {
