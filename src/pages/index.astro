@@ -5,6 +5,7 @@ import BookLayout from "../layouts/BookLayout.astro";
 import ProgressTracker from "../components/ProgressTracker.astro";
 import CommitHistory from "../components/CommitHistory.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import WordHistoryGraph from "../components/WordHistoryGraph.astro";
 import { parseOutline } from "../md/parseOutline.js";
 import { computeBookProgress } from "../publish/progress.js";
 import {
@@ -12,11 +13,15 @@ import {
   getRecentCommits,
   formatLineChanges,
 } from "../publish/git.js";
+import { computeWordHistory } from "../publish/wordHistory.js";
 import { filterOutlineByLevel } from "../publish/filter.js";
+import { stripObsidianComments } from "../utils/stripObsidianComments.js";
 import type { Heading } from "../md/types.js";
 
-// Read raw book for progress/TOC computation (separate from MDX rendering)
-const rawContent = await readFile("book.mdx", "utf-8");
+// Read raw book for progress/TOC computation (separate from MDX rendering).
+// Obsidian %% comments are stripped to keep TOC, progress, and rendered
+// output in lockstep with the MDX Vite transform.
+const rawContent = stripObsidianComments(await readFile("book.mdx", "utf-8"));
 const outline = parseOutline(rawContent);
 
 // Progress
@@ -41,6 +46,7 @@ const tocEntries = filtered.map((h) => ({
 // Git metadata
 const lastCommit = getLastCommitMetadata("book.mdx");
 const recentCommits = getRecentCommits("book.mdx", 10);
+const wordHistory = computeWordHistory("book.mdx");
 
 // MDX content
 const { Content } = await import("../../book.mdx");
@@ -52,6 +58,9 @@ const { Content } = await import("../../book.mdx");
 >
   <Fragment slot="commits">
     <CommitHistory commits={recentCommits} />
+  </Fragment>
+  <Fragment slot="word-history">
+    <WordHistoryGraph history={wordHistory} />
   </Fragment>
   <span slot="progress-summary" class="opacity-40">{progressSummary}</span>
   <Fragment slot="progress">

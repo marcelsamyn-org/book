@@ -39,6 +39,9 @@ const { lastUpdatedIso, lineChanges } = Astro.props;
         </summary>
         <div class="mt-4 pt-4 border-t border-rule">
           <slot name="commits" />
+          <div class="mt-6 pt-4 border-t border-rule">
+            <slot name="word-history" />
+          </div>
         </div>
       </details>
 
@@ -92,7 +95,7 @@ const { lastUpdatedIso, lineChanges } = Astro.props;
     }
 
     document.querySelectorAll<HTMLElement>("[data-timestamp]").forEach((el) => {
-      const timestamp = el.dataset.timestamp;
+      const timestamp = el.dataset["timestamp"];
       if (timestamp) {
         el.textContent = formatRelativeDate(new Date(timestamp));
       }
