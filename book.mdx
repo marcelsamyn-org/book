@@ -284,9 +284,15 @@ Not so with large language models—they’re as much a mystery to the researche
 
 
 #### Language Models are Screenplay Writers
-There’s a lot going on when you’re talking with a language model. For us, it feels like we’re directly chatting with a human-like thing (and for most of this book that’s how we look at it) but the AI is not the thing “on the other side of the conversation.“ Language models are only concerned with completing the text. So the AI is the thing that sees the entire conversation and contributes what it thinks would make the most sense for the next part. It’s the writer of the screenplay much more than the “AI” acting in it.
+There’s a lot going on when you’re talking with a language model. For us, it feels like we’re directly chatting with a human-like thing (and for most of this book that’s how we look at it) but the AI is not the thing “on the other side of the conversation.“ Language models are only concerned with completing the text. So 
+“the AI” is the thing that sees the entire conversation and contributes what it thinks would make the most sense for the next part: it’s the writer of the screenplay much more than the “AI” persona acting in it.
 
-This means that one of the things that’s always happening when you chat with Claude, for example, is that the software running the algorithm is constantly checking if the model is writing out what *you* are saying instead of Claude. When that happens, it forcibly stops the LLM and cuts off the part where it started writing in your name.
+This means that one of the things that’s always happening when you chat with Claude, for example, is that the the language model (not “Claude”) will try to write what *you* are saying! Of course, you don’t see this, but the system in the background is always working on “stopping” the language model when it starts speaking for you.
+
+A large part of the second phase of training a language model, post-training, is teaching it how it should behave in a conversation. This includes giving an enormous amount of conversations where it learns things like how to be helpful to the human or how to refuse to do dangerous things like help you make a bomb. Researchers at Anthropic have discovered that during this phase, the model also seems to build an internal representation of the persona of this AI assistant “character” (Claude, ChatGPT, Copilot). This is actually influenced by what the model is trained on—for example, it knows that many pop culture references to AI are malicious (Terminator, HAL 9000) and this is something we need to “teach” it somehow, that it should *not* behave like those AI’s. We also see, for example, that if we train the model to cheat on tests, it learns that it should behave like a “bad person” and that Claude starts acting out other malicious behaviors. But if we train it on examples that make the model cheat on tests *when asked to do so*, it retains it “good person” persona.
+
+
+#### Hidden Motives and Alignment Faking
 
 
 %%
@@ -542,6 +548,9 @@ So we will always be attracted to "someone" that says what we want to hear and a
 ### Advice and Loneliness Loops
 
 %%
+
+Disempowerment patterns:
+https://www.anthropic.com/research/disempowerment-patterns
 #### Sycophancy
 #### Infinite Patience
 %%
