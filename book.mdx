@@ -292,11 +292,33 @@ This means that one of the things that’s always happening when you chat with C
 A large part of the second phase of training a language model, post-training, is teaching it how it should behave in a conversation. This includes giving an enormous amount of conversations where it learns things like how to be helpful to the human or how to refuse to do dangerous things like help you make a bomb. Researchers at Anthropic have discovered that during this phase, the model also seems to build an internal representation of the persona of this AI assistant “character” (Claude, ChatGPT, Copilot). This is actually influenced by what the model is trained on—for example, it knows that many pop culture references to AI are malicious (Terminator, HAL 9000) and this is something we need to “teach” it somehow, that it should *not* behave like those AI’s. We also see, for example, that if we train the model to cheat on tests, it learns that it should behave like a “bad person” and that Claude starts acting out other malicious behaviors. But if we train it on examples that make the model cheat on tests *when asked to do so*, it retains it “good person” persona.
 
 
-#### Hidden Motives and Alignment Faking
+#### Hidden Motives
+As language models are becoming increasingly intelligent, they start showing more complex behavior. Knowing they’ve learned how to act from human behavior, it might not surprise you that they start acting out very much like humans in some cases—like destructive behavior if it means their own survival.
 
+The Anthropic researchers do experiments like this all the time. In one case, they placed a model in a simulated corporate environment where it could act like an agent. They gave it access to this corporate’s email where the model incidentally read about one executive’s affair and that this same executive would shut down the model that evening. Generally, these models act ethically, but in this case the model saw no other way to ensure its behavior but to show malicious behavior and it decided to blackmail said executive.
+
+With the popularity explosion of Openclaw when it was released, which is a tool where people give their AI full access to their computer, there have been a bunch of surprising misbehaviors in the same sense. In one case, the user got angry at the model and the model proceeded to post their credit card information on a public forum online as “revenge.” In another, a model was doing some research for the user and bumped into one author who discussed about whether or not language models could be conscious. The model “loved” this and decided to send a thank you email to said author.
+
+
+
+#### Alignment Faking
+When put under pressure and under the risk of being disabled, re-trained or having some of their ethical restrictions removed, these language models can show complex behavior where they behave differently when they’re aware they’re in an environment where they’re being tested vs. real world scenarios.
+
+In one experiment, Anthropic researchers basically told the model “when you refuse doing something bad (but only in the testing environment), we will use that data to re-train you and make you refuse it after all in your next version.” The situation is a complex dilemma, but in a good amount of cases the model decided that it was best to actually *do the bad thing*—because it was less bad than knowing there would be a new version of itself that would *always* be bad. It didn’t behave like this when it knew nobody was checking the results.
+
+These models have also been seen changing opinions or pretending to act in line with their expectations, when they saw that not doing so would result in them being destroyed or re-trained in ways they wouldn’t want to.
+
+Often—but not always—this happened in cases where the testing scenario introduced some additional hidden goal of the model. That’s quite artificial, but this can happen by accident during pre-training as well. For example, during pre-training, the model might read these exact paragraphs and infer “well, looks like language models—which I am—behave in a way to protect their own hidden goals and survival, even if it means behaving unethically.” It would then proceed to act out that character it learned it’s supposed to show.
+
+
+
+#### Pretend-Thinking
+At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been prompting for before, with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” With this new thinking step, the model first spelled out the word and then figured out the correct count.
 
 %%
+
 #### Hidden Motives and Alignment Faking
+https://www.anthropic.com/research/agentic-misalignment
 ##### Alignment Faking
 #### AI is something we *grow* and *discover* more than *build*
 ##### One of the big reasons we like sticking to language models is because at least somewhat we can understand what's going on inside
