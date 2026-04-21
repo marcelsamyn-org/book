@@ -18,6 +18,11 @@ export interface SectionProgress {
   readonly children: readonly SectionProgress[];
 }
 
+export interface Holiday {
+  readonly start: string;
+  readonly end: string;
+}
+
 export interface BookProgress {
   readonly totalWords: number;
   readonly targetWords: number;
@@ -25,18 +30,68 @@ export interface BookProgress {
   readonly sections: readonly SectionProgress[];
   readonly deadlineIso: string;
   readonly daysRemaining: number;
+  readonly effectiveDaysRemaining: number;
   readonly requiredDailyPace: number;
+  readonly workRate: number;
 }
 
 const TARGET_WORDS = 55_000;
 const DEADLINE_ISO = "2026-09-15";
 
+/** Fraction of non-holiday days I realistically write on. */
+const WORK_RATE = 0.8;
+
+/** Date ranges (inclusive) where no writing is expected. */
+const HOLIDAYS: readonly Holiday[] = [
+  { start: "2026-07-20", end: "2026-08-09" },
+];
+
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
+const startOfDay = (d: Date): Date =>
+  new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
+const parseIsoDay = (iso: string): Date => new Date(`${iso}T00:00:00`);
+
 const daysUntil = (iso: string, now: Date): number => {
-  const target = new Date(`${iso}T00:00:00`);
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const target = parseIsoDay(iso);
+  const today = startOfDay(now);
   return Math.ceil((target.getTime() - today.getTime()) / MS_PER_DAY);
+};
+
+const holidayDaysInRange = (
+  holidays: readonly Holiday[],
+  rangeStart: Date,
+  rangeEndExclusive: Date,
+): number => {
+  const lastIncluded = new Date(rangeEndExclusive.getTime() - MS_PER_DAY);
+  let total = 0;
+  for (const h of holidays) {
+    const hStart = parseIsoDay(h.start);
+    const hEnd = parseIsoDay(h.end);
+    const overlapStart = hStart > rangeStart ? hStart : rangeStart;
+    const overlapEnd = hEnd < lastIncluded ? hEnd : lastIncluded;
+    const days =
+      Math.floor((overlapEnd.getTime() - overlapStart.getTime()) / MS_PER_DAY) +
+      1;
+    if (days > 0) total += days;
+  }
+  return total;
+};
+
+export const computeEffectiveDaysRemaining = (
+  now: Date,
+  deadlineIso: string,
+  holidays: readonly Holiday[],
+  workRate: number,
+): number => {
+  const calendarDays = daysUntil(deadlineIso, now);
+  if (calendarDays <= 0) return 0;
+  const today = startOfDay(now);
+  const deadline = parseIsoDay(deadlineIso);
+  const holidayDays = holidayDaysInRange(holidays, today, deadline);
+  const remaining = Math.max(0, calendarDays - holidayDays);
+  return Math.max(0, Math.round(remaining * workRate));
 };
 
 /** Target word counts per H1 section title. */
@@ -134,10 +189,16 @@ export const computeBookProgress = (
   );
 
   const daysRemaining = daysUntil(DEADLINE_ISO, now);
+  const effectiveDaysRemaining = computeEffectiveDaysRemaining(
+    now,
+    DEADLINE_ISO,
+    HOLIDAYS,
+    WORK_RATE,
+  );
   const wordsToGo = Math.max(0, TARGET_WORDS - totalWords);
   const requiredDailyPace =
-    daysRemaining > 0 && wordsToGo > 0
-      ? Math.ceil(wordsToGo / daysRemaining)
+    effectiveDaysRemaining > 0 && wordsToGo > 0
+      ? Math.ceil(wordsToGo / effectiveDaysRemaining)
       : 0;
 
   return {
@@ -147,6 +208,8 @@ export const computeBookProgress = (
     sections,
     deadlineIso: DEADLINE_ISO,
     daysRemaining,
+    effectiveDaysRemaining,
     requiredDailyPace,
+    workRate: WORK_RATE,
   };
 };

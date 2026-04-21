@@ -60,7 +60,7 @@ const { Content } = await import("../../book.mdx");
     <CommitHistory commits={recentCommits} />
   </Fragment>
   <Fragment slot="word-history">
-    <WordHistoryGraph history={wordHistory} requiredDailyPace={progress.requiredDailyPace} />
+    <WordHistoryGraph history={wordHistory} requiredDailyPace={progress.requiredDailyPace} workRate={progress.workRate} />
   </Fragment>
   <span slot="progress-summary" class="opacity-40">{progressSummary}</span>
   <Fragment slot="progress">

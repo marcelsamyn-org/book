@@ -34,7 +34,7 @@ const empty = barWidth - filled;
   <div class="progress-pace">
     {progress.daysRemaining > 0 && progress.requiredDailyPace > 0 && (
       <>
-        {formatWordCount(progress.daysRemaining)} days until <span data-deadline={progress.deadlineIso}>{progress.deadlineIso}</span> &middot; need ~{formatWordCount(progress.requiredDailyPace)} words/day
+        {formatWordCount(progress.daysRemaining)} days until <span data-deadline={progress.deadlineIso}>{progress.deadlineIso}</span> &middot; need ~{formatWordCount(progress.requiredDailyPace)} words per writing day
       </>
     )}
     {progress.daysRemaining > 0 && progress.requiredDailyPace === 0 && (

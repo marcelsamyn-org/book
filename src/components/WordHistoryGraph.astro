@@ -8,17 +8,22 @@ import type {
 interface Props {
   history: WordHistory;
   requiredDailyPace?: number;
+  workRate?: number;
 }
 
-const { history, requiredDailyPace = 0 } = Astro.props;
+const { history, requiredDailyPace = 0, workRate = 1 } = Astro.props;
 
 const VIEW_HEIGHT = 40;
 
-/** Rough multipliers for scaling daily pace to the week/month views. */
+/**
+ * Multipliers for scaling the per-writing-day pace to week/month goal lines.
+ * With workRate < 1 the lines reflect "per typical writing week/month"
+ * rather than raw pace × 7 / pace × 30.
+ */
 const PACE_MULTIPLIER: Record<PeriodKind, number> = {
   day: 1,
-  week: 7,
-  month: 30,
+  week: 7 * workRate,
+  month: 30 * workRate,
 };
 
 interface SectionView {
