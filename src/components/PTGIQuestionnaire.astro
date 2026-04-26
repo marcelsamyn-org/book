@@ -1,0 +1,192 @@
+---
+interface Item {
+  n: number;
+  text: string;
+}
+
+interface Subscale {
+  key: string;
+  label: string;
+  note?: string;
+  items: Item[];
+}
+
+const subscales: Subscale[] = [
+  {
+    key: "personal-strength",
+    label: "Personal strength",
+    items: [
+      { n: 1, text: "I know I can better handle difficulties." },
+      { n: 2, text: "I discovered that I'm stronger than I thought I was." },
+    ],
+  },
+  {
+    key: "new-possibilities",
+    label: "New possibilities",
+    items: [
+      { n: 3, text: "New opportunities are available which wouldn't have been otherwise." },
+      { n: 4, text: "I established a new path for my life." },
+    ],
+  },
+  {
+    key: "relating-to-others",
+    label: "Relating to others",
+    items: [
+      { n: 5, text: "I have a greater sense of closeness with others." },
+      { n: 6, text: "I more clearly see that I can count on people in times of trouble." },
+    ],
+  },
+  {
+    key: "appreciation-of-life",
+    label: "Appreciation of life",
+    items: [
+      { n: 7, text: "I have a greater appreciation for the value of my own life." },
+      { n: 8, text: "I can better appreciate each day." },
+    ],
+  },
+  {
+    key: "existential-spiritual",
+    label: "Existential / spiritual change",
+    note: "These items replace the older religion-loaded set in PTGI-SF.",
+    items: [
+      { n: 9, text: "I feel more connected with all of existence." },
+      { n: 10, text: "I have a greater sense of harmony with the world." },
+    ],
+  },
+];
+
+const scaleLegend = [
+  { value: 0, label: "Not at all" },
+  { value: 1, label: "Very small degree" },
+  { value: 2, label: "Small degree" },
+  { value: 3, label: "Moderate degree" },
+  { value: 4, label: "Great degree" },
+  { value: 5, label: "Very great degree" },
+];
+---
+
+<form class="ptgi" aria-label="PTGI-X-SF questionnaire" novalidate>
+  <header class="ptgi-header">
+    <span class="ptgi-eyebrow">Self-assessment</span>
+    <h4 class="ptgi-title">PTGI&#x2011;X&#x2011;SF</h4>
+    <p class="ptgi-instructions">
+      Bring to mind a difficult event you've moved through. For each statement, rate the degree to which you experienced this change <em>as a result</em> of that crisis.
+    </p>
+    <ol class="ptgi-legend" aria-label="Rating scale">
+      {scaleLegend.map((s) => (
+        <li>
+          <span class="ptgi-legend-num">{s.value}</span>
+          <span class="ptgi-legend-label">{s.label}</span>
+        </li>
+      ))}
+    </ol>
+  </header>
+
+  {subscales.map((sub) => (
+    <fieldset class="ptgi-subscale" data-subscale={sub.key}>
+      <legend class="ptgi-subscale-legend">
+        <span class="ptgi-subscale-label">{sub.label}</span>
+        <span class="ptgi-subscale-score" data-subscale-score={sub.key} aria-live="polite">—/10</span>
+      </legend>
+      {sub.note && <p class="ptgi-subscale-note">{sub.note}</p>}
+      {sub.items.map((item) => (
+        <div class="ptgi-item" data-item={item.n}>
+          <p class="ptgi-item-text">
+            <span class="ptgi-item-num">{item.n}.</span>
+            <span>{item.text}</span>
+          </p>
+          <div class="ptgi-scale" role="radiogroup" aria-label={`Item ${item.n}`}>
+            {scaleLegend.map((s) => (
+              <label class="ptgi-scale-option" title={s.label}>
+                <input
+                  type="radio"
+                  name={`ptgi-${item.n}`}
+                  value={s.value}
+                  data-item-input={item.n}
+                  data-subscale-input={sub.key}
+                />
+                <span class="ptgi-scale-dot" aria-hidden="true"></span>
+                <span class="ptgi-scale-num">{s.value}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      ))}
+    </fieldset>
+  ))}
+
+  <div class="ptgi-total" data-ptgi-total aria-live="polite">
+    <div class="ptgi-total-row">
+      <span class="ptgi-total-label">Total</span>
+      <span class="ptgi-total-leader"></span>
+      <span class="ptgi-total-value"><span data-ptgi-total-value>0</span><span class="ptgi-total-max">/50</span></span>
+    </div>
+    <div class="ptgi-total-bar" aria-hidden="true">
+      <div class="ptgi-total-bar-fill" data-ptgi-total-fill></div>
+    </div>
+    <p class="ptgi-total-hint" data-ptgi-hint>
+      Answer all 10 items to see your score.
+    </p>
+    <button type="reset" class="ptgi-reset">Reset</button>
+  </div>
+</form>
+
+<script>
+  type ItemInput = HTMLInputElement & { dataset: { itemInput: string; subscaleInput: string } };
+
+  document.querySelectorAll<HTMLFormElement>("form.ptgi").forEach((form) => {
+    const totalValueEl = form.querySelector<HTMLElement>("[data-ptgi-total-value]");
+    const totalFillEl = form.querySelector<HTMLElement>("[data-ptgi-total-fill]");
+    const hintEl = form.querySelector<HTMLElement>("[data-ptgi-hint]");
+    const totalContainer = form.querySelector<HTMLElement>("[data-ptgi-total]");
+    if (!totalValueEl || !totalFillEl || !hintEl || !totalContainer) return;
+
+    const interpret = (score: number): string => {
+      if (score <= 10) return "Early days. Growth often unfolds across months and years of meaning-making.";
+      if (score <= 25) return "Some growth has taken root. Notice which domains scored highest — those are your seams.";
+      if (score <= 40) return "Substantial growth. The crisis has been integrated into who you're becoming.";
+      return "Profound transformation across most domains.";
+    };
+
+    const recompute = () => {
+      const inputs = form.querySelectorAll<ItemInput>("input[data-item-input]:checked");
+      const subscaleTotals = new Map<string, number>();
+      let total = 0;
+      inputs.forEach((input) => {
+        const value = Number(input.value);
+        total += value;
+        const key = input.dataset.subscaleInput;
+        subscaleTotals.set(key, (subscaleTotals.get(key) ?? 0) + value);
+      });
+
+      totalValueEl.textContent = String(total);
+      totalFillEl.style.width = `${(total / 50) * 100}%`;
+
+      form.querySelectorAll<HTMLElement>("[data-subscale-score]").forEach((el) => {
+        const key = el.dataset["subscaleScore"];
+        if (!key) return;
+        const sub = subscaleTotals.get(key);
+        const items = form.querySelectorAll<ItemInput>(`input[data-subscale-input="${key}"]:checked`);
+        if (items.length === 2 && sub !== undefined) {
+          el.textContent = `${sub}/10`;
+          el.classList.add("is-complete");
+        } else {
+          el.textContent = "—/10";
+          el.classList.remove("is-complete");
+        }
+      });
+
+      const allAnswered = inputs.length === 10;
+      totalContainer.classList.toggle("is-complete", allAnswered);
+      hintEl.textContent = allAnswered
+        ? interpret(total)
+        : `${10 - inputs.length} item${10 - inputs.length === 1 ? "" : "s"} left.`;
+    };
+
+    form.addEventListener("change", recompute);
+    form.addEventListener("reset", () => {
+      window.requestAnimationFrame(recompute);
+    });
+    recompute();
+  });
+</script>
