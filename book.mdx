@@ -1,5 +1,6 @@
 import ChatExhibit from './src/components/ChatExhibit.astro';
 import ChatResponse from './src/components/ChatResponse.astro';
+import ElizaBreakdown from './src/components/ElizaBreakdown.astro';
 import PTGIQuestionnaire from './src/components/PTGIQuestionnaire.astro';
 
 # Overview
@@ -551,9 +552,9 @@ So we will always be attracted to "someone" that says what we want to hear and a
 
 
 #### Why We Get Attached To Machines
-Our robot lawn mower is cute. It navigates purely with its cameras, so often it drives to the middle of the lawn, looks around left and right, then drives a bit forwards to have another look from a different angle, before it figures out where it is and then proceeds to where it needs to mow next. It’s entertaining to watch because you can see it think: “Hmm, where am I now? Is this that corner where...no, must be over there. Was this flower here already last time? Ow, what’s this on the floor now? Ummm let me go there...oh wait, back off a little, no, this way.” My vacuum cleaner provides similar entertainment when it’s stubbornly convinced it can drive over something that’s quite high, and it takes a good minute of approaching from different angles before it tips over and manages to continue.
+Our robot lawn mower is cute. It navigates purely with its cameras, so often it drives to the middle of the lawn, looks around left and right, then drives a bit forwards to have another look from a different angle, before it figures out where it is and then proceeds to mow. It’s entertaining to watch because you can see it think: “Hmm, where am I now? Is this that corner where...no, must be over there. Was this flower here already last time? Ow, what’s this on the floor now? Ummm let me go there...oh wait, back off a little, no, this way.” My vacuum cleaner provides similar entertainment when it’s stubbornly convinced it can drive over something that’s quite high, and it takes a good minute of approaching from different angles before it tips over and manages to continue.
 
-Obviously, these robots are no living creatures. They don’t have thoughts, emotions, a personality—anything like that. Yet somehow, everyone attributes some of those when they see these machines do their work. Human social cognition is “promiscuous” by design: we tend to err on the side of assuming something else has agency, a mind, intention and relationship. There are only a few cues we need to activate that machinery and sometimes it’s very useful! In traffic, I’m sure that the design someone picked for the car they’re driving, and the subtle swings we see the car do, tell us a lot about how we can expect that car to behave in traffic (because they reveal something about the driver).
+Obviously, these robots are no living creatures. They don’t have thoughts, emotions, a personality—anything like that. Yet somehow, everyone attributes some of those traits when they see these machines do their work. Human social cognition is “promiscuous” by design: we tend to err on the side of assuming something else has agency, a mind, intention and relationship. There are only a few cues we need to activate that machinery and sometimes it’s very useful! In traffic, I’m sure that the design someone picked for the car they’re driving, and the subtle swings we see the car do, tell us a lot about how we can expect that car to behave in traffic (because they reveal something about the driver).
 
 Even with regular computers we act as if they’re social beings, and this happens completely subconsciously, even when we clearly understand computers are not humans. For example, when a computer asks about its own performance (“am I doing a good job?”) we will be more positive compared to when someone else asked about the computer’s performance (“is the computer doing a good job?”). We tend to anthropomorphize (assume something’s humanlike) when they show humanlike knowledge, when we want to understand or predict it, and/or when we are socially motivated—for example when we’re lonely we tend to anthropomorphize more easily.
 
@@ -562,14 +563,39 @@ Computers are social actors; Nass, 1994; doi:10.1145/191666.191703
 On seeing human: a three-factor theory of anthropomorphism; Epley, 2007; doi:10.1037/0033-295X.114.4.864
 %%
 
-Because our social wiring makes it so easy for us to create bonds, “fake” relationships have existed for a long time in different shapes. Para-social interaction, one-sided interaction, happens through mass communication like television shows and between pop stars and their audience. People do feel like they build real emotional bonds with famous people they’ve never met in real life. Even just thinking about your favorite TV show will temporarily satisfy your need for belonging and can buffer loneliness a bit.
+Because our social wiring makes it so easy for us to create bonds, “fake” relationships have existed for a long time in different shapes. Para-social interaction, which means *one-sided interaction*, happens through mass communication like television shows and between pop stars and their audience. People do feel like they build real emotional bonds with famous people they’ve never met in real life. Even just thinking about your favorite TV show can temporarily satisfy your need for belonging and can buffer loneliness a bit.
 
 %%
 Mass communication and para-social interaction; observations on intimacy at a distance; Horton, 1954; doi:10.1080/00332747.1956.11023049
 Social surrogacy: How favored television programs provide the experience of belonging; Derrick, 2008; doi:10.1016/j.jesp.2008.12.003
 %%
 
-Then with early computers came
+Then with early computers a new world opened because these (still para-social) relationships could become *interactive*. All the way back in 1966, Joseph Weizenbaum built ELIZA, an early chatbot that used simple pattern matching to write its responses. It would detect a verb, for example, and then cut out a piece of what you wrote to re-assemble it into a response. The famous DOCTOR script got people to attribute real understanding to it—the anecdote from IBM says that Weizenbaum’s assistant asked him to leave the room after a few minutes so she could privately with the program.
+
+<ElizaBreakdown
+  input="Well, my boyfriend made me come here."
+  keyword="my"
+  pattern="(0 MY 0)"
+  fragment="boyfriend made me come here"
+  substitutions={[{ from: "me", to: "you" }]}
+  transformedFragment="boyfriend made you come here"
+  template="Your $ ?"
+  response="Your boyfriend made you come here?"
+/>
+
+There’s no understanding underneath—just a ranked table of keywords, a few decomposition rules and a handful of canned templates. But because the script reflects your own words back at you in the rhythm of a therapist, it’s easy to feel heard. And it turns out we’re remarkably sensitive to this, especially when we’re already kind of lonely. So the next ingredient we’ve just discovered is **self-disclosure**: intimacy grows when we reveal ourselves and when it’s accepted.
+
+%%
+ELIZA—a computer program for the study of natural language communication between man and machine; Weizenbaum, 1966; doi:10.1145/365153.365168
+%%
+
+Then came virtual pets like the Tamagotchi. Tamagotchis are small keychain devices with an LED screen of a virtual pet that needs feeding, cleaning and attention in general. If you keep forgetting to attend to it when it beeps, it will die eventually. If you take care of it well enough, it’ll evolve and grow. This became extremely popular extremely quickly in 1996, specifically with teenage girls. They would form real bonds with their “pet” and show signs of depression when it would inevitably die. The Tamagotchi doubled down on another ingredient that creates emotional attachment: **neediness**. Technically simple, but it engaged themes of care, death, habits, attachment, ethics and emotional well-being.
+
+%%
+TODO: Add pictures
+%%
+
+
 
 %%
 #### [1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance](1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance)

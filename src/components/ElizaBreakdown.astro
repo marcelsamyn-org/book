@@ -1,0 +1,160 @@
+---
+/**
+ * Visualizes how the 1966 ELIZA / DOCTOR script turns a user message into a
+ * reply: keyword detection, decomposition around wildcards, pronoun flips, and
+ * reassembly into a canned template. Aliases: eliza, doctor, weizenbaum,
+ * pattern matching, chatbot.
+ */
+
+interface Substitution {
+  readonly from: string;
+  readonly to: string;
+}
+
+interface Props {
+  /** The user's typed message. */
+  readonly input: string;
+  /** Keyword ELIZA matches in the rule table. Must appear in `input`. */
+  readonly keyword: string;
+  /** Decomposition pattern shown to the reader, e.g. "(0 MY 0)". */
+  readonly pattern: string;
+  /** Wildcard-captured fragment from `input`. Must appear in `input`. */
+  readonly fragment: string;
+  /** Pronoun substitutions applied inside the captured fragment. */
+  readonly substitutions?: readonly Substitution[];
+  /** The fragment after pronoun flips. Defaults to `fragment` unchanged. */
+  readonly transformedFragment?: string;
+  /** Reassembly template with a single `$` placeholder, e.g. "Your $ ?". */
+  readonly template: string;
+  /** ELIZA's final reply. The transformed fragment must appear inside it. */
+  readonly response: string;
+}
+
+const {
+  input,
+  keyword,
+  pattern,
+  fragment,
+  substitutions = [],
+  transformedFragment = fragment,
+  template,
+  response,
+} = Astro.props;
+
+const fail = (msg: string): never => {
+  throw new Error(`ElizaBreakdown: ${msg}`);
+};
+
+const fragIdx = input.indexOf(fragment);
+if (fragIdx < 0) {
+  fail(`fragment "${fragment}" not found in input "${input}".`);
+}
+
+const beforeFrag = input.slice(0, fragIdx);
+const afterFrag = input.slice(fragIdx + fragment.length);
+
+const kwIdx = beforeFrag.toLowerCase().lastIndexOf(keyword.toLowerCase());
+if (kwIdx < 0) {
+  fail(`keyword "${keyword}" not found ahead of fragment in input.`);
+}
+
+const beforeKw = beforeFrag.slice(0, kwIdx);
+const kwActual = beforeFrag.slice(kwIdx, kwIdx + keyword.length);
+const betweenKwAndFrag = beforeFrag.slice(kwIdx + keyword.length);
+
+const respIdx = response.indexOf(transformedFragment);
+if (respIdx < 0) {
+  fail(`transformedFragment "${transformedFragment}" not found in response.`);
+}
+
+const respBefore = response.slice(0, respIdx);
+const respFrag = response.slice(respIdx, respIdx + transformedFragment.length);
+const respAfter = response.slice(respIdx + transformedFragment.length);
+
+const templateParts = template.split("$");
+if (templateParts.length !== 2) {
+  fail(`template must contain exactly one "$" placeholder.`);
+}
+const [tplLeft, tplRight] = templateParts as [string, string];
+
+const hasSubs = substitutions.length > 0;
+const reassembleNum = hasSubs ? "04" : "03";
+---
+
+<aside class="eliza" aria-label="ELIZA pattern matching breakdown">
+  <span class="eliza-eyebrow">ELIZA · DOCTOR script · 1966</span>
+
+  <div class="eliza-msg eliza-msg-user">
+    <span class="eliza-msg-tag">User</span>
+    <p class="eliza-msg-body">{beforeKw}<mark class="eliza-kw">{kwActual}</mark>{betweenKwAndFrag}<mark class="eliza-frag">{fragment}</mark>{afterFrag}</p>
+  </div>
+
+  <ol class="eliza-steps">
+    <li class="eliza-step">
+      <span class="eliza-step-tag">01 · Detect</span>
+      <p class="eliza-step-body">
+        Scan the input against a ranked list of keywords until one hits.
+        First match: <span class="eliza-pill">{keyword.toUpperCase()}</span>
+      </p>
+    </li>
+
+    <li class="eliza-step">
+      <span class="eliza-step-tag">02 · Decompose</span>
+      <p class="eliza-step-body">
+        Split the input around the keyword using the rule's pattern. Each
+        <span class="eliza-zero">0</span> is a wildcard that swallows whatever sits beside the keyword.
+      </p>
+      <div class="eliza-block">
+        <span class="eliza-block-tag">Pattern</span>
+        <span class="eliza-block-code">{pattern}</span>
+      </div>
+      <div class="eliza-block">
+        <span class="eliza-block-tag">Captured</span>
+        <span class="eliza-block-code"><mark class="eliza-frag">{fragment}</mark></span>
+      </div>
+    </li>
+
+    {hasSubs && (
+      <li class="eliza-step">
+        <span class="eliza-step-tag">03 · Flip pronouns</span>
+        <p class="eliza-step-body">
+          Run the captured fragment through a pronoun-flip table so the reply
+          addresses the user instead of echoing them.
+        </p>
+        <ul class="eliza-subs">
+          {substitutions.map((sub) => (
+            <li class="eliza-sub">
+              <span class="eliza-sub-from">{sub.from}</span>
+              <span class="eliza-sub-arrow">→</span>
+              <span class="eliza-sub-to">{sub.to}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="eliza-block">
+          <span class="eliza-block-tag">Result</span>
+          <span class="eliza-block-code"><mark class="eliza-frag">{transformedFragment}</mark></span>
+        </div>
+      </li>
+    )}
+
+    <li class="eliza-step">
+      <span class="eliza-step-tag">{reassembleNum} · Reassemble</span>
+      <p class="eliza-step-body">
+        Slot the {hasSubs ? "transformed " : ""}fragment into one of the rule's reassembly templates. ELIZA cycles through them so it doesn't repeat itself.
+      </p>
+      <div class="eliza-block">
+        <span class="eliza-block-tag">Template</span>
+        <span class="eliza-block-code">{tplLeft}<span class="eliza-slot eliza-slot-empty">·····</span>{tplRight}</span>
+      </div>
+      <div class="eliza-block">
+        <span class="eliza-block-tag">Filled</span>
+        <span class="eliza-block-code">{tplLeft}<span class="eliza-slot eliza-slot-filled">{transformedFragment}</span>{tplRight}</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="eliza-msg eliza-msg-bot">
+    <span class="eliza-msg-tag">ELIZA</span>
+    <p class="eliza-msg-body">{respBefore}<mark class="eliza-frag">{respFrag}</mark>{respAfter}</p>
+  </div>
+</aside>
