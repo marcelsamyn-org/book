@@ -732,11 +732,31 @@ Of course not! But our AI chatbots have not only learned to sound very intellige
 
 One visceral example is relationship advice. George Shaw, a computer science student at the University of Waterloo, analyzed 15 years of comments on the *relationship advice* forum on Reddit. Between 2010 and 2025, the amount of times people recommended end a relationship increased from about 30% to almost 50%—with the advice for communicating or giving space declining. To me, that doesn’t sound like the right direction.
 
-What would AI say? Would it give a more balanced view, or would it tell people to break up? I ran the test.
-
 %%
 [OC] I analyzed 15 years of comments on r/relationship_advice; George Shaw, 2025; https://www.reddit.com/r/dataisbeautiful/comments/1o87cy4/oc_i_analyzed_15_years_of_comments_on/
 %%
+
+What would AI say? Would it give a more balanced view, or would it tell people to break up?
+
+I ran the test myself. Even when people on the internet are jumping to this conclusion and it seems to make sense, I wanted to be sure. So I collected a bunch of recent posts from that same advice forum, let a few leading language models give advice (a few times each, so we have an average), and then have another model check what advice they actually gave. I also checked what advice the real people on these posts gave.
+
+Turns out we can let out a sigh of relief. The “real” people in these comments recommended breaking up primarily in 42% of the cases, and language models only in 20% of the cases. Why? Well, we it’s still true that models are pre-trained on the entire internet, but there are a few ways that could have influenced it to respond in a way that’s different than this “consensus:”
+
+- It learned from all-time data, without a bias towards recent data
+- There are plenty more places online with relationship advice, this specific forum just advises breaking up very often
+- The post-training phase, which contains more curated data and human preference, steered the model towards a more balanced view
+- The models are using some of their “intelligence” to come to the conclusion themselves that they don’t need to advise the same way as the norm
+
+It surprised me to see that there’s quite some behavior difference *between* the language models, which might point to the hypothesis that post-training has something to do with it (post-training data is *private* data owned by the companies training the models):
+
+- For Claude and GPT, the larger more intelligent models recommended breaking up more often (Claude Opus 4.6 30%, Claude Sonnet 4.6 21%, GPT-5 15%, GPT-5 Mini 5.7%).
+- Gemini 3 Flash (their smaller model) topped the AI ranks, recommending breaking up as the primary answer 33% of the time.
+- Gemini 3 Pro, however, generally avoided making *any* recommendation at all. It mostly showed empathy and listened, but avoided giving direct advice (and when it did, it mostly recommended self-reflection).
+- All AI’s except Gemini Pro recommended communicating to their partner as the strongest piece of advice most of the time. In human responses, this was the primary advice 11% of the time (vs. 42% being to break up).
+- None of the AI’s responded in a harsh way, humans did 14% of the time.
+- The AI’s were quite consistent: most gave the same advice 90%+ of the time when I asked again. Humans were much less consistent with only 54% consensus.
+
+%% TODO Ask Marine for input %%
 
 #### Disempowerment Patterns
 
