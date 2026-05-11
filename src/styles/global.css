@@ -3,35 +3,85 @@
 @source "../**/*.astro";
 @source "../**/*.mdx";
 
+/* ── Kalon design system ─────────────────────────────────
+   Palette, fonts and accents pulled from kalon.solutions.
+   Headings live on a blue scale; CTAs / interactive accents
+   live on an orange scale; everything sits on a warm-gray
+   paper ground. Book content keeps its monospace draft vibe
+   via the `book-body` class on <main>. */
+
 :root {
-  --ink: #1C1917;
-  --ink-secondary: #57534E;
-  --ink-muted: #A8A29E;
-  --paper: #FAF9F6;
-  --paper-inset: #F0EFEB;
-  --rule: #E7E5E4;
-  --accent: #92400E;
-  --accent-hover: #78350F;
+  /* Semantic tokens (light) */
+  --ink: var(--color-gray-900);
+  --ink-secondary: var(--color-gray-700);
+  --ink-muted: var(--color-gray-500);
+  --paper: var(--color-gray-50);
+  --paper-inset: var(--color-gray-100);
+  --rule: var(--color-gray-200);
+  --heading: var(--color-blue-800);
+  --heading-secondary: var(--color-blue-700);
+  --link: var(--color-blue-600);
+  --link-underline: var(--color-blue-300);
+  --link-hover: var(--color-orange-600);
+  --link-hover-underline: var(--color-orange-300);
+  --accent: var(--color-orange-600);
+  --accent-hover: var(--color-orange-700);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #E7E5E4;
-    --ink-secondary: #A8A29E;
-    --ink-muted: #78716C;
-    --paper: #151311;
-    --paper-inset: #211F1C;
-    --rule: #3A3733;
-    --accent: #D97706;
-    --accent-hover: #FBBF24;
+    --ink: var(--color-gray-50);
+    --ink-secondary: var(--color-gray-300);
+    --ink-muted: var(--color-gray-500);
+    --paper: oklch(20% 0.012 67);
+    --paper-inset: oklch(25% 0.014 67);
+    --rule: oklch(32% 0.014 67);
+    --heading: var(--color-blue-300);
+    --heading-secondary: oklch(70% 0.10 240);
+    --link: var(--color-blue-300);
+    --link-underline: color-mix(in srgb, var(--color-blue-300) 45%, transparent);
+    --link-hover: var(--color-orange-300);
+    --link-hover-underline: color-mix(in srgb, var(--color-orange-300) 55%, transparent);
+    --accent: var(--color-orange-400);
+    --accent-hover: var(--color-orange-300);
   }
 }
 
 @theme extend {
-  --font-serif: "Lora", Georgia, "Times New Roman", serif;
-  --font-display: "Lora", Georgia, serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: "Lora", ui-serif, Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
+  /* Warm-gray paper scale (Kalon) */
+  --color-gray-50:  oklch(95.7% 0.006 59.72);
+  --color-gray-100: oklch(92.3% 0.010 58.25);
+  --color-gray-200: oklch(83.8% 0.027 67.45);
+  --color-gray-300: oklch(76.1% 0.031 67.34);
+  --color-gray-400: oklch(68.2% 0.027 65.40);
+  --color-gray-500: oklch(59.8% 0.024 65.08);
+  --color-gray-600: oklch(51.0% 0.020 67.35);
+  --color-gray-700: oklch(41.4% 0.017 67.33);
+  --color-gray-900: oklch(23.4% 0.010 67.32);
+
+  /* Blues — headings, links */
+  --color-blue-200: oklch(85.1% 0.069 246.65);
+  --color-blue-300: oklch(78.1% 0.107 241.92);
+  --color-blue-500: oklch(63.4% 0.118 239.32);
+  --color-blue-600: oklch(56.6% 0.105 238.66);
+  --color-blue-700: oklch(49.4% 0.092 239.03);
+  --color-blue-800: oklch(37.7% 0.071 239.41);
+
+  /* Oranges — CTAs, accents, link hover */
+  --color-orange-200: oklch(86.0% 0.070 48.81);
+  --color-orange-300: oklch(79.3% 0.115 51.89);
+  --color-orange-400: oklch(72.7% 0.143 56.82);
+  --color-orange-500: oklch(65.5% 0.129 56.78);
+  --color-orange-600: oklch(57.7% 0.113 56.71);
+  --color-orange-700: oklch(50.8% 0.100 56.74);
+  --color-orange-800: oklch(38.6% 0.076 56.58);
+
+  /* Semantic aliases */
   --color-ink: var(--ink);
   --color-ink-secondary: var(--ink-secondary);
   --color-ink-muted: var(--ink-muted);
@@ -40,11 +90,14 @@
   --color-rule: var(--rule);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-heading: var(--heading);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
 }
 
 ::selection {
-  background-color: var(--accent);
-  color: white;
+  background-color: var(--color-blue-200);
+  color: var(--color-gray-900);
 }
 
 /* ── Content typography ─────────────────────────────────── */
@@ -63,7 +116,13 @@ main :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-display);
   line-height: 1.2;
   position: relative;
-  color: var(--ink);
+  color: var(--heading);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+main :is(h3, h4) {
+  color: var(--heading-secondary);
 }
 
 main h1 { font-size: 1.75rem; margin: 3.5rem 0 0.75rem; }
@@ -97,16 +156,17 @@ main strong {
 }
 
 main a:not(.heading-anchor) {
-  color: var(--accent);
+  color: var(--link);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-color: var(--link-underline);
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
-  transition: text-decoration-color 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 main a:not(.heading-anchor):hover {
-  text-decoration-color: var(--accent);
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover-underline);
 }
 
 main code {
@@ -174,7 +234,8 @@ main li {
 .toc-parent {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  color: var(--ink);
+  color: var(--heading-secondary);
+  font-weight: 600;
   padding: 0.3rem 0;
 }
 
@@ -274,7 +335,8 @@ main li {
 
 .progress-title {
   font-family: var(--font-display);
-  color: var(--ink);
+  color: var(--heading-secondary);
+  font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
 }
