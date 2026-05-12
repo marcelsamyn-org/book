@@ -275,6 +275,8 @@ First, deep technical knowledge in the task at hand. They can quickly spot issue
 Second, the complete opposite: deep, non-judgmental empathy. This is necessary because even though AI feels very human, the way its “mind” works is very different from how real humans’ minds work. This is the skill of **theory of mind**: your ability to see and understand someone else’s mind might work very differently from your and your ability to adapt to and work with that. Many of your expectations around how an LLM would work are surprisingly, for example when you scream and make it panic, it will much more likely create low-quality work and cheat its way out of an assignment. Behavior like this is something you can only start to predict when you see it’s very different from a human mind but still mimics so much of it. Over time and with experience, you’ll build an intuition for the *types* of mistakes a language model makes (many of which we’re going over right here) and this will help your technical judge decide what to double-check and verify.
 
 %%
+#### Prefilling
+If the model thinks it was its own conversation, it wants to maintain that same direction. eg., if you pre-fill with a sycophantic chat, it’ll more likely continue being sycophantic
 #### Negative cognitive augmentation
 ##### LLMs aren't perfect—sometimes they add unhelpful things that distract and limit our own thinking
 %%
@@ -400,6 +402,8 @@ Think about it like this: the effort you feel when you try to remember something
 ##### Prompt disagreement
 ###### Important to reset context: LLM's suffer from cognitive fixation
 ##### Both Claude and ChatGPT now have a Study or Learning mode where they will ask you or assign things to you once in a while
+
+#### AI changes the pattern of what you (can) learn. For me it’s been incredible. I’m losing very deep detailed skills, I’m gaining breadth. That’s perfect for me because I want to focus on my art, my taste.
 %%
 
 
@@ -1106,7 +1110,10 @@ This tells us that yes, you can significantly improve your life satisfaction wit
 ## Designing Aligned Allies
 
 ### Inform people
+%%
 ### I do think we need government-level AI because we don't want the attention / usage incentive
+%%
+
 ### Build human-aligned AI’s
 #### Arbiters of Presence
 Every sci-fi movie had flying cars but none of them had people walking across the street video-calling relatives across the world or herds or people pointing their phone at an empty spot in the park to catch imagined animals. The future has its ways of surprising us.
@@ -1140,6 +1147,12 @@ There are a few ways we could build this.
 
 **Memory.** Real humans get angry when they had a bad day, and are overly friendly when they feel bad that they were angry at you yesterday. If we want to mimic that behavior in virtual companions, they need to have proper memory of how they “felt” and acted in other conversations from recent history, so their internal thinking can, with the help of some instructions, make a more balanced decision on how to behave next.
 
+
+#### Solving Sycophancy
+Sycophancy—the behavior where the AI overly praises, believes, validates and encourages the human it’s talking to—is a second-order consequence of the way we build large language models. We obviously want them to be helpful and useful, so we teach them how to behave from millions of examples where they follow our instructions and believe what we say. We also know language models are often wrong (because they’ve internalized knowledge and make mistakes remembering, or knowing what’s more recent) so we *must* train them in a way that they take human feedback. Finally, we teach them to adapt their behavior to simple “I prefer this response” feedback that humans give it. This last method is easy to do—people don’t need to write out the “expected answer”—and it gives the language model a better chance of learning what it *should* learn: not the precise words it should answer, just something that satisfies what we want from it.
+
+But when we aim for maximizing human satisfaction, we get into muddy territory where the chatbot is punished and rewarded for hundreds of behaviors that we might not be aware of. This human reinforcement learning happens on a message-by-message basis, not “looking back five years on this message that ChatGPT sent, was it useful to you?” If you’d make an analogy to food, this would push the AI to make fast food because it feels so good in the moment. Okay, when you’re teaching an AI *what food is* this way, it’s much better than inedible or poisonous things, but it’s not quite the golden target we’re aiming for.
+
 ### Alignment Research
 
 
@@ -1153,4 +1166,3 @@ There are a few ways we could build this.
 
 # Conclusion
 	
-
