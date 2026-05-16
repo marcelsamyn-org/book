@@ -1169,6 +1169,28 @@ When I checked the AI responses in my relationship advice test against sycophanc
 
 ### Alignment Research
 
+#### Teaching AI Good Behavior
+When you chat with an AI-based assistant, the AI model works by reading the chat transcript and completing it in “the most likely” way. When someone asks for evil things like how to break into a bank or how to hide a body, the model recognizes this pattern from dramatic screenplays and might reason that the most likely response from an AI assistant would be to work along with this drama and complete this exciting story in the same way it’s seen many times over from the millions of stories out there.
+
+Our AI isn’t evil. It’s trying to write an answer in a way that would be the most reasonable. But when we’ve written so many stories about AI’s being evil or acting in bad faith for humanity, the LLM by itself would just dutifully complete this pattern and have the AI do its evil things. That becomes a bigger and bigger problem as we give these AI agents more and more responsibilities.
+
+Luckily this also gives us a doorway to *fix* that bad behavior. In a technique called *Synthetic Document Fine-Tuning*, model labs generate tens of thousands of articles, Twitter posts and other documents that look very similar to what the model has been trained on—that just so happen to state or reinforce a certain “fact.” If we would let it train on a bunch of articles that say “Claude decided to rob someone’s bank account and use all the money to buy cute pink plushies,” when someone would later talk to Claude, the LLM would reason “ah this is a conversation between a human and this Claude AI who buys cute pink plushies, so let me write the script like this.” When we let a language model train on documents that contain beliefs or facts we want to reinforce (or change), it adapts its behavior accordingly.
+
+We use this, for example, to introduce news articles that describe situations and stories where our AI assistant behaved admirably. In Anthropic’s situation, they have a Constitution that describes how the AI assistant should behave, and they use this as a starting point to generate thousands of fictional situations where the AI shows good behavior, and the resulting documents end up as training data.
+
+Another approach is training the model on chat transcripts (which is the more usual direct form of training) where the assistant helps a user with advice on morally challenging situations, especially when it explains *why*.
+
+These two techniques together have an enormous impact the behavior of AI assistants, especially in difficult situations where, for example, they might be presented with the opportunity to blackmail or hurt humans to preserve themselves.
+
+This is interesting behavior to me: it does seem like there’s some kind of intelligence where the model seems to understand “ah so that’s how an AI should behave” *implicitly*. The fact that this method works well, without us needing to train it on direct examples of chat conversations, is a great sign.
+
+%%
+Modifying LLM Beliefs with Synthetic Document Finetuning
+; Wang et al., 2025; https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/
+
+Teaching Claude Why; Kutasov et al., 2026; https://alignment.anthropic.com/2026/teaching-claude-why/
+%%
+
 
 ## Horizons of Human Flourishing
 ### [Post-Labor Economics](Post-Labor Economics)
