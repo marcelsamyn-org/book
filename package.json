@@ -9,6 +9,7 @@
     "research:questions": "bun run src/tools/generate-questions.ts",
     "research:dashboard": "bun run src/tools/research-dashboard.tsx",
     "build:site": "astro build",
+    "report:progress": "bun run src/publish/reportProgress.ts",
     "dev:site": "astro dev",
     "preview": "astro preview",
     "netlify": "netlify"

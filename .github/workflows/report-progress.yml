@@ -1,0 +1,30 @@
+name: Report progress to petals
+
+# Pushes the manuscript completion percentage to petals after every change to
+# the book. Independent of the Netlify deploy. Runs src/publish/reportProgress.ts.
+on:
+  push:
+    branches: [main]
+    paths: ["book.mdx"]
+  workflow_dispatch:
+
+# A later push supersedes an in-flight run; no point reporting a stale percentage.
+concurrency:
+  group: report-progress
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.2.23"
+      - run: bun install --frozen-lockfile
+      - run: bun run report:progress
+        env:
+          PETALS_API_KEY: ${{ secrets.PETALS_API_KEY }}
