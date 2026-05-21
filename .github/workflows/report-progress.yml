@@ -20,14 +20,11 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.2.23"
-      # Not --frozen-lockfile: bun.lock currently drifts from package.json
-      # (tailwindcss 4.2.1 vs ^4.2.2). This job only needs the deps to run the
-      # reporter, so a plain install keeps it independent of that drift.
-      - run: bun install
+      - run: bun install --frozen-lockfile
       - run: bun run report:progress
         env:
           PETALS_API_KEY: ${{ secrets.PETALS_API_KEY }}
