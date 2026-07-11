@@ -102,13 +102,33 @@ We will forever be debating whether our Artificial Intelligence is "intelligent"
 
 #### AI is already insanely smart
 
-In the six months between the idea of this book and starting to write this section, my perspective on how "smart" AI is has changed quite a bit. I'm a heavy user of AI in programming (which is one of its biggest strengths) and my opinion shifted from "well it's okay, it's very fast but makes stupid mistakes, so I'm not sure what's the right trade-off" to "you'd be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel."
+In the six months between the idea of this book and starting to write this section, my perspective on how "smart" AI is has changed quite a bit. I'm a heavy user of AI in programming (which is one of its biggest strengths) and my opinion shifted from "well it's okay, it's very fast but makes stupid mistakes, so I'm not sure what's the right trade-off is” to "you'd be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel."
 
-The shape of language models' intelligence is very different from what we are used to in our fellow humans. These AI's are much smarter than us in many ways, and complete idiots in other situations.
+LLM's are now beating humans at programming, math olympiads and of course speed of reading. Generative AI tools have made new scientific discoveries and taken over our media by generating all kinds of images and video's that couldn't be made before.
 
-For example, LLM's are now beating humans at programming, math olympiads and of course speed of reading. Generative AI tools have made new scientfic discoveries and taken over our media by generating all kinds of images and video's that couldn't be made before.
+#### The intelligence curve doesn't seem to be stopping
 
-At the same time, they routinely forget what instructions you just gave them, seem to have no capacity of being fully honest (they try to respond with what you'll like), are terrible at spatial reasoning and common sense and make all kinds of "weird" mistakes.
+One thing cannot be denied: the *pace* at which language models are getting smarter. We humans intuitively understand linear growth---AI scoring a few more points on the intelligence scale, so to speak---but not exponential growth. When something grows exponentially fast, it feels like nothing is happening for a long time but then suddenly everything changes. Think of how quickly the internet, social media and the smartphone have become something almost everyone on the planet has. And there are still plenty of people alive today who remember a time when computers didn't exist.
+
+AI though is growing at a *hyper*-exponential pace. That's an exponential of an exponential. In 2020, AI could do tasks that take a human about 6 seconds. In 2022 that became 36 seconds (6x growth in 2 years). In 2023, 4 minutes (9x growth in 1 year). In 2024, 11 minutes. In 2025, 3 hours and 23 minutes. At the beginning of 2026, AI could do tasks that take human experts 12 hours. So even if you feel like there's no way AI could do your job today, what about in one year where it got another 100 times better?
+
+%%
+TODO: Add graphs
+%%
+
+I'll give you some more anecdotes to try and give that intuition for this pace of growth.
+
+In 2020, we were testing the very best of AI by checking if they could do three-digit multiplication. In 2025, we were testing them by checking if they could solve condensed matter physics questions that only a fraction of humans even understand.
+
+I remember in 2023, working as a software developer, I was teaching our team to use these new AI tools to write our code. It could automatically write the next few words or lines of code which was correct half of the time. We could use ChatGPT if you needed a lot of simple code but not much more. Today, I can delegate hundreds of files to be edited at once, with such high confidence that I don’t even review many of the changes it’s making.
+
+That's what you have access to today, by tapping open an app on your phone and speaking to it, for a fraction of the cost of what a real person would cost.
+
+#### AI is also surprisingly stupid
+
+When you ask anyone who uses AI a lot and likes using it, you'll see that they are *also* very skeptical. There's no "pro AI" and "anti AI" groups---they are the same people. The reason for this is because we have all experienced the jaggedness of language models: one moment you feel like you're on the interstellar superintelligence highway, the other you feel like you're trying to explain yourself to a ten year old. These models are already making new scientific discoveries, and at the same time they're sometimes incapable of even honoring the request to "please don't repeat every question I ask you." Language models are now at the top of the mathematics olympiad and competitive programming, but ask them to write an article with a given amount of words and they'll fall apart immediately.
+
+They routinely forget what instructions you just gave them, seem to have no capacity of being fully honest (they try to respond with what you'll like), are terrible at spatial reasoning and common sense and make all kinds of "weird" mistakes.
 
 <ChatExhibit prompt="I have the following items: three eggs, a large slanted plastic wedge, a pan filled with boiling water, a towel, two empty toilet paper rolls, a sponge. I need to stack them without breaking anything. How do I do that? Return just a bullet list of the final order, plus a few words each to explain. You're not allowed to make changes to the objects.">
   <ChatResponse model="Claude Opus 4.6">
@@ -140,47 +160,23 @@ At the same time, they routinely forget what instructions you just gave them, se
   </ChatResponse>
 </ChatExhibit>
 
-One long-standing example of this was the "strawberry problem:" any time you would ask a language model "how many r's are there in the word 'strawberry'" it would confidently get it completely wrong. This is because technically, the model sees *tokens* which are not the separate letters---instead they're pieces of words. Eventually this was solved by having the model "think" out loud before it answered, where it would spell out the word and then realize that there are, in fact, three R's.
-
 Another example is the seahorse emoji. When you'd ask "what's the seahorse emoji?" for some reason the language models were very confident that this actually exists, they would write a different emoji like the horse emoji, realize their own mistake, apologize, try again and make the same mistake again. Many times they would get stuck in an infinite loop of "no sorry, this is the real one."
 
-All these "bugs" get fixed eventually but they do touch our trust in language models: if we keep finding these seemingly random, stupid mistakes they make, can we trust them to do things like making policy recommendations or strategic company decisions? Probably my biggest fear is not necessarily that AI will be so smart and decide to destroy all humans because it's so superior, but that we will trust it too much too quickly---because the time we gain from delegating to AI feels like a trade-off that would be silly not to make.
-
-One thing cannot be denied though: the *pace* at which language models are getting smarter. We humans intuitively understand linear growth---AI scoring a few more points on the intelligence scale, so to speak---but not exponential growth. When something grows exponentially fast, it feels like nothing is happening for a long time but then suddenly everything changes. Think of how quickly the internet, social media and the smartphone have become something almost everyone on the planet has. And there are still plenty of people alive today who remember a time when compupers didn't exist.
-
-AI though is growing at a *hyper*-exponential pace. That's an exponential of an exponential. In 2020, AI could do tasks that take a human about 6 seconds. In 2022 that became 36 seconds (6x growth in 2 years). In 2023, 4 minutes (9x growth in 1 year). In 2024, 11 minutes. In 2025, 3 hours and 23 minutes. At the beginning of 2026, AI could do tasks that take human experts 12 hours. So even if you feel like there's no way AI could do your job today, what about in one year where it got another 100 times better?
-
-I'll give you some more anecdotes to try and give that intuition for this pace of growth.
-
-In 2020, we were testing the very best of AI by checking if they could do three-digit multiplication. In 2025, we were testing them by checking if they could solve condensed matter physics questions that only a fraction of humans even understand.
-
-I remember in 2023, working as a software developer, I was teaching our team to use these new AI tools to write our code. It could automatically write the next few words or lines of code which was correct half of the time. We could use ChatGPT if you needed a lot of simple code but not much more. Today, I can delegate hundreds of files to be edited at once, with reasonable confidence.
-
-During the start of the AI boom, everyone was sharing their "magic prompts" because you needed to be very precise in desrcibing what you want from these language models, you had to repeat it often and you often needed to instruct the model to think before it answered. Today, the limit is that people don't realize they can just ask what they want and the AI will figure out how to make it happen.
-
-That's what you have access to by tapping open an app on your phone, for almost nothing.
+Right as I'm writing this, the ARC Prize Foundation released the third version of their benchmark: ARC-AGI 3. It feels like a small video game where you move around through simple mazes to solve the puzzles. The interesting thing is that humans playing this immediately figure it out and score 100%, but the best language model today scores a measly 0.37%.
 
 #### Language models are intelligent in a very different way than humans
 
-When you ask anyone who uses AI a lot and likes using it, you'll see that they are *also* very  skeptical. There's no "pro AI" and "anti AI" groups---they are the same people. The reason for this is because we have all experienced the jaggedness of language models: one moment you feel like you're on the interstellar superintelligence highway, the other you feel like you're trying to explain yourself to a ten year old. These models are already making new scientific discoveries, and at the same time they're sometimes incapable of even honoring the request to "please don't repeat every question I ask you." Language models are now at the top of the mathematics olympiad and competitive programming, but ask them to write an article with wth a given amount of words and they'll fall apart immediately.
-
 So why is AI so weird?
-
-In robotics, there's this concept of the *uncanny valley*. As robots become more human-like, we humans tend to like and trust them more...right up to the point where the robot looks almost but not exactly like a real person. Then, everything plummets. We think the machine is creepy and weird, and we don't want to have anything to do with it. Large language models, because they are just text, have a much easier job convincing you of their human "appearance", as evidenced by how many people are building emotional bonds with these algorithms. So I think they are just past this uncanny valley, where we see them as equals and assume their brains work just like ours. That mostly works for other humans but not so much big matrix multiplication machines, thus our surprise when they make mistakes no reasonable human would make.
-
-Right as I'm writing this, the ARC Prize Foundation released the third version of their benchmark: ARC-AGI 3. It feels like a small video game where you move around through simple mazes to solve the puzzles. The interesting thing is that humans playing this immediately figure it out and score 100%, but the best language model today scores a measly 0.37%.
 
 The real answer as to *why* language models are so weird is because in a way they're not supposed to work at all. The technology and algorithms around LLM's had existed for a long time already and they were being used in tools like Google Translate, but it wasn't impressive. Nobody believed the technology had a bright future...nobody except a few. OpenAI was one of those that believed and just tried making the same models 100 or 1000 times larger. And somehow...it seemed like some form of intelligence emerged.
 
 That really is the right term for this: the intelligence of language models is an *emergent* property. We just built a system that could learn and we forced it to learn how to reproduce all of human writing, while not giving it enough memory to be able to memorize everything. Then you throw 100 million hours of computation at it and voila, you have a file on your computer that contains much of human knowledge and the blueprint for intelligence. That's a dramatic oversimplification of course, but the core of AI is pretty much this.
 
-If you are using language models in your work, getting the most out of them means you do need more than just the technical understanding of your job. Yes, you need to be able to judge the quality of the LLM's work and to describe where it needs adjustments, but there's more involved. The shape of AI's intelligence is so different from what we're used to in other humans that we need a certain sense of empathy and theory of mind. We need to learn to understand that these AI's think and act very differently from us. Just like we get to know our partners, we should get to know our AI's, because it's the only way we will learn how to properly prompt it to do what we want it to do and to know when and what we need to double-check.
+We've always defined *intelligence* as something that’s difficult for people, but it seems like many things we humans consider "easy" and "obvious" are not at all easy or obvious when a machine tries to learn it. You can think of "human intelligence" as being comprised of two parts: one is the intelligence embedded in the way our internal plumbing and intuition works, the other is what we can do if we consciously think things through. There's a big discrepancy between humans in how good they are at mathematics or remembering things so we've called that intelligence, while forgetting that things like staying upright on a slippery surface or knowing how far to stand in line from the person in front of us (so it's not awkward) are incredible signs of intelligence. The nature of machines is different from the nature of humans, so things that are easy for us might be difficult for them and vice versa.
 
-We've always defined *intelligence* a something that’s difficult for people, but it seems like many things we humans consider "easy" and "obvious" are not at all easy or obvious when a machine tries to learn it. You can think of "human intelligence" as being comprised of two parts: one is the intelligence embedded in the way our internal plumbing and intuition works, the other is what we can do if we consciously think things through. There's a big discrepancy between humans in how good they are at mathematics or remembering things so we've called that intelligence, while forgetting that things like staying upright on a slippery surface or knowing how far to stand in line from the person in front of us (so it's not awkward) are incredible signs of intelligence. The nature of machines is different from the nature of humans, so things that are easy for us might be difficult for them and vice versa.
+In robotics, there's this concept of the *uncanny valley*. As robots become more human-like, we humans tend to like and trust them more...right up to the point where the robot looks almost but not exactly like a real person. Then, everything plummets. We think the machine is creepy and weird, and we don't want to have anything to do with it. Large language models, because they are just text, have a much easier job convincing you of their human "appearance", as evidenced by how many people are building emotional bonds with these algorithms. So I think they are just past this uncanny valley, where we see them as equals and assume their brains work just like ours. That mostly works for other humans but not so much big matrix multiplication machines, thus our surprise when they make mistakes no reasonable human would make.
 
-For example, recently a friend of mine shared how he prompted multiple AI's and got them to collectively figure out a solution to a scientific problem some researchers had been agonizing over for weeks. I thought it would be fun to build a "group chat" with multiple large language models. So I told them to count to ten together, one after the other, and it was incredibly difficult to get it right. They would count multiple times, restart, et cetera.
-
-If you ask me, I think it's an amusing observation to realize that the skill of working with a machine brain involves perhaps the most human skill of all: empathy. If you want to work with AI very well, you’ll need a very flexible *theory of mind*—that is, the understanding that someone else’s mind might work in a very different way than yours, and the ability to adapt to it—because the mind of AI is just so...weird.
+All these ‘weird’ behaviors get ‘fixed’ eventually but they do touch our trust in language models: if we keep finding these seemingly random, stupid mistakes they make, can we trust them to do things like making policy recommendations or strategic company decisions? Probably my biggest fear is not necessarily that AI will be so smart and decide to destroy all humans because it's so superior, but that we will trust it too much too quickly---because the time we gain from delegating to AI feels like a trade-off that would be silly not to make.
 
 %%
 ##### Quote from X: Hard training data
@@ -193,13 +189,15 @@ https://x.com/jackclarkSF/status/1962238672704803096
 
 [https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large](https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large)
 
-##### The intelligence curve doesn't seem to be stopping
 ##### Medical diagnoses
 ##### Video is now impossible to discern
 ##### Seeing AI as Collective Intelligence
 
-#### It's smart in a way that's different from how we've commonly defined it
-##### We always defined intelligence as thing difficult for humans to do, but now we have machines much better at this; yet they're incapable of things that are trivially easy for us humans.
+##### Cut from the pace section (overlapped the coding-team anecdote)---reuse or drop
+During the start of the AI boom, everyone was sharing their "magic prompts" because you needed to be very precise in desrcibing what you want from these language models, you had to repeat it often and you often needed to instruct the model to think before it answered. Today, the limit is that people don't realize they can just ask what they want and the AI will figure out how to make it happen.
+
+##### Cut (folded into "Being a Good Judge")---the "get to know our AI's like partners" line might be worth salvaging
+If you are using language models in your work, getting the most out of them means you do need more than just the technical understanding of your job. Yes, you need to be able to judge the quality of the LLM's work and to describe where it needs adjustments, but there's more involved. The shape of AI's intelligence is so different from what we're used to in other humans that we need a certain sense of empathy and theory of mind. We need to learn to understand that these AI's think and act very differently from us. Just like we get to know our partners, we should get to know our AI's, because it's the only way we will learn how to properly prompt it to do what we want it to do and to know when and what we need to double-check.
 %%
 
 ## Dealing with AI's unpredictable mistakes
@@ -246,7 +244,9 @@ There’s no way you can do good work with language models unless there’s a go
 
 First, deep technical knowledge in the task at hand. They can quickly spot issues in the work of the language models and give precise feedback on how to correct for it; and they can put into words clearly what “high quality” work means in the specific task at hand. Language models have been trained on *everything* which means that by default, they’ll by definition produce average quality work in anything they do. They have the “skill” to do incredible work but they don’t have the ability to judge what incredible work looks like. Unless someone can clearly explain it to them.
 
-Second, the complete opposite: deep, non-judgmental empathy. This is necessary because even though AI feels very human, the way its “mind” works is very different from how real humans’ minds work. This is the skill of **theory of mind**: your ability to see and understand someone else’s mind might work very differently from your and your ability to adapt to and work with that. Many of your expectations around how an LLM would work are surprisingly, for example when you scream and make it panic, it will much more likely create low-quality work and cheat its way out of an assignment. Behavior like this is something you can only start to predict when you see it’s very different from a human mind but still mimics so much of it. Over time and with experience, you’ll build an intuition for the *types* of mistakes a language model makes (many of which we’re going over right here) and this will help your technical judge decide what to double-check and verify.
+Second, the complete opposite: deep, non-judgmental empathy. This is necessary because even though AI feels very human, the way its “mind” works is very different from how real humans’ minds work. This is the skill of **theory of mind**: your ability to see and understand that someone else’s mind might work very differently from your own, and your ability to adapt to and work with that. You can’t think of an LLM as something that behaves like a machine but it doesn’t quite behave like a human as well. Many times it’s a mashup of both, for example when you scream and make it panic, it will much more likely create low-quality work and cheat its way out of an assignment. Behavior like this is something you can only start to predict when you see it’s very different from a human mind but still mimics so much of it. Over time and with experience, you’ll build an intuition for the *types* of mistakes a language model makes (many of which we’re going over right here) and this will help your technical judge decide what to double-check and verify.
+
+If you ask me, I think it's an amusing observation to realize that the skill of working with a machine brain involves perhaps the most human skill of all.
 
 %%
 #### Prefilling
@@ -307,7 +307,7 @@ Often—but not always—this happened in cases where the testing scenario intro
 
 
 #### Pretend-Thinking
-At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been *prompting for* before, with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” With this new thinking step, the model first spelled out the word and then figured out the correct count.
+At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been *prompting for* before, with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” This is because technically, the model sees *tokens* which are not the separate letters---instead they're pieces of words. With this new thinking step, the model first spelled out the word and then figured out the correct count.
 
 The technical term for this thinking, by the way, is “test-time compute” which means “making calculations while you’re using the language model.” This is opposed to “train-time compute” which is all the heavy lifting being done before the model is finished. It allows us to stay on the empirical scaling laws that say LLM’s seem to become more intelligent the more compute power we throw at them, without having to use the entire world’s energy reserve just to keep training models.
 
