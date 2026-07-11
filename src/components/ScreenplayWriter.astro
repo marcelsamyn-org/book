@@ -1,0 +1,78 @@
+---
+/**
+ * Visualizes "Language Models are Screenplay Writers": the same conversation
+ * rendered twice — as the chat interface you see, and as the single screenplay
+ * document the model is actually completing, where "assistant" is just one
+ * character and the model even starts writing the human's next line before
+ * the system cuts it off. Aliases: screenplay, script writer, persona,
+ * assistant character, next-token completion.
+ */
+
+type Speaker = "human" | "assistant";
+
+interface Turn {
+  readonly speaker: Speaker;
+  readonly text: string;
+}
+
+interface Props {
+  /** The visible conversation, in order. */
+  readonly turns: readonly Turn[];
+  /** Start of the human's NEXT line, as the model attempts to write it. Cut off mid-word. */
+  readonly ghostLine: string;
+  /** Scene heading for the screenplay page, e.g. "INT. A CONVERSATION — ONGOING". */
+  readonly sceneHeading: string;
+}
+
+const { turns, ghostLine, sceneHeading } = Astro.props;
+
+const speakerLabels: Record<Speaker, string> = {
+  human: "You",
+  assistant: "Assistant",
+};
+
+const cueLabels: Record<Speaker, string> = {
+  human: "HUMAN",
+  assistant: "ASSISTANT",
+};
+---
+
+<aside class="sp" aria-label="The same conversation as a chat and as the screenplay the model writes">
+  <span class="sp-eyebrow">One writer · two characters</span>
+
+  <div class="sp-panels">
+    <section class="sp-panel sp-panel-chat" aria-label="The chat as you see it">
+      <h4 class="sp-panel-tag">What you see</h4>
+      <div class="sp-chat">
+        {turns.map((turn) => (
+          <div class:list={["sp-msg", `sp-msg-${turn.speaker}`]}>
+            <span class="sp-msg-tag">{speakerLabels[turn.speaker]}</span>
+            <p class="sp-msg-body">{turn.text}</p>
+          </div>
+        ))}
+        <div class="sp-msg sp-msg-human sp-msg-pending">
+          <span class="sp-msg-tag">You</span>
+          <p class="sp-msg-body sp-msg-placeholder">Reply…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp-panel sp-panel-script" aria-label="The screenplay the model is writing">
+      <h4 class="sp-panel-tag sp-panel-tag-script">What the model writes</h4>
+      <div class="sp-page">
+        <p class="sp-scene">{sceneHeading}</p>
+        {turns.map((turn) => (
+          <div class:list={["sp-line", `sp-line-${turn.speaker}`]}>
+            <span class="sp-cue">{cueLabels[turn.speaker]}</span>
+            <p class="sp-dialogue">{turn.text}</p>
+          </div>
+        ))}
+        <div class="sp-line sp-line-human sp-line-ghost">
+          <span class="sp-cue">HUMAN</span>
+          <p class="sp-dialogue"><span class="sp-ghost-text">{ghostLine}</span><span class="sp-caret" aria-hidden="true"></span></p>
+        </div>
+        <p class="sp-cut"><span class="sp-cut-mark">✂</span> The model happily writes your next line too — the system stops it here and waits for the real you.</p>
+      </div>
+    </section>
+  </div>
+</aside>
