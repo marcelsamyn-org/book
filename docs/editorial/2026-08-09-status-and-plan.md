@@ -49,6 +49,7 @@ One caution: don't let "choosing imperfection" swallow the God passage. The book
 
 ## Final week — polish
 
+- [ ] **Trim the vector mechanics** in Tokens And The Context Window (`book.mdx:76`) — the one un-executed piece of the June "Part 1 too deep" feedback. Keep the sampling sentence ("pick one of the most-likely ones at random…"): it seeds Creativity's temperature argument, the Conclusion's Inevitable, and the error-minimization plant. Cut the one-hot dictionary-vector and "memory passed back in" details — they never pay off, and the memory framing describes an RNN more than a transformer (it contradicts the next paragraph's correct "re-reads everything every token").
 - [ ] Copyedit pass (don't do it earlier; content is still moving). Known typos: "abgiguous", "susprisingly", "ourseleves", "unsatiable", "mose of the times", "traning", "thisLike" (~line 64). One broken sentence: "the amount of times a language models has already decreased" (Hallucinations §) is missing its verb phrase.
 - [ ] Open prose-TODOs: graphs (pace-of-progress §), depression/meaning study numbers (Work intro), AI-writing-preference citation (Good-Enough Rocket), Tamagotchi pictures.
 - [ ] Love & Connection has no chapter intro (heading falls straight into The Rise of Synthetic Bonds). One paragraph.
