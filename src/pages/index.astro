@@ -3,11 +3,13 @@ import { readFile } from "node:fs/promises";
 import GithubSlugger from "github-slugger";
 import BookLayout from "../layouts/BookLayout.astro";
 import ProgressTracker from "../components/ProgressTracker.astro";
+import ChecklistTracker from "../components/ChecklistTracker.astro";
 import CommitHistory from "../components/CommitHistory.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import WordHistoryGraph from "../components/WordHistoryGraph.astro";
 import { parseOutline } from "../md/parseOutline.js";
 import { computeBookProgress } from "../publish/progress.js";
+import { loadEndgameChecklist } from "../publish/checklist.js";
 import {
   getLastCommitMetadata,
   getRecentCommits,
@@ -27,6 +29,7 @@ const outline = parseOutline(rawContent);
 // Progress
 const progress = computeBookProgress(outline.headings);
 const progressSummary = `~${progress.totalWords.toLocaleString("en-US")} of ${progress.targetWords.toLocaleString("en-US")} words`;
+const checklist = await loadEndgameChecklist();
 
 // TOC — generate IDs matching Astro's github-slugger output
 const filtered = filterOutlineByLevel(outline.headings, { maxLevel: 3 });
@@ -65,6 +68,7 @@ const { Content } = await import("../../book.mdx");
   <span slot="progress-summary" class="opacity-40">{progressSummary}</span>
   <Fragment slot="progress">
     <ProgressTracker progress={progress} />
+    <ChecklistTracker checklist={checklist} />
   </Fragment>
   <Fragment slot="toc">
     <TableOfContents entries={tocEntries} />

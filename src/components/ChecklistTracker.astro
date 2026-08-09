@@ -1,0 +1,115 @@
+---
+import type { EndgameChecklist } from "../publish/checklist.js";
+
+interface Props {
+  checklist: EndgameChecklist;
+}
+
+const { checklist } = Astro.props;
+const remaining = checklist.totalCount - checklist.doneCount;
+---
+
+<div class="checklist-tracker">
+  <div class="checklist-head">
+    <span class="checklist-label">Endgame checklist</span>
+    <span class="checklist-stat">
+      {remaining} left &middot; {checklist.doneCount}/{checklist.totalCount} done
+    </span>
+  </div>
+  {checklist.sections.map((section) => (
+    <div class="checklist-section">
+      <div class="checklist-section-title">{section.title}</div>
+      <ul class="checklist-items">
+        {section.items.map((item) => (
+          <li class:list={["checklist-item", { "is-done": item.done }]}>
+            <span class="checklist-box" aria-hidden="true">{item.done ? "☑" : "☐"}</span>
+            <span class="checklist-title">{item.title}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<style>
+  .checklist-tracker {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .checklist-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+  }
+
+  .checklist-label {
+    color: var(--ink-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .checklist-stat {
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .checklist-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .checklist-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+  }
+
+  .checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-secondary);
+    line-height: 1.4;
+  }
+
+  .checklist-box {
+    flex: none;
+    color: var(--ink-muted);
+  }
+
+  .checklist-item.is-done {
+    color: var(--ink-muted);
+  }
+
+  .checklist-item.is-done .checklist-box {
+    color: var(--accent);
+  }
+
+  .checklist-item.is-done .checklist-title {
+    text-decoration: line-through;
+    text-decoration-color: var(--rule);
+    opacity: 0.7;
+  }
+</style>
