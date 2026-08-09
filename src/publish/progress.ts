@@ -35,7 +35,7 @@ export interface BookProgress {
   readonly workRate: number;
 }
 
-const TARGET_WORDS = 55_000;
+const TARGET_WORDS = 40_000;
 const DEADLINE_ISO = "2026-09-15";
 
 /** Fraction of non-holiday days I realistically write on. */
@@ -96,12 +96,12 @@ export const computeEffectiveDaysRemaining = (
 
 /** Target word counts per H1 section title. */
 const SECTION_TARGETS: Record<string, number> = {
-  Overview: 2_000,
-  Introduction: 3_000,
-  "Part 1: The Digital Mirage": 18_000,
-  "Part 2: The New Sun Casting Shadows on the Soul": 18_000,
-  "Part 3: Reclaiming the Flame": 12_000,
-  Conclusion: 2_000,
+  Overview: 800,
+  Introduction: 2_200,
+  "Part 1: The Machine Mind": 7_500,
+  "Part 2: Domains": 13_000,
+  "Part 3: The Ascent": 15_000,
+  Conclusion: 1_500,
 };
 
 const stripMarkdownSyntax = (line: string): string =>
