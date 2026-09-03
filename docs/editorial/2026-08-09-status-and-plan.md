@@ -82,6 +82,10 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 - [ ] **Write a Love & Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The Rise of Synthetic Bonds. One paragraph framing what the chapter will argue.
 - [ ] **Optional: half-page Part 2 opener** — Part 2 currently opens cold on Learning right after Part 1's mechanics. A short bridge could do the old "seduction of ease" teaser work: our reward system is wired for pursuit-against-resistance, AI removes the resistance, here's what that does in four domains. *Your call:* only write it if it doesn't crowd out the must-haves above — the domain chapters do survive without it.
 
+## More Stuff
+
+- [ ] Re-write *Captured By Consumption* so it can be driven by Superstimuli
+
 ## Deadline math, redone
 
 ~5–7k new words over ~4 writing weeks (week 5 reserved for polish) = 1.2–1.7k words/week — the pace the old plan called comfortable, but with no slack left. Steelman and Children are the designated cuts if anything slips. Everything else above is either mechanical or already half-written.
