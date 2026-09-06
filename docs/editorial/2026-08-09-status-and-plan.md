@@ -74,7 +74,7 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 ## Final week — polish
 
-- [ ] **Trim the vector mechanics** in Tokens And The Context Window (find `"represents each token as a *vector*"`)
+- [x] **Trim the vector mechanics** in Tokens And The Context Window (find `"represents each token as a *vector*"`)
   - *What:* Cut the one-hot dictionary-vector detail (the 32,000-zeroes list) and the "part of the output is passed back in as memory" loop. Keep the sampling sentence — `"pick one of the most-likely ones at random"` — and the probabilities framing.
   - *Why:* This is the last un-executed piece of the old "Part 1 is too deep" feedback, and the cut removes your least defensible mechanics claim in the same stroke: the "memory passed back" framing describes a recurrent network more than a transformer, and it contradicts your own (correct) next paragraph — "they read the entire conversation fully, every time." The sampling sentence, by contrast, pays off three times later: Creativity's temperature argument, the Conclusion's Inevitable, and the error-minimization plant.
 - [ ] **Copyedit pass** — deliberately last, after content settles. Known catches (non-exhaustive; do a full read): "abgiguous", "susprisingly", "ourseleves", "unsatiable", "traning", "mose of the times", "thisLike" (run-on in the chat-scaffolding example), "so she could privately with the program" (missing verb, ELIZA anecdote), and one sentence missing its verb phrase: "the amount of times a language models has already decreased" (Hallucinations — should say the amount of *hallucinations* has decreased).

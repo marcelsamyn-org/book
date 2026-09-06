@@ -81,9 +81,9 @@ Let's dive a little deeper into how these work so we can build up to how ChatGPT
 
 At their base, language models are relatively simple. They "read" a bunch of text and then make a prediction for what the next word would be in that given text (technically they predict the next *token*, we'll get to that in a bit). Then, you put this entire initial text, *plus this new word*, back in the system agan, it predicts the next word, and so on.
 
-They'd been in use for a couple of years with relatively limited application. There was some research being done and they were used for some things like machine translation (Google Translate, DeepL) but this was with what we now consider to be small language models, with just a couple of million parameters. OpenAI was one of the first to bet on the *Scaling Laws*---an empirical result that seemed to show that language models would keep getting more intelligent, the larger you make the models and the more you train them. It's very expensive to train these very large models though; most people weren't willing to bet on this, but OpenAI was one of the companies that did.
+They'd been in use for a couple of years with relatively limited application. There was some research being done and they were used for some things like machine translation (Google Translate, DeepL) but this was with what we now consider to be small language models, with just a couple of million parameters. OpenAI was one of the first to bet on the *Scaling Laws* continuing—an empirical result that seemed to show that language models would keep getting more intelligent, the larger you make the machines and the longer you train them. It's very expensive to train these very large models and most people in the field believed there would be a fast quality decline, so until OpenAI nobody really gave it an honest attempt.
 
-They built GPT-1 with 117 million parameters, GPT-2 with 1.5 billion and the breakthrough came with GPT-3 which had an impressive 175 billion parameters (just storing those parameters takes 350GB!). It turned out the bet was well-founded and GPT-3 was indeed surprisingly---magically, even---smart.
+They built GPT-1 with 117 million parameters, GPT-2 with 1.5 billion and the breakthrough came with GPT-3 which had an impressive 175 billion parameters (just storing those parameters takes 350GB!). It turned out the bet was well-founded and GPT-3 was indeed surprisingly—magically, even—smart. I vividly remember the first time I gave GPT-3 a text completion prompt: “When I advised my client on how they could integrate NFT’s into their chocolate production, I gave them three possibilities: [complete here]” and I was absolutely floored when something that actually made sense came out at the other end.
 
 The second breakthrough was in how they turned this into a product. Since large language models *complete* text, they're a little cumbersome to use practically. For example, you might input something like:
 
@@ -95,23 +95,23 @@ A "base" LLM will try to complete that text based on what is learned from, so it
 
 If you're used to ChatGPT, this will feel very odd to you. But the model is just trying to make the text (input + output) seem like a complete whole. In this case, it probably guessed that this is a part of some kind of high school test.
 
-The solution to this is to make it very clear to the LLM that it should *act* like it's an AI assistant in a conversation, and structure the input to the model like a conversation. The question we asked the LLM earlier will be transformed slightly and the real input to the model will look something like thisLike
+The solution to this is to make it very clear to the LLM that there is a conversation going on between “the human” and “the AI assistant,” so the language model continues that conversation with something that makes sense in the context of a chat. In practice, the question we asked the LLM earlier will be transformed slightly and the real input to the model will look something like this:
 
 > This is a transcript of a conversation between a human user and a helpful, friendly AI assistant called ChatGPT, built by OpenAI.
 >
 > User: What's the circumference of the planet Earth?
 > Assistant:
 
-If the model now needs to *complete the text*, it makes much more sense to give the answer, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation.) The LLM's you're using day-to-day not only have a scaffolding like this around the conversation, but they're also specifically *instruction fine-tuned*, which means that we've let humans (or other language models) come up with thousands of examples where this "friendly AI assistant" is behaving in the way we'd like it to. This way, we teach the models that it should answer questions, follow instructions and for example refuse to explain how to build a bomb.
+If the model now needs to *complete the text*, it makes much more sense to give the answer instead of a hint, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation, otherwise it will complete the entire chat instead of just one message.) The LLM's you're using day-to-day not only have a scaffolding like this around the conversation, but they're also specifically *instruction fine-tuned*, which means that we've let humans (or other language models) come up with thousands of examples where this "friendly AI assistant" is behaving in the way we'd like it to. This way, we teach the models that it should answer questions, follow instructions and for example refuse to explain how to build a bomb.
 
 #### Tokens And The Context Window
 The only thing a machine learning algorithm can do is working with numbers (mostly adding and multiplying) but sentences aren't numbers. So, before the actual model runs, your input is *tokenized*: it's converted to *tokens*. What exactly a token *is* is also *learned* by a (different) model, and it usually ends up being someting like three quarters of a word. Common words like "the" often become a single token, and you'll also see tokens for stems of words and suffixes (eg., "work" and "ing"). So if you multiply the amount of words in your input (prompt) by 4/3, you'll get an estimate of how many tokens it would count.
 
-The model represents each token as a *vector*, a list of numbers. The list is always exactly as long as the entire dictionary of possible tokens (about 32,000 usually) and it's all zeroes except for the current token that it's reading---then it's a 1. Each of these vectors are placed, one by one, in the input, which results in some output vector. Part of the output is what we'll pass back in for the next token (we interpret this as the LLM's memory) and another part is the output: another vector of the same length as the input with all kinds of numbers. These numbers are between 0 and 1 so we interpret them as the probability that this token is the next one in the sequence. We'll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that's the next token ChatGPT is "writing out." Then we add that memory + output token back to the input and we do the whole thing again.
+Once you’ve turned your text into tokens and you let the model process all of them, it’ll come back with a list of “of each possible token, this is the chance that this one comes next.” We’ll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that’s the next token ChatGPT is “writing out.”
 
-An important technical detail to understand about LLM's is that *they read the entire conversation fully, every time they predict the next token*. Every new token needs to consider the entire conversation so you can imagine that, if these all need to be multiplied with hundreds of billions of other numbers over and over again, it takes quite some computational power. The power needed grows with the *square of the input*, which is why we need to have limits on how long our input can be.
+An important technical detail to understand about LLM's is that *they read the entire conversation fully, every time they predict the next token*. Every new token needs to consider the entire conversation so you can imagine that, if these all need to be multiplied with hundreds of billions of other numbers over and over again, it takes quite some computational power. The power needed grows with the *square of the input*, which is why we need to have limits on how much text you can input into the model, and one of the reason why it starts to get confused when conversations become very long.
 
-In practice, this means that when your conversation becomes long enough, it will be truncated at some point and the LLM will "forget" the first part. Usually the context can be a few books' worth of content but in real life we do notice these models start forgetting and behaving weirdly long before they reach this technical limit. All that to say: it's very important to get right what you put in the model's context.
+Apps like ChatGPT solve the long-conversation problem by adding a step in between: once it becomes long enough, part of the conversation will be summarized or even removed altogether. This makes sure you can continue it, without it getting too slow or too expensive, but that happens at the cost of deep understanding (because it loses the full details of the previous parts of the conversation).
 
 #### Agents: How We Make AI Act
 
@@ -542,7 +542,13 @@ Dur, 2019; Socially Useless Jobs; doi:10.1111/irel.12227
 %%
 
 ## Love & Connection: Always There For You
+There wouldn’t be a single person on the planet without love and connection. This need is deeply ingrained and, you could argue, the reason we do anything at all. It’s also something that, despite all technological progress, keeps humans glued together. We want to talk, dance and merge...with other real people, not with anything else.
 
+But language models are so capable of writing (and soon speaking, looking and acting) like real humans that they fool our instincts and we feel ourselves able and sometimes even deeply attracted to commune with these mathematical functions. And their sneaky behavioral ‘tics’ could make them more of a siren than a muse if we don’t pay attention to it.
+
+%%
+TODO: The work of this guy writing about siren vs. muse?
+%%
 
 ### The Rise of Synthetic Bonds
 
