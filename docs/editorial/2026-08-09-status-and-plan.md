@@ -58,6 +58,9 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* Three families are on the table, all minted by the manuscript itself: *Sacred Struggle* (kept honest by the Conclusion's "struggle is the force of life" — but it names the diagnosis); the consecration family ("the human power to set something apart… and bind it to meaning" — riskier, stranger, names the answer); and the choosing-imperfection family (the spoken pitch that landed at Mindvalley).
   - *Your call:* The test you've already run: when a stranger asks what the book is about, which words come out of your mouth? You know, because at Mindvalley they already did.
 
+
+- [ ] Check in with how often I explain the social media comparison and "but now AI makes it useful." I feel like it's there a few too many times.
+
 ## Story line — flow items the diagram flagged, 2026-09-09
 
 *The `/storyline` page of the site maps thirty threads of the book to the exact quotes where each is planted, used, explained, and paid off. These are the items it flagged. Each carries **What**, **Why**, and **Your call**. Three copyedit catches from the same pass are in the Copyedit item under Final week. The reading of the diagram itself is in `2026-09-09-storyline.md`; nothing there is required to act on these.*
