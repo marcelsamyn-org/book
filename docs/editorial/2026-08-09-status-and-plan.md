@@ -65,7 +65,7 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
 
 *The `/storyline` page of the site maps thirty threads of the book to the exact quotes where each is planted, used, explained, and paid off. These are the items it flagged. Each carries **What**, **Why**, and **Your call**. Three copyedit catches from the same pass are in the Copyedit item under Final week. The reading of the diagram itself is in `2026-09-09-storyline.md`; nothing there is required to act on these.*
 
-- [ ] **Name "sampling" in Part 1**
+- [x] **Name "sampling" in Part 1** — closed 2026-09-09. The Good-Enough Rocket rewrite deleted the callback, so nothing points at the word any more. The mechanism keeps its clause at `the exact most likely one results in extremely boring output`, which is what the Conclusion's `The Inevitable` cashes.
   - *What:* In Tokens And The Context Window, `We’ll pick one of the most-likely ones at random` never says the word. The Good-Enough Rocket later says `Like we discussed before, this probably has something to do with sampling`. Add the word where the mechanism is, for example "...at random (this step is called *sampling*)".
   - *Why:* The callback points at a term the reader never met. The Trim item under Final week counts three later payoffs on this sentence, and the first of them refers to a word that is not there.
   - *Your call:* One word, or a clause that also says why the exact most-likely token is boring? The Conclusion's `The Inevitable` cashes exactly that, so the clause would plant the ending.

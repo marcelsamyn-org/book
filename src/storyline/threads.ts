@@ -281,6 +281,7 @@ export const threads = [
     question: "Bodies atrophied when work stopped needing muscle, so we built gyms. Minds are next. What is the mental gym?",
     mentions: [
       { kind: "plant", quote: "I have to forcibly slow myself down and be less productive", note: "The Introduction: the author already practices it." },
+      { kind: "plant", quote: "I deliberately chose to struggle with the writing", note: "The Good-Enough Rocket: the author pays the cost and names the return." },
       { kind: "explain", quote: "The whole reason gyms exist is because our bodies and minds atrophy", note: "Falling in Love with Resistance: sport is manufactured friction." },
       { kind: "use", quote: "we're going to have to find ways to give those parts of us deliberate challenges", note: "The promise of a program." },
       { kind: "plant", quote: "build a new kind of gym", note: "Can You Grow Without Trauma ends on the promise." },
@@ -345,8 +346,7 @@ export const threads = [
     question: "AI has all the ingredients of creativity yet produces the average. Where does novelty come from, and why can we smell the difference?",
     mentions: [
       { kind: "plant", quote: "We'll talk more about this later because it's likely more complicated than that", note: "Work promises to return to cheap-but-boring." },
-      { kind: "plant", quote: "something in human writing still stands out", note: "The Good-Enough Rocket." },
-      { kind: "use", quote: "this probably has something to do with sampling", note: "Refers back to a discussion of sampling, but the word was never used in Part 1." },
+      { kind: "plant", quote: "how we can “smell” the AI in things", note: "The Good-Enough Rocket: our pattern-matching beats the model’s." },
       { kind: "plant", quote: "The romantic view that humanity will prevail after all because we have something special in our creativity seems in danger", note: "Creativity chapter opens the question." },
       { kind: "explain", quote: "anything less or anything more is trained away", note: "How AI Is Creative: novelty punished, chaos injected from outside." },
       { kind: "use", quote: "injects *additional chaos* into the process", note: "Temperature." },
