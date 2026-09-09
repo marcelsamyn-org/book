@@ -1,6 +1,5 @@
 ---
 import { readFile } from "node:fs/promises";
-import GithubSlugger from "github-slugger";
 import BookLayout from "../layouts/BookLayout.astro";
 import ProgressTracker from "../components/ProgressTracker.astro";
 import ChecklistTracker from "../components/ChecklistTracker.astro";
@@ -17,6 +16,7 @@ import {
 } from "../publish/git.js";
 import { computeWordHistory } from "../publish/wordHistory.js";
 import { filterOutlineByLevel } from "../publish/filter.js";
+import { buildAnchorMap } from "../publish/anchors.js";
 import { stripObsidianComments } from "../utils/stripObsidianComments.js";
 import type { Heading } from "../md/types.js";
 
@@ -31,20 +31,20 @@ const progress = computeBookProgress(outline.headings);
 const progressSummary = `~${progress.totalWords.toLocaleString("en-US")} of ${progress.targetWords.toLocaleString("en-US")} words`;
 const checklist = await loadEndgameChecklist();
 
-// TOC — generate IDs matching Astro's github-slugger output
+// TOC — anchors come from the full-outline walk so they match Astro's ids
+const anchors = buildAnchorMap(outline.headings);
 const filtered = filterOutlineByLevel(outline.headings, { maxLevel: 3 });
-const slugger = new GithubSlugger();
 
-const toSlug = (title: string): string => slugger.slug(title);
-
-const tocEntries = filtered.map((h) => ({
-  id: toSlug(h.title),
+const toEntry = (h: Heading) => ({
+  id: anchors.get(h.id) ?? h.id,
   title: h.title,
   children: h.children.map((c) => ({
-    id: toSlug(c.title),
+    id: anchors.get(c.id) ?? c.id,
     title: c.title,
   })),
-}));
+});
+
+const tocEntries = filtered.map(toEntry);
 
 // Git metadata
 const lastCommit = getLastCommitMetadata("book.mdx");
