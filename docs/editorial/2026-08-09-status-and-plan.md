@@ -58,6 +58,55 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* Three families are on the table, all minted by the manuscript itself: *Sacred Struggle* (kept honest by the Conclusion's "struggle is the force of life" — but it names the diagnosis); the consecration family ("the human power to set something apart… and bind it to meaning" — riskier, stranger, names the answer); and the choosing-imperfection family (the spoken pitch that landed at Mindvalley).
   - *Your call:* The test you've already run: when a stranger asks what the book is about, which words come out of your mouth? You know, because at Mindvalley they already did.
 
+## Story line — flow items the diagram flagged, 2026-09-09
+
+*The `/storyline` page of the site maps thirty threads of the book to the exact quotes where each is planted, used, explained, and paid off. These are the items it flagged. Each carries **What**, **Why**, and **Your call**. Three copyedit catches from the same pass are in the Copyedit item under Final week. The reading of the diagram itself is in `2026-09-09-storyline.md`; nothing there is required to act on these.*
+
+- [ ] **Name "sampling" in Part 1**
+  - *What:* In Tokens And The Context Window, `We’ll pick one of the most-likely ones at random` never says the word. The Good-Enough Rocket later says `Like we discussed before, this probably has something to do with sampling`. Add the word where the mechanism is, for example "...at random (this step is called *sampling*)".
+  - *Why:* The callback points at a term the reader never met. The Trim item under Final week counts three later payoffs on this sentence, and the first of them refers to a word that is not there.
+  - *Your call:* One word, or a clause that also says why the exact most-likely token is boring? The Conclusion's `The Inevitable` cashes exactly that, so the clause would plant the ending.
+- [ ] **Decide what "dopamine" means in Part 2**
+  - *What:* Three mentions come before Why We Do What We Do explains it: `your brain squirts some dopamine` (Transmissionism), `highly dopaminergic content` (The Business of Companionship), and `our dopamine, norepinephrine and serotonin systems` (Where Does Creativity Come From?).
+  - *Why:* The Conclusion turns on `Dopamine encodes reward prediction error`. Part 2 teaches the reader the pop meaning first (dopamine is pleasure), and Part 3 has to unteach it: `It’s important to know that dopamine does not feel “good.”`
+  - *Your call:* Keep the pop usage as bait and correct it out loud in Part 3, or replace the three with plain words (a rush, addictive, drive) so the term arrives once, with its meaning?
+- [ ] **Define alignment where Alignment Faking appears**
+  - *What:* `#### Alignment Faking` in Part 1 uses the term. `is called *alignment*` in Alignment Research, Part 3, defines it, about 26,000 words later. One clause in the section's first sentence closes the gap.
+  - *Why:* The reader also meets the word in the chapter title Designing Aligned Allies before the definition.
+  - *Your call:* Define it in Part 1, or rename the Part 1 section to what it shows ("Pretending to be good when watched") and leave the definition where it is?
+- [ ] **Make "the theme of the book so far" true**
+  - *What:* Biology's Unmet Hunger says `as the theme of the book has been so far, in many ways we're attracted to the benefits of artificial intelligence because of what it gives our *conscious* mind, *right now*, but we forget the subtle subconscious and long-term effects`.
+  - *Why:* This is the first sentence in the book that states the now-versus-later theme, at 44%, inside a subsection about touch and smell. The Forge of Meaning restates it at 63% as hedonia and eudaimonia. "So far" asks the reader to have noticed a theme nobody named.
+  - *Your call:* Keep the sentence as the plant for the Forge and give it its own paragraph, or state the theme once in the Introduction so "so far" holds?
+- [ ] **Pay off the debt collector**
+  - *What:* `a faint image of a debt collector on the horizon and we're not quite sure yet how quickly they're walking or what they'll have to say` closes Disappearing Depth and never returns. Two places can take a one-sentence callback: Food For Thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
+  - *Why:* "We're not sure yet" is a promise to the reader.
+  - *Your call:* Which debt is it, skill or satisfaction? `It was never about the skills.` points at the second.
+- [ ] **Pay off or cut "siren or muse"**
+  - *What:* `more of a siren than a muse` appears once, in the Love & Connection intro. The Lover And The Hammer already has the two halves it maps onto: the lover-only companion is the siren, the hammer is the muse. The TODO `The work of this guy writing about siren vs. muse?` is still open.
+  - *Why:* One image, one use.
+  - *Your call:* One sentence in The Lover And The Hammer, cut it, or find the source first?
+- [ ] **Return to the mountain, or rename Part 3**
+  - *What:* Part 3 is "The Ascent". Captured by Consumption opens on `the uphill mountain trails` and `the magnificent view on the mountaintop`. Neither returns. The only later mountain, `plant the flag on the most impossible-to-climb mountain` in Falling in Love with Resistance, is a different image, a sports goal. The Part ends on God and the Conclusion ends at the sideboard.
+  - *Why:* A Part title is the biggest promise in the book, and this one is made of an image used once.
+  - *Your call:* Return to the mountain once, in the last paragraph of When Superintelligence Turns Away or in the sideboard scene (the view was never the point, the trail was), or rename the Part to what it delivers?
+- [ ] **Plant awareness in Part 1**
+  - *What:* `what I’d call consciousness or awareness` is introduced in Awareness and Creativity at 50%. Re-Remembering then calls it `the most important skill we can develop in a world of AI` and Arbiters of Presence calls it `the key`. Pretend-Thinking already has the machine half: `The thoughts a language model presents are not always the thoughts it actually has`. Add the human half there in one sentence: we can notice a thought while we think it, and the model cannot.
+  - *Why:* The largest claim in Part 3 rests on a concept the reader met as a side note in a domain chapter.
+  - *Your call:* Plant it in Pretend-Thinking, or move the "structurally incapable of self-introspection" argument out of Creativity into Re-Remembering and leave a pointer in Creativity?
+- [ ] **Plant "set apart" before consecration**
+  - *What:* `What remains? Consecration.` in AI as Infinite Creation is the word's first appearance, at 93%. The Conclusion uses it once more. Nothing earlier says "set apart". The word "sacred" appears only in the Overview, in the title.
+  - *Why:* The consecration family is a title candidate (see Title decision above). If it wins, the reader meets the title's idea five pages from the end.
+  - *Your call:* Plant it in the Introduction (`There’s something special about moments like this` is one sentence away from it), in The Forge of Meaning, or keep it as the last reveal?
+- [ ] **Re-anchor "Then comes" in When Superintelligence Turns Away**
+  - *What:* The chapter opens with `Then comes the more philosophical and controversial part: tweaking severity and chronicity of hardship...on purpose`. Severity and chronicity are the four knobs in Facilitating Growth Through Challenge, two chapters earlier. New World, New Scarcity and AI as Infinite Creation sit between them.
+  - *Why:* The transition reads as if the knobs were on the previous page.
+  - *Your call:* Rewrite the sentence to point back ("In Designing Aligned Allies we tuned severity and chronicity by hand. Now let a superintelligence do it."), or move the chapter to right after Designing Aligned Allies? The move puts God before New World and gives up the God-then-Conclusion ending.
+- [ ] **Say why The Lover And The Hammer sits in Part 2**
+  - *What:* `There are a few ways we could build this.` at 46% is the only "how to build it" section inside the Domains. Designing Aligned Allies opens the design question at 75%.
+  - *Why:* Sitting 1 moved the section to close Love & Connection on purpose. The cost: the reader gets solutions before the book has argued that solutions are needed.
+  - *Your call:* Keep it as the chapter closer and add one line that says so ("we'll come back to building this in Part 3"), or move it under Facilitating Growth Through Challenge?
+
 ## How to talk about the book (the spoken pitch)
 
 The Mindvalley formulation is the book's spine sentence, found by having to say it out loud: *meaning is when we choose imperfection — and AI, whose whole existence stems from error minimization, structurally cannot.* It's the Conclusion compressed ("decides to *not* go to that optimum… leave the imperfection as it is"), and the partner example is already in the manuscript ("The love we give feels special when it's given *despite* clear reasons why not to").
@@ -77,7 +126,7 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 - [x] **Trim the vector mechanics** in Tokens And The Context Window (find `"represents each token as a *vector*"`)
   - *What:* Cut the one-hot dictionary-vector detail (the 32,000-zeroes list) and the "part of the output is passed back in as memory" loop. Keep the sampling sentence — `"pick one of the most-likely ones at random"` — and the probabilities framing.
   - *Why:* This is the last un-executed piece of the old "Part 1 is too deep" feedback, and the cut removes your least defensible mechanics claim in the same stroke: the "memory passed back" framing describes a recurrent network more than a transformer, and it contradicts your own (correct) next paragraph — "they read the entire conversation fully, every time." The sampling sentence, by contrast, pays off three times later: Creativity's temperature argument, the Conclusion's Inevitable, and the error-minimization plant.
-- [ ] **Copyedit pass** — deliberately last, after content settles. Known catches (non-exhaustive; do a full read): "abgiguous", "susprisingly", "ourseleves", "unsatiable", "traning", "mose of the times", "thisLike" (run-on in the chat-scaffolding example), "so she could privately with the program" (missing verb, ELIZA anecdote), and one sentence missing its verb phrase: "the amount of times a language models has already decreased" (Hallucinations — should say the amount of *hallucinations* has decreased).
+- [ ] **Copyedit pass** — deliberately last, after content settles. Known catches (non-exhaustive; do a full read): "abgiguous", "susprisingly", "ourseleves", "unsatiable", "traning", "mose of the times", "thisLike" (run-on in the chat-scaffolding example), "so she could privately with the program" (missing verb, ELIZA anecdote), and one sentence missing its verb phrase: "the amount of times a language models has already decreased" (Hallucinations — should say the amount of *hallucinations* has decreased). From the story line pass, 2026-09-09: "*pain without gain* is possible" (Can you grow without trauma?) should read "gain without pain", the cited paper is "Gains without pains?"; Today's Socrates Moment opens on Socrates and then says "What I think Plato realized", pick one or say why it is Plato; "in the post-training phase" (Hallucinations) comes before post-training is introduced in Language Models are Screenplay Writers.
 - [ ] **Resolve the prose TODOs** — each is a small, bounded task: the pace-of-progress graphs (`"TODO: Add graphs"`, How smart is AI); the depression/meaning study numbers (`"TODO talk about depression"`, Work intro); the citation for "people prefer AI writing unless they know it's AI" (`"TODO: Citation"`, The Good-Enough Rocket); the Tamagotchi pictures (`"TODO: Add pictures"`, Why We Get Attached To Machines). *Your call on each:* cite it, cut the claim, or soften it to opinion — an uncited hard claim is the only wrong option.
 - [x] **Write a Love & Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The Rise of Synthetic Bonds. One paragraph framing what the chapter will argue.
 - [x] **Optional: half-page Part 2 opener** — Part 2 currently opens cold on Learning right after Part 1's mechanics. A short bridge could do the old "seduction of ease" teaser work: our reward system is wired for pursuit-against-resistance, AI removes the resistance, here's what that does in four domains. *Your call:* only write it if it doesn't crowd out the must-haves above — the domain chapters do survive without it.
