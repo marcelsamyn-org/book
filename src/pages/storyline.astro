@@ -1,0 +1,31 @@
+---
+import { readFile } from "node:fs/promises";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StorylineDiagram from "../components/StorylineDiagram.astro";
+import { resolveStoryline } from "../storyline/resolve.js";
+import { threads } from "../storyline/threads.js";
+import { stripObsidianComments } from "../utils/stripObsidianComments.js";
+
+const content = stripObsidianComments(await readFile("book.mdx", "utf-8"));
+const storyline = resolveStoryline(content, threads);
+---
+
+<BaseLayout title="Sacred Struggle — Story line">
+  <div class="relative max-w-[90rem] mx-auto px-6 py-14 max-md:px-4 max-md:py-8">
+    <header class="mb-8 max-w-prose">
+      <a href="/" class="text-xs text-ink-muted hover:text-accent transition-colors">← Sacred Struggle</a>
+      <h1 class="font-display text-4xl max-md:text-3xl text-heading font-semibold leading-tight tracking-tight mt-3">Story line</h1>
+      <p class="text-ink-secondary font-display italic mt-3 text-base leading-relaxed">
+        One row per idea the reader has to carry. A dot wherever the book touches it, a line from
+        the first hint to the payoff. The x-axis is where you are in the manuscript, by word.
+      </p>
+      <p class="text-ink-muted text-sm mt-3 leading-relaxed">
+        Hover a dot for the quote and its section; click it to open that spot in the book. Hover a
+        chapter to see its column. Threads and anchors live in <code class="font-mono text-[0.8em]">src/storyline/threads.ts</code>;
+        the build fails with a list when a quote no longer matches the manuscript.
+      </p>
+    </header>
+
+    <StorylineDiagram storyline={storyline} />
+  </div>
+</BaseLayout>
