@@ -69,19 +69,19 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* In Tokens And The Context Window, `We’ll pick one of the most-likely ones at random` never says the word. The Good-Enough Rocket later says `Like we discussed before, this probably has something to do with sampling`. Add the word where the mechanism is, for example "...at random (this step is called *sampling*)".
   - *Why:* The callback points at a term the reader never met. The Trim item under Final week counts three later payoffs on this sentence, and the first of them refers to a word that is not there.
   - *Your call:* One word, or a clause that also says why the exact most-likely token is boring? The Conclusion's `The Inevitable` cashes exactly that, so the clause would plant the ending.
-- [ ] **Decide what "dopamine" means in Part 2**
+- [x] **Decide what "dopamine" means in Part 2**
   - *What:* Three mentions come before Why We Do What We Do explains it: `your brain squirts some dopamine` (Transmissionism), `highly dopaminergic content` (The Business of Companionship), and `our dopamine, norepinephrine and serotonin systems` (Where Does Creativity Come From?).
   - *Why:* The Conclusion turns on `Dopamine encodes reward prediction error`. Part 2 teaches the reader the pop meaning first (dopamine is pleasure), and Part 3 has to unteach it: `It’s important to know that dopamine does not feel “good.”`
   - *Your call:* Keep the pop usage as bait and correct it out loud in Part 3, or replace the three with plain words (a rush, addictive, drive) so the term arrives once, with its meaning?
-- [ ] **Define alignment where Alignment Faking appears**
+- [x] **Define alignment where Alignment Faking appears**
   - *What:* `#### Alignment Faking` in Part 1 uses the term. `is called *alignment*` in Alignment Research, Part 3, defines it, about 26,000 words later. One clause in the section's first sentence closes the gap.
   - *Why:* The reader also meets the word in the chapter title Designing Aligned Allies before the definition.
   - *Your call:* Define it in Part 1, or rename the Part 1 section to what it shows ("Pretending to be good when watched") and leave the definition where it is?
-- [ ] **Make "the theme of the book so far" true**
+- [x] **Make "the theme of the book so far" true**
   - *What:* Biology's Unmet Hunger says `as the theme of the book has been so far, in many ways we're attracted to the benefits of artificial intelligence because of what it gives our *conscious* mind, *right now*, but we forget the subtle subconscious and long-term effects`.
   - *Why:* This is the first sentence in the book that states the now-versus-later theme, at 44%, inside a subsection about touch and smell. The Forge of Meaning restates it at 63% as hedonia and eudaimonia. "So far" asks the reader to have noticed a theme nobody named.
   - *Your call:* Keep the sentence as the plant for the Forge and give it its own paragraph, or state the theme once in the Introduction so "so far" holds?
-- [ ] **Pay off the debt collector**
+- [x] **Pay off the debt collector**
   - *What:* `a faint image of a debt collector on the horizon and we're not quite sure yet how quickly they're walking or what they'll have to say` closes Disappearing Depth and never returns. Two places can take a one-sentence callback: Food For Thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
   - *Why:* "We're not sure yet" is a promise to the reader.
   - *Your call:* Which debt is it, skill or satisfaction? `It was never about the skills.` points at the second.
@@ -136,7 +136,7 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 ## More Stuff
 
-- [ ] Re-write *Captured By Consumption* so it can be driven by Superstimuli
+- [x] Re-write *Captured By Consumption* so it can be driven by Superstimuli
 
 ## Deadline math, redone
 

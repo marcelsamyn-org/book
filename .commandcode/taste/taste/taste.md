@@ -1,0 +1,13 @@
+# Taste
+- Prefers Lora as the site's serif font. Confidence: 0.9
+- Prefers IBM Plex Mono for main body text to make the "draft" state clear. Confidence: 0.9
+- Dislikes "card UI" / boxed layouts for top-of-page content; wants a subtle, minimal presentation (e.g., "About this work" as a small, quiet intro rather than a big box). Confidence: 0.85
+- Prefers main text left-aligned for readability. Confidence: 0.9
+- Prefers generous line-height (leading) in main text. Confidence: 0.9
+- Wants clear vertical spacing above headings that decreases progressively with heading level (a lot of space before h1 and h2, a bit less before each lower level). Confidence: 0.85
+- Wants heading text aligned with the main text column, with anchor buttons hanging to the left of the column (headings need a negative left margin to achieve this). Confidence: 0.8
+- Cares about fine typographic details (title/subtitle/about composition, consistent accordion styling, table-of-contents rules) and notices when they regress. Confidence: 0.8
+- Prefers Tailwind over hand-written direct CSS for the site template. Confidence: 0.9
+- Expects the dev server and production build to render identical styling — a fix that works in the built CSS but not in dev is not done. Confidence: 0.85
+- Wants the dev server to watch template files and restart automatically when they change. Confidence: 0.9
+- Reacts strongly when visual issues go unfixed across repeated attempts; expects fixes to be actually verified (e.g., in the running dev server) before being reported as done. Confidence: 0.7
