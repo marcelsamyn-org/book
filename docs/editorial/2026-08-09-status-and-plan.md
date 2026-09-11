@@ -89,7 +89,7 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* `more of a siren than a muse` appears once, in the Love & Connection intro. The Lover And The Hammer already has the two halves it maps onto: the lover-only companion is the siren, the hammer is the muse. The TODO `The work of this guy writing about siren vs. muse?` is still open.
   - *Why:* One image, one use.
   - *Your call:* One sentence in The Lover And The Hammer, cut it, or find the source first?
-- [ ] **Return to the mountain, or rename Part 3**
+- [x] **Return to the mountain, or rename Part 3**
   - *What:* Part 3 is "The Ascent". Captured by Consumption opens on `the uphill mountain trails` and `the magnificent view on the mountaintop`. Neither returns. The only later mountain, `plant the flag on the most impossible-to-climb mountain` in Falling in Love with Resistance, is a different image, a sports goal. The Part ends on God and the Conclusion ends at the sideboard.
   - *Why:* A Part title is the biggest promise in the book, and this one is made of an image used once.
   - *Your call:* Return to the mountain once, in the last paragraph of When Superintelligence Turns Away or in the sideboard scene (the view was never the point, the trail was), or rename the Part to what it delivers?
