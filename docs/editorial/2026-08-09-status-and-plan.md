@@ -6,7 +6,7 @@
 
 ## Where you are
 
-The manuscript is ~32,750 words. The restructure and dedupe work is finished: Part 1 is trimmed, the domains are real chapters, every duplicated concept has one canonical home, Happiness Through Friction ends on the God passage, and the Conclusion is drafted and lands. What's left is: a front door (Introduction + Methodology are empty headings), the payoff chapter (Mental Gym, half-written), two credibility sections (Steelman, Children), a handful of one-sentence plants, and the Overview rewrite. Site tracker: target 40k, per-part targets tuned 2026-08-09.
+The restructure and dedupe work is finished: Part 1 is trimmed, the domains are real chapters, every duplicated concept has one canonical home, Happiness Through Friction ends on the God passage, and the Conclusion is drafted and lands. What's left is: a front door (Introduction + Methodology are empty headings), the payoff chapter (Mental Gym, half-written), two credibility sections (Steelman, Children), a handful of one-sentence plants, and the Overview rewrite. Site tracker: target 40k, per-part targets tuned 2026-08-09.
 
 ## Sitting 1 — mechanical leftovers
 
@@ -93,7 +93,7 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* Part 3 is "The Ascent". Captured by Consumption opens on `the uphill mountain trails` and `the magnificent view on the mountaintop`. Neither returns. The only later mountain, `plant the flag on the most impossible-to-climb mountain` in Falling in Love with Resistance, is a different image, a sports goal. The Part ends on God and the Conclusion ends at the sideboard.
   - *Why:* A Part title is the biggest promise in the book, and this one is made of an image used once.
   - *Your call:* Return to the mountain once, in the last paragraph of When Superintelligence Turns Away or in the sideboard scene (the view was never the point, the trail was), or rename the Part to what it delivers?
-- [ ] **Plant awareness in Part 1**
+- [x] **Plant awareness in Part 1**
   - *What:* `what I’d call consciousness or awareness` is introduced in Awareness and Creativity at 50%. Re-Remembering then calls it `the most important skill we can develop in a world of AI` and Arbiters of Presence calls it `the key`. Pretend-Thinking already has the machine half: `The thoughts a language model presents are not always the thoughts it actually has`. Add the human half there in one sentence: we can notice a thought while we think it, and the model cannot.
   - *Why:* The largest claim in Part 3 rests on a concept the reader met as a side note in a domain chapter.
   - *Your call:* Plant it in Pretend-Thinking, or move the "structurally incapable of self-introspection" argument out of Creativity into Re-Remembering and leave a pointer in Creativity?
@@ -101,7 +101,7 @@ The manuscript is ~32,750 words. The restructure and dedupe work is finished: Pa
   - *What:* `What remains? Consecration.` in AI as Infinite Creation is the word's first appearance, at 93%. The Conclusion uses it once more. Nothing earlier says "set apart". The word "sacred" appears only in the Overview, in the title.
   - *Why:* The consecration family is a title candidate (see Title decision above). If it wins, the reader meets the title's idea five pages from the end.
   - *Your call:* Plant it in the Introduction (`There’s something special about moments like this` is one sentence away from it), in The Forge of Meaning, or keep it as the last reveal?
-- [ ] **Re-anchor "Then comes" in When Superintelligence Turns Away**
+- [x] **Re-anchor "Then comes" in When Superintelligence Turns Away** — closed 2026-09-13. The chapter now opens on `If we imagine a superintelligence exists` and the severity-and-chronicity sentence is gone, so there is no back-reference left to re-anchor. The knobs keep their home in Facilitating Growth Through Challenge at `**Severity and chronicity.** Not too bad, not too much.`
   - *What:* The chapter opens with `Then comes the more philosophical and controversial part: tweaking severity and chronicity of hardship...on purpose`. Severity and chronicity are the four knobs in Facilitating Growth Through Challenge, two chapters earlier. New World, New Scarcity and AI as Infinite Creation sit between them.
   - *Why:* The transition reads as if the knobs were on the previous page.
   - *Your call:* Rewrite the sentence to point back ("In Designing Aligned Allies we tuned severity and chronicity by hand. Now let a superintelligence do it."), or move the chapter to right after Designing Aligned Allies? The move puts God before New World and gives up the God-then-Conclusion ending.

@@ -18,7 +18,7 @@ export const threads = [
       { kind: "plant", quote: "But will that make us happy?", note: "The Overview asks the question the whole book answers." },
       { kind: "plant", quote: "comes from *trying to solve our problems*, not having solved them", note: "The Overview states the old thesis as a promise." },
       { kind: "plant", quote: "*what happens when we're done?*", note: "Work restates the question for the domain of productivity." },
-      { kind: "use", quote: "as the theme of the book has been so far", note: "Biology's Unmet Hunger names the theme: what the conscious mind gets now versus what we lose long-term." },
+      { kind: "plant", quote: "we lose important factors of pair bonding that are so subtle", note: "Biology's Unmet Hunger states the now-versus-later theme on its own terms: what we get now versus what we lose so slowly we never notice." },
       { kind: "plant", quote: "what actually makes a human life feel good to live?", note: "Today's Socrates Moment reopens the question as the hinge into Part 3." },
       { kind: "plant", quote: "an easy comfortable life makes us the happiest...right?", note: "Captured by Consumption ends on the question, one chapter before the answer." },
       { kind: "explain", quote: "long-term happiness is, in a way, caused by short-term unhappiness", note: "The Forge of Meaning states the thesis with its mechanism." },
@@ -86,7 +86,6 @@ export const threads = [
     mentions: [
       { kind: "plant", quote: "(they try to respond with what you'll like)", note: "How Smart Is AI lists it among the weird behaviors." },
       { kind: "explain", quote: "we humans are a little bit like a god", note: "The Sycophancy section explains RLHF: we reward what we like." },
-      { kind: "use", quote: "the model tends to believe you (sycophancy)", note: "Pretend-Thinking: the model fakes a reasoning trace to agree." },
       { kind: "use", quote: "this is exactly how AI is trained: we show a human two responses", note: "Love & Connection: the perfect partner is the training objective." },
       { kind: "use", quote: "Sycophancy is profitable", note: "The Business of Companionship: the flaw is a feature for revenue." },
       { kind: "use", quote: "the AI agrees with the person asking the question 50% more often", note: "The Stanford AITA study puts a number on it." },
@@ -148,7 +147,7 @@ export const threads = [
       { kind: "plant", quote: "I’m losing the willingness to sit still and think deeply", note: "The Introduction confesses the symptom." },
       { kind: "plant", quote: "**yes, we will lose some skill**", note: "Part 2 opener concedes the loss up front." },
       { kind: "plant", quote: "the skill of retrieving and surfacing the knowledge that was already in my mind", note: "Learning: the math-on-the-floor story shows what effort builds." },
-      { kind: "plant", quote: "you’ve *actually thought through* the idea in a way that cements it", note: "Transmissionism: understanding needs your own processing." },
+      { kind: "plant", quote: "you’ve worked with the thing you need to remember *so much*", note: "Transmissionism: by the time you build your own mnemonic you no longer need it. Understanding needs your own processing." },
       { kind: "explain", quote: "We call this *cognitive debt:*", note: "Disappearing Depth defines it." },
       { kind: "use", quote: "AI makes it very easy to delegate our thinking", note: "The Creative Paradox: delegation costs creativity." },
       { kind: "use", quote: "Workers become dramatically more productive when they leave themselves behind", note: "Today's Socrates Moment sums the domains." },
@@ -162,7 +161,8 @@ export const threads = [
     title: "The debt collector on the horizon",
     question: "Disappearing Depth ends on a debt collector walking toward us. Who is it, and when does it arrive?",
     mentions: [
-      { kind: "plant", quote: "a faint image of a debt collector on the horizon", note: "The image closes Disappearing Depth and is never picked up again." },
+      { kind: "plant", quote: "a faint image of a debt collector on the horizon", note: "The image closes Disappearing Depth." },
+      { kind: "payoff", quote: "The debt collector we saw in our chapter on work is back", note: "Food For Thought: he arrives with a report on what you no longer remember." },
     ],
   },
   {
@@ -197,9 +197,7 @@ export const threads = [
     title: "Dopamine: reward prediction error",
     question: "Why do we chase, why does the chase feel better than the catch, and why does AI's output feel dull?",
     mentions: [
-      { kind: "use", quote: "your brain squirts some dopamine", note: "Transmissionism uses the word colloquially before the mechanism exists." },
-      { kind: "use", quote: "highly dopaminergic content", note: "The Business of Companionship leans on the concept to explain feeds." },
-      { kind: "use", quote: "our dopamine, norepinephrine and serotonin systems", note: "Creativity lists the motivation chemicals without explaining them." },
+      { kind: "plant", quote: "highly dopaminergic content", note: "The Business of Companionship uses the word for feeds and points forward: \"we'll dig into dopamine more precisely later.\"" },
       { kind: "explain", quote: "the technical term for what it signals is **reward prediction error**", note: "Why We Do What We Do explains dopamine and serotonin." },
       { kind: "use", quote: "The biology of motivation is not wired for ease", note: "The section's conclusion: wired for pursuit against resistance." },
       { kind: "use", quote: "The dopamine has nothing to chase", note: "Superstimuli: the hollow arrival." },
@@ -233,6 +231,7 @@ export const threads = [
     question: "The one faculty a language model structurally cannot have. Why is it the most important skill in a world of AI?",
     mentions: [
       { kind: "plant", quote: "The thoughts a language model presents are not always the thoughts it actually has", note: "Pretend-Thinking: the machine cannot see its own thinking. The human counterpart is not named yet." },
+      { kind: "plant", quote: "we can learn to notice what we’re thinking *at the time we’re thinking it*", note: "A Machine Mind in a Human World names the human counterpart and calls it one of our most important skills, well before the Creativity chapter defines it." },
       { kind: "explain", quote: "what I’d call consciousness or awareness: the ability to know what you’re thinking while you’re thinking it", note: "Introduced inside the Creativity chapter." },
       { kind: "use", quote: "Large language models, structurally, are incapable of this type of self-introspection", note: "The machine cannot watch itself think." },
       { kind: "use", quote: "In the chapter on creativity we talked about how awareness", note: "Re-Remembering promotes it to the most important skill." },
@@ -271,7 +270,7 @@ export const threads = [
       { kind: "use", quote: "*pain without gain* is possible", note: "Can You Grow Without Trauma: post-ecstatic growth exists but grows different muscles." },
       { kind: "use", quote: "there’s something about the uncontrollable nature of adverse events too", note: "The caveat that becomes the ending." },
       { kind: "use", quote: "**Severity and chronicity.** Not too bad, not too much.", note: "Facilitating Growth Through Challenge: the four knobs." },
-      { kind: "payoff", quote: "*still have challenges we can't control.*", note: "When Superintelligence Turns Away: known struggle does not grow us. We need challenges we cannot control." },
+      { kind: "payoff", quote: "a key ingredient for \"growth through adversity\" is in fact that we *don't know*", note: "When Superintelligence Turns Away: known struggle does not grow us. The adversity has to be one we could not predict." },
       { kind: "use", quote: "planned struggle doesn’t work the same way", note: "The Conclusion restates it." },
     ],
   },
@@ -289,7 +288,7 @@ export const threads = [
       { kind: "use", quote: "My favorite exercise in the gym is the overhead press", note: "Thoughts Worth Thinking: choosing which thoughts to lift." },
       { kind: "use", quote: "our entire day is tuned towards optimally working with the most intelligent AI", note: "Wind Down Slowly closes the program." },
       { kind: "use", quote: "pushing hard weights around in the gym", note: "Superintelligence: chosen struggle is real but not the same texture." },
-      { kind: "use", quote: "take away the surface of “working a long time on something is meaningful.”", note: "The Conclusion demotes the gym from the point to the practice." },
+      { kind: "use", quote: "Before, having worked on something for a long time was what gave something meaning", note: "The Conclusion demotes the gym from the point to the practice: time spent was the old source of meaning, not the deeper one." },
     ],
   },
   {
@@ -389,9 +388,10 @@ export const threads = [
     title: "Alignment",
     question: "Part 1 shows alignment faking before the word is defined. What is alignment, and how do labs do it?",
     mentions: [
-      { kind: "use", quote: "#### Alignment Faking", note: "The heading uses the term before the book defines it." },
+      { kind: "explain", quote: "The challenge of aligning language models’ behavior with how we *want* them to behave", note: "Alignment Faking opens by defining the idea in place, at first contact." },
+      { kind: "use", quote: "Aligning this is one of the big challenges", note: "Pretend-Thinking: the 2026 exfiltration incidents make readable thoughts the precondition for checking every other kind of alignment." },
       { kind: "use", quote: "This designing is one of humanity’s most important tasks right now", note: "Designing Aligned Allies' own conclusion." },
-      { kind: "explain", quote: "is called *alignment*", note: "Alignment Research defines the term in Part 3." },
+      { kind: "use", quote: "is called *alignment*", note: "Alignment Research names the term and turns it into a method: change the training data." },
       { kind: "payoff", quote: "let me write the script like this", note: "Synthetic Document Fine-Tuning and the constitution." },
     ],
   },
@@ -401,6 +401,7 @@ export const threads = [
     question: "How does AI act, and what does that do to a working day?",
     mentions: [
       { kind: "explain", quote: "instead of chatting with a real person, the LLM is chatting with a piece of software", note: "Concepts & Terminology." },
+      { kind: "use", quote: "thousands of AI’s running around, emailing people, trying to find odd jobs", note: "Hidden Motives: agents let loose to pay for their own tokens." },
       { kind: "use", quote: "found its drug of choice in AI agents", note: "Token Anxiety." },
       { kind: "use", quote: "it’s almost like agentic AI is exactly built to support us here", note: "Walking Away: delegate the distraction, keep the presence." },
       { kind: "use", quote: "Dozens of startups have popped up that automatically scan your email", note: "New World: agents make attention abundant." },
@@ -431,7 +432,9 @@ export const threads = [
     title: "The mountain trail (The Ascent)",
     question: "Part 3 is called The Ascent and opens on a mountain trail versus shiny distractions. Does the reader ever reach the view?",
     mentions: [
-      { kind: "plant", quote: "the uphill mountain trails", note: "Captured by Consumption opens Part 3 on the image; it does not come back." },
+      { kind: "plant", quote: "the uphill mountain trails", note: "Captured by Consumption opens Part 3 on the image." },
+      { kind: "plant", quote: "would know when we should take the mountain trail", note: "When Superintelligence Turns Away re-raises the image: the machine could route you onto the trail." },
+      { kind: "payoff", quote: "The mountain trail was trodden and known until the tiniest of details", note: "The second surgery: a trail you already know does not grow you. The view was never the point." },
     ],
   },
 ] as const satisfies readonly Thread[];
