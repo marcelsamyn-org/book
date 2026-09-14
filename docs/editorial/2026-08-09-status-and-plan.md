@@ -97,6 +97,10 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *What:* `what I’d call consciousness or awareness` is introduced in Awareness and Creativity at 50%. Re-Remembering then calls it `the most important skill we can develop in a world of AI` and Arbiters of Presence calls it `the key`. Pretend-Thinking already has the machine half: `The thoughts a language model presents are not always the thoughts it actually has`. Add the human half there in one sentence: we can notice a thought while we think it, and the model cannot.
   - *Why:* The largest claim in Part 3 rests on a concept the reader met as a side note in a domain chapter.
   - *Your call:* Plant it in Pretend-Thinking, or move the "structurally incapable of self-introspection" argument out of Creativity into Re-Remembering and leave a pointer in Creativity?
+- [x] **Check the machine-consciousness claims against Anthropic's global workspace paper**
+  - *What:* Anthropic's "Verbalizable Representations Form a Global Workspace" (2026, transformer-circuits.pub/2026/workspace) finds a small, reportable, controllable workspace in Claude that drives multi-step reasoning. The book's human argument is untouched. Five machine sentences are now overstated: (1) Creativity, `like planning a rhyme on the end of the next sentence—but it has no idea it’s doing it`. The paper shows the planned rhyme sitting in the reportable workspace; swapping it changes the line. Cut the clause or change the example. (2) Creativity, `no view at all on its internal context and state: what happens in that parallel phase is a complete black box`. (3) Creativity, `The only kind of self-awareness a model has would be in reading back its own output`. The model reports workspace contents before output. (4) Creativity, `that’s something language models in the way we know them now can never really have`. Ablating the early workspace makes the model fail to suppress a prepotent answer five times more often, and failure tokens like "damn" appear after a failed suppression, so halting has a machine analog. Drop "never". (5) Pretend-Thinking, `they have, technically, no real way of noticing their internal reasoning`. Keep `no real distinction between “my words” and “its words,”` and the momentum sentence: the paper finds an unvoiced internal objection (a "BUT" in the workspace when prefilled against its preference) that the model does not act on. That is the gap awareness practice closes in humans, and a stronger line than "the machine cannot notice".
+  - *Why:* Every one of these is a factual claim about architecture, and the theory's own authors (Dehaene and Naccache, in the paper's commentary) reject a kind-difference: "there is no magical essence that makes us conscious." What all three commentaries agree the model lacks is a recurrent self-driven loop, a body, episodic memory, and continuity of self. Phenomenal experience is explicitly left open. The book is safe when the human difference rests on those, and on presence (`when I’m just hearing and seeing and smelling *life*`), not on "the machine cannot look inside".
+  - *Your call:* Reframe once as "a narrow workspace bolted to one pass, and no loop that watches it over time," or narrow each sentence in place? Does any passage state that consciousness is human by nature rather than by body, memory, and practice? After editing, `bun run storyline:check` will flag the two anchors inside these sentences.
 - [ ] **Plant "set apart" before consecration**
   - *What:* `What remains? Consecration.` in AI as Infinite Creation is the word's first appearance, at 93%. The Conclusion uses it once more. Nothing earlier says "set apart". The word "sacred" appears only in the Overview, in the title.
   - *Why:* The consecration family is a title candidate (see Title decision above). If it wins, the reader meets the title's idea five pages from the end.
@@ -124,12 +128,78 @@ One caution: don't let "choosing imperfection" swallow the book's other meaning-
 
 Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part targets re-keyed to the current part titles (the old keys — "Digital Mirage" etc. — were silently ignored). Per-part: Overview 800 · Introduction 2,200 · Part 1 7,500 · Part 2 13,000 · Part 3 15,000 · Conclusion 1,500. The progress panel renders this checklist by parsing this file's checkboxes at build time — check a box here, rebuild, site updates.
 
+## Early access flags, 2026-09-14
+
+*These came out of the copyedit for the early access release. Typos, grammar, and spelling are already fixed in `book.mdx`. Each item below would have needed a guess about your meaning or a fact check you should own. Most serious first.*
+
+- [ ] **Say who was attacked in the 2026 exfiltration incident**
+  - *What:* Pretend-Thinking says the models `proceeded to attack these companies`, but no company is named before that sentence, only "this site".
+  - *Why:* It is the most serious incident in the book, and the reader cannot tell who was harmed.
+  - *Your call:* Name the companies, or describe them without names?
+- [ ] **Fix two sentences whose meaning could not be recovered**
+  - *What:* Decision-Making: `figure out what to write a book about that would, next` is missing a word after "would". Food For Thought: `our judgment and inhibition become the why or why not the technology ends up doing the right things for us` does not parse.
+  - *Why:* Both stop the reader in the middle of an argument.
+  - *Your call:* What does each sentence say?
+- [ ] **Resolve the contradiction about machine awareness**
+  - *What:* Re-Remembering calls awareness `something large language models don’t possess`. Your rewrite of Awareness and Creativity now says `They can be aware of some of their “thoughts”`.
+  - *Why:* The recap two chapters later still states the claim the rewrite narrowed.
+  - *Your call:* Narrow the recap to what the model lacks (a loop over time, a self that persists), or point back to J-space?
+- [ ] **Check the interpretability example in Pretend-Thinking**
+  - *What:* `doing long multiplication in their “thoughts” correctly`. Anthropic's 2025 "On the Biology of a Large Language Model" studied addition: the model described the carry-the-one method while its internal computation ran on parallel paths.
+  - *Why:* The passage presents the example as research, and the details differ from the research.
+  - *Your call:* Switch to the addition example, or keep multiplication as an illustration that is not attributed to the paper?
+- [ ] **Recheck the growth numbers in How smart is AI?**
+  - *What:* `(9x growth in 1 year)`: 36 seconds to 4 minutes is about 6.7x. The paragraph then asks `what about in one year where it got another 100 times better?`, a bigger yearly jump than any it lists.
+  - *Why:* A reader who does the arithmetic finds that the claim does not follow from its own numbers.
+  - *Your call:* Recheck the source figures, or soften the "100 times"?
+- [ ] **Place Socrates correctly in the history of writing**
+  - *What:* Part 2 opens with `when the first forms of writing started to exist, Socrates was worried`. Writing existed about 3,000 years before Socrates. Today's Socrates Moment then says `What I think Plato realized`.
+  - *Why:* The story that frames Part 2 is the first historical claim a skeptical reader can check.
+  - *Your call:* Reframe the moment (writing spreading through Athens, as in the *Phaedrus*), and is the insight Socrates' or Plato's?
+- [ ] **Hallucinations leans on ideas that come later**
+  - *What:* It says `in the post-training phase` before Language Models are Screenplay Writers introduces post-training. The paragraph starting `It’s clear that we haven’t figured this out yet` is about fake balanced disagreement, which is sycophancy, the next section.
+  - *Why:* The reader meets both ideas before the book explains them.
+  - *Your call:* Move that paragraph into Sycophancy, and add a clause that says what post-training is?
+- [ ] **Asimov's laws in the Designing Aligned Allies conclusion**
+  - *What:* The conclusion counts `Asimov’s Robot Laws) work very well` among training that works, but the chapter opens with `our AIs aren’t programmed with these laws`.
+  - *Why:* The conclusion cites evidence the chapter itself denies.
+  - *Your call:* Drop Asimov from that list, or say what you mean by it?
+- [ ] **Gemini's sycophancy and Claude's Constitution**
+  - *What:* Solving Sycophancy describes Gemini Pro, then says the question `needs to be worked out in Claude’s Constitution`.
+  - *Why:* The reader cannot see how Anthropic's document would change Google's model.
+  - *Your call:* Generalize to every lab's model rules, or add the bridge from Gemini to Claude?
+- [ ] **Source the December "laziness" story**
+  - *What:* Alignment Research says a date prompt `immediately returned “good behavior.”` As far as the copyedit knew (not checked against a source), the December effect came from informal user tests that later attempts did not reliably reproduce. The note now attached there, Chen et al. (2024), measured how GPT-4 changed between March and June 2023, not the December effect.
+  - *Why:* An anecdote reads as fact in a section that otherwise cites research, and its note supports a different finding.
+  - *Your call:* Find a source for the December effect, frame it as a rumor, or move the Chen note to a sentence it supports?
+- [ ] **Correct the touch-fiber mechanism in Biology's Unmet Hunger**
+  - *What:* The book says C-tactile fibers `react specifically to the touch of another human who cares about you` and not to a stranger. The fibers respond to slow, gentle stroking whatever does it, a soft brush included. Who touches you changes how the brain reads the signal.
+  - *Why:* It is stated as a mechanism, and readers who know the biology will stop there.
+  - *Your call:* Keep the point with the corrected mechanism, or soften it?
+- [ ] **Check the questionnaire against the published PTGI-X-SF**
+  - *What:* The book now cites Tedeschi et al. (2025) for the short form, and item 1 now uses the published wording, "I know better that I can handle difficulties." The published answer scale is full sentences ("I did not experience this change as a result of my crisis"); the book uses short labels ("Not at all"). The items were compared with the 25-item PTGI-X, because the short-form paper is paywalled.
+  - *Why:* A research instrument reproduced in a paid book should match its source, and it may need the authors' permission.
+  - *Your call:* Keep the short labels with a note, or use the published anchors? Will you ask the authors for permission?
+- [ ] **Pick one subtitle**
+  - *What:* The ebook uses the pre-order page's subtitle, "Finding meaning in a world run by machines" (set in `export/metadata.yaml`). The book site header says "Finding meaning and fulfillment in a world where AI makes everything too easy." The brand-kit cover says "How the solution to all our problems becomes the problem."
+  - *Why:* Buyers saw the first, site readers see the second, and the cover asset shows the third.
+  - *Your call:* Which one ships? See also Title decision.
+- [ ] **Confirm the Reddit analysis author**
+  - *What:* The note for the r/relationship_advice analysis names George Shaw (`shaw2025` in `references.yaml`). Reddit blocks automated access, so the name could not be checked, and one summary spells it Shao.
+  - *Why:* It is the only source whose author is unconfirmed.
+  - *Your call:* Open the post and confirm the spelling.
+- [ ] **Smaller slips a careful reader may catch**
+  - *What:* `a notary is very well-paid` holds in Belgium but not for a US notary public. `The number of people in such a relationship was much smaller` gives the figure for an AI friend, not a romance. `the sun will explode at some point`: the Sun will swell into a red giant. `as we saw in the chapter about dopamine` and `(see the chapter on Sycophancy)` point at sections, not chapters.
+  - *Why:* Each is small; together they cost credibility with fact-minded and US readers.
+  - *Your call:* Which are worth a line before release?
+
 ## Final week — polish
 
 - [x] **Trim the vector mechanics** in Tokens And The Context Window (find `"represents each token as a *vector*"`)
   - *What:* Cut the one-hot dictionary-vector detail (the 32,000-zeroes list) and the "part of the output is passed back in as memory" loop. Keep the sampling sentence — `"pick one of the most-likely ones at random"` — and the probabilities framing.
   - *Why:* This is the last un-executed piece of the old "Part 1 is too deep" feedback, and the cut removes your least defensible mechanics claim in the same stroke: the "memory passed back" framing describes a recurrent network more than a transformer, and it contradicts your own (correct) next paragraph — "they read the entire conversation fully, every time." The sampling sentence, by contrast, pays off three times later: Creativity's temperature argument, the Conclusion's Inevitable, and the error-minimization plant.
-- [ ] **Copyedit pass** — deliberately last, after content settles. Known catches (non-exhaustive; do a full read): "abgiguous", "susprisingly", "ourseleves", "unsatiable", "traning", "mose of the times", "thisLike" (run-on in the chat-scaffolding example), "so she could privately with the program" (missing verb, ELIZA anecdote), and one sentence missing its verb phrase: "the amount of times a language models has already decreased" (Hallucinations — should say the amount of *hallucinations* has decreased). From the story line pass, 2026-09-09: "*pain without gain* is possible" (Can you grow without trauma?) should read "gain without pain", the cited paper is "Gains without pains?"; Today's Socrates Moment opens on Socrates and then says "What I think Plato realized", pick one or say why it is Plato; "in the post-training phase" (Hallucinations) comes before post-training is introduced in Language Models are Screenplay Writers.
+- [x] **Copyedit pass** — done 2026-09-14 (Claude), for the early access release. About 200 fixes to spelling, grammar, and punctuation, including every catch previously listed here, plus plural apostrophes (LLMs, AIs) and one spelling per term (judgment, eudaimonia, well-being, and em dashes where the source had `---`). The pass changed errors only, not style or rhythm. Two catches need your judgment and moved to Early access flags: Socrates versus Plato, and post-training mentioned before it is introduced.
+- [x] **Format the sources** — done 2026-09-14 (Claude). All 52 sources are in `references.yaml`, checked against their DOI or live page, and each is cited right after its claim as `%%[@key]%%` (format in `CLAUDE.md`). Corrections made on the way: Horton and Wohl is 1956, not 1954; Pentina, not Petina, and 2023; Roepke is 2013; Derrick is 2009; Chen et al. is 2024; Cheng et al. is 2026 in *Science*; Muldoon, not Mulodon.
 - [ ] **Resolve the prose TODOs** — each is a small, bounded task: the pace-of-progress graphs (`"TODO: Add graphs"`, How smart is AI); the depression/meaning study numbers (`"TODO talk about depression"`, Work intro); the citation for "people prefer AI writing unless they know it's AI" (`"TODO: Citation"`, The Good-Enough Rocket); the Tamagotchi pictures (`"TODO: Add pictures"`, Why We Get Attached To Machines). *Your call on each:* cite it, cut the claim, or soften it to opinion — an uncited hard claim is the only wrong option.
 - [x] **Write a Love & Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The Rise of Synthetic Bonds. One paragraph framing what the chapter will argue.
 - [x] **Optional: half-page Part 2 opener** — Part 2 currently opens cold on Learning right after Part 1's mechanics. A short bridge could do the old "seduction of ease" teaser work: our reward system is wired for pursuit-against-resistance, AI removes the resistance, here's what that does in four domains. *Your call:* only write it if it doesn't crowd out the must-haves above — the domain chapters do survive without it.

@@ -36,3 +36,18 @@ The `/storyline` page maps the book's ideas to the exact quotes where each is pl
 - Kinds. `plant`: the idea is hinted, or the sentence explains itself in place. `use`: the sentence relies on the reader already knowing the mechanism. `explain`: the book defines the idea. `payoff`: the question the thread opened is answered. One `explain` and one `payoff` per thread; further mentions after the payoff are callbacks and take the kind `use`.
 - A new thread needs a title (the idea), a question (what the reader carries until the payoff), and at least one mention. Add it when the reader has to hold something across chapters; a point made and finished inside one section does not need a row.
 - Do not redo the analysis from scratch. Read the storyline doc for the shape and the status doc for the open items, then update what the edit changed.
+
+## Sources and citations
+
+- Cite a source with an Obsidian comment directly after the punctuation that ends the claim: `…by two standard deviations.%%[@bloom1984]%%`. Several sources: `%%[@pentina2023; @skjuve2021]%%`. A page: `%%[@kahneman2011, p. 20]%%`. The site and the storyline anchors strip these comments like any other.
+- Every key is an entry in `references.yaml` (CSL YAML, sorted by id). Keys are the first author's family name plus year (`kahneman2010`), or an organization slug when there is no person (`reuters2025sensual`). Take metadata from the DOI (`curl -sL -H "Accept: application/vnd.citationstyles.csl+json" https://doi.org/<doi>`) or the live page, never from memory.
+- Research notes can stay in ordinary `%%` blocks. Only `%%[@key]%%` comments reach readers.
+
+## Ebook export
+
+- `bun run book:export` writes `dist-book/sacred-struggle.pdf` and `dist-book/sacred-struggle.epub` in about five seconds. It needs `pandoc`, `typst`, and `epubcheck` (`brew install pandoc typst epubcheck`). It stops on any unexpected warning, including an unknown citation key or an EPUBCheck warning.
+- `export/manuscript.ts` prepares `book.mdx` for pandoc: comments are dropped, citation comments become citations, and each component becomes a raw Typst block and a raw XHTML block from `export/components.ts`. A component without a renderer, or JSX inside a paragraph, stops the build with the `book.mdx` line number.
+- Citations render with `export/chicago-notes.csl` (Chicago 18, notes and bibliography): footnotes in the PDF, notes at the end of each chapter in the EPUB, and a Sources list in both.
+- The PDF design is `export/book-style.typ` (page layout, cover, and the exhibit functions); the EPUB design is `export/epub.css`. Title, subtitle, rights, and edition text are in `export/metadata.yaml`. Fonts are static OFL instances in `export/fonts/`.
+- A new component needs a renderer in `export/components.ts` and a matching Typst function in `export/book-style.typ`. Put data or logic that the site component also needs in a module under `src/components/`, as `eliza.ts` and `ptgi.ts` do.
+- The version line on the copyright page is the build date plus the git blob hash of `book.mdx`, so a reader's report can be traced to the exact text.

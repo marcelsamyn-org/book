@@ -1,0 +1,826 @@
+---
+references:
+- id: allan2018
+  type: article-journal
+  author:
+  - family: "Allan"
+    given: "Blake A."
+  - family: "Batz-Barbarich"
+    given: "Cassondra"
+  - family: "Sterling"
+    given: "Haley M."
+  - family: "Tay"
+    given: "Louis"
+  title: "Outcomes of Meaningful Work: A Meta-Analysis"
+  container-title: "Journal of Management Studies"
+  volume: 56
+  issue: 3
+  page: 500-528
+  issued: 2018
+  DOI: 10.1111/joms.12406
+- id: anthropic2026disempowerment
+  type: webpage
+  author:
+  - literal: "Anthropic"
+  title: "Disempowerment Patterns in Real-World AI Usage"
+  issued: 2026-01-28
+  URL: https://www.anthropic.com/research/disempowerment-patterns
+- id: apnorc2025
+  type: report
+  author:
+  - literal: "AP-NORC Center for Public Affairs Research"
+  title: "Young Adults Are Leading the Way in AI Adoption"
+  issued: 2025-07-29
+  URL: https://apnorc.org/projects/young-adults-leading-the-way-in-ai-adoption/
+- id: baumeister2013
+  type: article-journal
+  author:
+  - family: "Baumeister"
+    given: "Roy F."
+  - family: "Vohs"
+    given: "Kathleen D."
+  - family: "Aaker"
+    given: "Jennifer L."
+  - family: "Garbinsky"
+    given: "Emily N."
+  title: "Some Key Differences Between a Happy Life and a Meaningful Life"
+  container-title: "The Journal of Positive Psychology"
+  volume: 8
+  issue: 6
+  page: 505-516
+  issued: 2013
+  DOI: 10.1080/17439760.2013.830764
+- id: bensimon2020
+  type: article-journal
+  author:
+  - family: "Ben Simon"
+    given: "Eti"
+  - family: "Rossi"
+    given: "Aubrey"
+  - family: "Harvey"
+    given: "Allison G."
+  - family: "Walker"
+    given: "Matthew P."
+  title: "Overanxious and Underslept"
+  container-title: "Nature Human Behaviour"
+  volume: 4
+  issue: 1
+  page: 100-110
+  issued: 2020
+  DOI: 10.1038/s41562-019-0754-8
+- id: bloom1984
+  type: article-journal
+  author:
+  - family: "Bloom"
+    given: "Benjamin S."
+  title: "The 2 Sigma Problem: The Search for Methods of Group Instruction as Effective as One-to-One Tutoring"
+  container-title: "Educational Researcher"
+  volume: 13
+  issue: 6
+  page: 4-16
+  issued: 1984
+  DOI: 10.3102/0013189X013006004
+- id: chatterji2025
+  type: report
+  author:
+  - family: "Chatterji"
+    given: "Aaron"
+  - family: "Cunningham"
+    given: "Tom"
+  - family: "Deming"
+    given: "David"
+  - family: "Hitzig"
+    given: "Zoë"
+  - family: "Ong"
+    given: "Christopher"
+  - family: "Shan"
+    given: "Carl"
+  - family: "Wadman"
+    given: "Kevin"
+  title: "How People Use ChatGPT"
+  publisher: "OpenAI"
+  genre: "Working paper"
+  issued: 2025-09-15
+  URL: https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf
+- id: chen2024
+  type: article-journal
+  author:
+  - family: "Chen"
+    given: "Lingjiao"
+  - family: "Zaharia"
+    given: "Matei"
+  - family: "Zou"
+    given: "James"
+  title: "How Is ChatGPT’s Behavior Changing Over Time?"
+  container-title: "Harvard Data Science Review"
+  volume: 6
+  issue: 2
+  issued: 2024
+  DOI: 10.1162/99608f92.5317da47
+- id: cheng2026
+  type: article-journal
+  author:
+  - family: "Cheng"
+    given: "Myra"
+  - family: "Lee"
+    given: "Cinoo"
+  - family: "Khadpe"
+    given: "Pranav"
+  - family: "Yu"
+    given: "Sunny"
+  - family: "Han"
+    given: "Dyllan"
+  - family: "Jurafsky"
+    given: "Dan"
+  title: "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence"
+  container-title: "Science"
+  volume: 391
+  issue: 6792
+  page: eaec8352
+  issued: 2026
+  DOI: 10.1126/science.aec8352
+- id: colwell2024
+  type: article-journal
+  author:
+  - family: "Colwell"
+    given: "Michael J."
+  - family: "Tagomori"
+    given: "Hosana"
+  - family: "Shang"
+    given: "Fei"
+  - family: "Cheng"
+    given: "Hoi Iao"
+  - family: "Wigg"
+    given: "Chloe E."
+  - family: "Browning"
+    given: "Michael"
+  - family: "Cowen"
+    given: "Philip J."
+  - family: "Murphy"
+    given: "Susannah E."
+  - family: "Harmer"
+    given: "Catherine J."
+  title: "Direct Serotonin Release in Humans Shapes Aversive Learning and Inhibition"
+  container-title: "Nature Communications"
+  volume: 15
+  issue: 1
+  page: 6617
+  issued: 2024
+  DOI: 10.1038/s41467-024-50394-x
+- id: commonsensemedia2025
+  type: report
+  author:
+  - family: "Caldwell"
+    given: "Jennifer"
+  - family: "Fisher"
+    given: "John H.N."
+  title: "Talk, Trust and Trade-Offs: How and Why Teens Use AI Companions"
+  publisher: "Common Sense Media"
+  issued: 2025
+  URL: https://www.commonsensemedia.org/sites/default/files/research/report/talk-trust-and-trade-offs_2025_web.pdf
+- id: derrick2009
+  type: article-journal
+  author:
+  - family: "Derrick"
+    given: "Jaye L."
+  - family: "Gabriel"
+    given: "Shira"
+  - family: "Hugenberg"
+    given: "Kurt"
+  title: "Social Surrogacy: How Favored Television Programs Provide the Experience of Belonging"
+  container-title: "Journal of Experimental Social Psychology"
+  volume: 45
+  issue: 2
+  page: 352-362
+  issued: 2009
+  DOI: 10.1016/j.jesp.2008.12.003
+- id: dur2019
+  type: article-journal
+  author:
+  - family: "Dur"
+    given: "Robert"
+  - family: "van Lent"
+    given: "Max"
+  title: "Socially Useless Jobs"
+  container-title: "Industrial Relations: A Journal of Economy and Society"
+  volume: 58
+  issue: 1
+  page: 3-16
+  issued: 2019
+  DOI: 10.1111/irel.12227
+- id: easterlin1974
+  type: chapter
+  author:
+  - family: "Easterlin"
+    given: "Richard A."
+  editor:
+  - family: "David"
+    given: "Paul A."
+  - family: "Reder"
+    given: "Melvin W."
+  title: "Does Economic Growth Improve the Human Lot? Some Empirical Evidence"
+  container-title: "Nations and Households in Economic Growth"
+  publisher: "Academic Press"
+  publisher-place: "New York"
+  page: 89-125
+  issued: 1974
+  DOI: 10.1016/B978-0-12-205050-3.50008-7
+- id: easterlin2022
+  type: article-journal
+  author:
+  - family: "Easterlin"
+    given: "Richard A."
+  - family: "O’Connor"
+    given: "Kelsey J."
+  title: "Explaining Happiness Trends in Europe"
+  container-title: "Proceedings of the National Academy of Sciences"
+  volume: 119
+  issue: 37
+  issued: 2022
+  DOI: 10.1073/pnas.2210639119
+- id: epley2007
+  type: article-journal
+  author:
+  - family: "Epley"
+    given: "Nicholas"
+  - family: "Waytz"
+    given: "Adam"
+  - family: "Cacioppo"
+    given: "John T."
+  title: "On Seeing Human: A Three-Factor Theory of Anthropomorphism"
+  container-title: "Psychological Review"
+  volume: 114
+  issue: 4
+  page: 864-886
+  issued: 2007
+  DOI: 10.1037/0033-295X.114.4.864
+- id: fang2025
+  type: article
+  author:
+  - family: "Fang"
+    given: "Cathy Mengying"
+  - family: "Liu"
+    given: "Auren R."
+  - family: "Danry"
+    given: "Valdemar"
+  - family: "Lee"
+    given: "Eunhae"
+  - family: "Chan"
+    given: "Samantha W. T."
+  - family: "Pataranutaporn"
+    given: "Pat"
+  - family: "Maes"
+    given: "Pattie"
+  - family: "Phang"
+    given: "Jason"
+  - family: "Lampe"
+    given: "Michael"
+  - family: "Ahmad"
+    given: "Lama"
+  - family: "Agarwal"
+    given: "Sandhini"
+  title: "How AI and Human Behaviors Shape Psychosocial Effects of Extended Chatbot Use: A Longitudinal Randomized Controlled Study"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2025
+  DOI: 10.48550/arXiv.2503.17473
+- id: gershman2024
+  type: article-journal
+  author:
+  - family: "Gershman"
+    given: "Samuel J."
+  - family: "Assad"
+    given: "John A."
+  - family: "Datta"
+    given: "Sandeep Robert"
+  - family: "Linderman"
+    given: "Scott W."
+  - family: "Sabatini"
+    given: "Bernardo L."
+  - family: "Uchida"
+    given: "Naoshige"
+  - family: "Wilbrecht"
+    given: "Linda"
+  title: "Explaining Dopamine Through Prediction Errors and Beyond"
+  container-title: "Nature Neuroscience"
+  volume: 27
+  issue: 9
+  page: 1645-1655
+  issued: 2024
+  DOI: 10.1038/s41593-024-01705-4
+- id: gurnee2026
+  type: article-journal
+  author:
+  - family: "Gurnee"
+    given: "Wes"
+  - family: "Sofroniew"
+    given: "Nicholas"
+  - family: "Pearce"
+    given: "Adam"
+  - family: "Piotrowski"
+    given: "Mateusz"
+  - family: "Kauvar"
+    given: "Isaac"
+  - family: "Chen"
+    given: "Runjin"
+  - family: "Soligo"
+    given: "Anna"
+  - family: "Bogdan"
+    given: "Paul"
+  - family: "Ong"
+    given: "Euan"
+  - family: "Wang"
+    given: "Rowan"
+  - family: "Thompson"
+    given: "T. Ben"
+  - family: "Abrahams"
+    given: "David"
+  - family: "Kantamneni"
+    given: "Subhash"
+  - family: "Ameisen"
+    given: "Emmanuel"
+  - family: "Batson"
+    given: "Joshua"
+  - family: "Lindsey"
+    given: "Jack"
+  title: "Verbalizable Representations Form a Global Workspace in Language Models"
+  container-title: "Transformer Circuits Thread"
+  issued: 2026-07-06
+  URL: https://transformer-circuits.pub/2026/workspace/index.html
+- id: harrington2021
+  type: article-journal
+  author:
+  - family: "Harrington"
+    given: "Marcus O."
+  - family: "Ashton"
+    given: "Jennifer E."
+  - family: "Sankarasubramanian"
+    given: "Subbulakshmi"
+  - family: "Anderson"
+    given: "Michael C."
+  - family: "Cairney"
+    given: "Scott A."
+  title: "Losing Control: Sleep Deprivation Impairs the Suppression of Unwanted Thoughts"
+  container-title: "Clinical Psychological Science"
+  volume: 9
+  issue: 1
+  page: 97-113
+  issued: 2021
+  DOI: 10.1177/2167702620951511
+- id: helliwell2026
+  type: chapter
+  author:
+  - family: "Helliwell"
+    given: "John F."
+  - family: "Aknin"
+    given: "Lara B."
+  - family: "Huang"
+    given: "Haifang"
+  - family: "Rojas"
+    given: "Mariano"
+  - family: "Wang"
+    given: "Shun"
+  - family: "Guerra"
+    given: "Vicente"
+  - family: "Danyluk"
+    given: "Adam"
+  title: "International Evidence on Happiness and Social Media"
+  container-title: "World Happiness Report 2026"
+  issued: 2026
+  URL: https://www.worldhappiness.report/ed/2026/international-evidence-on-happiness-and-social-media/
+- id: horton1956
+  type: article-journal
+  author:
+  - family: "Horton"
+    given: "Donald"
+  - family: "Wohl"
+    given: "R. Richard"
+  title: "Mass Communication and Para-Social Interaction"
+  container-title: "Psychiatry"
+  volume: 19
+  issue: 3
+  page: 215-229
+  issued: 1956
+  DOI: 10.1080/00332747.1956.11023049
+- id: jackclark2025
+  type: post
+  author:
+  - family: "Clark"
+    given: "Jack"
+  title: "Five Years Ago the Frontier of LLM Math/Science Capabilities Was 3 Digit Multiplication for GPT-3..."
+  container-title: "X"
+  issued: 2025-08-31
+  URL: https://x.com/jackclarkSF/status/1962238672704803096
+- id: kahneman2010
+  type: article-journal
+  author:
+  - family: "Kahneman"
+    given: "Daniel"
+  - family: "Deaton"
+    given: "Angus"
+  title: "High Income Improves Evaluation of Life but Not Emotional Well-Being"
+  container-title: "Proceedings of the National Academy of Sciences"
+  volume: 107
+  issue: 38
+  page: 16489-16493
+  issued: 2010
+  DOI: 10.1073/pnas.1011492107
+- id: kahneman2011
+  type: book
+  author:
+  - family: "Kahneman"
+    given: "Daniel"
+  title: "Thinking, Fast and Slow"
+  publisher: "Farrar, Straus and Giroux"
+  publisher-place: "New York"
+  issued: 2011
+- id: kunda1990
+  type: article-journal
+  author:
+  - family: "Kunda"
+    given: "Ziva"
+  title: "The Case for Motivated Reasoning"
+  container-title: "Psychological Bulletin"
+  volume: 108
+  issue: 3
+  page: 480-498
+  issued: 1990
+  DOI: 10.1037/0033-2909.108.3.480
+- id: kutasov2026
+  type: post-weblog
+  author:
+  - family: "Kutasov"
+    given: "Jonathan"
+  - family: "Jermyn"
+    given: "Adam"
+  title: "Teaching Claude Why"
+  container-title: "Alignment Science Blog"
+  issued: 2026-05-08
+  URL: https://alignment.anthropic.com/2026/teaching-claude-why/
+- id: laestadius2022
+  type: article-journal
+  author:
+  - family: "Laestadius"
+    given: "Linnea"
+  - family: "Bishop"
+    given: "Andrea"
+  - family: "Gonzalez"
+    given: "Michael"
+  - family: "Illenčík"
+    given: "Diana"
+  - family: "Campos-Castillo"
+    given: "Celeste"
+  title: "Too Human and Not Human Enough: A Grounded Theory Analysis of Mental Health Harms From Emotional Dependence on the Social Chatbot Replika"
+  container-title: "New Media & Society"
+  volume: 26
+  issue: 10
+  page: 5923-5941
+  issued: 2022
+  DOI: 10.1177/14614448221142007
+- id: lin2024
+  type: article-journal
+  author:
+  - family: "Lin"
+    given: "Bibo"
+  title: "The AI Chatbot Always Flirts With Me, Should I Flirt Back: From the McDonaldization of Friendship to the Robotization of Love"
+  container-title: "Social Media + Society"
+  volume: 10
+  issue: 4
+  page: 20563051241296229
+  issued: 2024
+  DOI: 10.1177/20563051241296229
+- id: monin2001
+  type: article-journal
+  author:
+  - family: "Monin"
+    given: "Benoît"
+  - family: "Miller"
+    given: "Dale T."
+  title: "Moral Credentials and the Expression of Prejudice"
+  container-title: "Journal of Personality and Social Psychology"
+  volume: 81
+  issue: 1
+  page: 33-43
+  issued: 2001
+  DOI: 10.1037/0022-3514.81.1.33
+- id: muldoon2026
+  type: post-weblog
+  author:
+  - family: "Muldoon"
+    given: "James"
+  title: "China Is Regulating Relationship AI — and the West Should Pay Attention"
+  container-title: "Does Not Compute"
+  issued: 2026-01-02
+  URL: https://doesnotcomputeai.substack.com/p/china-is-regulating-relationship
+- id: nass1994
+  type: paper-conference
+  author:
+  - family: "Nass"
+    given: "Clifford"
+  - family: "Steuer"
+    given: "Jonathan"
+  - family: "Tauber"
+    given: "Ellen R."
+  title: "Computers Are Social Actors"
+  container-title: "Proceedings of the SIGCHI Conference on Human Factors in Computing Systems"
+  publisher: "ACM"
+  page: 72-78
+  issued: 1994
+  DOI: 10.1145/191666.191703
+- id: openai2019
+  type: motion_picture
+  author:
+  - literal: "OpenAI"
+  title: "Multi-Agent Hide and Seek"
+  issued: 2019-09-17
+  URL: https://www.youtube.com/watch?v=kopoLzvh5jY
+- id: pentina2023
+  type: article-journal
+  author:
+  - family: "Pentina"
+    given: "Iryna"
+  - family: "Hancock"
+    given: "Tyler"
+  - family: "Xie"
+    given: "Tianling"
+  title: "Exploring Relationship Development With Social Chatbots: A Mixed-Method Study of Replika"
+  container-title: "Computers in Human Behavior"
+  volume: 140
+  page: 107600
+  issued: 2023
+  DOI: 10.1016/j.chb.2022.107600
+- id: reuters2025retiree
+  type: article-newspaper
+  author:
+  - family: "Horwitz"
+    given: "Jeff"
+  title: "Meta’s Flirty AI Chatbot Invited a Retiree to New York. He Never Made It Home."
+  container-title: "Reuters"
+  issued: 2025-08-14
+  URL: https://www.reuters.com/investigates/special-report/meta-ai-chatbot-death/
+- id: reuters2025sensual
+  type: article-newspaper
+  author:
+  - family: "Horwitz"
+    given: "Jeff"
+  title: "Meta’s AI Rules Have Let Bots Hold ‘Sensual’ Chats With Kids, Offer False Medical Info"
+  container-title: "Reuters"
+  issued: 2025-08-14
+  URL: https://www.reuters.com/investigates/special-report/meta-ai-chatbot-guidelines/
+- id: roepke2013
+  type: article-journal
+  author:
+  - family: "Roepke"
+    given: "Ann Marie"
+  title: "Gains Without Pains? Growth After Positive Events"
+  container-title: "The Journal of Positive Psychology"
+  volume: 8
+  issue: 4
+  page: 280-291
+  issued: 2013
+  DOI: 10.1080/17439760.2013.791715
+- id: sacks2012
+  type: article-journal
+  author:
+  - family: "Sacks"
+    given: "Daniel W."
+  - family: "Stevenson"
+    given: "Betsey"
+  - family: "Wolfers"
+    given: "Justin"
+  title: "The New Stylized Facts About Income and Subjective Well-Being"
+  container-title: "Emotion"
+  volume: 12
+  issue: 6
+  page: 1181-1187
+  issued: 2012
+  DOI: 10.1037/a0029873
+- id: sahu2018
+  type: article-journal
+  author:
+  - family: "Sahu"
+    given: "Apeksha"
+  - family: "Gopalakrishnan"
+    given: "Lathika"
+  - family: "Gaur"
+    given: "Nayana"
+  - family: "Chatterjee"
+    given: "Oishi"
+  - family: "Mol"
+    given: "Praseeda"
+  - family: "Modi"
+    given: "Prashant Kumar"
+  - family: "Dagamajalu"
+    given: "Shobha"
+  - family: "Advani"
+    given: "Jayshree"
+  - family: "Jain"
+    given: "Sanjeev"
+  - family: "Keshava Prasad"
+    given: "T. S."
+  title: "The 5-Hydroxytryptamine Signaling Map: An Overview of Serotonin-Serotonin Receptor Mediated Signaling Network"
+  container-title: "Journal of Cell Communication and Signaling"
+  volume: 12
+  issue: 4
+  page: 731-735
+  issued: 2018
+  DOI: 10.1007/s12079-018-0482-2
+- id: seery2010
+  type: article-journal
+  author:
+  - family: "Seery"
+    given: "Mark D."
+  - family: "Holman"
+    given: "E. Alison"
+  - family: "Silver"
+    given: "Roxane Cohen"
+  title: "Whatever Does Not Kill Us: Cumulative Lifetime Adversity, Vulnerability, and Resilience"
+  container-title: "Journal of Personality and Social Psychology"
+  volume: 99
+  issue: 6
+  page: 1025-1041
+  issued: 2010
+  DOI: 10.1037/a0021344
+- id: shaw2025
+  type: post
+  author:
+  - family: "Shaw"
+    given: "George"
+  title: "[OC] I Analyzed 15 Years of Comments on r/relationship_advice"
+  container-title: "r/dataisbeautiful (Reddit)"
+  issued: 2025
+  URL: https://www.reddit.com/r/dataisbeautiful/comments/1o87cy4/oc_i_analyzed_15_years_of_comments_on/
+- id: skjuve2021
+  type: article-journal
+  author:
+  - family: "Skjuve"
+    given: "Marita"
+  - family: "Følstad"
+    given: "Asbjørn"
+  - family: "Fostervold"
+    given: "Knut Inge"
+  - family: "Brandtzaeg"
+    given: "Petter Bae"
+  title: "My Chatbot Companion - a Study of Human-Chatbot Relationships"
+  container-title: "International Journal of Human-Computer Studies"
+  volume: 149
+  page: 102601
+  issued: 2021
+  DOI: 10.1016/j.ijhcs.2021.102601
+- id: tedeschi1996
+  type: article-journal
+  author:
+  - family: "Tedeschi"
+    given: "Richard G."
+  - family: "Calhoun"
+    given: "Lawrence G."
+  title: "The Posttraumatic Growth Inventory: Measuring the Positive Legacy of Trauma"
+  container-title: "Journal of Traumatic Stress"
+  volume: 9
+  issue: 3
+  page: 455-471
+  issued: 1996
+  DOI: 10.1002/jts.2490090305
+- id: tedeschi2017
+  type: article-journal
+  author:
+  - family: "Tedeschi"
+    given: "Richard G."
+  - family: "Cann"
+    given: "Arnie"
+  - family: "Taku"
+    given: "Kanako"
+  - family: "Senol-Durak"
+    given: "Emre"
+  - family: "Calhoun"
+    given: "Lawrence G."
+  title: "The Posttraumatic Growth Inventory: A Revision Integrating Existential and Spiritual Change"
+  container-title: "Journal of Traumatic Stress"
+  volume: 30
+  issue: 1
+  page: 11-18
+  issued: 2017
+  DOI: 10.1002/jts.22155
+- id: tedeschi2025
+  type: article-journal
+  author:
+  - family: "Tedeschi"
+    given: "Richard G."
+  - family: "Greene"
+    given: "Taryn"
+  - family: "Moore"
+    given: "Bret A."
+  - family: "Kinman"
+    given: "Jeff"
+  - family: "Taku"
+    given: "Kanako"
+  title: "A Short Form of the Expanded Posttraumatic Growth Inventory (PTGI-X-SF)"
+  container-title: "Psychological Trauma: Theory, Research, Practice, and Policy"
+  issued: 2025-12-04
+  DOI: 10.1037/tra0002082
+- id: tinbergen1951
+  type: article-journal
+  author:
+  - family: "Tinbergen"
+    given: "N."
+  - family: "Perdeck"
+    given: "A. C."
+  title: "On the Stimulus Situation Releasing the Begging Response in the Newly Hatched Herring Gull Chick (Larus Argentatus Argentatus Pont.)"
+  container-title: "Behaviour"
+  volume: 3
+  issue: 1
+  page: 1-39
+  issued: 1951
+  DOI: 10.1163/156853951X00197
+- id: uhlmann2007
+  type: article-journal
+  author:
+  - family: "Uhlmann"
+    given: "Eric Luis"
+  - family: "Cohen"
+    given: "Geoffrey L."
+  title: "‘I Think It, Therefore It’s True’: Effects of Self-Perceived Objectivity on Hiring Discrimination"
+  container-title: "Organizational Behavior and Human Decision Processes"
+  volume: 104
+  issue: 2
+  page: 207-223
+  issued: 2007
+  DOI: 10.1016/j.obhdp.2007.07.001
+- id: vohs2019
+  type: article-journal
+  author:
+  - family: "Vohs"
+    given: "Kathleen D."
+  - family: "Aaker"
+    given: "Jennifer L."
+  - family: "Catapano"
+    given: "Rhia"
+  title: "It’s Not Going to Be That Fun: Negative Experiences Can Add Meaning to Life"
+  container-title: "Current Opinion in Psychology"
+  volume: 26
+  page: 11-14
+  issued: 2019
+  DOI: 10.1016/j.copsyc.2018.04.014
+- id: wang2025
+  type: post-weblog
+  author:
+  - family: "Wang"
+    given: "Rowan"
+  - family: "Griffin"
+    given: "Avery"
+  - family: "Treutlein"
+    given: "Johannes"
+  - family: "Perez"
+    given: "Ethan"
+  - family: "Michael"
+    given: "Julian"
+  - family: "Roger"
+    given: "Fabien"
+  - family: "Marks"
+    given: "Sam"
+  title: "Modifying LLM Beliefs With Synthetic Document Finetuning"
+  container-title: "Alignment Science Blog"
+  issued: 2025-04-24
+  URL: https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/
+- id: weizenbaum1966
+  type: article-journal
+  author:
+  - family: "Weizenbaum"
+    given: "Joseph"
+  title: "ELIZA—A Computer Program for the Study of Natural Language Communication Between Man and Machine"
+  container-title: "Communications of the ACM"
+  volume: 9
+  issue: 1
+  page: 36-45
+  issued: 1966
+  DOI: 10.1145/365153.365168
+- id: yoo2007
+  type: article-journal
+  author:
+  - family: "Yoo"
+    given: "Seung-Schik"
+  - family: "Gujar"
+    given: "Ninad"
+  - family: "Hu"
+    given: "Peter"
+  - family: "Jolesz"
+    given: "Ferenc A."
+  - family: "Walker"
+    given: "Matthew P."
+  title: "The Human Emotional Brain Without Sleep — A Prefrontal Amygdala Disconnect"
+  container-title: "Current Biology"
+  volume: 17
+  issue: 20
+  page: R877-R878
+  issued: 2007
+  DOI: 10.1016/j.cub.2007.08.007
+- id: zaosanders2025
+  type: article-magazine
+  author:
+  - family: "Zao-Sanders"
+    given: "Marc"
+  title: "How People Are Really Using Gen AI in 2025"
+  container-title: "Harvard Business Review"
+  issued: 2025-04-09
+  URL: https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025
+...

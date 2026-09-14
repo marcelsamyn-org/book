@@ -6,76 +6,12 @@
  * pattern matching, chatbot.
  */
 
-interface Substitution {
-  readonly from: string;
-  readonly to: string;
-}
+import { breakDownEliza, type ElizaProps } from "./eliza.js";
 
-interface Props {
-  /** The user's typed message. */
-  readonly input: string;
-  /** Keyword ELIZA matches in the rule table. Must appear in `input`. */
-  readonly keyword: string;
-  /** Decomposition pattern shown to the reader, e.g. "(0 MY 0)". */
-  readonly pattern: string;
-  /** Wildcard-captured fragment from `input`. Must appear in `input`. */
-  readonly fragment: string;
-  /** Pronoun substitutions applied inside the captured fragment. */
-  readonly substitutions?: readonly Substitution[];
-  /** The fragment after pronoun flips. Defaults to `fragment` unchanged. */
-  readonly transformedFragment?: string;
-  /** Reassembly template with a single `$` placeholder, e.g. "Your $ ?". */
-  readonly template: string;
-  /** ELIZA's final reply. The transformed fragment must appear inside it. */
-  readonly response: string;
-}
+type Props = ElizaProps;
 
-const {
-  input,
-  keyword,
-  pattern,
-  fragment,
-  substitutions = [],
-  transformedFragment = fragment,
-  template,
-  response,
-} = Astro.props;
-
-const fail = (msg: string): never => {
-  throw new Error(`ElizaBreakdown: ${msg}`);
-};
-
-const fragIdx = input.indexOf(fragment);
-if (fragIdx < 0) {
-  fail(`fragment "${fragment}" not found in input "${input}".`);
-}
-
-const beforeFrag = input.slice(0, fragIdx);
-const afterFrag = input.slice(fragIdx + fragment.length);
-
-const kwIdx = beforeFrag.toLowerCase().lastIndexOf(keyword.toLowerCase());
-if (kwIdx < 0) {
-  fail(`keyword "${keyword}" not found ahead of fragment in input.`);
-}
-
-const beforeKw = beforeFrag.slice(0, kwIdx);
-const kwActual = beforeFrag.slice(kwIdx, kwIdx + keyword.length);
-const betweenKwAndFrag = beforeFrag.slice(kwIdx + keyword.length);
-
-const respIdx = response.indexOf(transformedFragment);
-if (respIdx < 0) {
-  fail(`transformedFragment "${transformedFragment}" not found in response.`);
-}
-
-const respBefore = response.slice(0, respIdx);
-const respFrag = response.slice(respIdx, respIdx + transformedFragment.length);
-const respAfter = response.slice(respIdx + transformedFragment.length);
-
-const templateParts = template.split("$");
-if (templateParts.length !== 2) {
-  fail(`template must contain exactly one "$" placeholder.`);
-}
-const [tplLeft, tplRight] = templateParts as [string, string];
+const { keyword, pattern } = Astro.props;
+const { input, substitutions, transformedFragment, template, response } = breakDownEliza(Astro.props);
 
 const hasSubs = substitutions.length > 0;
 const reassembleNum = hasSubs ? "04" : "03";
@@ -86,7 +22,7 @@ const reassembleNum = hasSubs ? "04" : "03";
 
   <div class="eliza-msg eliza-msg-user">
     <span class="eliza-msg-tag">User</span>
-    <p class="eliza-msg-body">{beforeKw}<mark class="eliza-kw">{kwActual}</mark>{betweenKwAndFrag}<mark class="eliza-frag">{fragment}</mark>{afterFrag}</p>
+    <p class="eliza-msg-body">{input.beforeKeyword}<mark class="eliza-kw">{input.keyword}</mark>{input.betweenKeywordAndFragment}<mark class="eliza-frag">{input.fragment}</mark>{input.afterFragment}</p>
   </div>
 
   <ol class="eliza-steps">
@@ -110,7 +46,7 @@ const reassembleNum = hasSubs ? "04" : "03";
       </div>
       <div class="eliza-block">
         <span class="eliza-block-tag">Captured</span>
-        <span class="eliza-block-code"><mark class="eliza-frag">{fragment}</mark></span>
+        <span class="eliza-block-code"><mark class="eliza-frag">{input.fragment}</mark></span>
       </div>
     </li>
 
@@ -144,17 +80,17 @@ const reassembleNum = hasSubs ? "04" : "03";
       </p>
       <div class="eliza-block">
         <span class="eliza-block-tag">Template</span>
-        <span class="eliza-block-code">{tplLeft}<span class="eliza-slot eliza-slot-empty">·····</span>{tplRight}</span>
+        <span class="eliza-block-code">{template.left}<span class="eliza-slot eliza-slot-empty">·····</span>{template.right}</span>
       </div>
       <div class="eliza-block">
         <span class="eliza-block-tag">Filled</span>
-        <span class="eliza-block-code">{tplLeft}<span class="eliza-slot eliza-slot-filled">{transformedFragment}</span>{tplRight}</span>
+        <span class="eliza-block-code">{template.left}<span class="eliza-slot eliza-slot-filled">{transformedFragment}</span>{template.right}</span>
       </div>
     </li>
   </ol>
 
   <div class="eliza-msg eliza-msg-bot">
     <span class="eliza-msg-tag">ELIZA</span>
-    <p class="eliza-msg-body">{respBefore}<mark class="eliza-frag">{respFrag}</mark>{respAfter}</p>
+    <p class="eliza-msg-body">{response.before}<mark class="eliza-frag">{response.fragment}</mark>{response.after}</p>
   </div>
 </aside>

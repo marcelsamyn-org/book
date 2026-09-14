@@ -13,5 +13,5 @@
     "resolveJsonModule": true,
     "types": ["node", "bun-types"]
   },
-  "include": ["src", "book.mdx", "astro.config.ts"]
+  "include": ["src", "export", "book.mdx", "astro.config.ts"]
 }

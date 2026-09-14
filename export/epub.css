@@ -1,0 +1,187 @@
+/* Sacred Struggle, EPUB design.
+   Reading apps apply their own themes, so this sheet sets structure and rhythm,
+   leaves text and background colors to the app, and uses the cover gold only
+   for hairlines, which read on light and dark themes alike. */
+
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 400; src: url("../fonts/Literata-Regular.ttf"); }
+@font-face { font-family: "Literata"; font-style: italic; font-weight: 400; src: url("../fonts/Literata-Italic.ttf"); }
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 600; src: url("../fonts/Literata-SemiBold.ttf"); }
+@font-face { font-family: "Literata"; font-style: italic; font-weight: 600; src: url("../fonts/Literata-SemiBoldItalic.ttf"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 400; src: url("../fonts/Lora-Regular.ttf"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 400; src: url("../fonts/Lora-Italic.ttf"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 600; src: url("../fonts/Lora-SemiBold.ttf"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; src: url("../fonts/IBMPlexSans-Regular.otf"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 400; src: url("../fonts/IBMPlexSans-Italic.otf"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; src: url("../fonts/IBMPlexSans-SemiBold.otf"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; src: url("../fonts/IBMPlexMono-Regular.otf"); }
+
+/* ── Text ─────────────────────────────────────────────────── */
+
+body {
+  font-family: "Literata", Georgia, serif;
+  line-height: 1.5;
+  widows: 2;
+  orphans: 2;
+}
+
+p {
+  margin: 0;
+  text-indent: 1.3em;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p,
+ul + p, ol + p, blockquote + p, div + p {
+  text-indent: 0;
+}
+
+strong { font-weight: 600; }
+
+ul, ol { margin: 1em 0 1em 1.4em; padding: 0; }
+li { margin: 0.35em 0; }
+li p { text-indent: 0; }
+
+blockquote {
+  margin: 1.3em 0 1.3em 0.4em;
+  padding-left: 1em;
+  border-left: 1px solid #c9a574;
+}
+blockquote p { text-indent: 0; text-align: left; font-size: 0.95em; }
+
+/* ── Headings ─────────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  text-indent: 0;
+  -webkit-hyphens: none;
+  hyphens: none;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 3.5em 0 2em;
+}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.55em; }
+
+h1::before, h2::before {
+  content: "";
+  display: block;
+  width: 2.4em;
+  margin: 0 auto 0.9em;
+  border-top: 1px solid #c9a574;
+}
+
+h3 { font-size: 1.15em; margin: 2.2em 0 0.7em; }
+h4 { font-size: 1em; font-style: italic; font-weight: 400; margin: 1.8em 0 0.5em; }
+
+/* ── Title page and contents ──────────────────────────────── */
+
+.titlepage { text-align: center; margin-top: 15%; }
+.titlepage p, .titlepage div { text-indent: 0; text-align: center; }
+.titlepage h1.title { font-size: 2.2em; margin: 0 0 0.5em; }
+.titlepage h1.title::before { content: none; }
+.titlepage .subtitle { font-family: "Lora", Georgia, serif; font-style: italic; font-size: 1.15em; margin-bottom: 3em; }
+.titlepage .author {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+.titlepage .edition { font-size: 0.85em; font-style: italic; margin-bottom: 4em; }
+.titlepage .publisher, .titlepage .rights, .titlepage .notice,
+.titlepage .version, .titlepage .website, .titlepage .colophon {
+  font-size: 0.75em;
+  margin-top: 0.5em;
+}
+
+nav#toc ol { list-style-type: none; margin-left: 0; }
+nav#toc ol ol { margin: 0.2em 0 0.6em 1.2em; }
+nav#toc a { text-decoration: none; }
+
+/* ── Notes and sources ────────────────────────────────────── */
+
+a.footnote-ref {
+  font-size: 0.72em;
+  line-height: 0;
+  vertical-align: super;
+  text-decoration: none;
+}
+
+section.footnotes { font-size: 0.82em; margin-top: 3em; }
+section.footnotes hr { width: 3em; margin: 0 0 1em; border: 0; border-top: 1px solid #c9a574; }
+section.footnotes p, aside.footnote p { text-indent: 0; text-align: left; }
+section.footnotes a, .references a { word-break: break-all; }
+
+.references { margin-top: 1em; }
+.csl-entry {
+  margin: 0 0 0.6em 1.5em;
+  text-indent: -1.5em;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+/* ── Exhibits (manuscript components) ─────────────────────── */
+
+.exhibit {
+  font-family: "IBM Plex Sans", Helvetica, sans-serif;
+  font-size: 0.82em;
+  line-height: 1.45;
+  margin: 1.8em 0;
+  padding: 0.9em 1em;
+  border: 1px solid #c9a574;
+  border-radius: 4px;
+}
+.exhibit p { margin: 0.5em 0; text-indent: 0; text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+.exhibit ul, .exhibit ol { margin: 0.3em 0 0.3em 1.3em; }
+.exhibit li { margin: 0.25em 0; }
+.exhibit code { font-family: "IBM Plex Mono", monospace; font-size: 0.95em; }
+
+.exhibit .exhibit-label, .exhibit .exhibit-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 1.1em 0 0.3em;
+}
+.exhibit .exhibit-eyebrow { margin-top: 0; text-align: center; }
+
+.exhibit .chat-prompt { font-style: italic; border-left: 2px solid #c9a574; padding-left: 0.7em; }
+
+.exhibit .chat-message {
+  margin: 0.5em 0;
+  padding: 0.4em 0.7em;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 6px;
+}
+.exhibit .chat-message .exhibit-label { font-size: 0.72em; }
+.exhibit .chat-human { margin-left: 14%; }
+.exhibit .chat-assistant { margin-right: 14%; }
+
+.exhibit .screenplay-script-label { margin-top: 1.4em; }
+.exhibit .screenplay-page {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.92em;
+  padding: 0.8em 1em;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+}
+.exhibit .screenplay-cue { text-align: center; margin: 1em 0 0; }
+.exhibit .screenplay-dialogue { margin: 0.15em 8% 0; }
+.exhibit .screenplay-ghost { opacity: 0.6; }
+.exhibit .screenplay-cut { font-style: italic; border-top: 1px dashed #c9a574; padding-top: 0.5em; margin-top: 0.9em; }
+
+.exhibit .eliza-message { margin: 0.8em 0; padding-left: 0.7em; border-left: 2px solid rgba(128, 128, 128, 0.4); }
+.exhibit .eliza-reply { border-left-color: #c9a574; }
+.exhibit .eliza-step { margin-top: 1em; }
+.exhibit .eliza-keyword { background-color: rgba(201, 165, 116, 0.45); }
+.exhibit .eliza-fragment { background-color: rgba(120, 140, 190, 0.25); }
+
+.exhibit .ptgi-title { font-family: "Lora", Georgia, serif; font-weight: 600; font-size: 1.3em; margin: 0.2em 0 0.4em; }
+.exhibit .ptgi-note { font-style: italic; font-size: 0.9em; }
