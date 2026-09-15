@@ -15,8 +15,6 @@ export const threads = [
     question:
       "The book's promise: satisfaction comes from trying to solve problems, not from having solved them. Where does that land?",
     mentions: [
-      { kind: "plant", quote: "But will that make us happy?", note: "The Overview asks the question the whole book answers." },
-      { kind: "plant", quote: "comes from *trying to solve our problems*, not having solved them", note: "The Overview states the old thesis as a promise." },
       { kind: "plant", quote: "*what happens when we're done?*", note: "Work restates the question for the domain of productivity." },
       { kind: "plant", quote: "we lose important factors of pair bonding that are so subtle", note: "Biology's Unmet Hunger states the now-versus-later theme on its own terms: what we get now versus what we lose so slowly we never notice." },
       { kind: "plant", quote: "what actually makes a human life feel good to live?", note: "Today's Socrates Moment reopens the question as the hinge into Part 3." },
@@ -120,7 +118,7 @@ export const threads = [
       { kind: "use", quote: "We still depend heavily on human oversight, judgment and review", note: "Disappearing Depth: cognitive debt makes the judge weaker." },
       { kind: "use", quote: "we’ll need to rely on it even for judgment", note: "Meaningful Work plants that judgement also goes." },
       { kind: "use", quote: "even at that step of the ladder", note: "Decision-Making: taste and philosophy may not be safe either." },
-      { kind: "use", quote: "verifying that the work of AI correctly moves you towards the goal", note: "Food For Thought: judgement and inhibition need a rested brain." },
+      { kind: "use", quote: "verify that the work of AI correctly moves you towards the goal", note: "Food For Thought: judgement and inhibition need a rested brain." },
       { kind: "use", quote: "We tend to trust AI more than we should", note: "Stupid on Purpose proposes deliberate mistakes to keep us checking." },
       { kind: "payoff", quote: "AI is actually surprisingly good at judging things", note: "New World, New Scarcity: the lamp story shows judgement going abundant too. What is left is responsibility." },
       { kind: "use", quote: "constantly seeing the shiny option of just trusting the AI", note: "Responsibility: the notary's temptation." },
@@ -202,7 +200,7 @@ export const threads = [
       { kind: "use", quote: "The dopamine has nothing to chase", note: "Superstimuli: the hollow arrival." },
       { kind: "use", quote: "satisfying hit of dopamine", note: "The Mental Gym opens on the loop." },
       { kind: "use", quote: "surprise is attractive and addictive", note: "Protecting the Morning: surprise after effort versus surprise on tap." },
-      { kind: "use", quote: "as we saw in the chapter about dopamine", note: "Arbiters of Presence calls back." },
+      { kind: "use", quote: "as we saw in the section about dopamine", note: "Arbiters of Presence calls back." },
       { kind: "payoff", quote: "Dopamine encodes reward prediction error", note: "The Conclusion: our chemistry pays attention to The Surprise, which is exactly what the machine cannot make." },
       { kind: "use", quote: "our mind yearning for The Surprise", note: "The mismatch named." },
     ],

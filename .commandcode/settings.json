@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(sed:*)",
+      "Shell(awk:*)",
+      "Shell(bun:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

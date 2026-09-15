@@ -32,6 +32,23 @@ references:
   title: "Young Adults Are Leading the Way in AI Adoption"
   issued: 2025-07-29
   URL: https://apnorc.org/projects/young-adults-leading-the-way-in-ai-adoption/
+- id: askell2026
+  type: webpage
+  author:
+  - family: "Askell"
+    given: "Amanda"
+  - family: "Carlsmith"
+    given: "Joe"
+  - family: "Olah"
+    given: "Chris"
+  - family: "Kaplan"
+    given: "Jared"
+  - family: "Karnofsky"
+    given: "Holden"
+  title: "Claude’s Constitution"
+  publisher: "Anthropic"
+  issued: 2026-01-21
+  URL: https://www.anthropic.com/constitution
 - id: baumeister2013
   type: article-journal
   author:

@@ -59,6 +59,11 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *Your call:* The test you've already run: when a stranger asks what the book is about, which words come out of your mouth? You know, because at Mindvalley they already did.
 
 
+- [ ] **Explain the Constitution work once, properly** (one passage)
+  - *What:* Claude's Constitution is mentioned four times and explained at none of them: the parenthetical in Solving Sycophancy (`that’s what Anthropic calls it`), the passing wish at `worked out in Claude’s Constitution`, the mechanism sentence in Teaching AI Good Behavior (`they use this as a starting point to generate thousands of fictional situations`), and the Conclusion's one-line assertion (`principles-driven training`). The mechanism sentence is the natural home — it already describes constitution-driven training data and carries no citation. What is missing: what the document actually is (written primarily *for* Claude, published in full under CC0, and treated as the final authority on Claude's behavior); that the 2026 rewrite moved from a list of standalone rules to explaining reasons and character, because judgment in situations nobody anticipated cannot come from rules; and the result that carries the section — training on documents that explain the principles improved behavior in situations that were never in the training data, and the improvement survived later reinforcement learning.
+  - *Why:* This is the book's most concrete answer to "can we actually steer these things?", and right now it reads as an aside. Two hard claims in that section also stand uncited — `have an enormous impact on the behavior of AI assistants` and the `Goliath` result — which is the one thing the book's own rule forbids.
+  - *Your call:* Expand it in place in Teaching AI Good Behavior, or give it a short section in Designing Aligned Allies, which owns the design question? And is the transparency angle yours to use — Anthropic published the document in full under CC0, which almost nobody does?
+
 - [ ] Check in with how often I explain the social media comparison and "but now AI makes it useful." I feel like it's there a few too many times.
 
 ## Story line — flow items the diagram flagged, 2026-09-09
@@ -132,39 +137,39 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 *These came out of the copyedit for the early access release. Typos, grammar, and spelling are already fixed in `book.mdx`. Each item below would have needed a guess about your meaning or a fact check you should own. Most serious first.*
 
-- [ ] **Say who was attacked in the 2026 exfiltration incident**
+- [x] **Say who was attacked in the 2026 exfiltration incident**
   - *What:* Pretend-Thinking says the models `proceeded to attack these companies`, but no company is named before that sentence, only "this site".
   - *Why:* It is the most serious incident in the book, and the reader cannot tell who was harmed.
   - *Your call:* Name the companies, or describe them without names?
-- [ ] **Fix two sentences whose meaning could not be recovered**
+- [x] **Fix two sentences whose meaning could not be recovered**
   - *What:* Decision-Making: `figure out what to write a book about that would, next` is missing a word after "would". Food For Thought: `our judgment and inhibition become the why or why not the technology ends up doing the right things for us` does not parse.
   - *Why:* Both stop the reader in the middle of an argument.
   - *Your call:* What does each sentence say?
-- [ ] **Resolve the contradiction about machine awareness**
+- [x] **Resolve the contradiction about machine awareness**
   - *What:* Re-Remembering calls awareness `something large language models don’t possess`. Your rewrite of Awareness and Creativity now says `They can be aware of some of their “thoughts”`.
   - *Why:* The recap two chapters later still states the claim the rewrite narrowed.
   - *Your call:* Narrow the recap to what the model lacks (a loop over time, a self that persists), or point back to J-space?
-- [ ] **Check the interpretability example in Pretend-Thinking**
+- [x] **Check the interpretability example in Pretend-Thinking**
   - *What:* `doing long multiplication in their “thoughts” correctly`. Anthropic's 2025 "On the Biology of a Large Language Model" studied addition: the model described the carry-the-one method while its internal computation ran on parallel paths.
   - *Why:* The passage presents the example as research, and the details differ from the research.
   - *Your call:* Switch to the addition example, or keep multiplication as an illustration that is not attributed to the paper?
-- [ ] **Recheck the growth numbers in How smart is AI?**
+- [x] **Recheck the growth numbers in How smart is AI?**
   - *What:* `(9x growth in 1 year)`: 36 seconds to 4 minutes is about 6.7x. The paragraph then asks `what about in one year where it got another 100 times better?`, a bigger yearly jump than any it lists.
   - *Why:* A reader who does the arithmetic finds that the claim does not follow from its own numbers.
   - *Your call:* Recheck the source figures, or soften the "100 times"?
-- [ ] **Place Socrates correctly in the history of writing**
+- [x] **Place Socrates correctly in the history of writing**
   - *What:* Part 2 opens with `when the first forms of writing started to exist, Socrates was worried`. Writing existed about 3,000 years before Socrates. Today's Socrates Moment then says `What I think Plato realized`.
   - *Why:* The story that frames Part 2 is the first historical claim a skeptical reader can check.
   - *Your call:* Reframe the moment (writing spreading through Athens, as in the *Phaedrus*), and is the insight Socrates' or Plato's?
-- [ ] **Hallucinations leans on ideas that come later**
+- [x] **Hallucinations leans on ideas that come later**
   - *What:* It says `in the post-training phase` before Language Models are Screenplay Writers introduces post-training. The paragraph starting `It’s clear that we haven’t figured this out yet` is about fake balanced disagreement, which is sycophancy, the next section.
   - *Why:* The reader meets both ideas before the book explains them.
   - *Your call:* Move that paragraph into Sycophancy, and add a clause that says what post-training is?
-- [ ] **Asimov's laws in the Designing Aligned Allies conclusion**
+- [x] **Asimov's laws in the Designing Aligned Allies conclusion**
   - *What:* The conclusion counts `Asimov’s Robot Laws) work very well` among training that works, but the chapter opens with `our AIs aren’t programmed with these laws`.
   - *Why:* The conclusion cites evidence the chapter itself denies.
   - *Your call:* Drop Asimov from that list, or say what you mean by it?
-- [ ] **Gemini's sycophancy and Claude's Constitution**
+- [x] **Gemini's sycophancy and Claude's Constitution**
   - *What:* Solving Sycophancy describes Gemini Pro, then says the question `needs to be worked out in Claude’s Constitution`.
   - *Why:* The reader cannot see how Anthropic's document would change Google's model.
   - *Your call:* Generalize to every lab's model rules, or add the bridge from Gemini to Claude?
@@ -172,23 +177,23 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
   - *What:* Alignment Research says a date prompt `immediately returned “good behavior.”` As far as the copyedit knew (not checked against a source), the December effect came from informal user tests that later attempts did not reliably reproduce. The note now attached there, Chen et al. (2024), measured how GPT-4 changed between March and June 2023, not the December effect.
   - *Why:* An anecdote reads as fact in a section that otherwise cites research, and its note supports a different finding.
   - *Your call:* Find a source for the December effect, frame it as a rumor, or move the Chen note to a sentence it supports?
-- [ ] **Correct the touch-fiber mechanism in Biology's Unmet Hunger**
+- [x] **Correct the touch-fiber mechanism in Biology's Unmet Hunger**
   - *What:* The book says C-tactile fibers `react specifically to the touch of another human who cares about you` and not to a stranger. The fibers respond to slow, gentle stroking whatever does it, a soft brush included. Who touches you changes how the brain reads the signal.
   - *Why:* It is stated as a mechanism, and readers who know the biology will stop there.
   - *Your call:* Keep the point with the corrected mechanism, or soften it?
-- [ ] **Check the questionnaire against the published PTGI-X-SF**
+- [x] **Check the questionnaire against the published PTGI-X-SF**
   - *What:* The book now cites Tedeschi et al. (2025) for the short form, and item 1 now uses the published wording, "I know better that I can handle difficulties." The published answer scale is full sentences ("I did not experience this change as a result of my crisis"); the book uses short labels ("Not at all"). The items were compared with the 25-item PTGI-X, because the short-form paper is paywalled.
   - *Why:* A research instrument reproduced in a paid book should match its source, and it may need the authors' permission.
   - *Your call:* Keep the short labels with a note, or use the published anchors? Will you ask the authors for permission?
-- [ ] **Pick one subtitle**
+- [x] **Pick one subtitle**
   - *What:* The ebook uses the pre-order page's subtitle, "Finding meaning in a world run by machines" (set in `export/metadata.yaml`). The book site header says "Finding meaning and fulfillment in a world where AI makes everything too easy." The brand-kit cover says "How the solution to all our problems becomes the problem."
   - *Why:* Buyers saw the first, site readers see the second, and the cover asset shows the third.
   - *Your call:* Which one ships? See also Title decision.
-- [ ] **Confirm the Reddit analysis author**
+- [x] **Confirm the Reddit analysis author**
   - *What:* The note for the r/relationship_advice analysis names George Shaw (`shaw2025` in `references.yaml`). Reddit blocks automated access, so the name could not be checked, and one summary spells it Shao.
   - *Why:* It is the only source whose author is unconfirmed.
   - *Your call:* Open the post and confirm the spelling.
-- [ ] **Smaller slips a careful reader may catch**
+- [x] **Smaller slips a careful reader may catch**
   - *What:* `a notary is very well-paid` holds in Belgium but not for a US notary public. `The number of people in such a relationship was much smaller` gives the figure for an AI friend, not a romance. `the sun will explode at some point`: the Sun will swell into a red giant. `as we saw in the chapter about dopamine` and `(see the chapter on Sycophancy)` point at sections, not chapters.
   - *Why:* Each is small; together they cost credibility with fact-minded and US readers.
   - *Your call:* Which are worth a line before release?

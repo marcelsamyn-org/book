@@ -11,3 +11,14 @@
 - Expects the dev server and production build to render identical styling — a fix that works in the built CSS but not in dev is not done. Confidence: 0.85
 - Wants the dev server to watch template files and restart automatically when they change. Confidence: 0.9
 - Reacts strongly when visual issues go unfixed across repeated attempts; expects fixes to be actually verified (e.g., in the running dev server) before being reported as done. Confidence: 0.7
+- Wants the book's exported artifacts (PDF and EPUB) as beautifully designed and typeset as the web version — production typesetting quality is a goal, not a nice-to-have. Confidence: 0.85
+- Happy for the agent to make typos and simple copy edits unilaterally, but wants bigger structural/confusing passages flagged back for the user to write themselves. Confidence: 0.85
+- Treats references/citations as first-class: wants a decided, consistent convention for how sources live in the MDX source and a pipeline that exports them correctly. Confidence: 0.75
+- Prefers crediting the actual named (human) authors in citation details when they are known, rather than an organization slug. Confidence: 0.7
+- Prefers the export/build to fail loudly when an MDX construct cannot be rendered, rather than silently dropping content into the output book. Confidence: 0.75
+- Wants the agent to read the linked primary sources (papers, commentary PDFs) before judging whether research affects the manuscript, instead of relying on summaries. Confidence: 0.8
+- Cares about factual precision — corrects claims recalled "from memory" and asks for them to be made more precise — while welcoming clearly-labelled speculation/theory layered on top of accurate facts. Confidence: 0.75
+- Wants action items captured in the repo's task-tracker file rather than only in chat, and expects the agent to tick items off and commit/push when asked. Confidence: 0.8
+- After content edits, expects derived artifacts (e.g., the storyline/anchors script) to be regenerated so they stay in sync. Confidence: 0.8
+- Writes/edits in Obsidian, so edits may not yet be in the repo source — expects the agent to notice and query missing changes rather than assume the file is current. Confidence: 0.75
+- Gathers research from other AI models and brings their references/summaries in for the agent to evaluate, expecting the agent to verify claims against primary sources and flag anything wrong rather than accept them at face value. Confidence: 0.7
