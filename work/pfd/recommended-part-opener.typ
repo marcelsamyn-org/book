@@ -1,0 +1,20 @@
+#let navy = rgb("#1c2540")
+#let gold = rgb("#c9a574")
+#let gold-ink = rgb("#94744a")
+#let display-font = ("Lora",)
+#let mono-font = ("IBM Plex Mono",)
+
+#set page(width: 6in, height: 9in, margin: (x: 0.8in, top: 0.75in, bottom: 0.75in), header: none, footer: none)
+#set text(fill: navy)
+#set par(justify: false)
+
+#align(center, {
+  v(0.55in)
+  text(font: mono-font, size: 7.5pt, tracking: 0.14em, fill: gold-ink, upper("Part One"))
+  v(12pt)
+  line(length: 3em, stroke: 0.6pt + gold)
+  v(14pt)
+  text(font: display-font, weight: 600, size: 28pt, [The Machine Mind])
+  v(0.38in)
+  image("../../assets/illustrations/studies/04-hybrid-recommended.png", width: 3.8in)
+})

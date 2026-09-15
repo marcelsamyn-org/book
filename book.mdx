@@ -2,6 +2,7 @@ import ChatExhibit from './src/components/ChatExhibit.astro';
 import ChatResponse from './src/components/ChatResponse.astro';
 import ElizaBreakdown from './src/components/ElizaBreakdown.astro';
 import PTGIQuestionnaire from './src/components/PTGIQuestionnaire.astro';
+import PartPlate from './src/components/PartPlate.astro';
 import ScreenplayWriter from './src/components/ScreenplayWriter.astro';
 
 %%
@@ -54,6 +55,11 @@ This book is *not* for you if you just want to understand how to be more product
 That said, strap in. We’re going for a ride.
 
 # Part 1: The Machine Mind
+<PartPlate
+  src="/images/book/part-1-machine-mind.png"
+  alt="A torn dark seed husk repaired with gold seams that become circuit paths."
+/>
+
 ## Concepts & Terminology
 This world of "AI" is wrapped in hype, mystery and confusion. From charlatans slapping the word on every product they find to the researchers not even knowing why these systems end up seeming so smart, you'll find every opinion and perspective under the sun in a matter of seconds.
 
@@ -363,6 +369,11 @@ One big difference between AI and human brains is how much more advanced our sen
 Now that we know, structurally, where AI’s advantages and problems come from, let’s look at how they’re already helping us. Which parts of life do language models touch? Does it help us when they’re around?
 
 # Part 2: Domains
+<PartPlate
+  src="/images/book/part-2-domains.png"
+  alt="Unlike material fragments joined by gold seams and circuit paths."
+/>
+
 Socrates didn't trust writing. In his Athens, reading and writing were spreading, but *reciting* Homer and poems was an everyday part of school life. Socrates argued that, if we'd just have everything written down, well lose the capacity to remember and to think for ourselves. (We only know this, of course, because Plato...wrote it down.)
 
 In ancient times, when the first forms of writing started to exist, Socrates was worried. Up until then, scholars had to remember both prose and poetry completely by heart and *reciting* was an actual part of everyday school life. If we just have everything written down, we’ll surely lose the capacity to remember and to think properly.
@@ -875,6 +886,11 @@ So the question of which skills we’d lose was never the question to ask. Behin
 
 
 # Part 3: The Ascent
+<PartPlate
+  src="/images/book/part-3-ascent.png"
+  alt="A rising torn form held open by gold seams that become circuit paths."
+/>
+
 
 ## Captured by Consumption
 
@@ -1269,7 +1285,7 @@ We discussed earlier how, from the point of view of the AI model, it’s just tr
 
 We’ve also seen more innocuous behavior that we’d categorize as misaligned. In December 2023, people noticed that suddenly, ChatGPT with its GPT-4-Turbo model suddenly got a lot worse. It was being ‘lazy’ with short responses, stopping a task midway to explain how the user can finish it themselves, or downright refusing with “I cannot do that.”%%[@openai2024lazy]%% It’s indeed been the case that the quality of the ChatGPT service has drifted considerably as new models get released.%%[@chen2024]%%
 
-People were so confused by this, and our understanding of language models is still very limited, and so emerged the Winter Break Hypothesis: ChatGPT knew today’s date from its system prompt and humans are least productive in December, so people hypothesized that the model might be replicating this behavior. One developer tested with 477 prompts and found that the "December answers" were about 5% shorter. Another researcher failed to replicate this and questioned the statistics behind his analysis.%%[@edwards2023winter]%%
+People were so confused by this, and our understanding of language models is still very limited, and so emerged the Winter Break Hypothesis: ChatGPT knew today’s date from its system prompt and humans are least productive in December, so people hypothesized that the model might be replicating this behavior. One developer tested with 477 prompts and found that the "December answers" were about 5% shorter. Another researcher failed to replicate this and questioned the statistics behind his analysis.%%[@edwards2023]%%
 
 Nevertheless, I’ve had the sentence “it’s October, the most productive month of the year” in my system instructions for a long time because of this story. This is one of those folklore prompting tricks like tipping and threatening that might or might not reliably work (it's definitely true that very small prompt changes can have dramatic effects on the output%%[yang2024]%%). In any case, these tricks *should not work*: we want our AI assistants to be good and reliable without any trickery.
 
