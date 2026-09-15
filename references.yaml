@@ -827,6 +827,27 @@ references:
   page: 36-45
   issued: 1966
   DOI: 10.1145/365153.365168
+- id: yang2024
+  type: paper-conference
+  author:
+  - family: "Yang"
+    given: "Chengrun"
+  - family: "Wang"
+    given: "Xuezhi"
+  - family: "Lu"
+    given: "Yifeng"
+  - family: "Liu"
+    given: "Hanxiao"
+  - family: "Le"
+    given: "Quoc V."
+  - family: "Zhou"
+    given: "Denny"
+  - family: "Chen"
+    given: "Xinyun"
+  title: "Large Language Models as Optimizers"
+  container-title: "International Conference on Learning Representations"
+  issued: 2024
+  URL: https://proceedings.iclr.cc/paper_files/paper/2024/hash/3339f19c5fcee3ad74502947a32be9e6-Abstract-Conference.html
 - id: yoo2007
   type: article-journal
   author:
