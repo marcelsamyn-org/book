@@ -81,6 +81,20 @@ h1::before, h2::before {
 h3 { font-size: 1.15em; margin: 2.2em 0 0.7em; }
 h4 { font-size: 1em; font-style: italic; font-weight: 400; margin: 1.8em 0 0.5em; }
 
+.part-plate {
+  margin: 1.5em auto 0;
+  text-align: center;
+  break-after: page;
+  page-break-after: always;
+}
+.part-plate img {
+  display: block;
+  width: 86%;
+  max-width: 30em;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* ── Title page and contents ──────────────────────────────── */
 
 .titlepage { text-align: center; margin-top: 15%; }

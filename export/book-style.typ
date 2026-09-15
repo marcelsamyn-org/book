@@ -202,7 +202,7 @@
 #let part-page(it) = {
   pagebreak(weak: true)
   set par(justify: false, first-line-indent: 0em)
-  v(1fr)
+  v(0.55in)
   align(center, {
     block(eyebrow("Part " + part-number(it), size: 7.5pt))
     v(12pt)
@@ -210,7 +210,12 @@
     v(14pt)
     block(text(font: display-font, weight: 600, size: 28pt, fill: navy, part-title(it)))
   })
-  v(1.5fr)
+}
+
+#let part-plate(src: "", alt: "") = {
+  v(0.38in)
+  align(center, image(src, width: 3.8in, alt: alt))
+  v(1fr)
   pagebreak()
 }
 

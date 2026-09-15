@@ -42,6 +42,27 @@ describe("revealCitations guards", () => {
 });
 
 describe("toPandocMarkdown", () => {
+  it("renders a part plate for Typst and EPUB without losing its alt text", () => {
+    const markdown = toPandocMarkdown(
+      '<PartPlate src="/images/book/part-1-machine-mind.png" alt="A torn seed husk repaired with gold." />',
+    );
+
+    expect(markdown).toContain(
+      '#part-plate(src: "/public/images/book/part-1-machine-mind.png", alt: "A torn seed husk repaired with gold.")',
+    );
+    expect(markdown).toContain(
+      '<figure class="part-plate"><img src="public/images/book/part-1-machine-mind.png" alt="A torn seed husk repaired with gold." /></figure>',
+    );
+  });
+
+  it("refuses part plates outside the public book image directory", () => {
+    for (const src of ["../private.png", "/images/book/../private.png", "/images/book/../../outside.png"]) {
+      expect(() => toPandocMarkdown(`<PartPlate src="${src}" alt="Private." />`)).toThrow(
+        "<PartPlate> src must be a PNG under /images/book/",
+      );
+    }
+  });
+
   it("removes imports and renders a chat exhibit as escaped Typst and HTML", () => {
     const source = [
       "import ChatExhibit from './src/components/ChatExhibit.astro';",

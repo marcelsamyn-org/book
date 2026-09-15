@@ -20,6 +20,9 @@ export const failAt = (node: Nodes, message: string): never => {
 
 export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
   switch (node.name) {
+    case "PartPlate":
+      expectShape(node, ["src", "alt"], "no children");
+      return renderPartPlate(node);
     case "ChatExhibit":
       expectShape(node, ["prompt"], "children");
       return renderChatExhibit(node);
@@ -50,6 +53,21 @@ const expectShape = (node: MdxJsxFlowElement, props: readonly string[], content:
   if (content === "no children" && node.children.length > 0) {
     failAt(node, `<${node.name ?? ""}> has content the ebook would drop`);
   }
+};
+
+// ── Part plates ─────────────────────────────────────────────
+
+const renderPartPlate = (node: MdxJsxFlowElement): RenderedComponent => {
+  const src = stringProp(node, "src");
+  const alt = stringProp(node, "alt");
+  if (!/^\/images\/book\/[a-z0-9-]+\.png$/.test(src)) {
+    return failAt(node, "<PartPlate> src must be a PNG under /images/book/");
+  }
+  const exportSrc = `public${src}`;
+  return {
+    typst: `#part-plate(src: ${typstString(`/${exportSrc}`)}, alt: ${typstString(alt)})`,
+    html: `<figure class="part-plate"><img src="${escapeHtml(exportSrc)}" alt="${escapeHtml(alt)}" /></figure>`,
+  };
 };
 
 // ── Chat exhibit ────────────────────────────────────────────
