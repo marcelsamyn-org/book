@@ -238,6 +238,15 @@ references:
   issue: 37
   issued: 2022
   DOI: 10.1073/pnas.2210639119
+- id: edwards2023
+  type: article-magazine
+  author:
+  - family: "Edwards"
+    given: "Benj"
+  title: "As ChatGPT Gets ‘Lazy,’ People Test ‘Winter Break Hypothesis’ as the Cause"
+  container-title: "Ars Technica"
+  issued: 2023-12-11
+  URL: https://arstechnica.com/information-technology/2023/12/is-chatgpt-becoming-lazier-because-its-december-people-run-tests-to-find-out/
 - id: epley2007
   type: article-journal
   author:
@@ -534,6 +543,13 @@ references:
   title: "Multi-Agent Hide and Seek"
   issued: 2019-09-17
   URL: https://www.youtube.com/watch?v=kopoLzvh5jY
+- id: openai2024lazy
+  type: webpage
+  author:
+  - literal: "OpenAI"
+  title: "New Embedding Models and API Updates"
+  issued: 2024-01-25
+  URL: https://openai.com/index/new-embedding-models-and-api-updates/
 - id: pentina2023
   type: article-journal
   author:
