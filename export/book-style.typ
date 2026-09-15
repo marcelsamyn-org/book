@@ -75,36 +75,32 @@
   margin: 0pt,
   header: none,
   footer: none,
-  background: {
-    place(rect(width: 100%, height: 100%, fill: gradient.linear((navy, 0%), (deep, 55%), (night, 100%), angle: 56deg)))
-    place(rect(
-      width: 100%,
-      height: 100%,
-      fill: gradient.radial(
-        (gold.transparentize(84%), 0%),
-        (gold.transparentize(100%), 60%),
-        (gold.transparentize(100%), 100%),
-        center: (30%, 20%),
-        radius: 85%,
-      ),
-    ))
-    place(dx: 0.36in, dy: 0.36in, rect(width: 5.28in, height: 8.28in, stroke: 0.6pt + gold.transparentize(62%)))
-  },
+  background: image(
+    "/assets/illustrations/cover/sacred-struggle-cover.png",
+    width: 100%,
+    height: 100%,
+    fit: "cover",
+  ),
   {
     set text(font: display-font, fill: cream, number-type: "lining", hyphenate: false)
     set par(justify: false, first-line-indent: 0em)
     set align(center)
-    place(top + center, dy: 15.2%, rule(length: 0.6in, paint: gold.transparentize(40%)))
-    place(top + center, dy: 33.2%, block(width: 90%, {
-      set par(leading: 0.5em)
-      text(size: 50pt, weight: 600, tracking: 0.01em, title.split(" ").join(linebreak()))
+    place(top + center, dy: 0.98in, block(width: 90%, {
+      set par(leading: 0.30em)
+      text(size: 41pt, weight: 600, tracking: 0.005em, title.split(" ").join(linebreak()))
     }))
-    place(top + center, dy: 52.8%, rule(length: 0.9in, paint: gold.transparentize(45%)))
-    place(top + center, dy: 56%, block(width: 84%, {
-      set par(leading: 0.62em)
-      text(size: 18.5pt, style: "italic", fill: cream-dim, tracking: 0.015em, balance(subtitle))
+    place(top + center, dy: 2.56in, block(width: 84%, {
+      set par(leading: 0.64em)
+      text(size: 11.8pt, style: "italic", fill: cream-dim, balance(subtitle))
     }))
-    place(top + center, dy: 88%, text(size: 15pt, fill: gold, tracking: 0.21em, upper(author)))
+    place(bottom + center, dy: -0.42in, text(
+      font: sans-font,
+      size: 8pt,
+      weight: 500,
+      fill: gold,
+      tracking: 0.22em,
+      upper(author),
+    ))
   },
 )
 
