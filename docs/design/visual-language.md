@@ -1,6 +1,6 @@
 # Sacred Struggle image language
 
-Status: approved and in use for the three part plates.
+Status: approved and in use for the cover and three part plates.
 
 ## Decision
 
@@ -59,6 +59,10 @@ The preferred medium is mineral pigment, charcoal, fibrous paper, and metallic g
 - Avoid perfect bilateral symmetry and overly complete objects. The repair should not erase the break.
 
 ## Image hierarchy
+
+### Cover
+
+The cover moves the same materials onto a dark field. It uses a close-cropped smoke-blue current whose imperfect gold boundary becomes connected circuit traces. Keep the current only faintly suggestive of an ocean or coastline. The detailed production rules and reusable prompts are in [the cover specification](cover.md).
 
 ### Part plates
 
