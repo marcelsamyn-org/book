@@ -66,6 +66,7 @@ export const threads = [
     title: "Predict the next word → The Inevitable",
     question: "AI works by producing the most likely next thing. What does that mechanism mean for what it can never make?",
     mentions: [
+      { kind: "plant", quote: "A machine learning model is trained through *error minimization*", note: "Concepts & Terminology: training is error minimization, a pull toward the expected. Plants the Conclusion." },
       { kind: "explain", quote: "make a prediction for what the next word would be in that given text", note: "Concepts & Terminology explains next-word prediction." },
       { kind: "plant", quote: "the exact most likely one results in extremely boring output", note: "The sampling sentence: most-likely equals boring. Plants the Conclusion." },
       { kind: "use", quote: "grammar and sentence structure “matters” to a language model much more than logical correctness", note: "Hallucinations follow from the mechanism." },
@@ -73,6 +74,7 @@ export const threads = [
       { kind: "use", quote: "anything less or anything more is trained away", note: "Creativity: novelty is punished during training; chaos is injected from outside." },
       { kind: "use", quote: "Language models are built by training a computer to *complete sentences*", note: "Stupid on Purpose recaps the mechanism a third time." },
       { kind: "use", quote: "AI is *also* an optimization engine", note: "New World, New Scarcity: AI slots into the attention optimizer." },
+      { kind: "use", quote: "The minimal error, the thing that is least likely to be wrong", note: "The Conclusion calls back the Part 1 error-minimization plant, one sentence before The Inevitable." },
       { kind: "payoff", quote: "You could call this The Inevitable", note: "The Conclusion names the mechanism as meaning: the machine completes what had to come out." },
       { kind: "use", quote: "AI is the embodiment of The Inevitable", note: "The Surprise can only exist in contrast to it." },
     ],
