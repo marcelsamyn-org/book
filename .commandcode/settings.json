@@ -3,7 +3,9 @@
     "allow": [
       "Shell(sed:*)",
       "Shell(awk:*)",
-      "Shell(bun:*)"
+      "Shell(bun:*)",
+      "Shell(git:*)",
+      "Shell(grep:*)"
     ],
     "deny": [],
     "defaultMode": "default"

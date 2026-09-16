@@ -22,3 +22,14 @@
 - After content edits, expects derived artifacts (e.g., the storyline/anchors script) to be regenerated so they stay in sync. Confidence: 0.8
 - Writes/edits in Obsidian, so edits may not yet be in the repo source — expects the agent to notice and query missing changes rather than assume the file is current. Confidence: 0.75
 - Gathers research from other AI models and brings their references/summaries in for the agent to evaluate, expecting the agent to verify claims against primary sources and flag anything wrong rather than accept them at face value. Confidence: 0.7
+- Treats the book repo as a personal project: explicitly says there is "no crazy need for things being all super secure and non-failable", and pushes back when security/robustness ceremony creeps in. Confidence: 0.85
+- Does not want the standard PR process on personal projects; prefers work committed on a branch and pushed directly without PR machinery. Confidence: 0.8
+- Wants reusable creative tooling documented and committed for future work (e.g., the image-generation style guide and prompt grammar), not just the final assets. Confidence: 0.8
+- Wants discarded/experimental work removed once a direction is chosen, rather than left lying around in the branch. Confidence: 0.75
+- When asked to "commit" or "wrap up", expects the whole finish line in one pass: integrate the deliverable, re-export the artifacts, clean up what is no longer needed, then push. Confidence: 0.75
+- Prefers typeset text/composition to be produced separately from generated imagery — does not ask the image generator to render text. Confidence: 0.7
+- Drops workstreams that are no longer a concern instead of polishing them (e.g., says the site preview is fine and needs no more work). Confidence: 0.7
+- Likes delegating reading of long documents to subagents that return a short summary to base a decision on. Confidence: 0.6
+- Wants every shipped/released version preserved immutably: tag the exact commit that was delivered and publish it as a hosted release with the built artifacts (e.g., PDF/EPUB) attached, so a delivered snapshot is "saved and locked" rather than only living in the working tree. Confidence: 0.6
+- Wants version numbers to unambiguously separate shipped work from ongoing work — after sending out a version, bump the version so subsequent work is clearly a later, different version. Confidence: 0.6
+- Treats AGENTS.md as the canonical agent-instructions file and wants CLAUDE.md to be a symlink to it, so there is a single source of truth. Confidence: 0.9
