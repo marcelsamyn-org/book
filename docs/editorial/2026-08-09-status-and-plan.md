@@ -39,22 +39,22 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *What:* One honest section answering the two strongest objections the book never faces: (1) "Socrates said exactly this about writing" — every generation panics about cognitive offloading (calculators, GPS, Google) and humans adapted; (2) "people adapt — new games always emerge" — we invented sport when physical labor vanished, we'll invent mental sport too.
   - *Why:* Without this section, your sharpest readers dismiss the book as one more moral panic. Facing the objections honestly is a credibility multiplier for everything else.
   - *Your call:* You have three answers available — writing offloaded a *narrow* faculty while AI offloads the general one (thinking itself); AI is the first tool that is also a *relationship* (no calculator ever flattered you); and the "new games" will be supplied, pre-optimized, by the same machine that removed the old ones. Which objection do *you* actually feel the pull of? Write that one first — the felt one produces the honest section. Placement is also yours: early as a credibility move, or late as the final boss before the Conclusion.
-- [ ] **Children** (one passage inside Learning; buffer item)
+- [x] **Children** (one passage inside Learning; buffer item)
   - *What:* Make the argument nobody in the manuscript makes yet: the mental-gym analogy quietly assumes an adult maintaining muscles built in an AI-free childhood. A kid who grows up with AI never builds them — you can't "get back to" deep thinking you never had. The supporting stat is already in the book (Love chapter: 52% of US teens are regular AI-companion users, Common Sense Media).
   - *Why:* It's the strongest version of the Learning chapter's worry, and Learning is your thinnest domain chapter (~1.3k words vs. 3.7k–5.2k for the others). One passage does double duty: completes the argument, balances the book.
   - *Your call:* Your own proof-image is the math-on-the-floor story (hours retrieving knowledge you already had). What would seventeen-year-old you have done with ChatGPT in the room — honestly? The answer to that question *is* the passage.
-- [ ] **Plant "error minimization" in Part 1** (one sentence)
+- [x] **Plant "error minimization" in Part 1** (one sentence)
   - *What:* In Concepts & Terminology, where training is explained (find `"makes changes to the parameters"`), add the plain statement that training *is* error minimization — the model is punished for every deviation from the expected next word, and everything it becomes is shaped by that pressure toward the expected.
   - *Why:* This is the best half of your spoken pitch ("its whole existence stems from error minimization") and it's technically literal, not metaphor. Planted in Part 1 as mechanics, it lets the Conclusion harvest it as meaning — a setup-payoff arc spanning the whole book for the cost of a sentence. The Creativity chapter already holds the companion piece (novelty is trained away; the chaos is injected from *outside* the model).
   - *Your call:* Say it in your register, not a textbook's — the reader should barely notice a seed was planted.
-- [ ] **Harvest error minimization in the Conclusion** (one sentence)
+- [x] **Harvest error minimization in the Conclusion** (one sentence)
   - *What:* Where the Conclusion coins The Inevitable (find `"You could call this The Inevitable"`), add the callback naming the machine as an error-minimization engine — so the crescendo cashes the Part 1 setup instead of introducing the idea cold.
   - *Why:* Same arc as above, receiving end.
 - [ ] **Rewrite the Overview** (last piece of writing, from the finished Conclusion)
   - *What:* The current Overview (find `"Sacred Struggle argues"`) still pitches the book you started: effort is satisfying, ease disappoints. The book you *found* argues something sharper: meaning is choosing imperfection, and AI — an error-minimization machine — structurally cannot. Rewrite the Overview as the promise the Conclusion keeps, and seed The Inevitable vs. The Surprise vocabulary so the ending lands as a crescendo rather than a cold introduction.
   - *Why:* The Overview is the contract with the reader; right now it sells the weaker thesis. It was correctly deferred until the Conclusion existed — the Conclusion now exists.
   - *Your call:* Write both spine sentences on a card — the old one and the Mindvalley one — and stare at the gap before drafting. The gap is what the new Overview must promise. The sport analogy doesn't die; it demotes from *the point* to *the practice*.
-- [ ] **Title decision** (after or during the Overview rewrite)
+- [x] **Title decision** (after or during the Overview rewrite)
   - *What:* Three families are on the table, all minted by the manuscript itself: *Sacred Struggle* (kept honest by the Conclusion's "struggle is the force of life" — but it names the diagnosis); the consecration family ("the human power to set something apart… and bind it to meaning" — riskier, stranger, names the answer); and the choosing-imperfection family (the spoken pitch that landed at Mindvalley).
   - *Your call:* The test you've already run: when a stranger asks what the book is about, which words come out of your mouth? You know, because at Mindvalley they already did.
 
