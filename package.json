@@ -14,7 +14,10 @@
     "storyline:check": "bun run src/tools/storyline-check.ts",
     "dev:site": "astro dev",
     "preview": "astro preview",
-    "netlify": "netlify"
+    "netlify": "netlify",
+    "video:studio": "remotion studio video/src/index.ts --public-dir=video/public",
+    "video:render": "remotion render video/src/index.ts SacredStruggleBook output/video/sacred-struggle-book.mp4 --public-dir=video/public",
+    "video:frames": "remotion still video/src/index.ts SacredStruggleBook --public-dir=video/public"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
@@ -31,9 +34,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@remotion/cli": "^4.0.525",
     "@types/bun": "^1.2.23",
     "@types/node": "^22.7.4",
     "netlify-cli": "^24.0.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.525",
     "tailwindcss": "^4.2.2",
     "tsx": "^4.16.2",
     "typescript": "^5.6.3"
