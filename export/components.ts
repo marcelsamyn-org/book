@@ -603,7 +603,7 @@ const renderTwoPoles = (node: MdxJsxFlowElement): RenderedComponent => {
 
   const html = [
     `<div class="exhibit">`,
-    `<p class="exhibit-eyebrow">The same line, drawn again and again</p>`,
+    `<p class="exhibit-eyebrow">Making and the unmade in five traditions</p>`,
     `<table class="poles">`,
     `<thead><tr><th>Tradition</th><th>${escapeHtml(making)}</th><th>${escapeHtml(unmade)}</th></tr></thead>`,
     "<tbody>",
@@ -628,7 +628,7 @@ const readRung = (value: unknown): Rung | undefined => {
 const renderScarcityLadder = (node: MdxJsxFlowElement): RenderedComponent => {
   const rungs = topDown(arrayProp(node, "rungs", readRung));
   if (rungs.length === 0) failAt(node, "<ScarcityLadder> needs at least one rung");
-  const eyebrow = "Each one got cheap, and pushed the value up";
+  const eyebrow = "What becomes valuable";
 
   const typst = [
     "#scarcity-ladder(",
@@ -679,7 +679,7 @@ const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => 
   if (!eras.some((era) => era.holdsAll === true)) {
     failAt(node, "<AttachmentLineage> needs one era marked holdsAll, the row that holds every ingredient");
   }
-  const eyebrow = "Each one added an ingredient";
+  const eyebrow = "Machines people got attached to";
 
   const typst = [
     "#attachment-lineage(",

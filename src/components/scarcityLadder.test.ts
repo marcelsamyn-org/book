@@ -5,7 +5,7 @@ import { type Rung, topDown } from "./scarcityLadder.js";
 const rungs: readonly Rung[] = [
   { name: "Execution", note: "AI makes what you ask.", abundant: true },
   { name: "Attention", note: "AI reads everything.", abundant: true },
-  { name: "Judgment", note: "AI weighs more than we can.", abundant: true },
+  { name: "Judgment", note: "AI can take in more information than a person.", abundant: true },
   { name: "Responsibility", note: "You cannot sue a machine.", abundant: false },
 ];
 

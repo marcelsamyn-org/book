@@ -782,7 +782,7 @@
 
 // The two-pole table: a tradition per row, the two poles side by side.
 #let two-poles(making: "", unmade: "", rows: ()) = exhibit(breakable: true, {
-  block(below: 8pt, eyebrow[The same line, drawn again and again])
+  block(below: 8pt, eyebrow[Making and the unmade in five traditions])
   grid(
     // Wide enough for "Continental philosophy" to wrap rather than overflow.
     columns: (7em, 1fr, 1fr),
@@ -815,7 +815,7 @@
 // The ladder of scarcity: rungs top-down, with the scarce one drawn as the
 // different kind of thing the chapter argues it is.
 #let scarcity-ladder(rungs: ()) = exhibit(breakable: false, {
-  block(below: 8pt, eyebrow[Each one got cheap, and pushed the value up])
+  block(below: 8pt, eyebrow[What becomes valuable])
   for rung in rungs {
     block(
       width: 100%,
@@ -851,7 +851,7 @@
 // The attachment lineage: one row per technology, with the ingredient it added.
 // The last row holds all of them and lists the full set.
 #let attachment-lineage(eras: (), ingredients: ()) = exhibit(breakable: true, {
-  block(below: 8pt, eyebrow[Each one added an ingredient])
+  block(below: 8pt, eyebrow[Machines people got attached to])
   for era in eras {
     let all = era.at("holds-all", default: false)
     block(width: 100%, above: 5pt, below: 0pt, grid(
