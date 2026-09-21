@@ -5,6 +5,7 @@ import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { toString } from "mdast-util-to-string";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
+import type { LineageEra } from "../src/components/attachmentLineage.js";
 import { ruleLabelGutter, wrapLabel } from "../src/components/barFigure.js";
 import {
   adviceChartSpec,
@@ -71,6 +72,9 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "ScarcityLadder":
       expectShape(node, ["rungs"], "no children");
       return renderScarcityLadder(node);
+    case "AttachmentLineage":
+      expectShape(node, ["eras", "ingredients"], "no children");
+      return renderAttachmentLineage(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -613,6 +617,60 @@ const renderScarcityLadder = (node: MdxJsxFlowElement): RenderedComponent => {
           rung.abundant ? "abundant" : "still scarce"
         }</span></p>`,
     ),
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const readEra = (value: unknown): LineageEra | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { when, what, added, holdsAll } = value;
+  if (typeof when !== "string" || typeof what !== "string" || typeof added !== "string") return undefined;
+  if (holdsAll !== undefined && typeof holdsAll !== "boolean") return undefined;
+  return {
+    when: smart(when),
+    what: smart(what),
+    added: smart(added),
+    ...(holdsAll === true ? { holdsAll: true } : {}),
+  };
+};
+
+const readIngredient = (value: unknown): string | undefined => (typeof value === "string" ? smart(value) : undefined);
+
+const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => {
+  const eras = arrayProp(node, "eras", readEra);
+  const ingredients = arrayProp(node, "ingredients", readIngredient);
+  if (eras.length === 0) failAt(node, "<AttachmentLineage> needs at least one era");
+  if (!eras.some((era) => era.holdsAll === true)) {
+    failAt(node, "<AttachmentLineage> needs one era marked holdsAll, the row that holds every ingredient");
+  }
+  const eyebrow = "Each one added an ingredient";
+
+  const typst = [
+    "#attachment-lineage(",
+    `  eras: ${typstArray(
+      eras.map(
+        (era) =>
+          `(when: ${typstString(era.when)}, what: ${typstString(era.what)}, added: ${typstString(
+            era.added,
+          )}, holds-all: ${era.holdsAll === true})`,
+      ),
+    )},`,
+    `  ingredients: ${typstArray(ingredients.map(typstString))},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    ...eras.flatMap((era) => [
+      `<p class="lineage-era${era.holdsAll === true ? " lineage-all" : ""}"><span class="lineage-when">${escapeHtml(
+        era.when,
+      )}</span> <strong>${escapeHtml(era.what)}</strong> — ${escapeHtml(era.added)}</p>`,
+      ...(era.holdsAll === true
+        ? [`<p class="lineage-ingredients">${ingredients.map(escapeHtml).join(" · ")}</p>`]
+        : []),
+    ]),
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };

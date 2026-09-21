@@ -850,3 +850,32 @@
     )
   }
 })
+
+// The attachment lineage: one row per technology, with the ingredient it added.
+// The last row holds all of them and lists the full set.
+#let attachment-lineage(eras: (), ingredients: ()) = exhibit(breakable: true, {
+  block(below: 8pt, eyebrow[Each one added an ingredient])
+  for era in eras {
+    let all = era.at("holds-all", default: false)
+    block(width: 100%, above: 5pt, below: 0pt, grid(
+      columns: (3.6em, 8.4em, 1fr),
+      column-gutter: 8pt,
+      align: top,
+      text(font: mono-font, size: 6.2pt, fill: muted, era.when),
+      text(weight: 600, fill: ink, era.what),
+      text(fill: if all { gold-ink } else { muted }, weight: if all { 600 } else { "regular" }, era.added),
+    ))
+    if all {
+      // Chips flow like inline text and wrap on their own; a fixed grid clipped
+      // the longer names.
+      block(width: 100%, above: 6pt, below: 2pt, inset: (left: 12.4em), {
+        set text(font: mono-font, size: 5.8pt, fill: muted)
+        set par(leading: 0.75em)
+        for i in ingredients {
+          chip(i)
+          h(4pt)
+        }
+      })
+    }
+  }
+})

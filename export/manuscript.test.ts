@@ -161,3 +161,81 @@ describe("toPandocMarkdown", () => {
     expect(() => toPandocMarkdown(source)).toThrow("CallExpression is not a literal");
   });
 });
+
+describe("data figures", () => {
+  const curve = [
+    "<CapabilityCurve",
+    "  points={[",
+    '    { year: 2020, seconds: 6, label: "6 sec" },',
+    '    { year: 2026, seconds: 43200, label: "12 hours", projected: true },',
+    "  ]}",
+    '  caption="Figures as given above."',
+    '  alt="A rising line."',
+    "/>",
+  ].join("\n");
+
+  it("gives the PDF resolved coordinates and the EPUB the same figure as SVG", () => {
+    const markdown = toPandocMarkdown(curve);
+
+    expect(markdown).toContain("#line-figure(");
+    expect(markdown).toContain('dots: ((');
+    expect(markdown).toContain('<svg xmlns="http://www.w3.org/2000/svg"');
+    expect(markdown).toContain('class="figure-svg"');
+    // The projection must be flagged in both outputs, not just one.
+    expect(markdown).toContain('key: "Dashed: the book’s own projection, not a measurement"');
+    expect(markdown).toContain("figure-line-projected");
+  });
+
+  it("refuses a capability curve it cannot plot", () => {
+    const single = curve.replace('    { year: 2026, seconds: 43200, label: "12 hours", projected: true },\n', "");
+    expect(() => toPandocMarkdown(single)).toThrow("<CapabilityCurve> needs at least two points");
+  });
+
+  it("keeps the break-up percentages and the average line in both outputs", () => {
+    const source = [
+      "<BreakupAdvice",
+      "  responders={[",
+      '    { name: "People on the forum", percent: 42, group: "people" },',
+      '    { name: "GPT-5 Mini", percent: 5.7, group: "models" },',
+      "  ]}",
+      '  average={{ percent: 20, label: "All models, 20%" }}',
+      '  caption="My own test."',
+      '  alt="Bars."',
+      "/>",
+    ].join("\n");
+    const markdown = toPandocMarkdown(source);
+
+    expect(markdown).toContain("#bar-figure(");
+    expect(markdown).toContain('"42%"');
+    expect(markdown).toContain('"5.7%"');
+    expect(markdown).toContain('"All models, 20%"');
+    expect(markdown).toContain('class="figure-bar"');
+    expect(markdown).toContain('class="figure-bar figure-bar-muted"');
+  });
+
+  it("requires the lineage row that holds every ingredient", () => {
+    const source = [
+      "<AttachmentLineage",
+      '  eras={[{ when: "1966", what: "ELIZA", added: "Self-disclosure." }]}',
+      '  ingredients={["Responsiveness"]}',
+      "/>",
+    ].join("\n");
+    expect(() => toPandocMarkdown(source)).toThrow("needs one era marked holdsAll");
+  });
+
+  it("orders the ladder from the last rung the chapter reaches down to the first", () => {
+    const source = [
+      "<ScarcityLadder",
+      "  rungs={[",
+      '    { name: "Execution", note: "Cheap now.", abundant: true },',
+      '    { name: "Responsibility", note: "You cannot sue a machine.", abundant: false },',
+      "  ]}",
+      "/>",
+    ].join("\n");
+    const markdown = toPandocMarkdown(source);
+
+    expect(markdown.indexOf("Responsibility")).toBeLessThan(markdown.indexOf("Execution"));
+    expect(markdown).toContain("abundant: false");
+    expect(markdown).toContain('class="ladder-rung ladder-scarce"');
+  });
+});

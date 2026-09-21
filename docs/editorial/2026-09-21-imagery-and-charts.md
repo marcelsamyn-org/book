@@ -4,25 +4,33 @@
 
 *One thing to decide before any of this: the book has no figures today apart from the three part plates and four exhibit components. Adding charts changes what kind of book it is. A reader who sees a chart expects measured numbers, and several of the numbers here are your own unpublished tests or forward projections. The Production notes section at the end covers how to keep that honest.*
 
-## If you only make six
+## Built, 2026-09-21
 
-These carry the most weight for the least work, in book order:
+All six of the shortlist are in the manuscript and render in the site, the PDF and the EPUB.
 
-1. **The capability curve** (How smart is AI) — resolves `"TODO: Add graphs"`.
-2. **The relationship-advice results** (Parroting The Internet) — your own original data, currently seven bullets.
-3. **The attachment lineage** (Why We Get Attached To Machines) — resolves `"TODO: Add pictures"` and turns it into an argument.
-4. **The inverted U** (Post-Traumatic Growth) — the thesis shape of the whole book, named twice, drawn never.
-5. **The ladder of scarcity** (New World, New Scarcity) — three rungs abundant, one standing alone.
-6. **Poiesis and the unmade** (AI as Infinite Creation) — five traditions, two columns, one instant.
+1. **The capability curve** (How smart is AI) — resolved `"TODO: Add graphs"`.
+2. **The relationship-advice results** (Parroting The Internet) — your own data, was seven bullets.
+3. **The attachment lineage** (Why We Get Attached To Machines) — resolved `"TODO: Add pictures"`.
+4. **The inverted U** (Post-Traumatic Growth) — the thesis shape, named twice, now drawn.
+5. **The ladder of scarcity** (Is that it?) — three rungs abundant, one standing alone.
+6. **Poiesis and the unmade** (AI as Infinite Creation) — five traditions, two columns.
+
+Three decisions are still yours, and each is a one-line edit in `book.mdx`:
+
+- **Which capability points are measured.** Only the 2026 point is marked as a projection. If the 2025 figure is also yours rather than published, add `projected: true` to it. The series has no citation in `references.yaml`; if there is a source, add the key and put it in the caption.
+- **Neediness.** The lineage names it at Tamagotchi, as your prose does, but the seven-ingredient list beneath it still omits it. Add it to the list, fold it into Availability, or drop the word from the Tamagotchi paragraph.
+- **The break-up method line.** The caption says how the test was run in one sentence. Replace it with the real numbers when you have them to hand: how many posts, collected when, how many runs per model.
+
+The rest of this document is the original analysis, unchanged. The items below the shortlist are still open.
 
 ## The three imagery TODOs in the manuscript
 
-- [ ] **The capability curve** — `"TODO: Add graphs"`, How smart is AI. Priority H
+- [x] **The capability curve** — `"TODO: Add graphs"`, How smart is AI. Priority H
   - *What:* One line chart of the task-length numbers you already list: 6 seconds in 2020, 36 seconds in 2022, 4 minutes in 2023, 11 minutes in 2024, 3 hours 23 minutes in 2025, 12 hours in early 2026. Log scale on the y-axis, with a few human-scale reference bands ("a tweet", "a code review", "a working day") along the side.
   - *Why:* The paragraph's claim is `"AI though is growing at a *hyper*-exponential pace. That's an exponential of an exponential."` A linear axis hides the first four points entirely. A log axis is the only one that shows the claim, because a plain exponential is a straight line on a log axis and a hyper-exponential bends upward. The chart is the argument, not decoration for it.
   - *Your call:* The points from 2025 on are the book's forward setting, not published measurement. Mark the projected points differently, cite the source for the measured ones, or state the whole series as your own estimate — an unmarked chart reads as measured data.
 
-- [ ] **The attachment lineage** — `"TODO: Add pictures"`, Why We Get Attached To Machines. Priority H
+- [x] **The attachment lineage** — `"TODO: Add pictures"`, Why We Get Attached To Machines. Priority H
   - *What:* Not product photos. A timeline strip in the part-plate visual language — ELIZA 1966, Tamagotchi 1996, AIBO and Paro, LLM companions — where each era adds the attachment ingredient it introduced, so the ingredients accumulate left to right and the last column has all of them.
   - *Why:* Three product photos would illustrate the passage. This shows the passage's actual claim, which is that each technology added one ingredient and language models are the first to hold every one at once. It also avoids clearing rights on Tamagotchi, AIBO, and Paro imagery for a commercially sold ebook.
   - *Your call:* Making this figure forces a reconciliation you'll have to do anyway. The prose names self-disclosure at ELIZA (`“the next ingredient we’ve just discovered is **self-disclosure**”`) and neediness at Tamagotchi (`"another ingredient that creates emotional attachment: **neediness**"`), but neediness is absent from the seven-item summary list that follows (`"Responsiveness"` through `"Social need"`). Either add neediness to the list, fold it into Availability, or drop the word at Tamagotchi.
@@ -81,7 +89,7 @@ These carry the most weight for the least work, in book order:
   - *Why:* The sentence after the list says `"The first two, autonomy and beneficence, are by far the most important."` A bulleted list flattens that; bars show "by far".
   - *Your call:* Only if you have effect sizes to put on the bars. Drawing relative heights you don't have a source for is worse than the list.
 
-- [ ] **The relationship-advice results** — `“The “real” people in these comments recommended breaking up primarily in 42% of the cases”`, Parroting The Internet. Priority H
+- [x] **The relationship-advice results** — `“The “real” people in these comments recommended breaking up primarily in 42% of the cases”`, Parroting The Internet. Priority H
   - *What:* One grouped chart of your own test: break-up rate by responder (humans plus each model), with the second-order findings as small paired marks — communicate as primary advice (humans 11% versus most models top), harsh tone (humans 14%, models 0%), self-consistency (humans 54%, models 90%+).
   - *Why:* This is the only original research in the book and it's currently seven bullets holding eleven numbers. Readers skim bullet lists of percentages. A chart is also the only way to show the finding that makes the section interesting: the models don't just differ from humans, they differ from each other, which is your evidence for the post-training hypothesis.
   - *Your call:* The figure needs a method line — how many posts, when collected, how many runs per model, how the classifier judged. Without it you publish a confident-looking chart with no method, in a book that argues against trusting confident-looking output. A small inset for the Shaw 2010–2025 Reddit trend (30% to almost 50%) would also give that citation a home.
@@ -103,7 +111,7 @@ These carry the most weight for the least work, in book order:
   - *Why:* This is the one place where the literal picture beats any diagram. The absurdity of the rod out-pecking a parent is the argument, and it survives being looked at for one second. Drawn in the part-plate language it also carries the book's own aesthetic into its funniest moment.
   - *Your call:* Nothing much. This one is cheap and it works.
 
-- [ ] **The inverted U** — `“It seems like there’s an inverted U-curve to it”`, Post-Traumatic Growth. Priority H
+- [x] **The inverted U** — `“It seems like there’s an inverted U-curve to it”`, Post-Traumatic Growth. Priority H
   - *What:* One curve, adversity on the x-axis, life satisfaction on the y, with three positions marked: none, some, too much.
   - *Why:* You name the shape twice — once for a single episode's severity, once for lifetime adversity from Seery 2010 (`"experiencing *some* amount of life adversity leads to a greater sense of life satisfaction than none at all"`) — and never draw it. This is the shape of the book's whole argument, and Seery gives you real data for the lifetime version. If Part 3 gets one figure, it's this.
   - *Your call:* One curve or two. They're different claims on different axes, and merging them would overstate what either study shows. My read: draw Seery's lifetime curve with its data, and let the prose keep the single-episode version.
@@ -113,12 +121,12 @@ These carry the most weight for the least work, in book order:
   - *Why:* The passage gives three helps in one sentence and then spends paragraphs on the two that are harder. A five-row block makes the asymmetry visible at a glance and stops the three helps from being forgotten by the time Meaning arrives.
   - *Your call:* Cheap and low-risk. Main question is whether Meaning reads as "complicated" or as its own thing, since the text says `"it seems like AI is neutral here"` and then spends two pages disagreeing.
 
-- [ ] **The ladder of scarcity** — `"Abundant execution, abundant attention, abundant judgment."`, New World, New Scarcity. Priority H
+- [x] **The ladder of scarcity** — `"Abundant execution, abundant attention, abundant judgment."`, New World, New Scarcity. Priority H
   - *What:* Four rungs — execution, attention, judgment, responsibility — with the first three shaded as abundant and the fourth left unshaded and visibly unlike the others.
   - *Why:* The chapter is built as a sequence where each answer fails and pushes value up one step, and then Is that it? points out that the fourth rung is a different kind of thing (`"execution, attention and judgment became abundant because AI got better at it, but getting better at things can never make AI able to be sued"`). The figure can show that break in kind, which is the chapter's actual point and the hardest part to hold in prose.
   - *Your call:* Whether the same ladder motif appears earlier at `"we’ve stepped up the ladder of abstraction"` in the Part 2 opening. Using it twice would tie the two Parts together with one image, which is the cheapest structural link available to you. Using it twice also risks the second one feeling like a recap.
 
-- [ ] **Poiesis and the unmade** — `“In **Sāṃkhya**, Hinduism, there’s **Prakriti**”`, AI as Infinite Creation. Priority H
+- [x] **Poiesis and the unmade** — `“In **Sāṃkhya**, Hinduism, there’s **Prakriti**”`, AI as Infinite Creation. Priority H
   - *What:* Two columns, five rows: Prakriti/Purusha, Shakti/Shiva, Wéi/Wú Wéi, Martha/Mary, poiesis/the unmade. Column headers naming the two poles.
   - *Why:* The rhetorical move is that five unrelated traditions drew the same line. Five consecutive paragraphs make the reader do the alignment themselves; two columns do it instantly, and the instant is the point. This is the highest ratio of effect to effort in the list.
   - *Your call:* Whether the table replaces the paragraphs or sits beside them. Replacing loses your phrasing (`"the Tao does nothing, yet nothing is undone"`). My read: keep the paragraphs, add the table as a summary, and cut a sentence from each paragraph.

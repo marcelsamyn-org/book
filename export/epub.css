@@ -254,3 +254,13 @@ section.footnotes a, .references a { word-break: break-all; }
   font-family: "IBM Plex Mono", monospace; font-size: 0.75em;
   letter-spacing: 0.1em; text-transform: uppercase; color: #94744a;
 }
+
+/* ── Attachment lineage ───────────────────────────────────── */
+
+.exhibit .lineage-era { margin: 0.4em 0; padding-left: 0.7em; border-left: 2px solid rgba(128, 128, 128, 0.35); }
+.exhibit .lineage-all { border-left-color: #c9a574; }
+.exhibit .lineage-when { font-family: "IBM Plex Mono", monospace; font-size: 0.85em; color: #776d62; }
+.exhibit .lineage-ingredients {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.82em;
+  color: #94744a; margin: 0.3em 0 0.8em 0.7em;
+}

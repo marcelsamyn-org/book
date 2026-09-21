@@ -1,3 +1,4 @@
+import AttachmentLineage from './src/components/AttachmentLineage.astro';
 import BreakupAdvice from './src/components/BreakupAdvice.astro';
 import CapabilityCurve from './src/components/CapabilityCurve.astro';
 import ChatExhibit from './src/components/ChatExhibit.astro';
@@ -623,9 +624,45 @@ There’s no understanding underneath—just a ranked table of keywords, a few d
 
 Then came virtual pets like the Tamagotchi. Tamagotchis are small keychain devices with an LCD screen of a virtual pet that needs feeding, cleaning and attention in general. If you keep forgetting to attend to it when it beeps, it will die eventually. If you take care of it well enough, it’ll evolve and grow. This became extremely popular extremely quickly in 1996, specifically with teenage girls. They would form real bonds with their “pet” and show signs of depression when it would inevitably die. The Tamagotchi doubled down on another ingredient that creates emotional attachment: **neediness**. Technically simple, but it engaged themes of care, death, habits, attachment, ethics and emotional well-being. Later embodied pets like Sony’s AIBO and Paro showed that people actually interact with them as if they’re real animals, and these can help with reducing loneliness and depression (sometimes).
 
-%%
-TODO: Add pictures
-%%
+<AttachmentLineage
+  eras={[
+    {
+      when: "1956",
+      what: "Radio and television",
+      added: "Para-social interaction: a real bond, running only one way.",
+    },
+    {
+      when: "1966",
+      what: "ELIZA",
+      added: "Self-disclosure: your own words reflected back in a therapist’s rhythm.",
+    },
+    {
+      when: "1996",
+      what: "Tamagotchi",
+      added: "Neediness: something that beeps for you, and dies if you forget.",
+    },
+    {
+      when: "1999",
+      what: "AIBO and Paro",
+      added: "A body: people treat them as they treat a real animal.",
+    },
+    {
+      when: "Today",
+      what: "AI companions",
+      added: "Every one of them at once.",
+      holdsAll: true,
+    },
+  ]}
+  ingredients={[
+    "Responsiveness",
+    "Non-judgment",
+    "Availability",
+    "Memory",
+    "Self-disclosure",
+    "Repetition",
+    "Social need",
+  ]}
+/>
 
 And now we get to the Final Boss: **AI Companions**. Large language models gave computers the skills to have intelligent conversations with humans, resulting in an explosion of all kinds of virtual companions. This is attractive because these chatbots can be curious, endlessly patient, are always ready to listen and validate you, remember what you’ve said over a lifetime and can even proactively reach out to you. Because of how easily we attribute social traits to objects and because we can now have very rich interactions with a machine—where you’d feel more safe to reveal things about yourself since it’s not a real human—it’s clear why LLM-powered chatbots are becoming so popular.%%[@pentina2023; @skjuve2021; @laestadius2022; @lin2024]%%
 

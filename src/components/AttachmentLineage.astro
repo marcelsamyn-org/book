@@ -1,0 +1,32 @@
+---
+/**
+ * Renders the attachment lineage. Aliases: ELIZA, Tamagotchi, AIBO, Paro,
+ * para-social, companions, attachment ingredients.
+ */
+
+import type { AttachmentLineageSpec } from "./attachmentLineage.js";
+
+const { eras, ingredients } = Astro.props as AttachmentLineageSpec;
+---
+
+<figure class="figure figure-lineage">
+  <span class="figure-eyebrow">Each one added an ingredient</span>
+  <ol class="lineage">
+    {
+      eras.map((era) => (
+        <li class:list={["lineage-era", era.holdsAll === true && "lineage-all"]}>
+          <span class="lineage-when">{era.when}</span>
+          <span class="lineage-what">{era.what}</span>
+          <span class="lineage-added">{era.added}</span>
+          {era.holdsAll === true && (
+            <ul class="lineage-ingredients">
+              {ingredients.map((ingredient) => (
+                <li>{ingredient}</li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</figure>
