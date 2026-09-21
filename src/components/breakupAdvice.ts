@@ -19,7 +19,7 @@ export interface AdviceResponder {
 /** Taller than the line box: bar names wrap to two rows beneath the axis. */
 export const adviceBox: FigureBox = { width: 640, height: 330, pad: [26, 30, 58, 52] };
 
-export const adviceEyebrow = "Main advice was “end the relationship”";
+export const adviceEyebrow = "AI does not recommend breaking up as often as real people do";
 
 export const adviceTicks: readonly Tick[] = [
   { value: 0, label: "0%" },

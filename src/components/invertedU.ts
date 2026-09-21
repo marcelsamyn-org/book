@@ -76,7 +76,7 @@ export const peakAt: number = (() => {
   return -best.b / (2 * best.q);
 })();
 
-export const invertedUEyebrow = "Adversity and well-being over three years";
+export const invertedUEyebrow = "Adversity vs. well-being";
 export const invertedUXAxis = "Cumulative lifetime adversity →";
 export const invertedUYAxis = "Standard deviations";
 
