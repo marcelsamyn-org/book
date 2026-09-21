@@ -5,7 +5,14 @@ import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { toString } from "mdast-util-to-string";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
+import {
+  capabilityChartSpec,
+  capabilityFigureSvg,
+  type CapabilityPoint,
+} from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
+import { buildLineChart, round } from "../src/components/figures.js";
+import { valueAnchor } from "../src/components/lineFigure.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
 /** A manuscript component rendered for both output formats. */
@@ -39,6 +46,9 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "PTGIQuestionnaire":
       expectShape(node, [], "no children");
       return renderPtgi();
+    case "CapabilityCurve":
+      expectShape(node, ["points", "caption", "alt"], "no children");
+      return renderCapabilityCurve(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -299,6 +309,73 @@ const renderPtgi = (): RenderedComponent => {
       const low = index === 0 ? 0 : (ptgiBands[index - 1]?.max ?? 0) + 1;
       return `<p class="ptgi-band"><strong>${low}–${band.max}</strong> ${escapeHtml(smart(band.reading))}</p>`;
     }),
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+// ── Data figures ────────────────────────────────────────────
+
+const readCapabilityPoint = (value: unknown): CapabilityPoint | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { year, seconds, label, projected } = value;
+  if (typeof year !== "number" || typeof seconds !== "number" || typeof label !== "string") return undefined;
+  if (projected !== undefined && typeof projected !== "boolean") return undefined;
+  return { year, seconds, label, ...(projected === true ? { projected: true } : {}) };
+};
+
+const typstPair = (x: number, y: number): string => `(${round(x)}, ${round(y)})`;
+
+/**
+ * The PDF redraws the figure rather than embedding the SVG, so it resolves the
+ * same geometry here and hands Typst plain numbers in the same unit space.
+ */
+const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
+  const points = arrayProp(node, "points", readCapabilityPoint);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (points.length < 2) failAt(node, "<CapabilityCurve> needs at least two points");
+
+  const chart = buildLineChart(capabilityChartSpec(points));
+  const split = chart.firstProjected;
+  const measured = split === -1 ? chart.points : chart.points.slice(0, split);
+  const projected = split <= 0 ? [] : chart.points.slice(split - 1);
+  const key = split === -1 ? "none" : typstString("Dashed: the book’s own projection, not a measurement");
+
+  const typst = [
+    "#line-figure(",
+    `  eyebrow-text: ${typstString("How long a task AI can finish")},`,
+    `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
+    `  grid-lines: ${typstArray(
+      chart.yTicks.map(
+        (tick) => `(${round(tick.y)}, ${chart.frame.left}, ${chart.frame.right}, ${typstString(tick.label)})`,
+      ),
+    )},`,
+    `  axis: (${chart.frame.bottom}, ${chart.frame.left}, ${chart.frame.right}),`,
+    `  xticks: ${typstArray(
+      chart.xTicks.map((tick) => `(${round(tick.x)}, ${round(tick.y)}, ${typstString(tick.label)})`),
+    )},`,
+    `  measured: ${typstArray(measured.map((point) => typstPair(point.x, point.y)))},`,
+    `  projected: ${typstArray(projected.map((point) => typstPair(point.x, point.y)))},`,
+    `  dots: ${typstArray(
+      chart.points.map(
+        (point, index) =>
+          `(${round(point.x)}, ${round(point.y)}, ${typstString(point.label)}, ${point.projected}, ${typstString(
+            valueAnchor(index, chart.points.length),
+          )})`,
+      ),
+    )},`,
+    `  key: ${key},`,
+    `  caption: ${typstString(caption)},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit figure">`,
+    `<p class="exhibit-eyebrow">How long a task AI can finish</p>`,
+    capabilityFigureSvg({ points, alt }),
+    ...(split === -1 ? [] : [`<p class="figure-key">Dashed: the book’s own projection, not a measurement</p>`]),
+    `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };

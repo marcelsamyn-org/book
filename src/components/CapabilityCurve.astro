@@ -1,0 +1,39 @@
+---
+/**
+ * The pace-of-progress figure for "How smart is AI": how long a task AI can
+ * finish, year by year. The y axis is logarithmic because that is what the
+ * paragraph's claim needs — a plain exponential is a straight line on a log
+ * axis, so the upward bend is the "exponential of an exponential". Aliases:
+ * capability curve, task length, hyper-exponential, pace of progress.
+ *
+ * The manuscript supplies the numbers and the caption, because the same figures
+ * appear in the prose beside it. Axis ticks are presentation and live here.
+ */
+
+import { capabilityFigureSvg, type CapabilityPoint } from "./capabilityCurve.js";
+
+interface Props {
+  readonly points: readonly CapabilityPoint[];
+  /** Where the numbers come from. Required: a chart without a source claims more than a sentence does. */
+  readonly caption: string;
+  readonly alt: string;
+}
+
+const { points, caption, alt } = Astro.props;
+const svg = capabilityFigureSvg({ points, alt });
+const hasProjected = points.some((point) => point.projected === true);
+---
+
+<figure class="figure figure-line-chart">
+  <span class="figure-eyebrow">How long a task AI can finish</span>
+  <div class="figure-plot" set:html={svg} />
+  {
+    hasProjected && (
+      <p class="figure-key">
+        <span class="figure-key-mark figure-key-projected" aria-hidden="true" /> Dashed: the book's own projection, not a
+        measurement
+      </p>
+    )
+  }
+  <figcaption class="figure-caption">{caption}</figcaption>
+</figure>

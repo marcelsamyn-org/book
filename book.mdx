@@ -1,3 +1,4 @@
+import CapabilityCurve from './src/components/CapabilityCurve.astro';
 import ChatExhibit from './src/components/ChatExhibit.astro';
 import ChatResponse from './src/components/ChatResponse.astro';
 import ElizaBreakdown from './src/components/ElizaBreakdown.astro';
@@ -152,9 +153,18 @@ One thing cannot be denied: the *pace* at which language models are getting smar
 
 AI though is growing at a *hyper*-exponential pace. That's an exponential of an exponential. In 2020, AI could do tasks that take a human about 6 seconds. In 2022 that became 36 seconds (6x growth in 2 years). In 2023, 4 minutes (6.7x growth in 1 year). In 2024, 11 minutes. In 2025, 3 hours and 23 minutes. At the beginning of 2026, AI could do tasks that take human experts 12 hours. So even if you feel like there's no way AI could do your job today, it might just get another 10 or 100 times better in a few years...what about then?
 
-%%
-TODO: Add graphs
-%%
+<CapabilityCurve
+  points={[
+    { year: 2020, seconds: 6, label: "6 sec" },
+    { year: 2022, seconds: 36, label: "36 sec" },
+    { year: 2023, seconds: 240, label: "4 min" },
+    { year: 2024, seconds: 660, label: "11 min" },
+    { year: 2025, seconds: 12180, label: "3 h 23 min" },
+    { year: 2026, seconds: 43200, label: "12 hours", projected: true },
+  ]}
+  caption="How long the same task takes a human expert, for tasks AI can finish. The scale is logarithmic: a steady doubling would draw a straight line, so the upward bend is the growth accelerating. Figures as given above."
+  alt="A line rising from six seconds in 2020 to twelve hours in 2026 on a logarithmic scale, bending upward as it goes."
+/>
 
 I'll give you some more anecdotes to try and give that intuition for this pace of growth.
 

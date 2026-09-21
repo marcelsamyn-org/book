@@ -539,3 +539,105 @@
     }
   })
 })
+
+// ── Data figures ────────────────────────────────────────────
+
+// Draws a line figure from geometry the TypeScript renderer already resolved,
+// in the same unit space the SVG uses, so the PDF and the EPUB plot the same
+// shape. Coordinates arrive as (x, y) pairs measured from the top left.
+#let line-figure(
+  eyebrow-text: "",
+  units: (640.0, 320.0),
+  grid-lines: (),
+  bands: (),
+  axis: (0.0, 0.0, 0.0),
+  xticks: (),
+  measured: (),
+  projected: (),
+  dots: (),
+  key: none,
+  caption: "",
+) = exhibit(breakable: false, {
+  block(below: 7pt, eyebrow(eyebrow-text))
+  layout(size => {
+    let uw = units.at(0)
+    let uh = units.at(1)
+    let s = size.width / uw
+    let X(v) = v * s
+    let Y(v) = v * s
+
+    // Centres a label on a point, since Typst places boxes by their left edge.
+    let centred(x, y, width, body) = place(dx: X(x - width / 2), dy: Y(y), box(width: X(width), align(center, body)))
+    let right-of(x, y, body) = place(dx: 0pt, dy: Y(y), box(width: X(x), align(right, body)))
+
+    box(width: size.width, height: Y(uh), {
+      set text(font: sans-font, size: 6.4pt, fill: muted)
+
+      for g in grid-lines {
+        place(dx: X(g.at(1)), dy: Y(g.at(0)), line(length: X(g.at(2) - g.at(1)), stroke: 0.35pt + hairline))
+        right-of(g.at(1) - 8, g.at(0) - 4, text(font: mono-font, g.at(3)))
+      }
+
+      for b in bands {
+        place(
+          dx: X(b.at(1)),
+          dy: Y(b.at(0)),
+          line(length: X(b.at(2) - b.at(1)), stroke: (paint: hairline.darken(15%), thickness: 0.35pt, dash: "dashed")),
+        )
+        place(dx: X(b.at(2) + 8), dy: Y(b.at(0) - 4), text(font: mono-font, b.at(3)))
+      }
+
+      place(dx: X(axis.at(1)), dy: Y(axis.at(0)), line(length: X(axis.at(2) - axis.at(1)), stroke: 0.4pt + muted))
+
+      for t in xticks {
+        centred(t.at(0), t.at(1) + 6, 80, text(font: mono-font, t.at(2)))
+      }
+
+      let polyline(pts, dash) = {
+        for i in range(pts.len() - 1) {
+          let a = pts.at(i)
+          let b = pts.at(i + 1)
+          place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
+            start: (0pt, 0pt),
+            end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
+            stroke: (paint: gold, thickness: 1.3pt, cap: "round", dash: dash),
+          ))
+        }
+      }
+      polyline(measured, none)
+      polyline(projected, "dashed")
+
+      for d in dots {
+        let r = 2.4pt
+        place(dx: X(d.at(0)) - r, dy: Y(d.at(1)) - r, circle(
+          radius: r,
+          fill: if d.at(3) { white } else { gold },
+          stroke: if d.at(3) { 0.8pt + gold } else { none },
+        ))
+        // The end labels hang inward so they clear the axis labels and the edge.
+        let label = text(font: mono-font, weight: 500, fill: ink, d.at(2))
+        let ly = d.at(1) - 17
+        let w = 90
+        if d.at(4) == "start" {
+          place(dx: X(d.at(0)), dy: Y(ly), box(width: X(w), align(left, label)))
+        } else if d.at(4) == "end" {
+          place(dx: X(d.at(0) - w), dy: Y(ly), box(width: X(w), align(right, label)))
+        } else {
+          centred(d.at(0), ly, w, label)
+        }
+      }
+    })
+  })
+  if key != none {
+    block(above: 9pt, below: 0pt, {
+      box(width: 14pt, baseline: -1.5pt, line(length: 14pt, stroke: (paint: gold, thickness: 1.1pt, dash: "dashed")))
+      h(4pt)
+      text(font: mono-font, size: 6pt, fill: muted, key)
+    })
+  }
+  block(above: 10pt, below: 0pt, {
+    line(length: 100%, stroke: 0.4pt + hairline)
+    v(5pt)
+    text(size: 6.6pt, fill: muted, style: "italic", caption)
+  })
+})

@@ -1059,6 +1059,147 @@ main .sp-page p.sp-cut {
   margin-right: 0.35rem;
 }
 
+/* ── Data figures ──────────────────────────────────────── */
+
+.figure {
+  --breakout-extra: 8rem;
+  margin: 2.5rem calc(-1 * var(--breakout-extra));
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0 1.25rem;
+}
+
+@media (max-width: 72rem) {
+  .figure {
+    --breakout-extra: 0rem;
+  }
+}
+
+.figure-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.figure-plot {
+  overflow-x: auto;
+}
+
+.figure-svg {
+  display: block;
+  width: 100%;
+  min-width: 26rem;
+  height: auto;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.figure-grid {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.12;
+}
+
+.figure-band {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  opacity: 0.3;
+}
+
+.figure-axis {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.figure-tick,
+.figure-band-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: currentColor;
+  opacity: 0.6;
+}
+
+.figure-tick-y {
+  text-anchor: end;
+}
+
+.figure-tick-x {
+  text-anchor: middle;
+}
+
+.figure-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  fill: currentColor;
+}
+
+.figure-value-start {
+  text-anchor: start;
+}
+
+.figure-value-middle {
+  text-anchor: middle;
+}
+
+.figure-value-end {
+  text-anchor: end;
+}
+
+.figure-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.figure-line-projected {
+  stroke-dasharray: 5 4;
+}
+
+.figure-dot {
+  fill: var(--accent);
+}
+
+.figure-dot-projected {
+  fill: var(--paper);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.figure-key {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-muted);
+  margin: 0.9rem 0 0;
+}
+
+.figure-key-mark {
+  display: inline-block;
+  width: 1.4rem;
+  border-top: 2px dashed var(--accent);
+}
+
+main .figure figcaption.figure-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+}
+
 /* ── PTGI-X-SF questionnaire ───────────────────────────── */
 
 .ptgi {
