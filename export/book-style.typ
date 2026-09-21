@@ -701,13 +701,14 @@
 
 // A schematic curve: named, directed axes and marked positions, but no scale.
 // Used where the book cites the shape of a finding rather than its numbers.
-#let shape-figure(
+#let curve-figure(
   eyebrow-text: "",
-  units: (640.0, 300.0),
+  units: (640.0, 320.0),
   frame: (0.0, 0.0, 0.0, 0.0),
-  path-points: (),
-  marks: (),
+  grid-lines: (),
+  drops: (),
   xticks: (),
+  series: (),
   x-axis: "",
   y-axis: "",
   caption: "",
@@ -723,49 +724,50 @@
     box(width: size.width, height: Y(units.at(1)), {
       set text(font: sans-font, size: 6.4pt, fill: muted)
 
-      place(dx: X(fr-left), dy: Y(fr-bottom), line(length: X(fr-right - fr-left), stroke: 0.4pt + muted))
-      place(dx: X(fr-left), dy: Y(fr-top), line(length: Y(fr-bottom - fr-top), angle: 90deg, stroke: 0.4pt + muted))
+      for g in grid-lines {
+        place(dx: X(fr-left), dy: Y(g.at(0)), line(length: X(fr-right - fr-left), stroke: 0.35pt + hairline))
+        place(dx: 0pt, dy: Y(g.at(0) - 4), box(width: X(fr-left - 8), align(right, text(font: mono-font, g.at(1)))))
+      }
 
       for t in xticks {
-        centred(t.at(0), fr-bottom + 6, 80, text(font: mono-font, t.at(1)))
-      }
-
-      for i in range(path-points.len() - 1) {
-        let a = path-points.at(i)
-        let b = path-points.at(i + 1)
-        place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
-          start: (0pt, 0pt),
-          end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
-          stroke: (paint: gold, thickness: 1.3pt, cap: "round"),
-        ))
-      }
-
-      for m in marks {
-        // (x, y, label, place)
-        place(dx: X(m.at(0)), dy: Y(m.at(1)), line(
-          length: Y(fr-bottom - m.at(1)),
+        place(dx: X(t.at(0)), dy: Y(fr-top), line(
+          length: Y(fr-bottom - fr-top),
           angle: 90deg,
           stroke: (paint: hairline.darken(12%), thickness: 0.35pt, dash: "dotted"),
         ))
-        let r = 2.4pt
-        place(dx: X(m.at(0)) - r, dy: Y(m.at(1)) - r, circle(radius: r, fill: gold))
-        let ly = if m.at(3) == "below" { m.at(1) + 9 } else { m.at(1) - 19 }
-        // End marks hang inward, clear of the axis label and the right edge.
-        let label = text(font: mono-font, weight: 500, fill: ink, m.at(2))
-        let w = 120
-        if m.at(4) == "start" {
-          place(dx: X(m.at(0)), dy: Y(ly), box(width: X(w), align(left, label)))
-        } else if m.at(4) == "end" {
-          place(dx: X(m.at(0) - w), dy: Y(ly), box(width: X(w), align(right, label)))
-        } else {
-          centred(m.at(0), ly, w, label)
+        centred(t.at(0), fr-bottom + 6, 80, text(font: mono-font, t.at(1)))
+      }
+
+      place(dx: X(fr-left), dy: Y(fr-bottom), line(length: X(fr-right - fr-left), stroke: 0.4pt + muted))
+
+      for sr in series {
+        // (points, label, emphasis)
+        let pts = sr.at(0)
+        let lead = sr.at(2)
+        for i in range(pts.len() - 1) {
+          let a = pts.at(i)
+          let b = pts.at(i + 1)
+          place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
+            start: (0pt, 0pt),
+            end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
+            stroke: (
+              paint: if lead { gold } else { hairline.darken(28%) },
+              thickness: if lead { 1.4pt } else { 0.5pt },
+            ),
+          ))
         }
+        let last = pts.at(pts.len() - 1)
+        place(dx: X(last.at(0) + 7), dy: Y(last.at(1) - 4), text(
+          font: mono-font,
+          size: 5.8pt,
+          fill: if lead { gold-ink } else { muted },
+          weight: if lead { 500 } else { "regular" },
+          sr.at(1),
+        ))
       }
 
       place(dx: X(fr-right - 300), dy: Y(fr-bottom + 26), box(width: X(300), align(right, text(font: mono-font, x-axis))))
-      // Rotating -90deg about the top-left corner sends the box upward from the
-      // placement point, so anchor it at the axis foot to span up to the top.
-      place(dx: X(fr-left - 15), dy: Y(fr-bottom), rotate(-90deg, origin: top + left, box(
+      place(dx: X(fr-left - 46), dy: Y(fr-bottom), rotate(-90deg, origin: top + left, box(
         width: Y(fr-bottom - fr-top),
         align(right, text(font: mono-font, y-axis)),
       )))

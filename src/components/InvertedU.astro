@@ -1,35 +1,43 @@
 ---
 /**
- * The inverted U for "Post-Traumatic Growth", on the scale Seery, Holman and
- * Silver measured: lifetime adverse events against life satisfaction. Aliases:
- * inverted U, U-curve, adversity, Seery, lifetime adversity.
+ * Seery, Holman and Silver's Figure 1 for "Post-Traumatic Growth": four
+ * well-being outcomes against cumulative lifetime adversity, plotted from the
+ * coefficients in their Table 2. Aliases: inverted U, U-curve, adversity,
+ * Seery, lifetime adversity, resilience.
  */
 
 import {
-  invertedU,
+  adversityOutcomes,
   invertedUBox,
   invertedUEyebrow,
-  invertedUMarks,
-  invertedUTicks,
   invertedUXAxis,
+  invertedUXTicks,
   invertedUYAxis,
-  maxEvents,
+  invertedUYTicks,
+  outcomeAt,
+  xHigh,
 } from "./invertedU.js";
-import { shapeFigureSvg } from "./shapeFigure.js";
+import { curveFigureSvg } from "./shapeFigure.js";
 
 interface Props {
-  /** The study behind the curve: who was measured, how many, and when. */
+  /** The study behind the curves: who was measured, how many, and when. */
   readonly caption: string;
   readonly alt: string;
 }
 
 const { caption, alt } = Astro.props;
-const svg = shapeFigureSvg({
-  shape: invertedU,
-  marks: invertedUMarks,
+const svg = curveFigureSvg({
+  series: adversityOutcomes.map((outcome) => ({
+    key: outcome.key,
+    label: outcome.label,
+    at: (x: number) => outcomeAt(outcome, x),
+    emphasis: outcome.emphasis === true,
+  })),
   box: invertedUBox,
-  xTicks: invertedUTicks,
-  xMax: maxEvents,
+  xTicks: [...invertedUXTicks],
+  yTicks: [...invertedUYTicks],
+  xMin: 0,
+  xMax: xHigh,
   xAxis: invertedUXAxis,
   yAxis: invertedUYAxis,
   alt,

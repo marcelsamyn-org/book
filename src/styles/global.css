@@ -1206,6 +1206,33 @@ main .sp-page p.sp-cut {
   opacity: 0.55;
 }
 
+.figure-curve {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  opacity: 0.4;
+}
+
+.figure-curve-lead {
+  stroke: var(--accent);
+  stroke-width: 2.25;
+  opacity: 1;
+}
+
+.figure-series-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: currentColor;
+  opacity: 0.55;
+}
+
+.figure-series-lead {
+  fill: var(--accent);
+  font-weight: 500;
+  opacity: 1;
+}
+
 .figure-key {
   display: flex;
   align-items: center;

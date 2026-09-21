@@ -20,19 +20,20 @@ import {
   type CapabilityPoint,
 } from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
-import { buildBarChart, buildCurve, buildLineChart, round } from "../src/components/figures.js";
+import { buildBarChart, buildLineChart, round } from "../src/components/figures.js";
 import {
-  invertedU,
+  adversityOutcomes,
   invertedUBox,
   invertedUEyebrow,
-  invertedUMarks,
-  invertedUTicks,
   invertedUXAxis,
+  invertedUXTicks,
   invertedUYAxis,
-  maxEvents,
+  invertedUYTicks,
+  outcomeAt,
+  xHigh,
 } from "../src/components/invertedU.js";
 import { PROJECTION_KEY, splitProjection, valueAnchor } from "../src/components/lineFigure.js";
-import { shapeFigureSvg } from "../src/components/shapeFigure.js";
+import { curveFigureSvg } from "../src/components/shapeFigure.js";
 import { type Rung, topDown } from "../src/components/scarcityLadder.js";
 import type { PoleRow } from "../src/components/twoPoles.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
@@ -486,26 +487,49 @@ const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
 const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
   const caption = smart(stringProp(node, "caption"));
   const alt = stringProp(node, "alt");
-  const curve = buildCurve({ shape: invertedU, box: invertedUBox, marks: invertedUMarks, samples: 96 });
-  const tickX = (value: number) =>
-    curve.frame.left + (value / maxEvents) * (curve.frame.right - curve.frame.left);
+
+  const series = adversityOutcomes.map((outcome) => ({
+    key: outcome.key,
+    label: outcome.label,
+    at: (x: number) => outcomeAt(outcome, x),
+    emphasis: outcome.emphasis === true,
+  }));
+
+  // The PDF redraws the curves, so it needs the same sampled points and the
+  // same frame the SVG resolves.
+  const [padTop, padRight, padBottom, padLeft] = invertedUBox.pad;
+  const frame = {
+    left: padLeft,
+    top: padTop,
+    right: invertedUBox.width - padRight,
+    bottom: invertedUBox.height - padBottom,
+  };
+  const samples = 96;
+  const xs = Array.from({ length: samples }, (_, i) => (xHigh * i) / (samples - 1));
+  const values = series.flatMap((one) => xs.map(one.at));
+  const yMin = Math.min(...values, ...invertedUYTicks.map((tick) => tick.value));
+  const yMax = Math.max(...values, ...invertedUYTicks.map((tick) => tick.value));
+  const px = (x: number) => frame.left + (x / xHigh) * (frame.right - frame.left);
+  const py = (y: number) => frame.bottom - ((y - yMin) / (yMax - yMin)) * (frame.bottom - frame.top);
 
   const typst = [
-    "#shape-figure(",
+    "#curve-figure(",
     `  eyebrow-text: ${typstString(invertedUEyebrow)},`,
     `  units: (${invertedUBox.width}.0, ${invertedUBox.height}.0),`,
-    `  frame: (${curve.frame.top}, ${curve.frame.right}, ${curve.frame.bottom}, ${curve.frame.left}),`,
-    `  path-points: ${typstArray(curve.path.map((point) => typstPair(point.x, point.y)))},`,
-    `  marks: ${typstArray(
-      curve.marks.map(
-        (mark, index) =>
-          `(${round(mark.x)}, ${round(mark.y)}, ${typstString(mark.label)}, ${typstString(
-            invertedUMarks[index]?.place ?? "below",
-          )}, ${typstString(valueAnchor(index, curve.marks.length))})`,
-      ),
+    `  frame: (${frame.top}, ${frame.right}, ${frame.bottom}, ${frame.left}),`,
+    `  grid-lines: ${typstArray(
+      invertedUYTicks.map((tick) => `(${round(py(tick.value))}, ${typstString(tick.label)})`),
     )},`,
     `  xticks: ${typstArray(
-      invertedUTicks.map((tick) => `(${round(tickX(tick.value))}, ${typstString(tick.label)})`),
+      invertedUXTicks.map((tick) => `(${round(px(tick.value))}, ${typstString(tick.label)})`),
+    )},`,
+    `  series: ${typstArray(
+      [...series]
+        .sort((a, b) => Number(a.emphasis) - Number(b.emphasis))
+        .map(
+          (one) =>
+            `(${typstArray(xs.map((x) => typstPair(px(x), py(one.at(x)))))}, ${typstString(one.label)}, ${one.emphasis})`,
+        ),
     )},`,
     `  x-axis: ${typstString(invertedUXAxis)},`,
     `  y-axis: ${typstString(invertedUYAxis)},`,
@@ -516,12 +540,13 @@ const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
   const html = [
     `<div class="exhibit figure">`,
     `<p class="exhibit-eyebrow">${escapeHtml(invertedUEyebrow)}</p>`,
-    shapeFigureSvg({
-      shape: invertedU,
-      marks: invertedUMarks,
+    curveFigureSvg({
+      series,
       box: invertedUBox,
-      xTicks: invertedUTicks,
-      xMax: maxEvents,
+      xTicks: [...invertedUXTicks],
+      yTicks: [...invertedUYTicks],
+      xMin: 0,
+      xMax: xHigh,
       xAxis: invertedUXAxis,
       yAxis: invertedUYAxis,
       alt,

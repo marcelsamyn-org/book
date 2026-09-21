@@ -219,6 +219,10 @@ section.footnotes a, .references a { word-break: break-all; }
 .exhibit .figure-value-middle { text-anchor: middle; }
 .exhibit .figure-value-end { text-anchor: end; }
 .exhibit .figure-line { fill: none; stroke: #c9a574; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.exhibit .figure-curve { fill: none; stroke: #776d62; stroke-width: 1; stroke-linejoin: round; opacity: 0.5; }
+.exhibit .figure-curve-lead { stroke: #c9a574; stroke-width: 2.25; opacity: 1; }
+.exhibit .figure-series-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; fill: #776d62; }
+.exhibit .figure-series-lead { fill: #94744a; font-weight: 500; }
 .exhibit .figure-line-projected { stroke-dasharray: 5 4; }
 .exhibit .figure-dot { fill: #c9a574; }
 .exhibit .figure-dot-projected { fill: #ffffff; stroke: #c9a574; stroke-width: 1.5; }
