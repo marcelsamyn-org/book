@@ -17,8 +17,10 @@ import {
   type CapabilityPoint,
 } from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
-import { buildBarChart, buildLineChart, round } from "../src/components/figures.js";
+import { buildBarChart, buildCurve, buildLineChart, round } from "../src/components/figures.js";
+import { invertedU, invertedUBox, invertedUMarks } from "../src/components/invertedU.js";
 import { valueAnchor } from "../src/components/lineFigure.js";
+import { shapeFigureSvg } from "../src/components/shapeFigure.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
 /** A manuscript component rendered for both output formats. */
@@ -58,6 +60,9 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "BreakupAdvice":
       expectShape(node, ["responders", "average", "caption", "alt"], "no children");
       return renderBreakupAdvice(node);
+    case "InvertedU":
+      expectShape(node, ["caption", "alt"], "no children");
+      return renderInvertedU(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -453,6 +458,52 @@ const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
     `<div class="exhibit figure">`,
     `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
     adviceFigureSvg({ responders, ...(average === undefined ? {} : { average }), alt }),
+    `<p class="figure-caption">${escapeHtml(caption)}</p>`,
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const X_AXIS = "Adversity over a lifetime →";
+const Y_AXIS = "Life satisfaction →";
+
+const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  const curve = buildCurve({ shape: invertedU, box: invertedUBox, marks: invertedUMarks, samples: 96 });
+  const eyebrow = "The shape of the finding";
+
+  const typst = [
+    "#shape-figure(",
+    `  eyebrow-text: ${typstString(eyebrow)},`,
+    `  units: (${invertedUBox.width}.0, ${invertedUBox.height}.0),`,
+    `  frame: (${curve.frame.top}, ${curve.frame.right}, ${curve.frame.bottom}, ${curve.frame.left}),`,
+    `  path-points: ${typstArray(curve.path.map((point) => typstPair(point.x, point.y)))},`,
+    `  marks: ${typstArray(
+      curve.marks.map(
+        (mark, index) =>
+          `(${round(mark.x)}, ${round(mark.y)}, ${typstString(mark.label)}, ${typstString(
+            invertedUMarks[index]?.place ?? "below",
+          )}, ${typstString(valueAnchor(index, curve.marks.length))})`,
+      ),
+    )},`,
+    `  x-axis: ${typstString(X_AXIS)},`,
+    `  y-axis: ${typstString(Y_AXIS)},`,
+    `  caption: ${typstString(caption)},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit figure">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    shapeFigureSvg({
+      shape: invertedU,
+      marks: invertedUMarks,
+      box: invertedUBox,
+      xAxis: X_AXIS,
+      yAxis: Y_AXIS,
+      alt,
+    }),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];

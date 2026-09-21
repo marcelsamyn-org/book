@@ -1198,6 +1198,21 @@ main .sp-page p.sp-cut {
   text-anchor: end;
 }
 
+.figure-drop {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  opacity: 0.28;
+}
+
+.figure-axis-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  fill: currentColor;
+  opacity: 0.55;
+}
+
 .figure-key {
   display: flex;
   align-items: center;

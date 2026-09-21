@@ -1,0 +1,33 @@
+---
+/**
+ * The inverted U for "Post-Traumatic Growth": some adversity beats none, and
+ * far more beats nothing. A schematic with no scale, because the book cites
+ * the shape of the finding rather than its numbers. Aliases: inverted U,
+ * U-curve, adversity, Seery, lifetime adversity.
+ */
+
+import { invertedU, invertedUBox, invertedUMarks } from "./invertedU.js";
+import { shapeFigureSvg } from "./shapeFigure.js";
+
+interface Props {
+  /** Names the source and says the shape is schematic. */
+  readonly caption: string;
+  readonly alt: string;
+}
+
+const { caption, alt } = Astro.props;
+const svg = shapeFigureSvg({
+  shape: invertedU,
+  marks: invertedUMarks,
+  box: invertedUBox,
+  xAxis: "Adversity over a lifetime →",
+  yAxis: "Life satisfaction →",
+  alt,
+});
+---
+
+<figure class="figure figure-shape">
+  <span class="figure-eyebrow">The shape of the finding</span>
+  <div class="figure-plot" set:html={svg} />
+  <figcaption class="figure-caption">{caption}</figcaption>
+</figure>
