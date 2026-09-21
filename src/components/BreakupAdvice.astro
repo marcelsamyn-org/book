@@ -1,0 +1,24 @@
+---
+/**
+ * The break-up advice figure for "Parroting The Internet". Shows the author's
+ * own test: forum commenters against each language model, on how often the
+ * main advice was to end the relationship. Aliases: relationship advice,
+ * Reddit, break up, sycophancy test.
+ */
+
+import { adviceFigureSvg, type AdviceFigureSpec } from "./breakupAdvice.js";
+
+interface Props extends AdviceFigureSpec {
+  /** How the test was run. Required: these numbers are unpublished. */
+  readonly caption: string;
+}
+
+const { responders, average, alt, caption } = Astro.props;
+const svg = adviceFigureSvg({ responders, average, alt });
+---
+
+<figure class="figure figure-bar-chart">
+  <span class="figure-eyebrow">Main advice was “end the relationship”</span>
+  <div class="figure-plot" set:html={svg} />
+  <figcaption class="figure-caption">{caption}</figcaption>
+</figure>

@@ -5,13 +5,19 @@ import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { toString } from "mdast-util-to-string";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
+import { ruleLabelGutter, wrapLabel } from "../src/components/barFigure.js";
+import {
+  adviceChartSpec,
+  adviceFigureSvg,
+  type AdviceResponder,
+} from "../src/components/breakupAdvice.js";
 import {
   capabilityChartSpec,
   capabilityFigureSvg,
   type CapabilityPoint,
 } from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
-import { buildLineChart, round } from "../src/components/figures.js";
+import { buildBarChart, buildLineChart, round } from "../src/components/figures.js";
 import { valueAnchor } from "../src/components/lineFigure.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
@@ -49,6 +55,9 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "CapabilityCurve":
       expectShape(node, ["points", "caption", "alt"], "no children");
       return renderCapabilityCurve(node);
+    case "BreakupAdvice":
+      expectShape(node, ["responders", "average", "caption", "alt"], "no children");
+      return renderBreakupAdvice(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -381,6 +390,75 @@ const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
   return { typst: typst.join("\n"), html: html.join("\n") };
 };
 
+const readResponder = (value: unknown): AdviceResponder | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { name, percent, group } = value;
+  if (typeof name !== "string" || typeof percent !== "number") return undefined;
+  return group === "people" || group === "models" ? { name, percent, group } : undefined;
+};
+
+const readAverage = (node: MdxJsxFlowElement): { percent: number; label: string } | undefined => {
+  const raw = expressionProp(node, "average");
+  if (raw === undefined) return undefined;
+  if (!isRecord(raw)) return failAt(node, "<BreakupAdvice> average must be an object");
+  const { percent, label } = raw;
+  if (typeof percent !== "number" || typeof label !== "string") {
+    return failAt(node, "<BreakupAdvice> average needs a percent and a label");
+  }
+  return { percent, label: smart(label) };
+};
+
+const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
+  const responders = arrayProp(node, "responders", readResponder);
+  const average = readAverage(node);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (responders.length === 0) failAt(node, "<BreakupAdvice> needs at least one responder");
+
+  const spec = adviceChartSpec({ responders, ...(average === undefined ? {} : { average }), alt });
+  const chart = buildBarChart(spec);
+  const eyebrow = "Main advice was “end the relationship”";
+
+  const typst = [
+    "#bar-figure(",
+    `  eyebrow-text: ${typstString(eyebrow)},`,
+    `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
+    `  grid-lines: ${typstArray(
+      chart.ticks.map(
+        (tick) => `(${round(tick.y)}, ${chart.frame.left}, ${chart.frame.right}, ${typstString(tick.label)})`,
+      ),
+    )},`,
+    `  rules: ${typstArray(
+      chart.rules.map(
+        (rule) =>
+          `(${round(rule.y)}, ${chart.frame.left}, ${chart.frame.right - ruleLabelGutter}, ${typstString(
+            rule.label,
+          )}, ${chart.frame.right})`,
+      ),
+    )},`,
+    `  axis: (${chart.frame.bottom}, ${chart.frame.left}, ${chart.frame.right}),`,
+    `  bars: ${typstArray(
+      chart.bars.map(
+        (bar) =>
+          `(${round(bar.x)}, ${round(bar.y)}, ${round(bar.width)}, ${round(bar.height)}, ${typstString(
+            bar.valueLabel,
+          )}, ${typstArray(wrapLabel(bar.label).map(typstString))}, ${bar.group !== spec.highlight})`,
+      ),
+    )},`,
+    `  caption: ${typstString(caption)},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit figure">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    adviceFigureSvg({ responders, ...(average === undefined ? {} : { average }), alt }),
+    `<p class="figure-caption">${escapeHtml(caption)}</p>`,
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
 // ── Props ───────────────────────────────────────────────────
 
 const attributeValue = (node: MdxJsxFlowElement, name: string): MdxJsxAttribute["value"] => {
@@ -395,7 +473,8 @@ const stringProp = (node: MdxJsxFlowElement, name: string): string => {
   return typeof value === "string" ? smart(value) : failAt(node, `<${node.name ?? ""}> ${name} must be a string`);
 };
 
-const arrayProp = <T>(node: MdxJsxFlowElement, name: string, read: (item: unknown) => T | undefined): readonly T[] => {
+/** Reads a `{...}` or `[...]` prop as plain data, without evaluating the expression. */
+const expressionProp = (node: MdxJsxFlowElement, name: string): unknown => {
   const value = attributeValue(node, name);
   if (value === null || value === undefined || typeof value === "string") {
     return failAt(node, `<${node.name ?? ""}> ${name} must be an expression`);
@@ -405,7 +484,11 @@ const arrayProp = <T>(node: MdxJsxFlowElement, name: string, read: (item: unknow
   if (body.length !== 1 || statement?.type !== "ExpressionStatement") {
     return failAt(node, `<${node.name ?? ""}> ${name} must be a single expression`);
   }
-  const items = literal(statement.expression, node);
+  return literal(statement.expression, node);
+};
+
+const arrayProp = <T>(node: MdxJsxFlowElement, name: string, read: (item: unknown) => T | undefined): readonly T[] => {
+  const items = expressionProp(node, name);
   if (!Array.isArray(items)) return failAt(node, `<${node.name ?? ""}> ${name} must be an array`);
   return items.map((item, index) => read(item) ?? failAt(node, `<${node.name ?? ""}> ${name}[${index}] has the wrong shape`));
 };

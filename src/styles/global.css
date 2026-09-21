@@ -1174,6 +1174,30 @@ main .sp-page p.sp-cut {
   stroke-width: 1.5;
 }
 
+.figure-bar {
+  fill: var(--accent);
+}
+
+.figure-bar-muted {
+  fill: currentColor;
+  opacity: 0.32;
+}
+
+.figure-rule {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  opacity: 0.55;
+}
+
+.figure-rule-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: currentColor;
+  opacity: 0.65;
+  text-anchor: end;
+}
+
 .figure-key {
   display: flex;
   align-items: center;

@@ -156,9 +156,12 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
 
 export interface BarDatum {
   readonly key: string;
+  /** Name printed under the bar. */
   readonly label: string;
   readonly value: number;
-  /** Groups bars visually, e.g. "human" against "model". */
+  /** Value printed above the bar, e.g. "42%". The data decides its own format. */
+  readonly valueLabel: string;
+  /** Groups bars visually, e.g. "people" against "models". */
   readonly group: string;
 }
 
@@ -170,11 +173,14 @@ export interface BarChartSpec {
   readonly box?: FigureBox;
   /** Fraction of each slot the bar fills, 0 to 1. */
   readonly barFill?: number;
+  /** Reference values drawn across the plot, e.g. an average over the bars. */
+  readonly rules?: readonly Tick[];
 }
 
 export interface PlottedBar {
   readonly key: string;
   readonly label: string;
+  readonly valueLabel: string;
   readonly group: string;
   readonly value: number;
   readonly x: number;
@@ -187,6 +193,7 @@ export interface BarChart {
   readonly box: FigureBox;
   readonly bars: readonly PlottedBar[];
   readonly ticks: readonly PlottedTick[];
+  readonly rules: readonly PlottedBand[];
   readonly frame: { readonly left: number; readonly top: number; readonly right: number; readonly bottom: number };
 }
 
@@ -195,7 +202,9 @@ export const buildBarChart = (spec: BarChartSpec): BarChart => {
   const frame = inner(box);
   if (spec.data.length === 0) throw new RangeError("a bar chart needs at least one bar");
 
-  const max = spec.max ?? Math.max(...spec.data.map((d) => d.value), ...spec.ticks.map((t) => t.value));
+  const max =
+    spec.max ??
+    Math.max(...spec.data.map((d) => d.value), ...spec.ticks.map((t) => t.value), ...(spec.rules ?? []).map((r) => r.value));
   const fill = spec.barFill ?? 0.62;
   const slot = frame.width / spec.data.length;
   const width = slot * fill;
@@ -210,6 +219,7 @@ export const buildBarChart = (spec: BarChartSpec): BarChart => {
       return {
         key: d.key,
         label: d.label,
+        valueLabel: d.valueLabel,
         group: d.group,
         value: d.value,
         x: frame.left + slot * index + (slot - width) / 2,
@@ -219,6 +229,7 @@ export const buildBarChart = (spec: BarChartSpec): BarChart => {
       };
     }),
     ticks: spec.ticks.map((t) => ({ x: frame.left, y: py(t.value), label: t.label })),
+    rules: (spec.rules ?? []).map((r) => ({ y: py(r.value), label: r.label })),
   };
 };
 

@@ -91,9 +91,9 @@ describe("line charts", () => {
 describe("bar charts", () => {
   const spec = {
     data: [
-      { key: "a", label: "A", value: 0, group: "g" },
-      { key: "b", label: "B", value: 50, group: "g" },
-      { key: "c", label: "C", value: 100, group: "h" },
+      { key: "a", label: "A", value: 0, valueLabel: "0", group: "g" },
+      { key: "b", label: "B", value: 50, valueLabel: "50", group: "g" },
+      { key: "c", label: "C", value: 100, valueLabel: "100", group: "h" },
     ],
     ticks: [{ value: 100, label: "100" }],
     box,

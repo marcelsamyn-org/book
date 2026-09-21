@@ -641,3 +641,70 @@
     text(size: 6.6pt, fill: muted, style: "italic", caption)
   })
 })
+
+// Bars share the line figure's unit space and label conventions; the geometry
+// again arrives already resolved so the PDF matches the SVG outputs.
+#let bar-figure(
+  eyebrow-text: "",
+  units: (640.0, 330.0),
+  grid-lines: (),
+  rules: (),
+  axis: (0.0, 0.0, 0.0),
+  bars: (),
+  caption: "",
+) = exhibit(breakable: false, {
+  block(below: 7pt, eyebrow(eyebrow-text))
+  layout(size => {
+    let uw = units.at(0)
+    let uh = units.at(1)
+    let s = size.width / uw
+    let X(v) = v * s
+    let Y(v) = v * s
+    let centred(x, y, width, body) = place(dx: X(x - width / 2), dy: Y(y), box(width: X(width), align(center, body)))
+
+    box(width: size.width, height: Y(uh), {
+      set text(font: sans-font, size: 6.4pt, fill: muted)
+
+      for g in grid-lines {
+        place(dx: X(g.at(1)), dy: Y(g.at(0)), line(length: X(g.at(2) - g.at(1)), stroke: 0.35pt + hairline))
+        place(dx: 0pt, dy: Y(g.at(0) - 4), box(width: X(g.at(1) - 8), align(right, text(font: mono-font, g.at(3)))))
+      }
+
+      // The rule stops short of its own label so the dashes never cross the text.
+      for r in rules {
+        place(
+          dx: X(r.at(1)),
+          dy: Y(r.at(0)),
+          line(length: X(r.at(2) - r.at(1)), stroke: (paint: muted, thickness: 0.4pt, dash: "dashed")),
+        )
+        place(dx: 0pt, dy: Y(r.at(0) - 4), box(width: X(r.at(4)), align(right, text(font: mono-font, r.at(3)))))
+      }
+
+      for b in bars {
+        // (x, y, width, height, value label, name lines, muted)
+        place(dx: X(b.at(0)), dy: Y(b.at(1)), rect(
+          width: X(b.at(2)),
+          height: Y(b.at(3)),
+          fill: if b.at(6) { hairline.darken(22%) } else { gold },
+          stroke: none,
+        ))
+        centred(b.at(0) + b.at(2) / 2, b.at(1) - 15, 110, text(
+          font: mono-font,
+          weight: 500,
+          fill: ink,
+          b.at(4),
+        ))
+        for (row, name) in b.at(5).enumerate() {
+          centred(b.at(0) + b.at(2) / 2, axis.at(0) + 6 + row * 11, 120, text(font: mono-font, name))
+        }
+      }
+
+      place(dx: X(axis.at(1)), dy: Y(axis.at(0)), line(length: X(axis.at(2) - axis.at(1)), stroke: 0.4pt + muted))
+    })
+  })
+  block(above: 10pt, below: 0pt, {
+    line(length: 100%, stroke: 0.4pt + hairline)
+    v(5pt)
+    text(size: 6.6pt, fill: muted, style: "italic", caption)
+  })
+})

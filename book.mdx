@@ -1,3 +1,4 @@
+import BreakupAdvice from './src/components/BreakupAdvice.astro';
 import CapabilityCurve from './src/components/CapabilityCurve.astro';
 import ChatExhibit from './src/components/ChatExhibit.astro';
 import ChatResponse from './src/components/ChatResponse.astro';
@@ -732,6 +733,20 @@ Turns out we can let out a sigh of relief. The “real” people in these commen
 - There are plenty more places online with relationship advice, this specific forum just advises breaking up very often
 - The post-training phase, which contains more curated data and human preference, steered the model towards a more balanced view
 - The models are using some of their “intelligence” to come to the conclusion themselves that they don’t need to advise the same way as the norm
+
+<BreakupAdvice
+  responders={[
+    { name: "People on the forum", percent: 42, group: "people" },
+    { name: "Gemini 3 Flash", percent: 33, group: "models" },
+    { name: "Claude Opus 4.6", percent: 30, group: "models" },
+    { name: "Claude Sonnet 4.6", percent: 21, group: "models" },
+    { name: "GPT-5", percent: 15, group: "models" },
+    { name: "GPT-5 Mini", percent: 5.7, group: "models" },
+  ]}
+  average={{ percent: 20, label: "All models, 20%" }}
+  caption="My own test: recent posts from the same advice forum, answered several times by each model, with another model classifying the advice each one gave. Gemini 3 Pro is not plotted because it mostly declined to recommend anything at all."
+  alt="Bars showing that forum commenters advised breaking up in 42% of cases, well above every language model, which ranged from 33% down to 5.7%."
+/>
 
 It surprised me to see that there’s quite some behavior difference *between* the language models, which might point to the hypothesis that post-training has something to do with it (post-training data is *private* data owned by the companies training the models):
 
