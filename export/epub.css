@@ -204,11 +204,10 @@ section.footnotes a, .references a { word-break: break-all; }
 
 .exhibit .figure-svg { width: 100%; height: auto; display: block; margin: 0.4em 0; color: #2a2520; }
 .exhibit .figure-grid { stroke: #2a2520; stroke-width: 1; opacity: 0.12; }
-.exhibit .figure-band { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.3; }
 .exhibit .figure-axis { stroke: #2a2520; stroke-width: 1; opacity: 0.45; }
 .exhibit .figure-drop { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.28; }
 .exhibit .figure-rule { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.55; }
-.exhibit .figure-tick, .exhibit .figure-band-label, .exhibit .figure-rule-label, .exhibit .figure-axis-name {
+.exhibit .figure-tick, .exhibit .figure-rule-label, .exhibit .figure-axis-name {
   font-family: "IBM Plex Mono", monospace; font-size: 11px; fill: #776d62;
 }
 .exhibit .figure-tick-y, .exhibit .figure-rule-label { text-anchor: end; }

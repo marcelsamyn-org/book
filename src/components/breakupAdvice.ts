@@ -19,6 +19,8 @@ export interface AdviceResponder {
 /** Taller than the line box: bar names wrap to two rows beneath the axis. */
 export const adviceBox: FigureBox = { width: 640, height: 330, pad: [26, 30, 58, 52] };
 
+export const adviceEyebrow = "Main advice was “end the relationship”";
+
 export const adviceTicks: readonly Tick[] = [
   { value: 0, label: "0%" },
   { value: 25, label: "25%" },
@@ -27,8 +29,8 @@ export const adviceTicks: readonly Tick[] = [
 
 export interface AdviceFigureSpec {
   readonly responders: readonly AdviceResponder[];
-  /** Drawn as a line across the bars, e.g. the average over all the models. */
-  readonly average?: { readonly percent: number; readonly label: string };
+  /** Drawn as a line across the bars: the pooled figure the prose quotes. */
+  readonly average: { readonly percent: number; readonly label: string };
   readonly alt: string;
 }
 
@@ -38,8 +40,7 @@ export const adviceChartSpec = (spec: AdviceFigureSpec) =>
     ticks: adviceTicks,
     max: 50,
     highlight: "people",
-    rules:
-      spec.average === undefined ? [] : [{ value: spec.average.percent, label: spec.average.label }],
+    rules: [{ value: spec.average.percent, label: spec.average.label }],
     data: spec.responders.map((responder) => ({
       key: responder.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       label: responder.name,

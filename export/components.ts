@@ -9,18 +9,29 @@ import type { LineageEra } from "../src/components/attachmentLineage.js";
 import { ruleLabelGutter, wrapLabel } from "../src/components/barFigure.js";
 import {
   adviceChartSpec,
+  adviceEyebrow,
   adviceFigureSvg,
   type AdviceResponder,
 } from "../src/components/breakupAdvice.js";
 import {
   capabilityChartSpec,
+  capabilityEyebrow,
   capabilityFigureSvg,
   type CapabilityPoint,
 } from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
 import { buildBarChart, buildCurve, buildLineChart, round } from "../src/components/figures.js";
-import { invertedU, invertedUBox, invertedUMarks } from "../src/components/invertedU.js";
-import { valueAnchor } from "../src/components/lineFigure.js";
+import {
+  invertedU,
+  invertedUBox,
+  invertedUEyebrow,
+  invertedUMarks,
+  invertedUTicks,
+  invertedUXAxis,
+  invertedUYAxis,
+  maxEvents,
+} from "../src/components/invertedU.js";
+import { PROJECTION_KEY, splitProjection, valueAnchor } from "../src/components/lineFigure.js";
 import { shapeFigureSvg } from "../src/components/shapeFigure.js";
 import { type Rung, topDown } from "../src/components/scarcityLadder.js";
 import type { PoleRow } from "../src/components/twoPoles.js";
@@ -347,7 +358,7 @@ const readCapabilityPoint = (value: unknown): CapabilityPoint | undefined => {
   const { year, seconds, label, projected } = value;
   if (typeof year !== "number" || typeof seconds !== "number" || typeof label !== "string") return undefined;
   if (projected !== undefined && typeof projected !== "boolean") return undefined;
-  return { year, seconds, label, ...(projected === true ? { projected: true } : {}) };
+  return { year, seconds, label: smart(label), ...(projected === true ? { projected: true } : {}) };
 };
 
 const typstPair = (x: number, y: number): string => `(${round(x)}, ${round(y)})`;
@@ -363,14 +374,12 @@ const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
   if (points.length < 2) failAt(node, "<CapabilityCurve> needs at least two points");
 
   const chart = buildLineChart(capabilityChartSpec(points));
-  const split = chart.firstProjected;
-  const measured = split === -1 ? chart.points : chart.points.slice(0, split);
-  const projected = split <= 0 ? [] : chart.points.slice(split - 1);
-  const key = split === -1 ? "none" : typstString("Dashed: the book’s own projection, not a measurement");
+  const { measured, projected } = splitProjection(chart.points);
+  const key = projected.length === 0 ? "none" : typstString(PROJECTION_KEY);
 
   const typst = [
     "#line-figure(",
-    `  eyebrow-text: ${typstString("How long a task AI can finish")},`,
+    `  eyebrow-text: ${typstString(capabilityEyebrow)},`,
     `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
     `  grid-lines: ${typstArray(
       chart.yTicks.map(
@@ -398,9 +407,9 @@ const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
 
   const html = [
     `<div class="exhibit figure">`,
-    `<p class="exhibit-eyebrow">How long a task AI can finish</p>`,
+    `<p class="exhibit-eyebrow">${escapeHtml(capabilityEyebrow)}</p>`,
     capabilityFigureSvg({ points, alt }),
-    ...(split === -1 ? [] : [`<p class="figure-key">Dashed: the book’s own projection, not a measurement</p>`]),
+    ...(projected.length === 0 ? [] : [`<p class="figure-key">${escapeHtml(PROJECTION_KEY)}</p>`]),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
@@ -411,12 +420,11 @@ const readResponder = (value: unknown): AdviceResponder | undefined => {
   if (!isRecord(value)) return undefined;
   const { name, percent, group } = value;
   if (typeof name !== "string" || typeof percent !== "number") return undefined;
-  return group === "people" || group === "models" ? { name, percent, group } : undefined;
+  return group === "people" || group === "models" ? { name: smart(name), percent, group } : undefined;
 };
 
-const readAverage = (node: MdxJsxFlowElement): { percent: number; label: string } | undefined => {
+const readAverage = (node: MdxJsxFlowElement): { percent: number; label: string } => {
   const raw = expressionProp(node, "average");
-  if (raw === undefined) return undefined;
   if (!isRecord(raw)) return failAt(node, "<BreakupAdvice> average must be an object");
   const { percent, label } = raw;
   if (typeof percent !== "number" || typeof label !== "string") {
@@ -432,13 +440,12 @@ const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
   const alt = stringProp(node, "alt");
   if (responders.length === 0) failAt(node, "<BreakupAdvice> needs at least one responder");
 
-  const spec = adviceChartSpec({ responders, ...(average === undefined ? {} : { average }), alt });
+  const spec = adviceChartSpec({ responders, average, alt });
   const chart = buildBarChart(spec);
-  const eyebrow = "Main advice was “end the relationship”";
 
   const typst = [
     "#bar-figure(",
-    `  eyebrow-text: ${typstString(eyebrow)},`,
+    `  eyebrow-text: ${typstString(adviceEyebrow)},`,
     `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
     `  grid-lines: ${typstArray(
       chart.ticks.map(
@@ -468,26 +475,24 @@ const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
 
   const html = [
     `<div class="exhibit figure">`,
-    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
-    adviceFigureSvg({ responders, ...(average === undefined ? {} : { average }), alt }),
+    `<p class="exhibit-eyebrow">${escapeHtml(adviceEyebrow)}</p>`,
+    adviceFigureSvg({ responders, average, alt }),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };
 };
 
-const X_AXIS = "Adversity over a lifetime →";
-const Y_AXIS = "Life satisfaction →";
-
 const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
   const caption = smart(stringProp(node, "caption"));
   const alt = stringProp(node, "alt");
   const curve = buildCurve({ shape: invertedU, box: invertedUBox, marks: invertedUMarks, samples: 96 });
-  const eyebrow = "The shape of the finding";
+  const tickX = (value: number) =>
+    curve.frame.left + (value / maxEvents) * (curve.frame.right - curve.frame.left);
 
   const typst = [
     "#shape-figure(",
-    `  eyebrow-text: ${typstString(eyebrow)},`,
+    `  eyebrow-text: ${typstString(invertedUEyebrow)},`,
     `  units: (${invertedUBox.width}.0, ${invertedUBox.height}.0),`,
     `  frame: (${curve.frame.top}, ${curve.frame.right}, ${curve.frame.bottom}, ${curve.frame.left}),`,
     `  path-points: ${typstArray(curve.path.map((point) => typstPair(point.x, point.y)))},`,
@@ -499,21 +504,26 @@ const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
           )}, ${typstString(valueAnchor(index, curve.marks.length))})`,
       ),
     )},`,
-    `  x-axis: ${typstString(X_AXIS)},`,
-    `  y-axis: ${typstString(Y_AXIS)},`,
+    `  xticks: ${typstArray(
+      invertedUTicks.map((tick) => `(${round(tickX(tick.value))}, ${typstString(tick.label)})`),
+    )},`,
+    `  x-axis: ${typstString(invertedUXAxis)},`,
+    `  y-axis: ${typstString(invertedUYAxis)},`,
     `  caption: ${typstString(caption)},`,
     ")",
   ];
 
   const html = [
     `<div class="exhibit figure">`,
-    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    `<p class="exhibit-eyebrow">${escapeHtml(invertedUEyebrow)}</p>`,
     shapeFigureSvg({
       shape: invertedU,
       marks: invertedUMarks,
       box: invertedUBox,
-      xAxis: X_AXIS,
-      yAxis: Y_AXIS,
+      xTicks: invertedUTicks,
+      xMax: maxEvents,
+      xAxis: invertedUXAxis,
+      yAxis: invertedUYAxis,
       alt,
     }),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,

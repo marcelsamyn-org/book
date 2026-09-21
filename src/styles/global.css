@@ -1104,12 +1104,6 @@ main .sp-page p.sp-cut {
   opacity: 0.12;
 }
 
-.figure-band {
-  stroke: currentColor;
-  stroke-width: 1;
-  stroke-dasharray: 2 4;
-  opacity: 0.3;
-}
 
 .figure-axis {
   stroke: currentColor;
@@ -1117,8 +1111,7 @@ main .sp-page p.sp-cut {
   opacity: 0.45;
 }
 
-.figure-tick,
-.figure-band-label {
+.figure-tick {
   font-family: var(--font-mono);
   font-size: 11px;
   fill: currentColor;

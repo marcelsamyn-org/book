@@ -41,8 +41,8 @@ export interface PlottedTick extends Point {
   readonly label: string;
 }
 
-/** A horizontal band drawn behind the plot to give the scale a human meaning. */
-export interface PlottedBand {
+/** A horizontal reference line drawn across the plot, e.g. an average. */
+export interface PlottedRule {
   readonly y: number;
   readonly label: string;
 }
@@ -83,8 +83,6 @@ export interface LineChartSpec {
   readonly data: readonly LineDatum[];
   readonly xTicks: readonly Tick[];
   readonly yTicks: readonly Tick[];
-  /** Reference values drawn as bands behind the plot, on the y scale. */
-  readonly bands?: readonly Tick[];
   readonly yScale: "linear" | "log";
   readonly box?: FigureBox;
   /**
@@ -104,11 +102,8 @@ export interface LineChart {
   readonly points: readonly PlottedPoint[];
   readonly xTicks: readonly PlottedTick[];
   readonly yTicks: readonly PlottedTick[];
-  readonly bands: readonly PlottedBand[];
   /** Plot area edges, for the axis rules. */
   readonly frame: { readonly left: number; readonly top: number; readonly right: number; readonly bottom: number };
-  /** Index of the first projected point, or -1 when every point is measured. */
-  readonly firstProjected: number;
 }
 
 export const buildLineChart = (spec: LineChartSpec): LineChart => {
@@ -120,15 +115,14 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
   const xs = spec.data.map((d) => d.x);
   const ys = spec.data.map((d) => toY(d.y));
   const tickYs = spec.yTicks.map((t) => toY(t.value));
-  const bandYs = (spec.bands ?? []).map((b) => toY(b.value));
 
   const rawLeft = Math.min(...xs, ...spec.xTicks.map((t) => t.value));
   const rawRight = Math.max(...xs, ...spec.xTicks.map((t) => t.value));
   const margin = (rawRight - rawLeft) * (spec.xPad ?? 0);
   const xMin = rawLeft - margin;
   const xMax = rawRight + margin;
-  const rawMin = Math.min(...ys, ...tickYs, ...bandYs);
-  const rawMax = Math.max(...ys, ...tickYs, ...bandYs);
+  const rawMin = Math.min(...ys, ...tickYs);
+  const rawMax = Math.max(...ys, ...tickYs);
   const room = (rawMax - rawMin) * (spec.yPad ?? 0);
   const yMin = rawMin - room;
   const yMax = rawMax + room;
@@ -147,8 +141,6 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
     })),
     xTicks: spec.xTicks.map((t) => ({ x: px(t.value), y: frame.bottom, label: t.label })),
     yTicks: spec.yTicks.map((t) => ({ x: frame.left, y: py(toY(t.value)), label: t.label })),
-    bands: (spec.bands ?? []).map((b) => ({ y: py(toY(b.value)), label: b.label })),
-    firstProjected: spec.data.findIndex((d) => d.projected === true),
   };
 };
 
@@ -193,7 +185,7 @@ export interface BarChart {
   readonly box: FigureBox;
   readonly bars: readonly PlottedBar[];
   readonly ticks: readonly PlottedTick[];
-  readonly rules: readonly PlottedBand[];
+  readonly rules: readonly PlottedRule[];
   readonly frame: { readonly left: number; readonly top: number; readonly right: number; readonly bottom: number };
 }
 
@@ -205,6 +197,11 @@ export const buildBarChart = (spec: BarChartSpec): BarChart => {
   const max =
     spec.max ??
     Math.max(...spec.data.map((d) => d.value), ...spec.ticks.map((t) => t.value), ...(spec.rules ?? []).map((r) => r.value));
+  for (const datum of spec.data) {
+    if (datum.value < 0 || datum.value > max) {
+      throw new RangeError(`bar "${datum.key}" is ${datum.value}, outside the axis 0..${max}`);
+    }
+  }
   const fill = spec.barFill ?? 0.62;
   const slot = frame.width / spec.data.length;
   const width = slot * fill;
@@ -271,6 +268,15 @@ export const buildCurve = (spec: CurveSpec): Curve => {
 };
 
 // ── Shared drawing helpers ──────────────────────────────────
+
+/** Escapes text for XHTML, which the EPUB is validated as. */
+export const escapeXml = (value: string): string =>
+  value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 
 /** Rounds to one decimal so the three outputs emit identical numbers. */
 export const round = (value: number): number => Math.round(value * 10) / 10;

@@ -6,7 +6,7 @@
  * Reddit, break up, sycophancy test.
  */
 
-import { adviceFigureSvg, type AdviceFigureSpec } from "./breakupAdvice.js";
+import { adviceEyebrow, adviceFigureSvg, type AdviceFigureSpec } from "./breakupAdvice.js";
 
 interface Props extends AdviceFigureSpec {
   /** How the test was run. Required: these numbers are unpublished. */
@@ -18,7 +18,7 @@ const svg = adviceFigureSvg({ responders, average, alt });
 ---
 
 <figure class="figure figure-bar-chart">
-  <span class="figure-eyebrow">Main advice was “end the relationship”</span>
+  <span class="figure-eyebrow">{adviceEyebrow}</span>
   <div class="figure-plot" set:html={svg} />
   <figcaption class="figure-caption">{caption}</figcaption>
 </figure>

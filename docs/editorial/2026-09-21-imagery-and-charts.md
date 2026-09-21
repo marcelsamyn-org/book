@@ -15,11 +15,14 @@ All six of the shortlist are in the manuscript and render in the site, the PDF a
 5. **The ladder of scarcity** (Is that it?) — three rungs abundant, one standing alone.
 6. **Poiesis and the unmade** (AI as Infinite Creation) — five traditions, two columns.
 
-Three decisions are still yours, and each is a one-line edit in `book.mdx`:
+Two decisions are still yours, and each is a one-line edit in `book.mdx`:
 
-- **Which capability points are measured.** Only the 2026 point is marked as a projection. If the 2025 figure is also yours rather than published, add `projected: true` to it. The series has no citation in `references.yaml`; if there is a source, add the key and put it in the caption.
-- **Neediness.** The lineage names it at Tamagotchi, as your prose does, but the seven-ingredient list beneath it still omits it. Add it to the list, fold it into Availability, or drop the word from the Tamagotchi paragraph.
-- **The break-up method line.** The caption says how the test was run in one sentence. Replace it with the real numbers when you have them to hand: how many posts, collected when, how many runs per model.
+- **Where the capability series comes from.** It has no citation in `references.yaml`, and the figure now plots all six points the same way, matching your prose, which states the 2026 figure as fact. If any of them are your own projection rather than a published measurement, add `projected: true` to those points and they draw dashed under a key that says so.
+- **The break-up method line.** The caption states the method in one sentence. Replace it with the real numbers when you have them: how many posts, collected when, how many runs per model.
+
+One thing I could not finish. The inverted U now plots on the scale Seery, Holman and Silver measured — adverse events over a lifetime, 0 to 20, with their sample in the caption — but the curve's exact vertex is still mine, not theirs. The paper's fitted coefficients are in its Figure 1, and the full text sits behind a CAPTCHA on eScholarship and a paywall on APA PsycNet. **If you can pull the PDF, the curve becomes theirs rather than a shape on their axis.** What I need from it: the linear and quadratic coefficients for life satisfaction, or the predicted values plotted in Figure 1.
+
+Verified from the authors' own review (Seery & Quinton 2016) and the University at Buffalo release, both of which quote the 2010 study: 2,398 people, followed 2001 to 2004; lifetime adverse events ranged 0 to 71, mean 7.69, SD 6.04; 8.1% reported none; life satisfaction came out inverse U-shaped. Past about two standard deviations above the mean the sample thins to single digits at any given count, which is why the axis stops at 20.
 
 The rest of this document is the original analysis, unchanged. The items below the shortlist are still open.
 

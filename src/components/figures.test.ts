@@ -56,26 +56,24 @@ describe("line charts", () => {
     expect(b!.y - c!.y).toBeGreaterThan(a!.y - b!.y);
   });
 
-  it("reports the first projected point, and -1 when every point is measured", () => {
-    expect(buildLineChart(spec).firstProjected).toBe(-1);
+  it("carries the projected flag through to each plotted point", () => {
+    expect(buildLineChart(spec).points.every((point) => !point.projected)).toBe(true);
     const mixed = buildLineChart({
       ...spec,
       data: [spec.data[0]!, spec.data[1]!, { ...spec.data[2]!, projected: true }],
     });
-    expect(mixed.firstProjected).toBe(2);
-    expect(mixed.points.at(-1)?.projected).toBe(true);
+    expect(mixed.points.map((point) => point.projected)).toEqual([false, false, true]);
   });
 
-  it("widens the range so ticks and bands stay inside the plot", () => {
+  it("widens the range so a tick above every point stays inside the plot", () => {
     const chart = buildLineChart({
       ...spec,
-      bands: [{ value: 1000, label: "above every point" }],
       yTicks: [
         { value: 1, label: "1" },
         { value: 1000, label: "1000" },
       ],
     });
-    expect(chart.bands.at(0)?.y).toBe(chart.frame.top);
+    expect(chart.yTicks.at(-1)?.y).toBe(chart.frame.top);
     expect(chart.points.at(-1)!.y).toBeGreaterThan(chart.frame.top);
   });
 
@@ -120,6 +118,19 @@ describe("bar charts", () => {
 
   it("rejects an empty chart", () => {
     expect(() => buildBarChart({ ...spec, data: [] })).toThrow(RangeError);
+  });
+
+  it("rejects a bar that would be drawn outside the axis", () => {
+    // A value above a pinned max used to draw above the plot on the site, get
+    // clipped in the EPUB, and overprint the eyebrow in the PDF — three
+    // different pictures from one manuscript, with no build failure.
+    const pinned = { ...spec, max: 100 };
+    expect(() =>
+      buildBarChart({ ...pinned, data: [{ key: "over", label: "Over", value: 101, valueLabel: "101", group: "g" }] }),
+    ).toThrow(RangeError);
+    expect(() =>
+      buildBarChart({ ...pinned, data: [{ key: "neg", label: "Neg", value: -1, valueLabel: "-1", group: "g" }] }),
+    ).toThrow(RangeError);
   });
 });
 

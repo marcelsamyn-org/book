@@ -165,10 +165,10 @@ AI though is growing at a *hyper*-exponential pace. That's an exponential of an 
     { year: 2023, seconds: 240, label: "4 min" },
     { year: 2024, seconds: 660, label: "11 min" },
     { year: 2025, seconds: 12180, label: "3 h 23 min" },
-    { year: 2026, seconds: 43200, label: "12 hours", projected: true },
+    { year: 2026, seconds: 43200, label: "12 hours" },
   ]}
-  caption="How long the same task takes a human expert, for tasks AI can finish. The scale is logarithmic: a steady doubling would draw a straight line, so the upward bend is the growth accelerating. Figures as given above."
-  alt="A line rising from six seconds in 2020 to twelve hours in 2026 on a logarithmic scale, bending upward as it goes."
+  caption="How long the same task takes a human expert, for tasks AI can finish. Each gridline is worth roughly ten of the one below it, so the climb from six seconds to twelve hours covers four orders of magnitude in six years."
+  alt="A line climbing from six seconds in 2020 to twelve hours in 2026, on a scale where each gridline is ten times the one below."
 />
 
 I'll give you some more anecdotes to try and give that intuition for this pace of growth.
@@ -649,7 +649,7 @@ Then came virtual pets like the Tamagotchi. Tamagotchis are small keychain devic
     {
       when: "Today",
       what: "AI companions",
-      added: "Every one of them at once.",
+      added: "The first to hold all seven of these at once:",
       holdsAll: true,
     },
   ]}
@@ -783,7 +783,7 @@ Turns out we can let out a sigh of relief. The “real” people in these commen
     { name: "GPT-5", percent: 15, group: "models" },
     { name: "GPT-5 Mini", percent: 5.7, group: "models" },
   ]}
-  average={{ percent: 20, label: "All models, 20%" }}
+  average={{ percent: 20, label: "All six models, 20%" }}
   caption="My own test: recent posts from the same advice forum, answered several times by each model, with another model classifying the advice each one gave. Gemini 3 Pro is not plotted because it mostly declined to recommend anything at all."
   alt="Bars showing that forum commenters advised breaking up in 42% of cases, well above every language model, which ranged from 33% down to 5.7%."
 />
@@ -1159,8 +1159,8 @@ But there’s more nuance to this.
 First, we know there’s an inverted U-shape connection between *lifetime* adverse events and overall life satisfaction. This means: experiencing *some* amount of life adversity leads to a greater sense of life satisfaction than none at all (or too much). These people also showed lower global distress, less difficulty in daily life from their emotions, and fewer post-traumatic stress symptoms.%%[@seery2010]%%
 
 <InvertedU
-  caption="A schematic, not a plot: the book cites the shape Seery and colleagues found, not a table of values, so nothing here is measured and the axes carry no scale."
-  alt="A curve rising from a low point at no adversity to a peak at some adversity, then falling below where it started at too much."
+  caption="Seery, Holman and Silver followed 2,398 people between 2001 and 2004, counting the adverse events each had lived through. People with some adversity behind them reported higher life satisfaction than people with none, and higher than people with a great deal. Counts ran as high as 71; past about 20 the sample thins to a handful of people, so the axis stops there."
+  alt="Life satisfaction rising from no adverse events to a peak around a third of the axis, then falling below where it began."
 />
 
 Second, when you look at the meaning people derive from positive challenge compared to negative challenge, they don’t exactly overlap. They seem to grow different muscles. Facing real adversity forces you to break down some of your worldview or beliefs, sometimes aggressively, making you re-write some of the narrative of your life and how you integrate everything. You learn things about fragility, limits, what’s most valuable and consequences and this is a key pillar for meaning in our lives.%%[@vohs2019]%%

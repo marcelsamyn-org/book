@@ -1,6 +1,7 @@
 import { describe, expect, it } from "bun:test";
 import { capabilityChartSpec, capabilityFigureSvg, capabilityXTicks, type CapabilityPoint } from "./capabilityCurve.js";
 import { buildLineChart } from "./figures.js";
+import { splitProjection } from "./lineFigure.js";
 
 /** The series as the manuscript states it, used to check the figure it produces. */
 const points: readonly CapabilityPoint[] = [
@@ -28,13 +29,24 @@ describe("the capability figure", () => {
   });
 
   it("draws the projection as a separate dashed run that joins the measured line", () => {
-    expect(chart.firstProjected).toBe(5);
+    expect(splitProjection(chart.points).projected).toHaveLength(2);
     const svg = capabilityFigureSvg({ points, alt: "test" });
     expect(svg).toContain("figure-line-projected");
     expect(svg).toContain("figure-dot-projected");
     // The dashed run repeats the last measured point, or the line would break.
     const dashed = svg.match(/points="([^"]+)" class="figure-line figure-line-projected"/)?.[1];
     expect(dashed?.split(" ")).toHaveLength(2);
+  });
+
+  it("refuses a projection that is not the last run", () => {
+    // A projected point followed by a measured one would draw measured data
+    // under the "not a measurement" key.
+    const outOfOrder = [
+      { year: 2020, seconds: 6, label: "a" },
+      { year: 2024, seconds: 660, label: "b", projected: true },
+      { year: 2026, seconds: 43200, label: "c" },
+    ];
+    expect(() => capabilityFigureSvg({ points: outOfOrder, alt: "test" })).toThrow(RangeError);
   });
 
   it("omits the projection styling when every point is measured", () => {

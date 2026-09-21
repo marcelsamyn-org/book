@@ -549,7 +549,6 @@
   eyebrow-text: "",
   units: (640.0, 320.0),
   grid-lines: (),
-  bands: (),
   axis: (0.0, 0.0, 0.0),
   xticks: (),
   measured: (),
@@ -576,15 +575,6 @@
       for g in grid-lines {
         place(dx: X(g.at(1)), dy: Y(g.at(0)), line(length: X(g.at(2) - g.at(1)), stroke: 0.35pt + hairline))
         right-of(g.at(1) - 8, g.at(0) - 4, text(font: mono-font, g.at(3)))
-      }
-
-      for b in bands {
-        place(
-          dx: X(b.at(1)),
-          dy: Y(b.at(0)),
-          line(length: X(b.at(2) - b.at(1)), stroke: (paint: hairline.darken(15%), thickness: 0.35pt, dash: "dashed")),
-        )
-        place(dx: X(b.at(2) + 8), dy: Y(b.at(0) - 4), text(font: mono-font, b.at(3)))
       }
 
       place(dx: X(axis.at(1)), dy: Y(axis.at(0)), line(length: X(axis.at(2) - axis.at(1)), stroke: 0.4pt + muted))
@@ -695,7 +685,7 @@
           b.at(4),
         ))
         for (row, name) in b.at(5).enumerate() {
-          centred(b.at(0) + b.at(2) / 2, axis.at(0) + 6 + row * 11, 120, text(font: mono-font, name))
+          centred(b.at(0) + b.at(2) / 2, axis.at(0) + 6 + row * 12, 120, text(font: mono-font, name))
         }
       }
 
@@ -717,6 +707,7 @@
   frame: (0.0, 0.0, 0.0, 0.0),
   path-points: (),
   marks: (),
+  xticks: (),
   x-axis: "",
   y-axis: "",
   caption: "",
@@ -734,6 +725,10 @@
 
       place(dx: X(fr-left), dy: Y(fr-bottom), line(length: X(fr-right - fr-left), stroke: 0.4pt + muted))
       place(dx: X(fr-left), dy: Y(fr-top), line(length: Y(fr-bottom - fr-top), angle: 90deg, stroke: 0.4pt + muted))
+
+      for t in xticks {
+        centred(t.at(0), fr-bottom + 6, 80, text(font: mono-font, t.at(1)))
+      }
 
       for i in range(path-points.len() - 1) {
         let a = path-points.at(i)
@@ -767,7 +762,7 @@
         }
       }
 
-      place(dx: X(fr-right - 300), dy: Y(fr-bottom + 16), box(width: X(300), align(right, text(font: mono-font, x-axis))))
+      place(dx: X(fr-right - 300), dy: Y(fr-bottom + 26), box(width: X(300), align(right, text(font: mono-font, x-axis))))
       // Rotating -90deg about the top-left corner sends the box upward from the
       // placement point, so anchor it at the axis foot to span up to the top.
       place(dx: X(fr-left - 15), dy: Y(fr-bottom), rotate(-90deg, origin: top + left, box(

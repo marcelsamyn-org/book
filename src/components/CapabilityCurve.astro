@@ -10,7 +10,8 @@
  * appear in the prose beside it. Axis ticks are presentation and live here.
  */
 
-import { capabilityFigureSvg, type CapabilityPoint } from "./capabilityCurve.js";
+import { capabilityEyebrow, capabilityFigureSvg, type CapabilityPoint } from "./capabilityCurve.js";
+import { PROJECTION_KEY } from "./lineFigure.js";
 
 interface Props {
   readonly points: readonly CapabilityPoint[];
@@ -25,13 +26,12 @@ const hasProjected = points.some((point) => point.projected === true);
 ---
 
 <figure class="figure figure-line-chart">
-  <span class="figure-eyebrow">How long a task AI can finish</span>
+  <span class="figure-eyebrow">{capabilityEyebrow}</span>
   <div class="figure-plot" set:html={svg} />
   {
     hasProjected && (
       <p class="figure-key">
-        <span class="figure-key-mark figure-key-projected" aria-hidden="true" /> Dashed: the book's own projection, not a
-        measurement
+        <span class="figure-key-mark figure-key-projected" aria-hidden="true" /> {PROJECTION_KEY}
       </p>
     )
   }

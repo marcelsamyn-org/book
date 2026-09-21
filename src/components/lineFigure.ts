@@ -6,10 +6,10 @@
  * `--failonwarnings`.
  */
 
-import { buildLineChart, type LineChartSpec, polylinePoints, round } from "./figures.js";
+import { buildLineChart, escapeXml, type LineChartSpec, polylinePoints, round } from "./figures.js";
 
-export const GOLD = "#c9a574";
-export const NAVY = "#1c2540";
+/** Read by the site, the EPUB and the PDF, so the sentence cannot drift between them. */
+export const PROJECTION_KEY = "Dashed: the book’s own projection, not a measurement";
 
 export interface LineFigureSpec extends LineChartSpec {
   /** Describes the figure for readers who do not see it. */
@@ -25,21 +25,26 @@ export type ValueAnchor = "start" | "middle" | "end";
 export const valueAnchor = (index: number, count: number): ValueAnchor =>
   index === 0 ? "start" : index === count - 1 ? "end" : "middle";
 
-const escapeXml = (value: string): string =>
-  value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
+/**
+ * Splits the points into the solid measured run and the dashed projected one.
+ * Projections have to be a trailing run: a projected point followed by a
+ * measured one would draw measured data under the projection key.
+ */
+export const splitProjection = <T extends { readonly projected: boolean }>(points: readonly T[]) => {
+  const first = points.findIndex((point) => point.projected);
+  if (first === -1) return { measured: points, projected: [] as readonly T[] };
+  const strays = points.slice(first).filter((point) => !point.projected);
+  if (strays.length > 0) {
+    throw new RangeError("projected points must be the last run: a measured point follows a projected one");
+  }
+  // The dashed run repeats the last measured point so the two lines join up.
+  return { measured: points.slice(0, first), projected: points.slice(Math.max(first - 1, 0)) };
+};
 
 export const lineFigureSvg = (spec: LineFigureSpec): string => {
   const chart = buildLineChart(spec);
   const { frame, box } = chart;
-  const split = chart.firstProjected;
-  const measured = split === -1 ? chart.points : chart.points.slice(0, split);
-  // The projected run starts one point early so the two lines join up.
-  const projected = split <= 0 ? [] : chart.points.slice(split - 1);
+  const { measured, projected } = splitProjection(chart.points);
 
   const parts: string[] = [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${box.width} ${box.height}" class="figure-svg" role="img" aria-label="${escapeXml(spec.alt)}">`,
@@ -49,13 +54,6 @@ export const lineFigureSvg = (spec: LineFigureSpec): string => {
     parts.push(
       `<line x1="${frame.left}" y1="${round(tick.y)}" x2="${frame.right}" y2="${round(tick.y)}" class="figure-grid" />`,
       `<text x="${frame.left - 8}" y="${round(tick.y) + 3}" class="figure-tick figure-tick-y">${escapeXml(tick.label)}</text>`,
-    );
-  }
-
-  for (const band of chart.bands) {
-    parts.push(
-      `<line x1="${frame.left}" y1="${round(band.y)}" x2="${frame.right}" y2="${round(band.y)}" class="figure-band" />`,
-      `<text x="${frame.right + 8}" y="${round(band.y) + 3}" class="figure-band-label">${escapeXml(band.label)}</text>`,
     );
   }
 

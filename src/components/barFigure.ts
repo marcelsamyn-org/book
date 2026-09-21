@@ -4,7 +4,7 @@
  * apart from the rest without a legend.
  */
 
-import { buildBarChart, type BarChartSpec, round } from "./figures.js";
+import { buildBarChart, type BarChartSpec, escapeXml, round } from "./figures.js";
 
 /** Room kept clear at the right end of a reference line for its own label. */
 export const ruleLabelGutter = 132;
@@ -15,14 +15,6 @@ export interface BarFigureSpec extends BarChartSpec {
   /** The group drawn in the accent colour; every other group is drawn muted. */
   readonly highlight?: string;
 }
-
-const escapeXml = (value: string): string =>
-  value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
 
 /** Splits a bar label so long names stack instead of overlapping their neighbours. */
 export const wrapLabel = (label: string, perLine = 11): readonly string[] => {

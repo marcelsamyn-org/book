@@ -16,6 +16,8 @@ export const capabilityBox: FigureBox = { width: 640, height: 320, pad: [26, 62,
 /** Keeps the first and last points clear of the axis rule and the top edge. */
 export const capabilityYPad = 0.07;
 
+export const capabilityEyebrow = "How long a task AI can finish";
+
 /** Keeps the 2020 and 2026 value labels from overrunning the axis labels. */
 export const capabilityXPad = 0.07;
 

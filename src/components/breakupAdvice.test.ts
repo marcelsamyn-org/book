@@ -47,11 +47,6 @@ describe("the break-up advice figure", () => {
     expect(labelX - lineEnd).toBe(ruleLabelGutter);
   });
 
-  it("omits the average line when the manuscript gives no average", () => {
-    const svg = adviceFigureSvg({ responders, alt: "test" });
-    expect(svg).not.toContain("figure-rule");
-  });
-
   it("prints each percentage as the manuscript wrote it, decimals included", () => {
     expect(chart.bars.map((bar) => bar.valueLabel)).toEqual(["42%", "33%", "30%", "21%", "15%", "5.7%"]);
   });
@@ -61,6 +56,7 @@ describe("the break-up advice figure", () => {
       alt: "a & b",
       ticks: [{ value: 1, label: "1" }],
       data: [{ key: "k", label: "Tom & Jerry", value: 1, valueLabel: "<1%", group: "g" }],
+      max: 1,
     });
     expect(svg).toContain("Tom &amp; Jerry");
     expect(svg).toContain("&lt;1%");

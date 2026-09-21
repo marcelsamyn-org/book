@@ -1,6 +1,16 @@
 import { describe, expect, it } from "bun:test";
 import { buildCurve } from "./figures.js";
-import { invertedU, invertedUBox, invertedUMarks, peakAt } from "./invertedU.js";
+import {
+  invertedU,
+  invertedUBox,
+  invertedUMarks,
+  invertedUTicks,
+  invertedUXAxis,
+  invertedUYAxis,
+  maxEvents,
+  meanEvents,
+  peakAt,
+} from "./invertedU.js";
 import { shapeFigureSvg } from "./shapeFigure.js";
 
 const svg = (): string =>
@@ -8,13 +18,16 @@ const svg = (): string =>
     shape: invertedU,
     marks: invertedUMarks,
     box: invertedUBox,
-    xAxis: "Adversity over a lifetime →",
-    yAxis: "Life satisfaction →",
+    xTicks: invertedUTicks,
+    xMax: maxEvents,
+    xAxis: invertedUXAxis,
+    yAxis: invertedUYAxis,
     alt: "test",
   });
 
 describe("the inverted U shape", () => {
-  it("ranks the three marks the way the research does: some, then none, then too much", () => {
+  it("ranks the three regions the way the study reports them", () => {
+    // Some adversity above none, and none above a great deal.
     expect(invertedU(peakAt)).toBeGreaterThan(invertedU(0));
     expect(invertedU(0)).toBeGreaterThan(invertedU(1));
   });
@@ -41,21 +54,24 @@ describe("the inverted U shape", () => {
 });
 
 describe("the inverted U figure", () => {
-  it("carries no scale, because the book cites the shape and not the numbers", () => {
-    const drawn = svg();
-    expect(drawn).not.toContain("figure-grid");
-    expect(drawn).not.toContain("figure-tick-y");
-    expect(drawn).not.toContain("%");
+  it("counts in the unit the study counted in, up to where its sample thins out", () => {
+    expect(maxEvents).toBe(20);
+    expect(invertedUTicks.at(0)?.label).toBe("0");
+    expect(invertedUTicks.at(-1)?.label).toBe("20+");
+    expect(svg()).toContain(">20+</text>");
   });
 
-  it("marks none, some and too much in reading order", () => {
-    const curve = buildCurve({ shape: invertedU, box: invertedUBox, marks: invertedUMarks });
-    expect(curve.marks.map((mark) => mark.label)).toEqual(["None", "Some", "Too much"]);
-    const xs = curve.marks.map((mark) => mark.x);
-    expect(xs[0]!).toBeLessThan(xs[1]!);
-    expect(xs[1]!).toBeLessThan(xs[2]!);
-    expect(curve.marks[1]!.y).toBeLessThan(curve.marks[0]!.y);
-    expect(curve.marks[1]!.y).toBeLessThan(curve.marks[2]!.y);
+  it("plots no mark, because the sample mean coincides with the drawn peak by accident", () => {
+    expect(invertedUMarks).toHaveLength(0);
+    expect(Math.abs(meanEvents / maxEvents - peakAt)).toBeLessThan(0.02);
+    expect(svg()).not.toContain("figure-drop");
+  });
+
+  it("gives the y axis a direction and no scale, since the fitted values are not in hand", () => {
+    const drawn = svg();
+    expect(drawn).toContain("Life satisfaction →");
+    expect(drawn).not.toContain("figure-grid");
+    expect(drawn).not.toContain("figure-tick-y");
   });
 
   it("runs the rotated axis label up from the axis foot, not off the top", () => {
