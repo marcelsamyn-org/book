@@ -1,0 +1,26 @@
+---
+/**
+ * Renders the ladder of scarcity. Aliases: execution, attention, judgment,
+ * responsibility, abundance, what becomes valuable.
+ */
+
+import { type ScarcityLadderSpec, topDown } from "./scarcityLadder.js";
+
+const { rungs } = Astro.props as ScarcityLadderSpec;
+const ordered = topDown(rungs);
+---
+
+<figure class="figure figure-ladder">
+  <span class="figure-eyebrow">Each one got cheap, and pushed the value up</span>
+  <ol class="ladder">
+    {
+      ordered.map((rung) => (
+        <li class:list={["ladder-rung", rung.abundant ? "ladder-abundant" : "ladder-scarce"]}>
+          <span class="ladder-name">{rung.name}</span>
+          <span class="ladder-note">{rung.note}</span>
+          <span class="ladder-tag">{rung.abundant ? "abundant" : "still scarce"}</span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>

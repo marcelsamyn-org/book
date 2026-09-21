@@ -1,0 +1,40 @@
+---
+/**
+ * Renders the two-pole table. Aliases: poiesis, the unmade, Prakriti, Purusha,
+ * Shakti, Shiva, Wu Wei, Martha, Mary, traditions.
+ */
+
+import type { TwoPolesSpec } from "./twoPoles.js";
+
+const { makingHeading, unmadeHeading, rows } = Astro.props as TwoPolesSpec;
+---
+
+<figure class="figure figure-poles">
+  <span class="figure-eyebrow">The same line, drawn again and again</span>
+  <table class="poles">
+    <thead>
+      <tr>
+        <th scope="col" class="poles-tradition">Tradition</th>
+        <th scope="col">{makingHeading}</th>
+        <th scope="col">{unmadeHeading}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            <th scope="row" class="poles-tradition">{row.tradition}</th>
+            <td>
+              <span class="poles-term">{row.making.term}</span>
+              <span class="poles-gloss">{row.making.gloss}</span>
+            </td>
+            <td>
+              <span class="poles-term">{row.unmade.term}</span>
+              <span class="poles-gloss">{row.unmade.gloss}</span>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</figure>

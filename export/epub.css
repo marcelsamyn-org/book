@@ -199,3 +199,58 @@ section.footnotes a, .references a { word-break: break-all; }
 
 .exhibit .ptgi-title { font-family: "Lora", Georgia, serif; font-weight: 600; font-size: 1.3em; margin: 0.2em 0 0.4em; }
 .exhibit .ptgi-note { font-style: italic; font-size: 0.9em; }
+
+/* ── Data figures ─────────────────────────────────────────── */
+
+.exhibit .figure-svg { width: 100%; height: auto; display: block; margin: 0.4em 0; color: #2a2520; }
+.exhibit .figure-grid { stroke: #2a2520; stroke-width: 1; opacity: 0.12; }
+.exhibit .figure-band { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.3; }
+.exhibit .figure-axis { stroke: #2a2520; stroke-width: 1; opacity: 0.45; }
+.exhibit .figure-drop { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.28; }
+.exhibit .figure-rule { stroke: #2a2520; stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.55; }
+.exhibit .figure-tick, .exhibit .figure-band-label, .exhibit .figure-rule-label, .exhibit .figure-axis-name {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; fill: #776d62;
+}
+.exhibit .figure-tick-y, .exhibit .figure-rule-label { text-anchor: end; }
+.exhibit .figure-tick-x { text-anchor: middle; }
+.exhibit .figure-value {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; fill: #2a2520;
+}
+.exhibit .figure-value-start { text-anchor: start; }
+.exhibit .figure-value-middle { text-anchor: middle; }
+.exhibit .figure-value-end { text-anchor: end; }
+.exhibit .figure-line { fill: none; stroke: #c9a574; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.exhibit .figure-line-projected { stroke-dasharray: 5 4; }
+.exhibit .figure-dot { fill: #c9a574; }
+.exhibit .figure-dot-projected { fill: #ffffff; stroke: #c9a574; stroke-width: 1.5; }
+.exhibit .figure-bar { fill: #c9a574; }
+.exhibit .figure-bar-muted { fill: #b9ada0; }
+.exhibit .figure-key { font-family: "IBM Plex Mono", monospace; font-size: 0.85em; color: #776d62; }
+.exhibit .figure-caption {
+  font-style: italic; font-size: 0.85em; color: #776d62;
+  border-top: 1px solid #e3d9c9; padding-top: 0.5em; margin-top: 0.8em;
+}
+
+/* ── Two-pole table ───────────────────────────────────────── */
+
+.exhibit table.poles { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+.exhibit table.poles th, .exhibit table.poles td {
+  text-align: left; vertical-align: top; padding: 0.45em 0.6em 0.45em 0;
+  border-bottom: 1px solid #e3d9c9;
+}
+.exhibit table.poles thead th {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.8em;
+  letter-spacing: 0.1em; text-transform: uppercase; color: #776d62;
+}
+.exhibit table.poles tbody th { font-weight: 600; color: #1c2540; width: 22%; }
+.exhibit .poles-gloss { color: #776d62; }
+
+/* ── Ladder of scarcity ───────────────────────────────────── */
+
+.exhibit .ladder-rung { margin: 0.35em 0; padding: 0.4em 0.6em; border-radius: 3px; }
+.exhibit .ladder-abundant { background-color: rgba(201, 165, 116, 0.10); color: #776d62; }
+.exhibit .ladder-scarce { border: 1px solid #c9a574; color: #2a2520; }
+.exhibit .ladder-tag {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.75em;
+  letter-spacing: 0.1em; text-transform: uppercase; color: #94744a;
+}

@@ -782,3 +782,71 @@
     text(size: 6.6pt, fill: muted, style: "italic", caption)
   })
 })
+
+// The two-pole table: a tradition per row, the two poles side by side.
+#let two-poles(making: "", unmade: "", rows: ()) = exhibit(breakable: true, {
+  block(below: 8pt, eyebrow[The same line, drawn again and again])
+  grid(
+    // Wide enough for "Continental philosophy" to wrap rather than overflow.
+    columns: (7em, 1fr, 1fr),
+    column-gutter: 10pt,
+    row-gutter: 0pt,
+    eyebrow("Tradition", fill: muted), eyebrow(making, fill: gold-ink), eyebrow(unmade, fill: navy),
+    ..rows
+      .map(row => (
+        {
+          v(5pt)
+          text(font: display-font, weight: 600, size: 7.2pt, fill: navy, row.tradition)
+        },
+        {
+          v(5pt)
+          text(weight: 600, row.making.term)
+          linebreak()
+          text(fill: muted, row.making.gloss)
+        },
+        {
+          v(5pt)
+          text(weight: 600, row.unmade.term)
+          linebreak()
+          text(fill: muted, row.unmade.gloss)
+        },
+      ))
+      .flatten(),
+  )
+})
+
+// The ladder of scarcity: rungs top-down, with the scarce one drawn as the
+// different kind of thing the chapter argues it is.
+#let scarcity-ladder(rungs: ()) = exhibit(breakable: false, {
+  block(below: 8pt, eyebrow[Each one got cheap, and pushed the value up])
+  for rung in rungs {
+    block(
+      width: 100%,
+      above: 4pt,
+      below: 0pt,
+      inset: (x: 8pt, y: 6pt),
+      radius: 2pt,
+      fill: if rung.abundant { white } else { none },
+      stroke: if rung.abundant { none } else { 0.6pt + gold },
+      grid(
+        // Wide enough for "Responsibility" to clear the note column.
+        columns: (7.6em, 1fr, auto),
+        column-gutter: 9pt,
+        align: horizon,
+        text(
+          font: sans-font,
+          weight: 600,
+          size: 8.4pt,
+          fill: if rung.abundant { muted } else { gold-ink },
+          rung.name,
+        ),
+        text(fill: if rung.abundant { muted } else { ink }, rung.note),
+        eyebrow(
+          if rung.abundant { "abundant" } else { "still scarce" },
+          fill: if rung.abundant { hairline.darken(30%) } else { gold-ink },
+          size: 5.4pt,
+        ),
+      ),
+    )
+  }
+})

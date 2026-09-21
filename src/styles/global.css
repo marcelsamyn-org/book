@@ -1239,6 +1239,152 @@ main .figure figcaption.figure-caption {
   border-top: 1px solid var(--rule);
 }
 
+/* ── Ladder of scarcity ────────────────────────────────── */
+
+.ladder {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+main .ladder li.ladder-rung {
+  display: grid;
+  grid-template-columns: 9rem 1fr auto;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.ladder-abundant {
+  background: var(--paper-inset);
+  color: var(--ink-muted);
+}
+
+/* The scarce rung is a different kind of thing, so it is drawn as one. */
+.ladder-scarce {
+  border: 1px solid var(--accent);
+  color: var(--ink);
+}
+
+.ladder-name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.ladder-abundant .ladder-name {
+  color: var(--ink-secondary);
+}
+
+.ladder-scarce .ladder-name {
+  color: var(--accent);
+}
+
+.ladder-tag {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+  main .ladder li.ladder-rung {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+
+/* ── Two-pole table ────────────────────────────────────── */
+
+.poles {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.poles th,
+.poles td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 1rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.poles thead th {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+}
+
+.poles thead th:nth-child(2) {
+  color: var(--accent);
+}
+
+.poles tbody tr:last-child th,
+.poles tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.poles .poles-tradition {
+  width: 9rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--heading-secondary);
+  font-size: 0.8125rem;
+}
+
+.poles-term {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.poles-gloss {
+  display: block;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 40rem) {
+  .poles,
+  .poles thead,
+  .poles tbody,
+  .poles tr,
+  .poles th,
+  .poles td {
+    display: block;
+    width: auto;
+  }
+
+  .poles thead {
+    display: none;
+  }
+
+  .poles tbody tr {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+  }
+
+  .poles th,
+  .poles td {
+    border-bottom: none;
+    padding: 0.2rem 0;
+  }
+}
+
 /* ── PTGI-X-SF questionnaire ───────────────────────────── */
 
 .ptgi {

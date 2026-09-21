@@ -21,6 +21,8 @@ import { buildBarChart, buildCurve, buildLineChart, round } from "../src/compone
 import { invertedU, invertedUBox, invertedUMarks } from "../src/components/invertedU.js";
 import { valueAnchor } from "../src/components/lineFigure.js";
 import { shapeFigureSvg } from "../src/components/shapeFigure.js";
+import { type Rung, topDown } from "../src/components/scarcityLadder.js";
+import type { PoleRow } from "../src/components/twoPoles.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
 /** A manuscript component rendered for both output formats. */
@@ -63,6 +65,12 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "InvertedU":
       expectShape(node, ["caption", "alt"], "no children");
       return renderInvertedU(node);
+    case "TwoPoles":
+      expectShape(node, ["makingHeading", "unmadeHeading", "rows"], "no children");
+      return renderTwoPoles(node);
+    case "ScarcityLadder":
+      expectShape(node, ["rungs"], "no children");
+      return renderScarcityLadder(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -505,6 +513,106 @@ const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {
       alt,
     }),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const readPole = (value: unknown): { term: string; gloss: string } | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { term, gloss } = value;
+  return typeof term === "string" && typeof gloss === "string"
+    ? { term: smart(term), gloss: smart(gloss) }
+    : undefined;
+};
+
+const readPoleRow = (value: unknown): PoleRow | undefined => {
+  if (!isRecord(value)) return undefined;
+  const tradition = value["tradition"];
+  const making = readPole(value["making"]);
+  const unmade = readPole(value["unmade"]);
+  return typeof tradition === "string" && making !== undefined && unmade !== undefined
+    ? { tradition: smart(tradition), making, unmade }
+    : undefined;
+};
+
+const renderTwoPoles = (node: MdxJsxFlowElement): RenderedComponent => {
+  const making = stringProp(node, "makingHeading");
+  const unmade = stringProp(node, "unmadeHeading");
+  const rows = arrayProp(node, "rows", readPoleRow);
+  if (rows.length === 0) failAt(node, "<TwoPoles> needs at least one row");
+
+  const typst = [
+    "#two-poles(",
+    `  making: ${typstString(making)},`,
+    `  unmade: ${typstString(unmade)},`,
+    `  rows: ${typstArray(
+      rows.map(
+        (row) =>
+          `(tradition: ${typstString(row.tradition)}, making: (term: ${typstString(
+            row.making.term,
+          )}, gloss: ${typstString(row.making.gloss)}), unmade: (term: ${typstString(
+            row.unmade.term,
+          )}, gloss: ${typstString(row.unmade.gloss)}))`,
+      ),
+    )},`,
+    ")",
+  ];
+
+  const cell = (pole: { term: string; gloss: string }): string =>
+    `<td><strong>${escapeHtml(pole.term)}</strong><br /><span class="poles-gloss">${escapeHtml(pole.gloss)}</span></td>`;
+
+  const html = [
+    `<div class="exhibit">`,
+    `<p class="exhibit-eyebrow">The same line, drawn again and again</p>`,
+    `<table class="poles">`,
+    `<thead><tr><th>Tradition</th><th>${escapeHtml(making)}</th><th>${escapeHtml(unmade)}</th></tr></thead>`,
+    "<tbody>",
+    ...rows.map(
+      (row) => `<tr><th scope="row">${escapeHtml(row.tradition)}</th>${cell(row.making)}${cell(row.unmade)}</tr>`,
+    ),
+    "</tbody>",
+    "</table>",
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const readRung = (value: unknown): Rung | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { name, note, abundant } = value;
+  return typeof name === "string" && typeof note === "string" && typeof abundant === "boolean"
+    ? { name: smart(name), note: smart(note), abundant }
+    : undefined;
+};
+
+const renderScarcityLadder = (node: MdxJsxFlowElement): RenderedComponent => {
+  const rungs = topDown(arrayProp(node, "rungs", readRung));
+  if (rungs.length === 0) failAt(node, "<ScarcityLadder> needs at least one rung");
+  const eyebrow = "Each one got cheap, and pushed the value up";
+
+  const typst = [
+    "#scarcity-ladder(",
+    `  rungs: ${typstArray(
+      rungs.map(
+        (rung) =>
+          `(name: ${typstString(rung.name)}, note: ${typstString(rung.note)}, abundant: ${rung.abundant})`,
+      ),
+    )},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    ...rungs.map(
+      (rung) =>
+        `<p class="ladder-rung ${rung.abundant ? "ladder-abundant" : "ladder-scarce"}"><strong>${escapeHtml(
+          rung.name,
+        )}</strong> — ${escapeHtml(rung.note)} <span class="ladder-tag">${
+          rung.abundant ? "abundant" : "still scarce"
+        }</span></p>`,
+    ),
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };

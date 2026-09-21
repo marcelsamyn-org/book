@@ -6,7 +6,9 @@ import ElizaBreakdown from './src/components/ElizaBreakdown.astro';
 import InvertedU from './src/components/InvertedU.astro';
 import PTGIQuestionnaire from './src/components/PTGIQuestionnaire.astro';
 import PartPlate from './src/components/PartPlate.astro';
+import ScarcityLadder from './src/components/ScarcityLadder.astro';
 import ScreenplayWriter from './src/components/ScreenplayWriter.astro';
+import TwoPoles from './src/components/TwoPoles.astro';
 
 %%
 # Overview
@@ -1424,6 +1426,31 @@ In the same vein, extremely successful entrepreneurship (I don’t mean “exist
 ### Is that it?
 Responsibility is an odd one on our ladder of *what becomes valuable*: execution, attention and judgment became abundant because AI got better at it, but getting better at things can never make AI able to be sued.
 
+<ScarcityLadder
+  rungs={[
+    {
+      name: "Execution",
+      note: "AI makes what you ask, faster and cheaper than a person could.",
+      abundant: true,
+    },
+    {
+      name: "Attention",
+      note: "AI reads everything and curates what is worth looking at.",
+      abundant: true,
+    },
+    {
+      name: "Judgment",
+      note: "AI weighs more than we can, and often decides at least as well.",
+      abundant: true,
+    },
+    {
+      name: "Responsibility",
+      note: "Not a matter of getting better: you cannot sue a machine.",
+      abundant: false,
+    },
+  ]}
+/>
+
 The need for someone to bear responsibility for their action isn’t much more defensible than “it feels like we should have it.” In humans, when they have responsibility, they tend to act with more scrutiny and they’ll pay more attention to make sure people don’t get unfairly hurt. On the one hand you could say AI can’t be held responsible, and on the other hand you could say being responsible *doesn’t make sense* for AI because it always does its best. (Maybe prompt it “make no mistakes or you go to jail.” Just to be sure.)
 
 In any case, it’s something we’ve arbitrarily decided that AI can’t do more than anything else—so of course we still need humans for it. But does that mean our existence has degraded to being the meatbags that take the punches in place of the machine that did everything, just because a machine can’t feel the pain of the punches? Is that the only thing that will remain valuable?
@@ -1448,6 +1475,38 @@ In **tantric** traditions, **Shakti** is creative power, energy, manifestation a
 The list goes on and on, back all the way from the oldest indigenous cultures to modern continental philosophy.
 
 In continental philosophy, **poiesis** is the process of making, in all forms: producing, recombining, naming, optimizing, even *thinking* itself (no matter how still you sit). The opposite pole is **the unmade**: the witness, the source, the chooser, and **semiosis** the foundation of the production of *meaning*.
+
+<TwoPoles
+  makingHeading="Making"
+  unmadeHeading="The unmade"
+  rows={[
+    {
+      tradition: "Sāṃkhya",
+      making: { term: "Prakriti", gloss: "Nature: the source of mind, matter and all manifestation." },
+      unmade: { term: "Purusha", gloss: "Pure consciousness, the witness, completely inactive." },
+    },
+    {
+      tradition: "Tantra",
+      making: { term: "Shakti", gloss: "Creative power, energy, manifestation." },
+      unmade: { term: "Shiva", gloss: "Consciousness, stillness, the absolute." },
+    },
+    {
+      tradition: "Taoism",
+      making: { term: "Wéi", gloss: "Relentless doing, forceful action." },
+      unmade: { term: "Wú Wéi", gloss: "Effortless action: the Tao does nothing, yet nothing is undone." },
+    },
+    {
+      tradition: "Christianity",
+      making: { term: "Martha", gloss: "The active, busy life of giving, doing and serving." },
+      unmade: { term: "Mary", gloss: "The still, contemplative life. Being present, listening." },
+    },
+    {
+      tradition: "Continental philosophy",
+      making: { term: "Poiesis", gloss: "Producing, recombining, naming, optimizing, thinking itself." },
+      unmade: { term: "The unmade", gloss: "The witness, the source, the chooser, and the making of meaning." },
+    },
+  ]}
+/>
 
 You cannot have one without the other. Pure awareness and stillness is a corpse, infinite making is a tumor. The play between them is what creates our world.
 
