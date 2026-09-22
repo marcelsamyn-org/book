@@ -17,5 +17,3 @@ export interface Rung {
 export interface ScarcityLadderSpec {
   readonly rungs: readonly Rung[];
 }
-
-export const topDown = (rungs: readonly Rung[]): readonly Rung[] => [...rungs];

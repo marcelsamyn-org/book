@@ -223,7 +223,7 @@ describe("data figures", () => {
     expect(() => toPandocMarkdown(source)).toThrow("needs one era marked holdsAll");
   });
 
-  it("orders the ladder from the last rung the chapter reaches down to the first", () => {
+  it("renders the ladder in the order the chapter argues it", () => {
     const source = [
       "<ScarcityLadder",
       "  rungs={[",
@@ -234,7 +234,7 @@ describe("data figures", () => {
     ].join("\n");
     const markdown = toPandocMarkdown(source);
 
-    expect(markdown.indexOf("Responsibility")).toBeLessThan(markdown.indexOf("Execution"));
+    expect(markdown.indexOf("Execution")).toBeLessThan(markdown.indexOf("Responsibility"));
     expect(markdown).toContain("abundant: false");
     expect(markdown).toContain('class="ladder-rung ladder-scarce"');
   });

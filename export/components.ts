@@ -34,7 +34,7 @@ import {
 } from "../src/components/invertedU.js";
 import { PROJECTION_KEY, splitProjection, valueAnchor } from "../src/components/lineFigure.js";
 import { curveFigureSvg } from "../src/components/shapeFigure.js";
-import { type Rung, topDown } from "../src/components/scarcityLadder.js";
+import type { Rung } from "../src/components/scarcityLadder.js";
 import type { PoleRow } from "../src/components/twoPoles.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
@@ -626,7 +626,7 @@ const readRung = (value: unknown): Rung | undefined => {
 };
 
 const renderScarcityLadder = (node: MdxJsxFlowElement): RenderedComponent => {
-  const rungs = topDown(arrayProp(node, "rungs", readRung));
+  const rungs = arrayProp(node, "rungs", readRung);
   if (rungs.length === 0) failAt(node, "<ScarcityLadder> needs at least one rung");
   const eyebrow = "What becomes valuable";
 
