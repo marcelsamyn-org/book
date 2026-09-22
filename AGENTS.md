@@ -48,6 +48,12 @@ Usage notes:
 - View the site with `bun run dev:site` (or `bun run build:site` then `bun run preview`). Never open `dist/index.html` directly; asset paths are server-relative and the page renders unstyled.
 - `bun test` runs the unit tests. `bun run build:site` is the check that the site still builds.
 
+## Manuscript typography
+
+- `bun run typography:check` reports prose that still uses straight quotes, `...`, or `--`, and fails until it is fixed. `bun run typography:fix` applies the change in place. Both use `remark-smartypants`, the rules the site build and the ebook export already apply, so the source carries the glyphs both render.
+- Only prose changes. Imports, JSX attribute values, and the JavaScript inside `{...}` props keep their ASCII quotes. The tool refuses to write unless every one of those values is byte-identical and every edit is nothing but a quote, ellipsis, or dash.
+- Typography alone realigns nothing else. The story line anchors and the editorial docs quote the manuscript verbatim, so run `bun run storyline:check` afterwards and copy the new wording into `src/storyline/threads.ts` and into any doc passage that no longer greps.
+
 ## Editorial checklist
 
 - `docs/editorial/2026-08-09-status-and-plan.md` is the tracked todo list. The site's progress panel parses its `- [ ]` and `- [x]` lines under `##` headings at build time. The bold lead-in on the checkbox line is the item title, so keep it there.

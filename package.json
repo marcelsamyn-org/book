@@ -12,6 +12,8 @@
     "book:export": "bun run export/build.ts",
     "report:progress": "bun run src/publish/reportProgress.ts",
     "storyline:check": "bun run src/tools/storyline-check.ts",
+    "typography:check": "bun run src/tools/typography.ts book.mdx",
+    "typography:fix": "bun run src/tools/typography.ts book.mdx --write",
     "dev:site": "astro dev",
     "preview": "astro preview",
     "netlify": "netlify",
