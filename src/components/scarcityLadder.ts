@@ -18,5 +18,4 @@ export interface ScarcityLadderSpec {
   readonly rungs: readonly Rung[];
 }
 
-/** The ladder is drawn from the top down, so the last rung listed is the bottom one. */
-export const topDown = (rungs: readonly Rung[]): readonly Rung[] => [...rungs].reverse();
+export const topDown = (rungs: readonly Rung[]): readonly Rung[] => [...rungs];
