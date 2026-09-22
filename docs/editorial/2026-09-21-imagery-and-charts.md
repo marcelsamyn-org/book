@@ -28,7 +28,7 @@ The rest of this document is the original analysis, unchanged. The items below t
 
 - [x] **The capability curve** — `"TODO: Add graphs"`, How smart is AI. Priority H
   - *What:* One line chart of the task-length numbers you already list: 6 seconds in 2020, 36 seconds in 2022, 4 minutes in 2023, 11 minutes in 2024, 3 hours 23 minutes in 2025, 12 hours in early 2026. Log scale on the y-axis, with a few human-scale reference bands ("a tweet", "a code review", "a working day") along the side.
-  - *Why:* The paragraph's claim is `"AI though is growing at a *hyper*-exponential pace. That's an exponential of an exponential."` A linear axis hides the first four points entirely. A log axis is the only one that shows the claim, because a plain exponential is a straight line on a log axis and a hyper-exponential bends upward. The chart is the argument, not decoration for it.
+  - *Why:* The paragraph's claim is `"AI though is growing at a *hyper*-exponential pace. That’s an exponential of an exponential."` A linear axis hides the first four points entirely. A log axis is the only one that shows the claim, because a plain exponential is a straight line on a log axis and a hyper-exponential bends upward. The chart is the argument, not decoration for it.
   - *Your call:* The points from 2025 on are the book's forward setting, not published measurement. Mark the projected points differently, cite the source for the measured ones, or state the whole series as your own estimate — an unmarked chart reads as measured data.
 
 - [x] **The attachment lineage** — `"TODO: Add pictures"`, Why We Get Attached To Machines. Priority H
@@ -48,7 +48,7 @@ The rest of this document is the original analysis, unchanged. The items below t
   - *Why:* This is the most load-bearing mechanic in the book and the only one the reader must hold for 1,400 lines. The Conclusion pays it off directly — `"a machine that works, at its base, by predicting the next most-likely thing"` and `"The minimal error, the thing that is least likely to be wrong"` — and Creativity's temperature argument depends on it too. Right now the reader has to build that picture from prose alone and then keep it.
   - *Your call:* Whether the Conclusion reuses the same figure with the dopamine curve laid over it, so The Inevitable and The Surprise are visibly the same axis read from opposite ends. That's one figure doing the book's two hardest jobs, but it also risks looking clever.
 
-- [ ] **The jagged frontier** — `“one moment you feel like you're on the interstellar superintelligence highway, the other you feel like you're trying to explain yourself to a ten-year-old”`, AI is also surprisingly stupid. Priority H
+- [ ] **The jagged frontier** — `“one moment you feel like you’re on the interstellar superintelligence highway, the other you feel like you’re trying to explain yourself to a ten-year-old”`, AI is also surprisingly stupid. Priority H
   - *What:* Human and model scores on the same axis across the tasks you already name: math olympiad, competitive programming, condensed matter physics, ARC-AGI-3, write an article of a given word count, don't repeat the question back.
   - *Why:* Jagged is a shape. The section's whole claim is that the edge is uneven, and an uneven edge is exactly what prose can't draw. It also gives the ARC-AGI-3 number somewhere to live: `"the best language model today scores a measly 0.37%"` next to a human 100% is the sharpest single fact in the chapter.
   - *Your call:* The open `"TODO: GPT-6 Astra got 99% afaik"` changes one bar but not the picture — if it's right, the frontier moved and is still jagged, which arguably strengthens the section. Decide whether the figure makes that explicit (two model rows, a year apart) or just shows the current state.
@@ -68,7 +68,7 @@ The rest of this document is the original analysis, unchanged. The items below t
   - *Why:* Makes the second breakthrough a visible difference rather than a described one.
   - *Your call:* Probably skip. The two blockquotes already sit next to each other and do most of this. Only worth building if the chat-exhibit component can render it with no new code.
 
-- [ ] **The uncanny valley** — `"As robots become more human-like, we humans tend to like and trust them more...right up to the point"`, Language models are intelligent in a very different way. Priority L
+- [ ] **The uncanny valley** — `"As robots become more human-like, we humans tend to like and trust them more…right up to the point"`, Language models are intelligent in a very different way. Priority L
   - *What:* The curve, with two positions marked: the humanoid robot in the trough, the language model past it.
   - *Why:* The prose names a curve and then places something on it. Asking the reader to hold an unseen curve and a position on it is more work than the point is worth.
   - *Your call:* This is the most stock image in the list and the one most likely to look borrowed. Skip unless you place something unexpected on it.

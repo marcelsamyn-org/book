@@ -17,7 +17,7 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
 - [x] **Delete stray debris** in Token Anxiety — done 2026-08-09 (Claude).
 - [x] **Delete the stale TODO** atop Captured by Consumption — done 2026-08-09 (Claude).
 - [x] **Decide the tumor story** — should the brain-tumor story open the book?
-  - *What:* The story currently sits deep in Part 3 (find `"When they discovered my brain tumor"`, in the Meaning Guidance section). The move under consideration: make it the opening scene of the empty "Story-based intro", leaving a one-line callback where it is now. The *other* tumor passage — the second-surgery comparison in When Superintelligence Turns Away (`"I've had two brain surgeries"`) — stays either way; it makes a different point (knowing what to expect blunts growth) and would become a callback to the intro.
+  - *What:* The story currently sits deep in Part 3 (find `"When they discovered my brain tumor"`, in the Meaning Guidance section). The move under consideration: make it the opening scene of the empty "Story-based intro", leaving a one-line callback where it is now. The *other* tumor passage — the second-surgery comparison in When Superintelligence Turns Away (`"I’ve had two brain surgeries"`) — stays either way; it makes a different point (knowing what to expect blunts growth) and would become a callback to the intro.
   - *Why:* The book currently opens with two empty headings, and this story does in miniature what the whole book argues: the meaning didn't come from the surgery, it came from the *not-knowing* and from other people reflecting the gravity back at you afterward ("no Marcel, this is actually a big one"). Opening on it stakes the book to lived experience before any theory arrives.
   - *Your call:* What should the reader feel on page one — the fear itself, or the meaning-making afterward? And is this the confession you want to lead with, or is the sorry-tape morning (in Cultivating Discipline) the truer front door for a book about AI temptation? Both are yours; only one goes first.
 
@@ -64,7 +64,7 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *Why:* This is the book's most concrete answer to "can we actually steer these things?", and right now it reads as an aside. Two hard claims in that section also stand uncited — `have an enormous impact on the behavior of AI assistants` and the `Goliath` result — which is the one thing the book's own rule forbids.
   - *Your call:* Expand it in place in Teaching AI Good Behavior, or give it a short section in Designing Aligned Allies, which owns the design question? And is the transparency angle yours to use — Anthropic published the document in full under CC0, which almost nobody does?
 
-- [ ] Check in with how often I explain the social media comparison and "but now AI makes it useful." I feel like it's there a few too many times.
+- [x] Check in with how often I explain the social media comparison and "but now AI makes it useful." I feel like it's there a few too many times.
 
 ## Story line — flow items the diagram flagged, 2026-09-09
 
@@ -87,7 +87,7 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *Why:* This is the first sentence in the book that states the now-versus-later theme, at 44%, inside a subsection about touch and smell. The Forge of Meaning restates it at 63% as hedonia and eudaimonia. "So far" asks the reader to have noticed a theme nobody named.
   - *Your call:* Keep the sentence as the plant for the Forge and give it its own paragraph, or state the theme once in the Introduction so "so far" holds?
 - [x] **Pay off the debt collector**
-  - *What:* `a faint image of a debt collector on the horizon and we're not quite sure yet how quickly they're walking or what they'll have to say` closes Disappearing Depth and never returns. Two places can take a one-sentence callback: Food For Thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
+  - *What:* `a faint image of a debt collector on the horizon and we’re not quite sure yet how quickly they’re walking or what they’ll have to say` closes Disappearing Depth and never returns. Two places can take a one-sentence callback: Food For Thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
   - *Why:* "We're not sure yet" is a promise to the reader.
   - *Your call:* Which debt is it, skill or satisfaction? `It was never about the skills.` points at the second.
 - [ ] **Pay off or cut "siren or muse"**
