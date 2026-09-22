@@ -50,7 +50,7 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
 - [x] **Harvest error minimization in the Conclusion** (one sentence)
   - *What:* Where the Conclusion coins The Inevitable (find `"You could call this The Inevitable"`), add the callback naming the machine as an error-minimization engine — so the crescendo cashes the Part 1 setup instead of introducing the idea cold.
   - *Why:* Same arc as above, receiving end.
-- [ ] **Rewrite the Overview** (last piece of writing, from the finished Conclusion)
+- [x] **Rewrite the Overview** (last piece of writing, from the finished Conclusion)
   - *What:* The current Overview (find `"Sacred Struggle argues"`) still pitches the book you started: effort is satisfying, ease disappoints. The book you *found* argues something sharper: meaning is choosing imperfection, and AI — an error-minimization machine — structurally cannot. Rewrite the Overview as the promise the Conclusion keeps, and seed The Inevitable vs. The Surprise vocabulary so the ending lands as a crescendo rather than a cold introduction.
   - *Why:* The Overview is the contract with the reader; right now it sells the weaker thesis. It was correctly deferred until the Conclusion existed — the Conclusion now exists.
   - *Your call:* Write both spine sentences on a card — the old one and the Mindvalley one — and stare at the gap before drafting. The gap is what the new Overview must promise. The sport analogy doesn't die; it demotes from *the point* to *the practice*.
