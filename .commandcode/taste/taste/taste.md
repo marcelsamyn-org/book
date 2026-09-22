@@ -7,6 +7,7 @@
 - Wants clear vertical spacing above headings that decreases progressively with heading level (a lot of space before h1 and h2, a bit less before each lower level). Confidence: 0.85
 - Wants heading text aligned with the main text column, with anchor buttons hanging to the left of the column (headings need a negative left margin to achieve this). Confidence: 0.8
 - Cares about fine typographic details (title/subtitle/about composition, consistent accordion styling, table-of-contents rules) and notices when they regress. Confidence: 0.8
+- Wants full typographic rewrites applied throughout manuscript prose (not just quote marks): curly quotes, ellipses (... → …), and em dashes. Confidence: 0.8
 - Prefers Tailwind over hand-written direct CSS for the site template. Confidence: 0.9
 - Expects the dev server and production build to render identical styling — a fix that works in the built CSS but not in dev is not done. Confidence: 0.85
 - Wants the dev server to watch template files and restart automatically when they change. Confidence: 0.9
@@ -23,8 +24,15 @@
 - Writes/edits in Obsidian, so edits may not yet be in the repo source — expects the agent to notice and query missing changes rather than assume the file is current. Confidence: 0.75
 - Gathers research from other AI models and brings their references/summaries in for the agent to evaluate, expecting the agent to verify claims against primary sources and flag anything wrong rather than accept them at face value. Confidence: 0.7
 - Treats the book repo as a personal project: explicitly says there is "no crazy need for things being all super secure and non-failable", and pushes back when security/robustness ceremony creeps in. Confidence: 0.85
-- Does not want the standard PR process on personal projects; prefers work committed on a branch and pushed directly without PR machinery. Confidence: 0.8
+- Does not want the standard PR process on personal projects; prefers work committed on a branch and pushed directly without PR machinery, and is happy for it to be merged locally into main (even from a throwaway/oddly-named branch) rather than kept on a side branch. Explicitly fine with pushing straight to main. Confidence: 0.9
+- Keeps a synced copy of the manuscript in Obsidian, not just the repo source — expects the agent to copy the manuscript into Obsidian as part of finishing content work. Confidence: 0.7
+- When he checks off task-tracker items himself, expects the agent to verify the checkmarks against the actual content and correct/update the tracker (and regenerate derived files) rather than trusting the checklist at face value. Confidence: 0.7
+- Gives the agent latitude to re-open and uncheck tracker items he already completed if the agent sees a better approach — explicitly invites "uncheck it again" rather than treating checked items as closed. Confidence: 0.6
+- Expects the agent to fix broken things it finds proactively while doing a wrap-up pass, rather than only reporting them. Confidence: 0.75
+- Wants pre-existing failing or stale tests fixed as part of the work, not merely reported as "pre-existing and unrelated" — including updating assertions that contradict a later deliberate change, and removing code that has become a no-op. Confidence: 0.75
+- Prefers separate, focused commits for unrelated concerns: content changes, tooling additions, and test fixes each land as their own commit rather than one mixed commit. Confidence: 0.7
 - Wants reusable creative tooling documented and committed for future work (e.g., the image-generation style guide and prompt grammar), not just the final assets. Confidence: 0.8
+- Wants one-off scripts promoted to first-class, reusable repo commands: add a `bun run` entry in package.json (e.g. separate check and fix modes), document it in AGENTS.md, and keep it in the source tree rather than leaving it as an ad-hoc script in a scratch/work directory. Confidence: 0.8
 - Wants discarded/experimental work removed once a direction is chosen, rather than left lying around in the branch. Confidence: 0.75
 - When asked to "commit" or "wrap up", expects the whole finish line in one pass: integrate the deliverable, re-export the artifacts, clean up what is no longer needed, then push. Confidence: 0.75
 - Prefers typeset text/composition to be produced separately from generated imagery — does not ask the image generator to render text. Confidence: 0.7
