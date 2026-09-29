@@ -549,6 +549,7 @@
   eyebrow-text: "",
   units: (640.0, 320.0),
   grid-lines: (),
+  rules: (),
   axis: (0.0, 0.0, 0.0),
   xticks: (),
   measured: (),
@@ -577,6 +578,14 @@
         right-of(g.at(1) - 8, g.at(0) - 4, text(font: mono-font, g.at(3)))
       }
 
+      // The rule's label sits at the left end, just above the line: the right
+      // end is where the highest point lands.
+      // Arrives as (y, left, right, label, right edge).
+      for r in rules {
+        place(dx: X(r.at(1)), dy: Y(r.at(0)), line(length: X(r.at(2) - r.at(1)), stroke: (paint: muted, thickness: 0.4pt, dash: "dashed")))
+        place(dx: X(r.at(1) + 4), dy: Y(r.at(0)) - 7pt, text(font: mono-font, size: 6pt, fill: muted, r.at(3)))
+      }
+
       place(dx: X(axis.at(1)), dy: Y(axis.at(0)), line(length: X(axis.at(2) - axis.at(1)), stroke: 0.4pt + muted))
 
       for t in xticks {
@@ -597,6 +606,12 @@
       polyline(measured, none)
       polyline(projected, "dashed")
 
+      // Points measured on the same date stack on one x, so their names can
+      // overprint. A label moves only if it would land on one already placed,
+      // and then just far enough to clear it, so two points that are far apart
+      // keep their names level with their own dots. The dots never move.
+      let row-h = 12
+      let placed = (:)
       for d in dots {
         let r = 2.4pt
         place(dx: X(d.at(0)) - r, dy: Y(d.at(1)) - r, circle(
@@ -604,14 +619,37 @@
           fill: if d.at(3) { white } else { gold },
           stroke: if d.at(3) { 0.8pt + gold } else { none },
         ))
-        // The end labels hang inward so they clear the axis labels and the edge.
+        let beside = d.at(5, default: none) == "beside"
+        let anchor = d.at(4)
+        let wanted = if beside { d.at(1) - 4 } else { d.at(1) - 17 }
+        let earlier = placed.at(anchor, default: ())
+        let ly = wanted
+        for _ in range(earlier.len()) {
+          let clash = ()
+          for other in earlier {
+            if calc.abs(other - ly) < row-h { clash.push(other) }
+          }
+          if clash.len() == 0 { break }
+          // The nearest clash decides which way this label steps, and it
+          // keeps stepping that way so two neighbours cannot send it back.
+          let nearest = clash.at(0)
+          for other in clash {
+            if calc.abs(other - ly) < calc.abs(nearest - ly) { nearest = other }
+          }
+          ly = nearest + if nearest >= wanted { row-h } else { -row-h }
+        }
+        placed.insert(anchor, earlier + (ly,))
         let label = text(font: mono-font, weight: 500, fill: ink, d.at(2))
-        let ly = d.at(1) - 17
-        let w = 90
-        if d.at(4) == "start" {
-          place(dx: X(d.at(0)), dy: Y(ly), box(width: X(w), align(left, label)))
-        } else if d.at(4) == "end" {
-          place(dx: X(d.at(0) - w), dy: Y(ly), box(width: X(w), align(right, label)))
+        // Wide enough that a name prints on one line, as it does in the SVG: a
+        // box narrower than the text wraps it, and a wrapped label grows
+        // downwards across the rule and the gridlines it is read against.
+        let w = 230
+        if anchor == "start" {
+          let dx = if beside { d.at(0) + 6 } else { d.at(0) }
+          place(dx: X(dx), dy: Y(ly), box(width: X(w), align(left, label)))
+        } else if anchor == "end" {
+          let dx = if beside { d.at(0) - 6 - w } else { d.at(0) - w }
+          place(dx: X(dx), dy: Y(ly), box(width: X(w), align(right, label)))
         } else {
           centred(d.at(0), ly, w, label)
         }

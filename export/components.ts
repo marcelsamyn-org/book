@@ -5,14 +5,10 @@ import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { toString } from "mdast-util-to-string";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
+import { arcChartSpec, arcEyebrow, type ArcEntry } from "../src/components/arcagi3.js";
 import type { LineageEra } from "../src/components/attachmentLineage.js";
-import { ruleLabelGutter, wrapLabel } from "../src/components/barFigure.js";
-import {
-  adviceChartSpec,
-  adviceEyebrow,
-  adviceFigureSvg,
-  type AdviceResponder,
-} from "../src/components/breakupAdvice.js";
+import { barFigureSvg, ruleLabelGutter, wrapLabel, type BarFigureSpec } from "../src/components/barFigure.js";
+import { adviceChartSpec, adviceEyebrow, type AdviceResponder } from "../src/components/breakupAdvice.js";
 import {
   capabilityChartSpec,
   capabilityEyebrow,
@@ -20,7 +16,7 @@ import {
   type CapabilityPoint,
 } from "../src/components/capabilityCurve.js";
 import { breakDownEliza, type ElizaSubstitution } from "../src/components/eliza.js";
-import { buildBarChart, buildLineChart, round } from "../src/components/figures.js";
+import { buildBarChart, buildLineChart, round, type BarChartSpec, type LineChartSpec, type Point } from "../src/components/figures.js";
 import {
   adversityOutcomes,
   invertedUBox,
@@ -32,8 +28,9 @@ import {
   outcomeAt,
   xHigh,
 } from "../src/components/invertedU.js";
-import { PROJECTION_KEY, splitProjection, valueAnchor } from "../src/components/lineFigure.js";
+import { lineFigureSvg, PROJECTION_KEY, splitProjection, valueAnchor } from "../src/components/lineFigure.js";
 import { curveFigureSvg } from "../src/components/shapeFigure.js";
+import { priceChartSpec, priceEyebrow, type PriceRival } from "../src/components/priceCollapse.js";
 import type { Rung } from "../src/components/scarcityLadder.js";
 import type { PoleRow } from "../src/components/twoPoles.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
@@ -75,6 +72,12 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "BreakupAdvice":
       expectShape(node, ["responders", "average", "caption", "alt"], "no children");
       return renderBreakupAdvice(node);
+    case "PriceCollapse":
+      expectShape(node, ["rivals", "caption", "alt"], "no children");
+      return renderPriceCollapse(node);
+    case "ARCAGI3":
+      expectShape(node, ["entries", "caption", "alt"], "no children");
+      return renderArcagi3(node);
     case "InvertedU":
       expectShape(node, ["caption", "alt"], "no children");
       return renderInvertedU(node);
@@ -365,26 +368,38 @@ const readCapabilityPoint = (value: unknown): CapabilityPoint | undefined => {
 const typstPair = (x: number, y: number): string => `(${round(x)}, ${round(y)})`;
 
 /**
- * The PDF redraws the figure rather than embedding the SVG, so it resolves the
- * same geometry here and hands Typst plain numbers in the same unit space.
+ * The one line-figure path, matching `renderBarFigure` for bars. The PDF
+ * redraws the figure rather than embedding the SVG, so it resolves the same
+ * geometry here and hands Typst plain numbers in the same unit space.
  */
-const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
-  const points = arrayProp(node, "points", readCapabilityPoint);
-  const caption = smart(stringProp(node, "caption"));
-  const alt = stringProp(node, "alt");
-  if (points.length < 2) failAt(node, "<CapabilityCurve> needs at least two points");
-
-  const chart = buildLineChart(capabilityChartSpec(points));
-  const { measured, projected } = splitProjection(chart.points);
+const renderLineFigure = (
+  eyebrow: string,
+  spec: LineChartSpec,
+  alt: string,
+  caption: string,
+): RenderedComponent => {
+  const chart = buildLineChart(spec);
+  const { measured, projected } =
+    spec.connect === false
+      ? { measured: [] as readonly Point[], projected: [] as readonly Point[] }
+      : splitProjection(chart.points);
   const key = projected.length === 0 ? "none" : typstString(PROJECTION_KEY);
 
   const typst = [
     "#line-figure(",
-    `  eyebrow-text: ${typstString(capabilityEyebrow)},`,
+    `  eyebrow-text: ${typstString(eyebrow)},`,
     `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
     `  grid-lines: ${typstArray(
       chart.yTicks.map(
         (tick) => `(${round(tick.y)}, ${chart.frame.left}, ${chart.frame.right}, ${typstString(tick.label)})`,
+      ),
+    )},`,
+    `  rules: ${typstArray(
+      chart.rules.map(
+        (rule) =>
+          `(${round(rule.y)}, ${chart.frame.left}, ${chart.frame.right - ruleLabelGutter}, ${typstString(
+            rule.label,
+          )}, ${chart.frame.right})`,
       ),
     )},`,
     `  axis: (${chart.frame.bottom}, ${chart.frame.left}, ${chart.frame.right}),`,
@@ -394,12 +409,12 @@ const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
     `  measured: ${typstArray(measured.map((point) => typstPair(point.x, point.y)))},`,
     `  projected: ${typstArray(projected.map((point) => typstPair(point.x, point.y)))},`,
     `  dots: ${typstArray(
-      chart.points.map(
-        (point, index) =>
-          `(${round(point.x)}, ${round(point.y)}, ${typstString(point.label)}, ${point.projected}, ${typstString(
-            valueAnchor(index, chart.points.length),
-          )})`,
-      ),
+      chart.points.map((point, index) => {
+        const anchor = point.labelSide ?? valueAnchor(index, chart.points.length);
+        // The sixth field places a label beside its point instead of above it;
+        const beside = point.labelSide !== undefined ? `, "beside"` : "";
+        return `(${round(point.x)}, ${round(point.y)}, ${typstString(point.label)}, ${point.projected}, ${typstString(anchor)}${beside})`;
+      }),
     )},`,
     `  key: ${key},`,
     `  caption: ${typstString(caption)},`,
@@ -408,13 +423,21 @@ const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
 
   const html = [
     `<div class="exhibit figure">`,
-    `<p class="exhibit-eyebrow">${escapeHtml(capabilityEyebrow)}</p>`,
-    capabilityFigureSvg({ points, alt }),
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    lineFigureSvg({ ...spec, alt }),
     ...(projected.length === 0 ? [] : [`<p class="figure-key">${escapeHtml(PROJECTION_KEY)}</p>`]),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const renderCapabilityCurve = (node: MdxJsxFlowElement): RenderedComponent => {
+  const points = arrayProp(node, "points", readCapabilityPoint);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (points.length < 2) failAt(node, "<CapabilityCurve> needs at least two points");
+  return renderLineFigure(capabilityEyebrow, capabilityChartSpec(points), alt, caption);
 };
 
 const readResponder = (value: unknown): AdviceResponder | undefined => {
@@ -434,19 +457,22 @@ const readAverage = (node: MdxJsxFlowElement): { percent: number; label: string 
   return { percent, label: smart(label) };
 };
 
-const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
-  const responders = arrayProp(node, "responders", readResponder);
-  const average = readAverage(node);
-  const caption = smart(stringProp(node, "caption"));
-  const alt = stringProp(node, "alt");
-  if (responders.length === 0) failAt(node, "<BreakupAdvice> needs at least one responder");
-
-  const spec = adviceChartSpec({ responders, average, alt });
+/**
+ * The one bar-figure path. Every bar chart in the book resolves its geometry
+ * through the shared builder and then hands Typst the same numbers the SVG
+ * uses, so the PDF cannot drift from the site or the EPUB.
+ */
+const renderBarFigure = (
+  eyebrow: string,
+  spec: Omit<BarFigureSpec, "alt">,
+  alt: string,
+  caption: string,
+): RenderedComponent => {
   const chart = buildBarChart(spec);
 
   const typst = [
     "#bar-figure(",
-    `  eyebrow-text: ${typstString(adviceEyebrow)},`,
+    `  eyebrow-text: ${typstString(eyebrow)},`,
     `  units: (${chart.box.width}.0, ${chart.box.height}.0),`,
     `  grid-lines: ${typstArray(
       chart.ticks.map(
@@ -476,12 +502,53 @@ const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
 
   const html = [
     `<div class="exhibit figure">`,
-    `<p class="exhibit-eyebrow">${escapeHtml(adviceEyebrow)}</p>`,
-    adviceFigureSvg({ responders, average, alt }),
+    `<p class="exhibit-eyebrow">${escapeHtml(eyebrow)}</p>`,
+    barFigureSvg({ ...spec, alt }),
     `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+const renderBreakupAdvice = (node: MdxJsxFlowElement): RenderedComponent => {
+  const responders = arrayProp(node, "responders", readResponder);
+  const average = readAverage(node);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (responders.length === 0) failAt(node, "<BreakupAdvice> needs at least one responder");
+  return renderBarFigure(adviceEyebrow, adviceChartSpec({ responders, average, alt }), alt, caption);
+};
+
+const readPriceRival = (value: unknown): PriceRival | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { name, multiple, group } = value;
+  if (typeof name !== "string" || typeof multiple !== "number") return undefined;
+  return group === "ai" || group === "other" ? { name: smart(name), multiple, group } : undefined;
+};
+
+const renderPriceCollapse = (node: MdxJsxFlowElement): RenderedComponent => {
+  const rivals = arrayProp(node, "rivals", readPriceRival);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (rivals.length === 0) failAt(node, "<PriceCollapse> needs at least one rival");
+  return renderBarFigure(priceEyebrow, priceChartSpec({ rivals, alt }), alt, caption);
+};
+
+const readArcEntry = (value: unknown): ArcEntry | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { name, month, percent, group } = value;
+  if (typeof name !== "string" || typeof month !== "number" || typeof percent !== "number") return undefined;
+  // ARC-AGI-3 scores are a share out of 100, and the axis runs 0 to 100.
+  if (percent < 0 || percent > 100) return undefined;
+  return group === "ai" || group === "human" ? { name: smart(name), month, percent, group } : undefined;
+};
+
+const renderArcagi3 = (node: MdxJsxFlowElement): RenderedComponent => {
+  const entries = arrayProp(node, "entries", readArcEntry);
+  const caption = smart(stringProp(node, "caption"));
+  const alt = stringProp(node, "alt");
+  if (entries.length < 2) failAt(node, "<ARCAGI3> needs at least two entries to place on a time axis");
+  return renderLineFigure(arcEyebrow, arcChartSpec(entries), alt, caption);
 };
 
 const renderInvertedU = (node: MdxJsxFlowElement): RenderedComponent => {

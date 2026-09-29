@@ -54,7 +54,7 @@ export const threads = [
     title: "Why is AI so smart and so stupid at once?",
     question: "Part 1's own arc: the models beat every test yet make mistakes no human would. Why?",
     mentions: [
-      { kind: "plant", quote: "we keep finding “odd” behavior", note: "How Smart Is AI opens on the puzzle." },
+      { kind: "plant", quote: "we also keep seeing “weird” behavior", note: "How Smart Is AI opens on the puzzle." },
       { kind: "plant", quote: "we have all experienced the jaggedness of language models", note: "AI Is Also Surprisingly Stupid: the eggs, the seahorse, ARC-AGI." },
       { kind: "explain", quote: "the intelligence of language models is an *emergent* property", note: "Grown, not built; a different kind of mind." },
       { kind: "payoff", quote: "So I think they are just past this uncanny valley", note: "We assume its brain works like ours because it talks like us. That is the mistake." },
@@ -84,7 +84,7 @@ export const threads = [
     title: "Sycophancy: trained to please",
     question: "Why does AI always agree with me, what does that do to people, and can it be fixed?",
     mentions: [
-      { kind: "plant", quote: "(they try to respond with what you’ll like)", note: "How Smart Is AI lists it among the weird behaviors." },
+      { kind: "plant", quote: "(they try to respond with what you’ll like", note: "How Smart Is AI lists it among the weird behaviors." },
       { kind: "explain", quote: "we humans are a little bit like a god", note: "The Sycophancy section explains RLHF: we reward what we like." },
       { kind: "use", quote: "this is exactly how AI is trained: we show a human two responses", note: "Love & Connection: the perfect partner is the training objective." },
       { kind: "use", quote: "Sycophancy is profitable", note: "The Business of Companionship: the flaw is a feature for revenue." },

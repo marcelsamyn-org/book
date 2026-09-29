@@ -1191,6 +1191,10 @@ main .sp-page p.sp-cut {
   text-anchor: end;
 }
 
+.figure-rule-label-left {
+  text-anchor: start;
+}
+
 .figure-drop {
   stroke: currentColor;
   stroke-width: 1;

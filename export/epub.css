@@ -211,6 +211,7 @@ section.footnotes a, .references a { word-break: break-all; }
   font-family: "IBM Plex Mono", monospace; font-size: 11px; fill: #776d62;
 }
 .exhibit .figure-tick-y, .exhibit .figure-rule-label { text-anchor: end; }
+.exhibit .figure-rule-label-left { text-anchor: start; }
 .exhibit .figure-tick-x { text-anchor: middle; }
 .exhibit .figure-value {
   font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; fill: #2a2520;

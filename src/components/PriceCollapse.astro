@@ -1,0 +1,24 @@
+---
+/**
+ * The price-of-thought figure for "The intelligence curve doesn't seem to be
+ * stopping": the annual rate AI gets cheaper against the fastest fall measured
+ * for any other technology. Aliases: price of thought, Epoch AI, inference
+ * cost, cost per token, cheaper, Moore's-law-style decline.
+ */
+
+import { priceEyebrow, priceFigureSvg, type PriceFigureSpec } from "./priceCollapse.js";
+
+interface Props extends PriceFigureSpec {
+  /** Where the numbers come from. Required: a chart without a source claims more than a sentence does. */
+  readonly caption: string;
+}
+
+const { rivals, alt, caption } = Astro.props;
+const svg = priceFigureSvg({ rivals, alt });
+---
+
+<figure class="figure figure-bar-chart">
+  <span class="figure-eyebrow">{priceEyebrow}</span>
+  <div class="figure-plot" set:html={svg} />
+  <figcaption class="figure-caption">{caption}</figcaption>
+</figure>

@@ -35,6 +35,8 @@ export interface PlottedPoint extends Point {
   readonly label: string;
   /** True when the value is the book's own projection rather than a measurement. */
   readonly projected: boolean;
+  /** Set when the figure labels this point beside itself instead of above. */
+  readonly labelSide?: "above" | "start" | "end";
 }
 
 export interface PlottedTick extends Point {
@@ -77,6 +79,13 @@ export interface LineDatum {
   readonly y: number;
   readonly label: string;
   readonly projected?: boolean;
+  /**
+   * Where the value label sits relative to its point. Defaults to a centred
+   * label above; a point shares that spot with every other point in its
+   * cluster, so a figure whose points stack on one date must set this or the
+   * names overprint each other.
+   */
+  readonly labelSide?: "above" | "start" | "end";
 }
 
 export interface LineChartSpec {
@@ -95,6 +104,15 @@ export interface LineChartSpec {
    * last points away from the edges, where a centred label would overrun them.
    */
   readonly xPad?: number;
+  /**
+   * False draws the points without joining them. A figure where each point is
+   * a separate measurement on a shared axis (a score per release date) must not
+   * draw a trend line between them, which would imply a series that was
+   * measured continuously rather than sampled.
+   */
+  readonly connect?: boolean;
+  /** Horizontal reference lines, e.g. the human baseline a score is read against. */
+  readonly rules?: readonly Tick[];
 }
 
 export interface LineChart {
@@ -102,6 +120,8 @@ export interface LineChart {
   readonly points: readonly PlottedPoint[];
   readonly xTicks: readonly PlottedTick[];
   readonly yTicks: readonly PlottedTick[];
+  /** Horizontal reference lines, resolved onto the same scale as the data. */
+  readonly rules: readonly PlottedRule[];
   /** Plot area edges, for the axis rules. */
   readonly frame: { readonly left: number; readonly top: number; readonly right: number; readonly bottom: number };
 }
@@ -115,6 +135,9 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
   const xs = spec.data.map((d) => d.x);
   const ys = spec.data.map((d) => toY(d.y));
   const tickYs = spec.yTicks.map((t) => toY(t.value));
+  // A rule is part of what the figure claims, so it stretches the axis rather
+  // than being clipped: a human baseline above every point must still be drawn.
+  const ruleYs = (spec.rules ?? []).map((t) => toY(t.value));
 
   const rawLeft = Math.min(...xs, ...spec.xTicks.map((t) => t.value));
   const rawRight = Math.max(...xs, ...spec.xTicks.map((t) => t.value));
@@ -122,7 +145,7 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
   const xMin = rawLeft - margin;
   const xMax = rawRight + margin;
   const rawMin = Math.min(...ys, ...tickYs);
-  const rawMax = Math.max(...ys, ...tickYs);
+  const rawMax = Math.max(...ys, ...tickYs, ...ruleYs);
   const room = (rawMax - rawMin) * (spec.yPad ?? 0);
   const yMin = rawMin - room;
   const yMax = rawMax + room;
@@ -138,9 +161,11 @@ export const buildLineChart = (spec: LineChartSpec): LineChart => {
       y: py(toY(d.y)),
       label: d.label,
       projected: d.projected === true,
+      ...(d.labelSide === undefined ? {} : { labelSide: d.labelSide }),
     })),
     xTicks: spec.xTicks.map((t) => ({ x: px(t.value), y: frame.bottom, label: t.label })),
     yTicks: spec.yTicks.map((t) => ({ x: frame.left, y: py(toY(t.value)), label: t.label })),
+    rules: (spec.rules ?? []).map((t) => ({ y: py(toY(t.value)), label: t.label })),
   };
 };
 

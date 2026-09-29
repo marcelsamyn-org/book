@@ -32,6 +32,22 @@ references:
   title: "Young Adults Are Leading the Way in AI Adoption"
   issued: 2025-07-29
   URL: https://apnorc.org/projects/young-adults-leading-the-way-in-ai-adoption/
+- id: arcprize2026arcagi3
+  type: report
+  author:
+  - literal: "ARC Prize Foundation"
+  title: "ARC-AGI-3: A New Challenge for Frontier Agentic Intelligence"
+  issued: 2026-04-22
+  URL: https://arcprize.org/media/ARC_AGI_3_Technical_Report.pdf
+- id: arcprize2026astra
+  type: webpage
+  author:
+  - family: "Kamradt"
+    given: "Greg"
+  title: "OpenAI’s GPT-6 Astra on ARC-AGI-3"
+  publisher: "ARC Prize"
+  issued: 2026-09-03
+  URL: https://arcprize.org/blog/astra
 - id: askell2026
   type: webpage
   author:
@@ -255,6 +271,17 @@ references:
   issue: 37
   issued: 2022
   DOI: 10.1073/pnas.2210639119
+- id: emberson2026
+  type: report
+  author:
+  - family: "Emberson"
+    given: "Luke"
+  - family: "Roodman"
+    given: "David"
+  title: "The Plunging Price of Thought"
+  publisher: "Epoch AI"
+  issued: 2026-09-22
+  URL: https://epoch.ai/publications/the-plunging-price-of-thought
 - id: edwards2023
   type: article-magazine
   author:

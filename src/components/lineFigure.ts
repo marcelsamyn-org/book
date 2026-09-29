@@ -6,7 +6,7 @@
  * `--failonwarnings`.
  */
 
-import { buildLineChart, escapeXml, type LineChartSpec, polylinePoints, round } from "./figures.js";
+import { buildLineChart, escapeXml, type LineChartSpec, type Point, polylinePoints, round } from "./figures.js";
 
 /** Read by the site, the EPUB and the PDF, so the sentence cannot drift between them. */
 export const PROJECTION_KEY = "Dashed: the book’s own projection, not a measurement";
@@ -44,7 +44,12 @@ export const splitProjection = <T extends { readonly projected: boolean }>(point
 export const lineFigureSvg = (spec: LineFigureSpec): string => {
   const chart = buildLineChart(spec);
   const { frame, box } = chart;
-  const { measured, projected } = splitProjection(chart.points);
+  // A figure that plots separate measurements shares no series, so the line
+  // between them is dropped rather than drawn as a trend.
+  const { measured, projected } =
+    spec.connect === false
+      ? { measured: [] as readonly Point[], projected: [] as readonly Point[] }
+      : splitProjection(chart.points);
 
   const parts: string[] = [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${box.width} ${box.height}" class="figure-svg" role="img" aria-label="${escapeXml(spec.alt)}">`,
@@ -54,6 +59,15 @@ export const lineFigureSvg = (spec: LineFigureSpec): string => {
     parts.push(
       `<line x1="${frame.left}" y1="${round(tick.y)}" x2="${frame.right}" y2="${round(tick.y)}" class="figure-grid" />`,
       `<text x="${frame.left - 8}" y="${round(tick.y) + 3}" class="figure-tick figure-tick-y">${escapeXml(tick.label)}</text>`,
+    );
+  }
+
+  for (const rule of chart.rules) {
+    // The label sits at the left end, just above the line: the right end is
+    // where the highest point lands, and a label there would sit on top of it.
+    parts.push(
+      `<line x1="${frame.left}" y1="${round(rule.y)}" x2="${frame.right}" y2="${round(rule.y)}" class="figure-rule" />`,
+      `<text x="${frame.left + 6}" y="${round(rule.y) - 5}" class="figure-rule-label figure-rule-label-left">${escapeXml(rule.label)}</text>`,
     );
   }
 
@@ -74,10 +88,33 @@ export const lineFigureSvg = (spec: LineFigureSpec): string => {
     parts.push(`<polyline points="${polylinePoints(projected)}" class="figure-line figure-line-projected" />`);
   }
 
+  // Points measured on the same date stack on one x, so their names can
+  // overprint. A label is only moved when it would actually collide with one
+  // already placed, and then just far enough to clear it: two points far apart
+  // keep their names level with their own dots, so the distance between them
+  // still reads as the distance between the scores. The dots never move — a
+  // score is the measurement, and only the name is repositioned.
+  const rowHeight = 12;
+  const placed: Record<string, number[]> = {};
   chart.points.forEach((point, index) => {
+    const side = point.labelSide;
+    const anchor = side ?? valueAnchor(index, chart.points.length);
+    const wanted = side === undefined || side === "above" ? point.y - 10 : point.y + 3;
+    const earlier = placed[anchor] ?? [];
+    // A label moves only if it would land on one already placed. It commits to
+    // one direction — down unless the clash is below it — and keeps stepping
+    // that way, so two neighbours can never send it back and forth.
+    let y = wanted;
+    for (let pass = 0; pass < earlier.length; pass += 1) {
+      const clash = earlier.filter((other) => Math.abs(other - y) < rowHeight);
+      if (clash.length === 0) break;
+      const nearest = clash.reduce((best, other) => (Math.abs(other - y) < Math.abs(best - y) ? other : best), clash[0]!);
+      y = nearest + (nearest >= wanted ? rowHeight : -rowHeight);
+    }
+    (placed[anchor] ??= []).push(y);
     parts.push(
       `<circle cx="${round(point.x)}" cy="${round(point.y)}" r="3.5" class="figure-dot${point.projected ? " figure-dot-projected" : ""}" />`,
-      `<text x="${round(point.x)}" y="${round(point.y) - 10}" class="figure-value figure-value-${valueAnchor(index, chart.points.length)}">${escapeXml(point.label)}</text>`,
+      `<text x="${round(point.x)}" y="${round(y)}" class="figure-value figure-value-${anchor}">${escapeXml(point.label)}</text>`,
     );
   });
 

@@ -43,15 +43,15 @@ The rest of this document is the original analysis, unchanged. The items below t
 
 ## Part 1 — other candidates
 
-- [ ] **Next-token probabilities** — `“it’ll come back with a list of “of each possible token, this is the chance that this one comes next.””`, Tokens And The Context Window. Priority H
+- [ ] **Next-token probabilities** — `“it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.””`, Tokens And The Context Window. Priority H
   - *What:* One sentence tokenized with real boundaries (show `"work"` and `"ing"` as separate tokens, since you name that example), then the ranked probability list for the next token, with the sampled one marked and the mode marked separately.
   - *Why:* This is the most load-bearing mechanic in the book and the only one the reader must hold for 1,400 lines. The Conclusion pays it off directly — `"a machine that works, at its base, by predicting the next most-likely thing"` and `"The minimal error, the thing that is least likely to be wrong"` — and Creativity's temperature argument depends on it too. Right now the reader has to build that picture from prose alone and then keep it.
   - *Your call:* Whether the Conclusion reuses the same figure with the dopamine curve laid over it, so The Inevitable and The Surprise are visibly the same axis read from opposite ends. That's one figure doing the book's two hardest jobs, but it also risks looking clever.
 
 - [ ] **The jagged frontier** — `“one moment you feel like you’re on the interstellar superintelligence highway, the other you feel like you’re trying to explain yourself to a ten-year-old”`, AI is also surprisingly stupid. Priority H
   - *What:* Human and model scores on the same axis across the tasks you already name: math olympiad, competitive programming, condensed matter physics, ARC-AGI-3, write an article of a given word count, don't repeat the question back.
-  - *Why:* Jagged is a shape. The section's whole claim is that the edge is uneven, and an uneven edge is exactly what prose can't draw. It also gives the ARC-AGI-3 number somewhere to live: `"the best language model today scores a measly 0.37%"` next to a human 100% is the sharpest single fact in the chapter.
-  - *Your call:* The open `"TODO: GPT-6 Astra got 99% afaik"` changes one bar but not the picture — if it's right, the frontier moved and is still jagged, which arguably strengthens the section. Decide whether the figure makes that explicit (two model rows, a year apart) or just shows the current state.
+  - *Why:* Jagged is a shape. The section's whole claim is that the edge is uneven, and an uneven edge is exactly what prose can't draw. The ARC-AGI-3 figure now carries part of this: `"the best language model scored only a fraction of a percent"` next to a human 100% is the sharpest single fact in the chapter, and the two Astra runs (`62.71%` standard harness against `99.95%` provider adapter) show the same score read two ways.
+  - *Your call:* The ARC-AGI-3 figure is built and placed. What it does not yet do is put the *other* named tasks on the same axis — math olympiad, competitive programming, condensed matter physics, write an article of a given word count. Decide whether that belongs in one cross-task figure or stays as the separate per-task claims the prose already makes.
 
 - [ ] **The weights, printed** — `“All of the magic is in this hundreds-of-gigabytes-large file, the model’s *weights*. Nobody ever looks at the actual numbers”`, We really don't understand LLMs. Priority M
   - *What:* An actual patch of weight values set in mono type, filling the exhibit block, with a caption saying how small a fraction of one model this is.

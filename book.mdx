@@ -1,3 +1,4 @@
+import ARCAGI3 from './src/components/ARCAGI3.astro';
 import AttachmentLineage from './src/components/AttachmentLineage.astro';
 import BreakupAdvice from './src/components/BreakupAdvice.astro';
 import CapabilityCurve from './src/components/CapabilityCurve.astro';
@@ -8,6 +9,7 @@ import InvertedU from './src/components/InvertedU.astro';
 import PTGIQuestionnaire from './src/components/PTGIQuestionnaire.astro';
 import PartPlate from './src/components/PartPlate.astro';
 import ScarcityLadder from './src/components/ScarcityLadder.astro';
+import PriceCollapse from './src/components/PriceCollapse.astro';
 import ScreenplayWriter from './src/components/ScreenplayWriter.astro';
 import TwoPoles from './src/components/TwoPoles.astro';
 
@@ -105,7 +107,7 @@ Let’s dive a little deeper into how these work so you can see how ChatGPT, the
 
 At their base, language models are relatively simple. They “read” a bunch of text and then make a prediction for what the next word would be in that given text (technically they predict the next *token*, we’ll get to that in a bit). Then, you put this entire initial text, *plus this new word*, back in the system again, it predicts the next word, and so on.
 
-They’d been in use for a couple of years with relatively limited application. There was some research being done and they were used for some things like machine translation (Google Translate, DeepL) but this was with what we now consider to be small language models, with just a couple of million parameters. OpenAI was one of the first to bet on the *Scaling Laws* continuing—an empirical result that seemed to show that language models would keep getting more intelligent, the larger you make the machines and the longer you train them. It’s very expensive to train these very large models (in the millions of dollars) and most people in the field believed there would be a fast quality decline, so until OpenAI nobody really gave it an honest attempt.
+They’d been in use for a couple of years with relatively limited application. There was some research being done and they were used for things like machine translation (Google Translate, DeepL) but this was with what we now consider to be small language models, with just a couple of million parameters. OpenAI was one of the first to bet on the *Scaling Laws* continuing—an empirical result that seemed to show that language models would keep getting more intelligent, the larger you make the machines and the longer you train them. It’s very expensive to train these very large models (in the millions of dollars) and most people in the field believed there would be a fast quality decline, so until OpenAI nobody really gave it an honest attempt.
 
 They built GPT-1 with 117 million parameters, GPT-2 with 1.5 billion and the popular breakthrough came with GPT-3 which had an impressive 175 billion parameters (just storing those parameters takes 350GB!). It turned out the bet was well-founded and GPT-3 was indeed surprisingly—magically, even—smart. I vividly remember the first time I gave GPT-3 a text completion prompt: “When I advised my client on how they could integrate NFTs into their chocolate production, I gave them three possibilities: [complete here]” and I was floored when something that actually made sense came out at the other end.
 
@@ -117,7 +119,7 @@ A “base” LLM will try to complete that text based on what it learned from, s
 
 > Hint: It should be measured around the equator, at Earth’s widest point.
 
-If you’re used to ChatGPT, this will feel very odd to you. But the model is just trying to make the text (input + output) seem like a complete whole. In this case, it probably guessed that this is a part of some kind of high school test.
+If you’re used to ChatGPT, this will feel very odd to you. But the model is just trying to make the text (input + output) look like a piece of text that makes sense. In this case, it probably guessed that this is a part of some kind of high school test.
 
 The solution to this is to make it very clear to the LLM that there is a conversation going on between “the human” and “the AI assistant,” so the language model continues that conversation with something that makes sense in the context of a chat. In practice, the question we asked the LLM earlier will be transformed slightly and the real input to the model will look something like this:
 
@@ -126,12 +128,12 @@ The solution to this is to make it very clear to the LLM that there is a convers
 > User: What’s the circumference of the planet Earth?
 > Assistant:
 
-If the model now needs to *complete the text*, it makes much more sense to give the answer instead of a hint, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation, otherwise it will complete the entire chat instead of just one message.) The LLMs you’re using day-to-day not only have a scaffolding like this around the conversation, but they’re also specifically *instruction fine-tuned*, which means that we’ve let humans (or other language models) come up with thousands of examples where this “friendly AI assistant” is behaving in the way we’d like it to. This way, we teach the models that they should answer questions, follow instructions and for example refuse to explain how to build a bomb.
+If the model now needs to *complete the text*, it makes much more sense to give the answer instead of a hint, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation, otherwise it will complete the entire chat instead of just one message.) The LLMs you’re using day-to-day not only have a scaffolding like this around the conversation, but they’re also specifically *instruction fine-tuned*, which means that we’ve let humans (or other language models) come up with thousands of examples where this “friendly AI assistant” is behaving in the way we’d like it to. This way, we teach the models that they should answer questions, follow instructions and for refuse to explain how to build a bomb.
 
 #### Tokens And The Context Window
-The only thing a machine learning algorithm can do is work with numbers (mostly adding and multiplying) but sentences aren’t numbers. So, before the actual model runs, your input is *tokenized*: it’s converted to *tokens*. What exactly a token *is* is also *learned* by a (different) model, and it usually ends up being something like three quarters of a word. Common words like “the” often become a single token, and you’ll also see tokens for stems of words and suffixes (e.g., “work” and “ing”). So if you multiply the number of words in your input (prompt) by 4/3, you’ll get an estimate of how many tokens it would count.
+The only thing a machine learning algorithm can do is work with numbers (mostly adding and multiplying) but sentences aren’t numbers. So, before the actual model runs, your input is *tokenized*: it’s converted to *tokens*. What exactly a token is, is also learned by a (different) model, and it usually ends up being something like three quarters of a word. Common words like “the” often become a single token, and you’ll also see tokens for stems of words and suffixes (e.g., “work” and “ing”). Many tokens a word with a space in front, too. If you multiply the number of words in your input (prompt) by 4/3, you’ll get an estimate of how many tokens it would count.
 
-Once you’ve turned your text into tokens and you let the model process all of them, it’ll come back with a list of “of each possible token, this is the chance that this one comes next.” We’ll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that’s the next token ChatGPT is “writing out.”
+Once you’ve turned your text into tokens and you let the model process all of them, it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.” We’ll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that’s the next token ChatGPT is “writing out.”
 
 An important technical detail to understand about LLMs is that *they read the entire conversation fully, every time they predict the next token*. Every new token needs to consider the entire conversation so you can imagine that, if these all need to be multiplied with hundreds of billions of other numbers over and over again, it takes quite some computational power. The power needed grows with the *square of the input*, which is why we need to have limits on how much text you can input into the model, and one of the reasons why it starts to get confused when conversations become very long.
 
@@ -150,13 +152,13 @@ When you chat in ChatGPT today, there’s a form of this system running within t
 
 ## How smart is AI?
 
-We will forever be debating whether our Artificial Intelligence is “intelligent”—partly because we don’t even know how to define intelligence to begin with. Over the last few years, we’ve seen large language models beat every test we gave them over and over again, but we keep finding “odd” behavior that feels to us humans like a very stupid thing to do. Why is that?
+We will forever be debating whether our Artificial Intelligence is “intelligent”—partly because we don’t even know how to define intelligence to begin with. Over the last few years, we’ve seen large language models beat every test we gave them over and over again, but we also keep seeing “weird” behavior that feels to us humans like these AI’s are still very stupid at the same time. Why is that?
 
 #### AI is already insanely smart
 
-In the six months between the idea of this book and starting to write this section, my perspective on how “smart” AI is has changed quite a bit. I’m a heavy user of AI in programming (which is one of its biggest strengths) and my opinion shifted from “well it’s okay, it’s very fast but makes stupid mistakes, so I’m not sure what the right trade-off is” to “you’d be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel.”
+In the six months between the idea of this book and starting to write this section, my perspective on how “smart” AI is has changed quite a bit. I’m a heavy user of AI in programming (which is one of its biggest strengths) and my opinion shifted from “well it’s okay, it’s very fast but makes stupid mistakes, so I’m not sure what the right trade-off is” to “you’d be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel.” When my AI credits run out, I literally stop working—it just doesn’t make sense to do things by hand in the meantime. Or I go think about and plan what should be built next.
 
-LLMs are now beating humans at programming, math olympiads and of course speed of reading. Generative AI tools have made new scientific discoveries and taken over our media by generating all kinds of images and videos that couldn’t be made before.
+LLMs are now beating humans at programming, math olympiads, hacking and of course speed of reading. Generative AI tools have made new scientific discoveries and taken over our media by generating all kinds of images and videos that couldn’t be made before.
 
 #### The intelligence curve doesn’t seem to be stopping
 
@@ -179,9 +181,39 @@ AI though is growing at a *hyper*-exponential pace. That’s an exponential of a
 
 I’ll give you some more anecdotes to try and give that intuition for this pace of growth.
 
+Right as I’m writing this, the ARC Prize Foundation released the third version of their benchmark: ARC-AGI-3. It feels like a small video game where you move around through simple mazes to solve the puzzles. The interesting thing is that humans playing this immediately figure it out and score 100%, but when the benchmark launched in March 2026 the best language model scored only a fraction of a percent.%%[@arcprize2026arcagi3]%%
+
+<ARCAGI3
+  entries={[
+    { name: "Opus 4.6", month: 0, percent: 0.5, group: "ai" },
+    { name: "Gemini 3.1 Pro", month: 0, percent: 0.4, group: "ai" },
+    { name: "GPT 5.4", month: 0, percent: 0.2, group: "ai" },
+    { name: "Astra, standard harness", month: 6, percent: 62.71, group: "ai" },
+    { name: "Astra, provider adapter", month: 6, percent: 99.95, group: "ai" },
+  ]}
+  caption="ARC-AGI-3 scores, which measure how efficiently a system solves environments it has never seen. The dotted line is the human baseline. In March 2026, when the benchmark launched, the frontier models scored a fraction of a percent. Six months later one model was at human parity."
+  alt="Five points rising over six months. Three sit together on the floor on the left, all under one percent. Two sit on the right, one at about sixty percent and one level with the human baseline line. The horizontal distance between the clusters is the five months in between."
+/>
+
+That was another one of those moments where people thought they had finally figured out the “real” way to test for artificial general intelligence—by making something so incredibly difficult for AI yet so easy for humans. Well…that didn’t happen. Six months later, as I’m doing the final edits on my book, OpenAI’s GPT-6 Astra model reached an almost perfect score.%%[@arcprize2026astra]%%
+
 In 2020, we were testing the very best of AI by checking if they could do three-digit multiplication. In 2025, we were testing them by checking if they could solve condensed matter physics questions that only a fraction of humans even understand.%%[@jackclark2025]%%
 
 I remember in 2023, working as a software developer, I was teaching our team to use these new AI tools to write our code. It could automatically write the next few words or lines of code which was correct half of the time. We could use ChatGPT if we needed a lot of simple code but not much more. Today, I can delegate hundreds of files to be edited at once, with such high confidence that I don’t even review many of the changes it’s making.
+
+But it’s not just getting smarter. While the best AI’s become more and more intelligent, all of the models are becoming cheaper to use. Between 2021 and 2026, AI has become 100.000 times cheaper, faster than any other technology before it. Its getting 47% cheaper each and every quarter.%%[@emberson2026]%%
+
+<PriceCollapse
+  rivals={[
+    { name: "LLM inference", multiple: 13, group: "ai" },
+    { name: "DNA sequencing", multiple: 1.84, group: "other" },
+    { name: "Compute", multiple: 1.51, group: "other" },
+    { name: "Lithium batteries", multiple: 1.16, group: "other" },
+    { name: "Electricity", multiple: 1.05, group: "other" },
+  ]}
+  caption="How many times cheaper a fixed level of performance gets in a year. LLM inference is the estimate for the last three years; the other four are the fastest falls measured for any transformative technology. Every figure is from the 2026 Epoch AI report."
+  alt="Five bars. LLM inference stands thirteen times taller than its starting height, while DNA sequencing, compute, lithium batteries and electricity each stay close to one times."
+/>
 
 That’s what you have access to today, by tapping open an app on your phone and speaking to it, for a fraction of the cost of what a real person would cost.
 
@@ -189,7 +221,7 @@ That’s what you have access to today, by tapping open an app on your phone and
 
 When you ask anyone who uses AI a lot and likes using it, you’ll see that they are *also* very skeptical. There are no “pro AI” and “anti AI” groups—they are the same people. The reason for this is because we have all experienced the jaggedness of language models: one moment you feel like you’re on the interstellar superintelligence highway, the other you feel like you’re trying to explain yourself to a ten-year-old. These models are already making new scientific discoveries, and at the same time they’re sometimes incapable of even honoring the request to “please don’t repeat every question I ask you.” Language models are now at the top of the mathematics olympiad and competitive programming, but ask them to write an article with a given number of words and they’ll fall apart immediately.
 
-They routinely forget what instructions you just gave them, seem to have no capacity for being fully honest (they try to respond with what you’ll like), are terrible at spatial reasoning and common sense and make all kinds of “weird” mistakes.
+They routinely forget what instructions you just gave them, seem to have no capacity for being fully honest (they try to respond with what you’ll like and prefer to cheat their way to a “correct” answer instead of how you want it to be), are terrible at spatial reasoning and common sense and make all kinds of “weird” mistakes.
 
 <ChatExhibit prompt="I have the following items: three eggs, a large slanted plastic wedge, a pan filled with boiling water, a towel, two empty toilet paper rolls, a sponge. I need to stack them without breaking anything. How do I do that? Return just a bullet list of the final order, plus a few words each to explain. You're not allowed to make changes to the objects.">
   <ChatResponse model="Claude Opus 4.6">
@@ -223,17 +255,11 @@ They routinely forget what instructions you just gave them, seem to have no capa
 
 Another example is the seahorse emoji. When you’d ask “what’s the seahorse emoji?” for some reason the language models were very confident that this actually exists, they would write a different emoji like the horse emoji, realize their own mistake, apologize, try again and make the same mistake again. Many times they would get stuck in an infinite loop of “no sorry, this is the real one.”
 
-Right as I’m writing this, the ARC Prize Foundation released the third version of their benchmark: ARC-AGI-3. It feels like a small video game where you move around through simple mazes to solve the puzzles. The interesting thing is that humans playing this immediately figure it out and score 100%, but the best language model today scores a measly 0.37%.
-
-%%
-TODO: GPT-6 Astra got 99% afaik
-%%
-
 #### Language models are intelligent in a very different way than humans
 
 So why is AI so weird?
 
-The real answer as to *why* language models are so weird is because in a way they’re not supposed to work at all. The technology and algorithms around LLMs had existed for a long time already and they were being used in tools like Google Translate, but it wasn’t impressive. Nobody believed the technology had a bright future…nobody except a few. OpenAI was one of those that believed and just tried making the same models 100 or 1000 times larger. And somehow…it seemed like some form of intelligence emerged.
+The real answer as to *why* language models are so weird is because in a way they’re not supposed to work at all. Nobody believed the technology had a bright future…nobody except a few. OpenAI was one of those that believed and just tried making the same models 100 or 1000 times larger. And somehow…it seemed like some form of intelligence emerged.
 
 That really is the right term for this: the intelligence of language models is an *emergent* property. We just built a system that could learn and we forced it to learn how to reproduce all of human writing, while not giving it enough memory to be able to memorize everything. Then you throw 100 million hours of computation at it and voila, you have a file on your computer that contains much of human knowledge and the blueprint for intelligence. That’s a dramatic oversimplification of course, but the core of AI is pretty much this.
 
