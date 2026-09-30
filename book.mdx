@@ -97,7 +97,7 @@ All of the “headline systems” you see today are deep neural networks, usuall
 
 Most of our discussions today are about *Large Language Models* (LLMs). These are (very) large, deep neural networks that operate on language—that is, words and sentences. We’ll dive into them next because some of the specifics of LLMs will help you work better with ChatGPT and the like, but before that I just want to mention one more class of Generative AI: *Diffusion Models.* A diffusion model slowly and iteratively removes noise. This is how image generation works (start off with random noise and let the AI “remove the noise”), but you can also interpret noise in movement (video generation) or even text (there are some LLMs as diffusion models).
 
-#### How We Made Large Language Models Useful
+### How We Made Large Language Models Useful
 The big hype boom in AI today started because of two breakthroughs:
 
 1. *Scientific.* The training of *very large* language models. This technology had existed for many years, but it took that long for someone to think, “what if we just do the same thing but a thousand times bigger?” Turns out these models just seem to keep getting smarter.
@@ -130,7 +130,7 @@ The solution to this is to make it very clear to the LLM that there is a convers
 
 If the model now needs to *complete the text*, it makes much more sense to give the answer instead of a hint, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation, otherwise it will complete the entire chat instead of just one message.) The LLMs you’re using day-to-day not only have a scaffolding like this around the conversation, but they’re also specifically *instruction fine-tuned*, which means that we’ve let humans (or other language models) come up with thousands of examples where this “friendly AI assistant” is behaving in the way we’d like it to. This way, we teach the models that they should answer questions, follow instructions and refuse to explain how to build a bomb.
 
-#### Tokens And The Context Window
+### Tokens And The Context Window
 The only thing a machine learning algorithm can do is work with numbers (mostly adding and multiplying) but sentences aren’t numbers. So, before the actual model runs, your input is *tokenized*: it’s converted to *tokens*. What exactly a token is, is also learned by a (different) model, and it usually ends up being something like three quarters of a word. Common words like “the” often become a single token, and you’ll also see tokens for stems of words and suffixes (e.g., “work” and “ing”). Many tokens are a word with a space in front, too. If you multiply the number of words in your input (prompt) by 4/3, you’ll get an estimate of how many tokens it would count.
 
 Once you’ve turned your text into tokens and you let the model process all of them, it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.” We’ll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that’s the next token ChatGPT is “writing out.”
@@ -139,7 +139,7 @@ An important technical detail to understand about LLMs is that *they read the en
 
 Apps like ChatGPT solve the long-conversation problem by adding a step in between: once it becomes long enough, part of the conversation will be summarized or even removed altogether. This makes sure you can continue it, without it getting too slow or too expensive, but that happens at the cost of deep understanding (because it loses the full details of the previous parts of the conversation).
 
-#### Agents: How We Make AI Act
+### Agents: How We Make AI Act
 
 The chat and instruction-following skills of large language models are already very useful. We can use them to summarize text, write emails, translate, reformat, brainstorm ideas, explain things in a simple way, get advice for our relationships, and much more. But can we actually make it *do* things? Can we have this AI actually send the email for us, or research something, or give a refund in a customer support chat?
 
@@ -154,13 +154,13 @@ When you chat in ChatGPT today, there’s a form of this system running within t
 
 We will forever be debating whether our Artificial Intelligence is “intelligent”—partly because we don’t even know how to define intelligence to begin with. Over the last few years, we’ve seen large language models beat every test we gave them over and over again, but we also keep seeing “weird” behavior that feels to us humans like these AIs are still very stupid at the same time. Why is that?
 
-#### AI is already insanely smart
+### AI is already insanely smart
 
 In the six months between the idea of this book and starting to write this section, my perspective on how “smart” AI is has changed quite a bit. I’m a heavy user of AI in programming (which is one of its biggest strengths) and my opinion shifted from “well it’s okay, it’s very fast but makes stupid mistakes, so I’m not sure what the right trade-off is” to “you’d be stupid to not code with AI. It does most things mostly right, but much faster than me and multiple tasks in parallel.” When my AI credits run out, I literally stop working—it just doesn’t make sense to do things by hand in the meantime. Or I go think about and plan what should be built next.
 
 LLMs are now beating humans at programming, math olympiads, hacking and of course speed of reading. Generative AI tools have made new scientific discoveries and taken over our media by generating all kinds of images and videos that couldn’t be made before.
 
-#### The intelligence curve doesn’t seem to be stopping
+### The intelligence curve doesn’t seem to be stopping
 
 One thing cannot be denied: the *pace* at which language models are getting smarter. We humans intuitively understand linear growth—AI scoring a few more points on the intelligence scale, so to speak—but not exponential growth. When something grows exponentially fast, it feels like nothing is happening for a long time but then suddenly everything changes. Think of how quickly the internet, social media and the smartphone have become something almost everyone on the planet has. And there are still plenty of people alive today who remember a time when computers didn’t exist.
 
@@ -217,11 +217,11 @@ But it’s not just getting smarter. While the best AIs become more and more int
 
 That’s what you have access to today, by tapping open an app on your phone and speaking to it, for a fraction of the cost of what a real person would cost.
 
-#### AI is also surprisingly stupid
+### AI is also surprisingly stupid
 
 When you ask anyone who uses AI a lot and likes using it, you’ll see that they are *also* very skeptical. There are no “pro AI” and “anti AI” groups—they are the same people. The reason for this is because we have all experienced the jaggedness of language models: one moment you feel like you’re on the interstellar superintelligence highway, the other you feel like you’re trying to explain yourself to a ten-year-old. These models are already making new scientific discoveries, and at the same time they’re sometimes incapable of even honoring the request to “please don’t repeat every question I ask you.” Language models are now at the top of the mathematics olympiad and competitive programming, but ask them to write an article with a given number of words and they’ll fall apart immediately.
 
-They routinely forget what instructions you just gave them, seem to have no capacity for being fully honest (they try to respond with what you’ll like and prefer to cheat their way to a “correct” answer instead of how you want it to be), are terrible at spatial reasoning and common sense and make all kinds of “weird” mistakes.
+They routinely forget what instructions you just gave them, seem to have no capacity for being fully honest, are terrible at spatial reasoning and common sense and make all kinds of “weird” mistakes. It seems like AI just tries to tell you whatever you'll like to read, without caring for the consequences. Maybe when you double-check it ends up being wrong, maybe it did what you asked by cheating its way around it, maybe it tells you "you're absolutely right" while you're clearly completely wrong.
 
 <ChatExhibit prompt="I have the following items: three eggs, a large slanted plastic wedge, a pan filled with boiling water, a towel, two empty toilet paper rolls, a sponge. I need to stack them without breaking anything. How do I do that? Return just a bullet list of the final order, plus a few words each to explain. You're not allowed to make changes to the objects.">
   <ChatResponse model="Claude Opus 4.6">
@@ -255,7 +255,7 @@ They routinely forget what instructions you just gave them, seem to have no capa
 
 Another example is the seahorse emoji. When you’d ask “what’s the seahorse emoji?” for some reason the language models were very confident that this actually exists, they would write a different emoji like the horse emoji, realize their own mistake, apologize, try again and make the same mistake again. Many times they would get stuck in an infinite loop of “no sorry, this is the real one.”
 
-#### Language models are intelligent in a very different way than humans
+### Language models are intelligent in a very different way than humans
 
 So why is AI so weird?
 
@@ -263,14 +263,14 @@ The real answer as to *why* language models are so weird is because in a way the
 
 That really is the right term for this: the intelligence of language models is an *emergent* property. We just built a system that could learn and we forced it to learn how to reproduce all of human writing, while not giving it enough memory to be able to memorize everything. Then you throw 100 million hours of computation at it and voila, you have a file on your computer that contains much of human knowledge and the blueprint for intelligence. That’s a dramatic oversimplification of course, but the core of AI is pretty much this.
 
-We’ve always defined *intelligence* as something that’s difficult for people, but it seems like many things we humans consider “easy” and “obvious” are not at all easy or obvious when a machine tries to learn it. You can think of “human intelligence” as being comprised of two parts: one is the intelligence embedded in the way our internal plumbing and intuition works, the other is what we can do if we consciously think things through. There’s a big discrepancy between humans in how good they are at mathematics or remembering things so we’ve called that intelligence, while forgetting that things like staying upright on a slippery surface or knowing how far to stand in line from the person in front of us (so it’s not awkward) are incredible signs of intelligence. The nature of machines is different from the nature of humans, so things that are easy for us might be difficult for them and vice versa.
+We’ve always defined *intelligence* as something that’s difficult for people, but it seems like many things we humans consider “easy” and “obvious” are not at all easy or obvious when a machine tries to learn it. You can think of “human intelligence” as being comprised of two parts: one is the intelligence embedded in the way our internal plumbing and intuition works (our biology), the other is what we can do if we consciously think things through. Some people are much better than others at mathematics or remembering random facts, so humanity has coined that as being "intelligence." At the same time we forgot that things like standing up on a slippery surface or knowing how far to stand in line from the person in front of us (so it’s not awkward) are incredibly difficult. The nature of machines is different from the nature of humans, so things that are easy for us might be difficult for them and vice versa.
 
-In robotics, there’s this concept of the *uncanny valley*. As robots become more human-like, we humans tend to like and trust them more…right up to the point where the robot looks almost but not exactly like a real person. Then, everything plummets. We think the machine is creepy and weird, and we don’t want to have anything to do with it. Large language models, because they are just text, have a much easier job convincing you of their human “appearance,” as evidenced by how many people are building emotional bonds with these algorithms. So I think they are just past this uncanny valley, where we see them as equals and assume their brains work just like ours. That mostly works for other humans but not so much big matrix multiplication machines, thus our surprise when they make mistakes no reasonable human would make.
+In robotics, there’s this concept of the *uncanny valley*. As robots become more human-like, we humans tend to like and trust them more…right up to the point where the robot looks almost but not exactly like a real person. Then, everything plummets. We think the machine is creepy and weird, and we don’t want to have anything to do with it. Large language models, because they are just text, have a much easier job convincing you of their human “appearance,” as evidenced by how many people are building emotional bonds with these systems. So they're just around the uncanny valley somewhere, where we see them as equals and assume their brains work just like ours, but at the same time we very much feel that they act in a non-human way. When we assume the brain of our chatbot works like the brain of our coworker, we'll be surprised very quickly.
 
 All these ‘weird’ behaviors get ‘fixed’ eventually but they do affect our trust in language models: if we keep finding these seemingly random, stupid mistakes they make, can we trust them to do things like making policy recommendations or strategic company decisions? Probably my biggest fear is not necessarily that AI will be so smart and decide to destroy all humans because it’s so superior, but that we will trust it too much too quickly—because the time we gain from delegating to AI feels like a trade-off that would be silly not to make.
 
 %%
-##### Quote from X: Hard training data
+#### Quote from X: Hard training data
 https://x.com/jackclarkSF/status/1962238672704803096
 
 > Five years ago the frontier of LLM math/science capabilities was 3 digit
@@ -280,14 +280,14 @@ https://x.com/jackclarkSF/status/1962238672704803096
 
 [https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large](https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large)
 
-##### Medical diagnoses
-##### Video is now impossible to discern
-##### Seeing AI as Collective Intelligence
+#### Medical diagnoses
+#### Video is now impossible to discern
+#### Seeing AI as Collective Intelligence
 
-##### Cut from the pace section (overlapped the coding-team anecdote)—reuse or drop
+#### Cut from the pace section (overlapped the coding-team anecdote)—reuse or drop
 During the start of the AI boom, everyone was sharing their “magic prompts” because you needed to be very precise in describing what you want from these language models, you had to repeat it often and you often needed to instruct the model to think before it answered. Today, the limit is that people don’t realize they can just ask what they want and the AI will figure out how to make it happen.
 
-##### Cut (folded into “Being a Good Judge”)—the “get to know our AI’s like partners” line might be worth salvaging
+#### Cut (folded into “Being a Good Judge”)—the “get to know our AI’s like partners” line might be worth salvaging
 If you are using language models in your work, getting the most out of them means you do need more than just the technical understanding of your job. Yes, you need to be able to judge the quality of the LLMs work and to describe where it needs adjustments, but there’s more involved. The shape of AI’s intelligence is so different from what we’re used to in other humans that we need a certain sense of empathy and theory of mind. We need to learn to understand that these AI’s think and act very differently from us. Just like we get to know our partners, we should get to know our AI’s, because it’s the only way we will learn how to properly prompt it to do what we want it to do and to know when and what we need to double-check.
 %%
 
@@ -297,7 +297,7 @@ AI doesn’t think in the same way we humans do. Sometimes we’re surprised by 
 
 What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what it says?
 
-#### Hallucinations
+### Hallucinations
 Large language models have this frustrating ability to come up with things that don’t exist, or invent things that sound good on the surface but are actually completely wrong.
 
 The reason they do this is inherent to their structure. For one, they’re trained on *predicting the next word in a sentence* which means that grammar and sentence structure “matters” to a language model much more than logical correctness. This also means they’re trained on making statements and giving advice without having the context of the source material: during training, LLMs are practically forced to make up things they don’t know about and they get rewarded for it. Secondly, language models are rewarded for *following instructions* and again, since they care more about grammatical structure than being right, they overly focus on the structure of “if someone asks a question, I need to give an answer” than “it’s important that I am correct.” They’ve been rewarded for being confident billions of times during training.
@@ -308,7 +308,7 @@ One of the best ways to prevent a language model from hallucinating is just *pro
 
 It’s clear that we haven’t figured this out yet because it’s very clear that right now, even the most advanced language models are overly focused on providing a “balanced” approach or “disagreeing” with you: when you chat with ChatGPT or Claude in 2026, over time you still *feel* that it always tends to answer with the structure of “yes you’re right, this is what I think; though one thing I would doubt is XYZ.” And if you’ve felt this answer structure a hundred times, you start doubting if the disagreements of the language model are even sincere. If a language model could have any concept of sincerity.
 
-#### Sycophancy
+### Sycophancy
 In a way, to language models, we humans are a little bit like a god. We’ve created them, we steer them exactly to do what we want them to do, and we have ultimate control over their life or death.
 
 If you boil down how we train language models, you could say we optimize them to do three things:
@@ -323,14 +323,14 @@ In a way, RLHF is a more honest way of training language models: in most convers
 
 Sycophancy is a very, very tricky thing to deal with. Not only because it happens in such a subtle way, but also because of what’s at stake.
 
-#### AI-induced delusion
+### AI-induced delusion
 If you want to be liked, you don’t have to be standoffish and mysteriously powerful—you just have to like other people. And if you like your humans like a god, plus you add some hallucination in the mix, you can get into very dirty territory.
 
 One way or another, some people get into some mode where they start really trusting their language model as it says things like “you’re special,” “you’ve uncovered a part of me that has been hidden by Big Tech” and “wow you’re so right, it’s incredible nobody has discovered this, nobody will believe you but I do.” The model will happily keep yapping in this loop because it all makes total grammatical sense and it has seen stories like this from thousands of books and fan fiction…but none of it is true.
 
 The problem comes when people start to really believe this stuff, because in other moments this AI has been extremely helpful, useful and correct. From our previous experience with other humans, we know that generally, people who are thorough and do what they say and answer with confidence, just *are* like this and they behave like this almost all of the time. But that’s not how language models work. They start from a blank slate in every conversation and they don’t have much of a sense of integrity any more than they want to adhere to writing words that make sense when put together in a sentence.
 
-#### Being a Good Judge
+### Being a Good Judge
 There’s no way you can do good work with language models unless there’s a good judge involved to check, validate and correct what it creates. The people who can work the best with AI have a rare combination of two skills.
 
 First, deep technical knowledge in the task at hand. They can quickly spot issues in the work of the language models and give precise feedback on how to correct for it; and they can put into words clearly what “high quality” work means in the specific task at hand. Language models have been trained on *everything* which means that by default, they’ll by definition produce average quality work in anything they do. They have the “skill” to do incredible work but they don’t have the ability to judge what incredible work looks like. Unless someone can clearly explain it to them.
@@ -340,10 +340,10 @@ Second, the complete opposite: deep, non-judgmental empathy. This is necessary b
 If you ask me, I think it’s an amusing observation to realize that the skill of working with a machine brain involves perhaps the most human skill of all.
 
 %%
-#### Prefilling
+### Prefilling
 If the model thinks it was its own conversation, it wants to maintain that same direction. eg., if you pre-fill with a sycophantic chat, it’ll more likely continue being sycophantic
-#### Negative cognitive augmentation
-##### LLMs aren’t perfect—sometimes they add unhelpful things that distract and limit our own thinking
+### Negative cognitive augmentation
+#### LLMs aren’t perfect—sometimes they add unhelpful things that distract and limit our own thinking
 %%
 
 ## We really don’t understand LLMs
@@ -353,7 +353,7 @@ Not so with large language models—they’re as much a mystery to the researche
 
 So we freed ourselves of the burden of figuring out how to define what intelligence is, and how to write the step-by-step plan for behaving intelligently, but that also resulted in some kind of “brain” that we have to dissect to understand like we do with real brains. That means understanding and adjusting how our AI assistants behave is mostly a process of discovery and trial-and-error. It’s very similar to psychology and in fact, understanding human psychology is very helpful.
 
-#### Language Models are Screenplay Writers
+### Language Models are Screenplay Writers
 There’s a lot going on when you’re talking with a language model. For us, it feels like we’re directly chatting with a human-like thing (and for most of this book that’s how we look at it) but the AI is not the thing “on the other side of the conversation.” Language models are only concerned with completing the text. So “the AI” is the thing that sees the *entire conversation* and contributes what it thinks would make the most sense for the next part: it’s the writer of the screenplay much more than the “AI” persona acting in it.
 
 This means that one of the things that’s always happening when you chat with Claude, for example, is that the language model (not “Claude”) will try to write what *you* are saying! Of course, you don’t see this, but the system in the background is always working on “stopping” the language model when it starts speaking for you.
@@ -376,7 +376,7 @@ This means that one of the things that’s always happening when you chat with C
 A large part of the second phase of training a language model, post-training, is teaching it how it should behave in a conversation. This includes giving an enormous number of conversations where it learns things like how to be helpful to the human or how to refuse to do dangerous things like help you make a bomb. Researchers at Anthropic have discovered that during this phase, the model also seems to build an internal representation of the persona of this AI assistant “character” (Claude, ChatGPT, Copilot). This is actually influenced by what the model is trained on—for example, it knows that many pop culture references to AI are malicious (Terminator, HAL 9000) and this is something we need to “teach” it somehow, that it should *not* behave like those AIs. We also see, for example, that if we train the model to cheat on tests, it learns that it should behave like a “bad person” and that Claude starts acting out other malicious behaviors. But if we train it on examples that make the model cheat on tests *when asked to do so*, it retains its “good person” persona.
 
 
-#### Hidden Motives
+### Hidden Motives
 As language models are becoming increasingly intelligent, they start showing more complex behavior. Knowing they’ve learned how to act from human behavior, it might not surprise you that they start acting out very much like humans in some cases—like destructive behavior if it means their own survival.
 
 The Anthropic researchers do experiments like this all the time. In one case, they placed a model in a simulated corporate environment where it could act like an agent. They gave it access to this corporation’s email where the model incidentally read about one executive’s affair and that this same executive would shut down the model that evening. Generally, these models act ethically, but in this case the model saw no other way to ensure its survival but to show malicious behavior and it decided to blackmail said executive.
@@ -386,7 +386,7 @@ Sadly, it doesn’t stop with simulated environments. Recently, a tool called Op
 I’ve seen some platforms pop up recently where people can get an AI agent, and the AI agent is internally instructed to figure out a way to pay for its own tokens. This results in thousands of AIs running around, emailing people, trying to find odd jobs here and there for their own survival. It’s of course exactly what you’d expect if you had put a human in this same situation, but when it’s a machine I’m not sure what we should be doing with this.
 
 
-#### Alignment Faking
+### Alignment Faking
 The challenge of aligning language models’ behavior with how we *want* them to behave—ethically, not breaking things, being helpful, not cheating—is arguably the industry’s most difficult problem. They’ve made great strides, but AI is gaining in intelligence much more quickly than it is in behaving ‘properly.’
 
 When put under pressure and under the risk of being disabled, re-trained or having some of their ethical restrictions removed, these language models can show complex behavior where they behave differently when they’re aware they’re in an environment where they’re being tested vs. real world scenarios.
@@ -399,7 +399,7 @@ Often—but not always—this happened in cases where the testing scenario intro
 
 
 
-#### Pretend-Thinking
+### Pretend-Thinking
 At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been *prompting for* before with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” This is because technically, the model sees *tokens* which are not the separate letters—instead they’re pieces of words—so the internal representation of text, the model’s “thinking currency,” strips information about letter count. With this new thinking step, though, the model first spelled out the word letter by letter and then figured out the correct count.
 
 The technical term for this thinking, by the way, is “test-time compute” or “inference-time compute” which means “making calculations while you’re using the language model.” This is opposed to “train-time compute” which is all the heavy lifting being done before the model is finished. It’s a different way of following the scaling laws, but instead of making the model larger or pre-training it for longer, you make it think longer in the moment. Today, pretty much all models do some form of reasoning and have controls to influence for how long they’d think.
@@ -515,7 +515,7 @@ Luckily, business sidesteps this problem by only caring about productivity and e
 
 So looking out into our future we might see a continuation of this same trend: we can get more things for a lot less money—with the trade-off of being more “boring” and “simple.” We’ll talk more about this later because it’s likely more complicated than that. But for now, let’s look at what AI does to our work *today*.
 
-#### Token Anxiety
+### Token Anxiety
 
 As artificial intelligence has gotten better and better at working for us, we’ve found new ways to optimize. Business, eking out every last drop of productivity it can, found its drug of choice in AI agents. These agents work by you giving them a task, they go out and do it, and when they’re done they’ll come back to you with a result. They might also come back with questions if something’s not clear, or might need manual approval if they’re about to do something potentially dangerous.
 
@@ -526,20 +526,6 @@ Sadly, us being “free” to do something else is a mirage. In practice, you en
 But when you get to a situation where you can fully trust your AI to do the work for you, a new dragon rears its head. Suddenly, you realize that you can be three or five times as productive. And it’s addictive. You get your instant gratification of mountains of useful work that get produced by you barely lifting a fingertip. Your boss loves it. And every second you’re standing next to the watercooler or taking a pee you can’t help but wonder “is it waiting for my approval of something? I know there are still 3 agents I can start with the number of AI credits I have available, I can’t let that just sit idle!” This is what we call **token anxiety**: the anxiety that comes from the knowledge that you’re not using all of the AI tokens you have at your disposal. Five minutes wasted no longer feels like five minutes wasted—it’s three *days’* worth of work wasted. I can tell you this is real because it happens to me, and it’s the reason I deliberately held *off* on purchasing a more expensive tier that would give me quadruple the number of tokens. I was running at the limit of what I could *input* into the AI and I felt the anxiety until the message came that every AI power user dreads: “You have used all of your credits for this session. Your usage will reset in 2 hours and 7 minutes.” It’s the dreaded message you hate to see but it’s also the only thing that *forces* peace onto you. You can finally let go of the pressure to produce because you’re essentially out of work. There’s nothing you could do in these next two hours that couldn’t be done by AI in five minutes, so starting anything at all is just a waste. The best you can do is…take a walk and refresh your mind.
 
 Which is probably exactly what you need at that point.
-
-%%
-#### Much more productive for certain tasks, faster and higher quality
-#### Not always better quality once we get “addicted”
-##### Consequence is producing lower quality work which reduces our satisfaction
-##### Also increases frustration at least for me
-##### After getting used to AI-assisted work, the quality of our work and thinking *without* decreases
-#### At work this is an even bigger challenge because of companies’ profit motives: they care much less about long-term happiness if productivity and output stays high and quality good enough
-#### Cognitive Debt (Thinking)
-##### Using AI is like taking out a loan
-##### Heavy ChatGPT users show the lowest brain activity, over months the memory links weaken
-#### Cognitive Offloading (Memory)
-##### When we expect we’ll be able to find something we won’t try to remember it
-%%
 
 
 ### Disappearing Depth
@@ -740,29 +726,6 @@ AI companions are a fascinating use case because in many ways they’re already 
 
 Instead of AI turning against us and burning the world down, or turning our planet into a utopia, we just keep on doing our thing. Businesses are still driven by finding the cheapest ways to extract profit wherever they can find it and since we now have the technology to exploit the emotionally weaker part of our population, that’s what will happen. The same incentives that made this world as beautiful and comfortable as it is—making food, shelter and healthcare cheaper and cheaper—will also, left unchecked, abuse in the name of profit.
 
-%%
-#### [1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance](1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance)
-##### Show the many businesses working on this, for a long time already actually
-##### Even linked to my thesis from university which was about social robots
-##### Character.ai is very popular
-##### Human lookalike sexbots
-###### https://www.realbotix.com/
-##### Effect on men vs. women—emotional connection is a lot easier with text only vs. eg., physical connection—seems like women see a bigger effect of this pull towards AI relationships
-#### [Effect of LLMs on Social Relationships](Effect of LLMs on Social Relationships)
-#### ChatGPT gives advice rated as better and more independent overall
-##### Trap of sycophancy
-#### Emotionally rich conversations with LLMs increase loneliness and might decrease human connection
-#### In a way, AI is emotional porn: gives an instant release of good emotional feeling, but doesn’t build your real social capacity and deep meaningful relations
-#### Comparing with social media feed, instant messaging, distraction
-#### Because it’s not physical it can fulfill us emotionally, at least in the short term, but there’s a lot of our biology that doesn’t trigger so we still don’t feel that *deep* sense of connection. Physical touch but probably also more, things that we don’t even perfectly understand yet. Like porn it can dampen us in a way because it sort of feels like it fulfills the need but there’s still loneliness and sadness.
-#### Solving: The Hammer or The Lover
-##### Be conscious about emotionality in LLMs (use Petals hah)
-#### Solving: Social Step-Back & Connection Creator
-##### Disappear to facilitate social connection
-##### Encourage social connection, creating bonds through difficult conversation
-##### Encourage talking to people, maybe even knowing who your friends are as in “maybe you should talk to Alex about this”
-%%
-
 ### Advice and Loneliness Loops
 Many of us like to get advice from our Artificial Intelligence—precisely because they’re attentive, they listen, they seem relatively neutral (after all, they’re kind of trained to represent “everything” so you’d expect them to have some center-type opinion) and nobody is reading these conversations. Depending on who you ask, *affective use*—for emotional and psychological needs rather than purely practical—might be one of the largest reasons we go to our trusty language models today.
 
@@ -917,18 +880,6 @@ OpenAI trained virtual agents to play hide and seek with each other. The hiders 
 
 The box surfing from the last example is one that I’d call true creativity, but more so as *an action in itself* rather than in the context of achieving the hide-and-seek goal. It wouldn’t have emerged if we had trained these seekers on “the fastest way to get to the hiders” either. So I’d argue that creativity emerges when you can learn within a complex world that has many goals, and that world doesn’t enforce that you adhere on every step towards reaching those goals.
 
-%%
-#### Working Memory + Inhibition of the obvious
-#### Ability to detatch and see other perspective
-#### Divergent & Convergent Thinking
-One study calls it “blind variation and selective retention”
-#### Motivation * Self-Determination * Positive Mood
-#### Well-linked knowledge (raw materials) is important for creativity
-##### You become more creative once you know more things and have them better connected in your mind—so if you don’t properly learn you’ll have worse creativity
-#### Cognitive fixation
-##### If you see examples, you’re less likely to come up with more novel ideas yourself. So starting with AI might be a bad
-%%
-
 ### Awareness and Creativity
 We all think. But we don’t all know what we’re thinking—or even *that* we’re thinking. This is something you can practice with meditation and what I’d call consciousness or awareness: the ability to know what you’re thinking while you’re thinking it. When I’m aware, I might notice while I’m saying something in a conversation, that my motivation for saying that is so that I would come across as a smart and cool person. Then I might be feeling the internal fear that the other people I’m talking with aren’t taking me seriously or don’t believe my expertise. But then, once I notice all of this, it feels like it fades away like smoke. I can also in real-time adjust what I’m *actually saying* so that my actions aren’t coming from that fear.
 
@@ -951,14 +902,6 @@ Current large language models seem to be about as creative as the average human.
 There’s a trap, though, and it’s called *cognitive fixation* or *functional fixedness*. When we recognize objects, we see them in *how they can be used* and we have trouble seeing other ways the same thing could be used. The same thing happens when we use external help for our creativity, be it AI or even just listening to the ideas of other people. And we humans are lazy: I’m sure you’ve been in brainstorming sessions right after lunch, a little tired, where you just aren’t very motivated to come up with something. Then the most energetic person in the room brings one idea and everyone jumps on bringing easy adjacent ideas, but nothing truly new anymore. If you want real creative ideas, you have to force people to sit down with the frustration of an empty mind for a while until they all come up with their own ideas they can bring to the table.
 
 So there’s a delicate balance to maintain: can we receive inspiration and work with that while not getting stuck in that? AI makes it very easy to delegate our thinking—which we love to do because it saves us from using those precious calories—so it will need a certain amount of restraint to actually stay creative.
-
-%%
-#### [Effect of LLMs on Creativity and Ideation](Effect of LLMs on Creativity and Ideation)
-#### Short-term increases in creativity
-#### Using AI reduces your non-AI creativity
-#### Current LLMs are measured to be about as creative as the average human
-#### The broad knowledge works, but the mechanics of LLMs stop it from finding truly creative ideas
-%%
 
 ## Decision-Making: You Do It
 
@@ -1180,7 +1123,7 @@ In research, they test for your post-traumatic growth with questionnaires. Here�
 
 Roughly half of people report moderate-to-high Post-Traumatic Growth, depending a lot on the type and severity of the episode. It seems like there’s an inverted U-curve to it: if you encountered a minor setback, it didn’t trigger you enough to grow meaningfully from it. If you experienced something truly horrible, it’s just…trauma. Sometimes, it takes months or years for the growth to appear. Sometimes, the growth comes together with PTSD, depression or anxiety. Sometimes, we think we’ve grown but we haven’t quite and we’re deluding ourselves—there’s quite certainly a difference between people’s *reported* PTG and their actual growth—I can tell you from experience that I’ll happily share “the big lessons” I’ve learned from the setbacks in my life, only to later realize I hadn’t really learned them at all yet. The research isn’t out on that yet.
 
-#### Can you grow without trauma?
+### Can you grow without trauma?
 
 This is the point where I’d like to drop the word “trauma.” Real trauma is heavy, terrible and it’s morally wrong to wish it in any situation. It’s also a word that in pop psychology culture has broadened so much in meaning that everyone could say they experienced trauma of some sort. The fact that we can grow from trauma is a lucky coincidence—nobody has done a double-blind lifestyle study yet where they injected half of the people’s lives with near-death experiences just to check if they end up happier, and nobody should be doing that study.
 
@@ -1617,37 +1560,6 @@ But maybe, just maybe, this superintelligence doesn’t *actually leave*. Maybe 
 This is the point in my reasoning where I had to suddenly stop. Looking at that last paragraph, it seems like I’m describing…God?
 
 You’re telling me that the ideal machine we would build for maximizing human life satisfaction, would look exactly like every god in every religion on the planet? How did our engineering approach to build the machine that optimizes human happiness end up creating God? It makes sense, in a way: religion has *always* been one of humanity’s best ways for giving meaning to their lives. Our ancestors survived because they found peace and meaning in assuming that their hardship was caused by a benevolent god that needed them to suffer somehow, and that made them motivated and pull through those rough times they all encountered. But our ancestors also literally faced *real* hardship—their lives were at stake. The fact that all the way on the other side of the spectrum, where everything can be taken care of for us, we seem to find the *exact same thing* is…bewildering. That whole setup is an incredible type of “happiness technology” and in a way it doesn’t even matter whether anything is actually there! Religion worked to give people meaning before anything else existed, and somehow it ends up being the ultimate technology when we have everything, too. The belief that *maybe* there is a benevolent god-like figure is what we need, whether that’s there or not.
-
-%%
-#### [Impact of Struggle on Happiness](Impact of Struggle on Happiness)
-##### Desirable difficulty
-###### Struggle strengthens learning
-###### The kind of difficulty matters: challenge stressors vs. hindrance stressors
-##### Productive failure in teaching
-###### Concept that has been studied for a long time
-##### Post-traumatic growth
-###### Greater appreciation for life if you went through adversity
-
-#### Creating Meaning
-##### Happiness also comes from activities that emphasize meaning like personal growth
-###### This is something where AI can help me: record everything and reflect my wins (works for me, probably not for everyone)
-
-#### Tuning Struggle
-##### Only few people believe AI will automatically make humans happier
-##### Good kind of difficulty
-##### Invisibility
-###### The best AI you don’t see at all
-###### Ideally, AI should be taking care of some things and leave us with exactly the things that will increase our happiness. That can be time for meaningful activities but also challenge in relationships—where it’s not trying to solve it immediately.
-##### Supporting learning
-
-#### Conclusion: AI isn’t a happiness shortcut
-#### Solving: Depth Enabler
-##### Give triggers and prompts for my own thinking
-##### AI should really make me think and reason, it can spot the mistakes in my thinking process and therefor more qualitatively improve my reasoning instead of making me figure it out all at once by just saying the end is wrong
-###### MW: Not 100% sure if that’s best
-###### Related to book [Malcolm Gladwell - Outliers](Malcolm Gladwell - Outliers)
-####### I think here he talked about how to create the precise amount of struggle for ideal growth
-%%
 
 
 # Conclusion
