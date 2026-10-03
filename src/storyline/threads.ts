@@ -57,7 +57,7 @@ export const threads = [
       { kind: "plant", quote: "we also keep seeing “weird” behavior", note: "How Smart Is AI opens on the puzzle." },
       { kind: "plant", quote: "we have all experienced the jaggedness of language models", note: "AI Is Also Surprisingly Stupid: the eggs, the seahorse, ARC-AGI." },
       { kind: "explain", quote: "the intelligence of language models is an *emergent* property", note: "Grown, not built; a different kind of mind." },
-      { kind: "payoff", quote: "So I think they are just past this uncanny valley", note: "We assume its brain works like ours because it talks like us. That is the mistake." },
+      { kind: "payoff", quote: "So they’re just around the uncanny valley somewhere", note: "We assume its brain works like ours because it talks like us. That is the mistake." },
       { kind: "use", quote: "AI feels like the most intelligent thing that has ever existed yet often it has a complete lack of common sense", note: "A Machine Mind in a Human World closes Part 1 on it." },
     ],
   },
@@ -84,7 +84,7 @@ export const threads = [
     title: "Sycophancy: trained to please",
     question: "Why does AI always agree with me, what does that do to people, and can it be fixed?",
     mentions: [
-      { kind: "plant", quote: "(they try to respond with what you’ll like", note: "How Smart Is AI lists it among the weird behaviors." },
+      { kind: "plant", quote: "AI just tries to tell you whatever you’ll like to read", note: "How Smart Is AI lists it among the weird behaviors." },
       { kind: "explain", quote: "we humans are a little bit like a god", note: "The Sycophancy section explains RLHF: we reward what we like." },
       { kind: "use", quote: "this is exactly how AI is trained: we show a human two responses", note: "Love & Connection: the perfect partner is the training objective." },
       { kind: "use", quote: "Sycophancy is profitable", note: "The Business of Companionship: the flaw is a feature for revenue." },
@@ -101,8 +101,11 @@ export const threads = [
     mentions: [
       { kind: "plant", quote: "This is a transcript of a conversation between a human user and a helpful, friendly AI assistant", note: "The chat scaffolding shows the model completing a transcript." },
       { kind: "explain", quote: "it’s the writer of the screenplay much more than the “AI” persona acting in it", note: "Language Models Are Screenplay Writers, with the interactive exhibit." },
+      { kind: "use", quote: "the model also seems to choose and refine the personality", note: "Screenplay Writers: post-training picks the Assistant from the characters the writer already knows." },
+      { kind: "use", quote: "that was part of the persona it built up", note: "Hidden Motives: the blackmail comes from the persona." },
       { kind: "use", quote: "the model might read these exact paragraphs", note: "Alignment Faking: the writer learns its own character from the training data." },
       { kind: "use", quote: "We discussed earlier how, from the point of view of the AI model", note: "Alignment Research re-explains the idea." },
+      { kind: "use", quote: "it might refine the Assistant persona", note: "Teaching AI Good Behavior: undirected training data can pick the wrong persona." },
       { kind: "payoff", quote: "let me write the script like this", note: "Synthetic Document Fine-Tuning: fix the character by changing the stories the writer has read." },
       { kind: "use", quote: "until something stops it (literally, that’s how it works)", note: "Infinite Creation: the writer never stops on its own." },
     ],
@@ -110,9 +113,9 @@ export const threads = [
   {
     id: "judge",
     title: "Who checks the machine?",
-    question: "We will trust AI too much, too quickly. The human's job becomes judging its work. Can we keep doing that, and does AI take that job too?",
+    question: "AI makes mistakes no human would. The human's job becomes judging its work. Can we keep doing that, and does AI take that job too?",
     mentions: [
-      { kind: "plant", quote: "Probably my biggest fear is not necessarily that AI will be so smart", note: "Part 1 names the fear: we trust it too quickly because the time saved feels free." },
+      { kind: "plant", quote: "learn how to deal with the types of errors it makes", note: "Part 1 closes: we cannot fully trust it, so we learn to work with its errors." },
       { kind: "explain", quote: "There’s no way you can do good work with language models unless there’s a good judge involved", note: "Being a Good Judge: technical knowledge plus theory of mind." },
       { kind: "use", quote: "the skill of working with a machine brain involves perhaps the most human skill of all", note: "The section's closing line." },
       { kind: "use", quote: "the analogies are plain wrong embarrassingly often", note: "Learning: the law-school friend cannot yet trust the tutor." },
@@ -297,7 +300,7 @@ export const threads = [
     question: "A machine that always agrees feels like the perfect partner. What do real bonds need that it cannot give?",
     mentions: [
       { kind: "plant", quote: "the resolution to give our love despite everything trying to sabotage it", note: "The Introduction plants the Conclusion's line about love." },
-      { kind: "plant", quote: "as evidenced by how many people are building emotional bonds with these algorithms", note: "Part 1's uncanny valley hints at the Love chapter." },
+      { kind: "plant", quote: "as evidenced by how many people are building emotional bonds with these systems", note: "Part 1's uncanny valley hints at the Love chapter." },
       { kind: "explain", quote: "it’s exactly the difficulties in dealing with other real, messy people that create unbreakable bonds", note: "The Rise of Synthetic Bonds." },
       { kind: "use", quote: "the Final Boss: **AI Companions**", note: "From ELIZA to Tamagotchi to Replika." },
       { kind: "use", quote: "No amount of AI chat is going to activate your C-tactile fibers", note: "Biology's Unmet Hunger: touch, sync, smell." },
@@ -344,6 +347,7 @@ export const threads = [
     title: "Is AI creative? Why its output smells like slop",
     question: "AI has all the ingredients of creativity yet produces the average. Where does novelty come from, and why can we smell the difference?",
     mentions: [
+      { kind: "plant", quote: "Over time you acquire a gut instinct for", note: "Hallucinations: we learn to smell when it is bullshitting." },
       { kind: "plant", quote: "We’ll talk more about this later because it’s likely more complicated than that", note: "Work promises to return to cheap-but-boring." },
       { kind: "plant", quote: "how we can “smell” the AI in things", note: "The Good-Enough Rocket: our pattern-matching beats the model’s." },
       { kind: "plant", quote: "The romantic view that humanity will prevail after all because we have something special in our creativity seems in danger", note: "Creativity chapter opens the question." },
@@ -360,6 +364,7 @@ export const threads = [
     title: "Responsibility, consequence, consecration",
     question: "When execution, attention and judgement are abundant, what is left for humans? Something that cannot be sued for.",
     mentions: [
+      { kind: "plant", quote: "There is no consequence to the AI model itself", note: "AI-Induced Delusion: the model forgets the conversation; the person lives with it." },
       { kind: "plant", quote: "As humans, we’ll be the ones responsible for the decisions", note: "Decision-Making states the romantic view before tearing it up." },
       { kind: "explain", quote: "An artificial intelligence is not a legal entity", note: "Responsibility: the notary and the founder." },
       { kind: "use", quote: "the *share of our work* that comes down to responsibility will keep increasing", note: "Consequence-heavy work becomes valuable." },

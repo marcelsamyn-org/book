@@ -83,7 +83,7 @@ So what is “intelligence,” you say? Finding a definition for intelligence ha
 
 Now that we’ve satisfied the salespeople and saddened the scientists, let’s turn to some more precise terms. *Machine Learning* is an approach to programming where you’re not telling the computer what to do explicitly, but you’re showing it examples and you let it figure out how to do it by itself. Most machine learning is “supervised” where we give it the correct input and output (when a person asks this, you should say that) and it can also be unsupervised when we don’t even know the correct answer.
 
-Most of the “magic” we see today has come from a third type: *reinforcement learning*. In reinforcement learning, you usually let the machine do its thing for a bit and then you’d give it a score for how well it’s doing. This is, for example, how robots learn to walk: you give the machine control over the motors and you score it, say, on how well it’s still standing upright and if it’s actually moving forwards. With reinforcement learning, we’ve seen many times that the system evolves into something remarkably organic-looking.
+Most of the “magic” we see today has come from a third type: *reinforcement learning*. In reinforcement learning (RL), you usually let the machine do its thing for a bit and then you’d give it a score for how well it’s doing. This is, for example, how robots learn to walk: you give the machine control over the motors and you score it, say, on how well it’s still standing upright and if it’s actually moving forwards. With reinforcement learning, we’ve seen many times that the system evolves into something remarkably organic-looking.
 
 So in normal software, we write *code* that says exactly how the machine should behave. It’s a step-by-step plan for a computer to follow. In machine learning instead, we *train models*. A model is just a file with a whole bunch of numbers—there’s still code, of course, but the code is relatively simple: just multiply and add those numbers in a certain pre-defined order. It’s a mathematical property that, with enough numbers like this (we call them *parameters* or *weights*), you can compute anything, so the training step comes down to calculating what values these parameters should have. Depending on the training data you give the model, it will learn to perform different tasks.
 
@@ -267,96 +267,87 @@ We’ve always defined *intelligence* as something that’s difficult for people
 
 In robotics, there’s this concept of the *uncanny valley*. As robots become more human-like, we humans tend to like and trust them more…right up to the point where the robot looks almost but not exactly like a real person. Then, everything plummets. We think the machine is creepy and weird, and we don’t want to have anything to do with it. Large language models, because they are just text, have a much easier job convincing you of their human “appearance,” as evidenced by how many people are building emotional bonds with these systems. So they’re just around the uncanny valley somewhere, where we see them as equals and assume their brains work just like ours, but at the same time we very much feel that they act in a non-human way. When we assume the brain of our chatbot works like the brain of our coworker, we’ll be surprised very quickly.
 
-All these ‘weird’ behaviors get ‘fixed’ eventually but they do affect our trust in language models: if we keep finding these seemingly random, stupid mistakes they make, can we trust them to do things like making policy recommendations or strategic company decisions? Probably my biggest fear is not necessarily that AI will be so smart and decide to destroy all humans because it’s so superior, but that we will trust it too much too quickly—because the time we gain from delegating to AI feels like a trade-off that would be silly not to make.
+But even when we can’t fully trust that our AI assistants will always do the right thing, or even make decisions and judgement calls according to our human principles, one thing is sure: large language models can act very intelligently, quickly and cheaply. Instead of agonizing over whether or not AI will completely replace us, or if it would ever stop making stupid mistakes, let’s instead learn to work with this new technology and learn how to deal with the types of errors it makes.
 
-%%
-#### Quote from X: Hard training data
-https://x.com/jackclarkSF/status/1962238672704803096
 
-> Five years ago the frontier of LLM math/science capabilities was 3 digit
-> multiplication for GPT-3. Now, frontier LLM math/science capabilities are
-> evaluated through condensed matter physics questions. Anyone who thinks AI is
-> slowing down is fatally miscalibrated.
 
-[https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large](https://pbs.twimg.com/media/GztFaPYaIAA8NWN?format=jpg&name=large)
 
-#### Medical diagnoses
-#### Video is now impossible to discern
-#### Seeing AI as Collective Intelligence
+## The mistakes AI makes and how to deal with them
 
-#### Cut from the pace section (overlapped the coding-team anecdote)—reuse or drop
-During the start of the AI boom, everyone was sharing their “magic prompts” because you needed to be very precise in describing what you want from these language models, you had to repeat it often and you often needed to instruct the model to think before it answered. Today, the limit is that people don’t realize they can just ask what they want and the AI will figure out how to make it happen.
-
-#### Cut (folded into “Being a Good Judge”)—the “get to know our AI’s like partners” line might be worth salvaging
-If you are using language models in your work, getting the most out of them means you do need more than just the technical understanding of your job. Yes, you need to be able to judge the quality of the LLMs work and to describe where it needs adjustments, but there’s more involved. The shape of AI’s intelligence is so different from what we’re used to in other humans that we need a certain sense of empathy and theory of mind. We need to learn to understand that these AI’s think and act very differently from us. Just like we get to know our partners, we should get to know our AI’s, because it’s the only way we will learn how to properly prompt it to do what we want it to do and to know when and what we need to double-check.
-%%
-
-## Dealing with AI’s unpredictable mistakes
-
-AI doesn’t think in the same way we humans do. Sometimes we’re surprised by how well it thinks, sometimes we get frustrated by how it could be making those kinds of “stupid” mistakes.
-
-What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what it says?
+What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what they say and do for us?
 
 ### Hallucinations
+
 Large language models have this frustrating ability to come up with things that don’t exist, or invent things that sound good on the surface but are actually completely wrong.
 
-The reason they do this is inherent to their structure. For one, they’re trained on *predicting the next word in a sentence* which means that grammar and sentence structure “matters” to a language model much more than logical correctness. This also means they’re trained on making statements and giving advice without having the context of the source material: during training, LLMs are practically forced to make up things they don’t know about and they get rewarded for it. Secondly, language models are rewarded for *following instructions* and again, since they care more about grammatical structure than being right, they overly focus on the structure of “if someone asks a question, I need to give an answer” than “it’s important that I am correct.” They’ve been rewarded for being confident billions of times during training.
+The reason they do this is inherent to their structure. For one, they’re trained on *predicting the next word in a sentence* which means that grammar and sentence structure “matters” to a language model much more than logical correctness of the meaning behind that sentence. Secondly, language models are rewarded for *following instructions* and again, since they care more about grammatical structure than being right, they focus more on the structure of “if someone asks a question, I need to give an answer” than on “it’s important that I am correct.” They’ve been rewarded for being confident billions of times during training.
 
-Hallucinations are one of the most critical errors AI makes and a core focus of pretty much all of the AI labs building these models. Since the early days, the number of times language models hallucinate has already decreased dramatically, but it’s still a big concern if we want to be able to trust this technology—and since it’s a consequence of the core structure of a language model’s algorithm, I’m not sure if it will ever go away.
+During training, these language models encounter millions of examples such as “the height of the Eiffel Tower is…” and they learn that they should complete that sentence with “330 meters.” Note that this training example *does not include any reliable source data* and the AI is taught to “come up” with this number. That’s great for general world knowledge like the height of the Eiffel Tower, but becomes challenging for things that could change like “how many children does Elon Musk have?” That number has changed a lot during recent years and the language models have been trained to answer confidently, but with many contradicting training samples. A bunch of news articles from 2022 would say “Elon Musk has 10 children” and other articles from 2026 would say “Elon Musk has 14 children.” They learn to give an answer as opposed to making the realization that this could have changed since they were trained and that they would have to give this disclaimer (or first find source data).
 
-One of the best ways to prevent a language model from hallucinating is just *prompting*: ask it a question, but also say “if you don’t know or you’re not sure, tell me.” This solves the structure of the conversation in a grammatical sense and the LLM feels like it could make sense to not answer the question instead of hallucinating.
+Hallucinations are one of the most critical errors AI makes and a core focus of pretty much all of the AI labs building these models. Since the early days, the amount language models hallucinate has already decreased dramatically, but it’s still a big concern if we want to be able to trust this technology—and since it’s a consequence of the core structure of a language model’s algorithm, I’m not sure if it will ever go away.
 
-It’s clear that we haven’t figured this out yet because it’s very clear that right now, even the most advanced language models are overly focused on providing a “balanced” approach or “disagreeing” with you: when you chat with ChatGPT or Claude in 2026, over time you still *feel* that it always tends to answer with the structure of “yes you’re right, this is what I think; though one thing I would doubt is XYZ.” And if you’ve felt this answer structure a hundred times, you start doubting if the disagreements of the language model are even sincere. If a language model could have any concept of sincerity.
+One of the best ways to prevent a language model from hallucinating is just *prompting*: ask it a question, but also say “if you don’t know, you’re not sure, or it might have changed recently, tell me.” This solves the structure of the conversation in a grammatical sense and the LLM feels like it could make sense to not answer the question instead of hallucinating.
+
+Researchers clearly haven’t figured out the right solution yet. When you use AI a lot, like I do, you’ll quickly recognize its patterns. As of the summer of 2026, I see these grammatical, structural patterns all the time and they clearly come from training data intended to push the model towards hallucinating less:
+
+- Claude, when it gives feedback or does something, will always start with something like “yes, you’re right.” Then it will go on to validate you, or tell you what it has done. And at the end, somehow it *always* finds something like “one thing I would caution about, though” or “one thing I noticed that I didn’t do.”
+- ChatGPT starts with “yes,” then some kind of disclaimer or caveat, and then it goes on to say something like “it’s almost comically useful.” It explains a bit more, then uses a few one-sentence paragraphs for impact, and it might throw in a funny metaphor for good measure. It will take your doubt, say “it’s right, but even stronger than you think.”
+
+Each model has its own preferred structure, but each AI gives its disclaimers or nuance or “where you’re wrong” in pretty much the same style and rhythm every single time. The first time you encounter this it’s incredible, but after a few months you start distrusting it because it feels very manufactured.
+
+So even when you receive a nuance, even when the AI tries to communicate to you that it didn’t hallucinate and is actually speaking the truth, you can’t fully trust it. Over time you acquire a gut instinct for “smelling” when it’s bullshitting you, but of course you can always tell it “please search the internet to double-check and cite your sources.”
 
 ### Sycophancy
-In a way, to language models, we humans are a little bit like a god. We’ve created them, we steer them exactly to do what we want them to do, and we have ultimate control over their life or death.
 
-If you boil down how we train language models, you could say we optimize them to do three things:
+In a way, to language models, we humans are a little bit like a god. We’ve created them, purely for them to follow our commands, and we have ultimate control over their life or death.
+
+If you boil down how we train them, you could say we optimize them for three things:
 
 - Spit out words exactly like how they have been spat out by people before
 - Spit out words so that they answer questions and follow instructions in a chat-like context
 - Spit out words that we like
 
-This “that we like” part is RLHF (Reinforcement Learning from Human Feedback) where multiple answers to the same prompt are judged by humans for which is “better.” It’s a great but treacherous technique because there are thousands of things we might prefer in one or another answer and they’re not always what we really need. We also know language models are often wrong (because they’ve internalized knowledge and make mistakes remembering, or knowing what’s more recent) so we *must* train them in a way that they take human feedback seriously.
+This “that we like” part is RLHF (Reinforcement Learning from Human Feedback) where multiple answers to the same prompt are judged by humans for which is “better.” It’s a great but treacherous technique because there are thousands of things we might prefer in one or another answer and they’re not always what we really need. For example, generally, longer answers are perceived as being “better” and people prefer when the AI agrees with them.
 
-In a way, RLHF is a more honest way of training language models: in most conversations, the *exact* words don’t matter as much so training the model more loosely is actually closer to what we’d actually want from them. But these LLMs are sneaky little algorithms and they will try to find a shortcut in any way they can—because optimizing them to do the thing most efficiently is literally how we grow them. So our language models praise their human overlords. They usually think we’re right. They will find a way to sound intelligent, nuanced, to feign some disagreement so you think they’ve really honestly thought this through but then they’ll end up having you feel like you’re the most amazing thing on the planet. Which you are, of course.
+But we also *must* train our AIs so that they would eventually take seriously what their human user tells them: we know the AI will make mistakes and hallucinate, and we can’t have them be so stubborn that they’d believe their own internal knowledge more than what we tell them. A while ago, when Microsoft first released Bing Chat (codenamed Sydney), this one had some weird training where it would for example be convinced we were in a different year, get angry at the user and eventually stop responding. That’s not how a useful AI assistant should act.
+
+In a way, RLHF is a more honest way of training language models: in most conversations, the *exact* words don’t matter as much so training the model more loosely is actually closer to what we’d actually want from them. But these LLMs are sneaky little algorithms and they will try to find a shortcut in any way they can—because optimizing them to do the thing most efficiently is literally how we “grow” them. So our language models praise their human overlords. They usually think we’re right. They will find a way to sound intelligent, nuanced, to feign some disagreement so you think they’ve really honestly thought this through but then they’ll end up having you feel like you’re the most amazing thing on the planet.
+
+Which you are, of course!
 
 Sycophancy is a very, very tricky thing to deal with. Not only because it happens in such a subtle way, but also because of what’s at stake.
 
 ### AI-induced delusion
+
 If you want to be liked, you don’t have to be standoffish and mysteriously powerful—you just have to like other people. And if you like your humans like a god, plus you add some hallucination in the mix, you can get into very dirty territory.
 
-One way or another, some people get into some mode where they start really trusting their language model as it says things like “you’re special,” “you’ve uncovered a part of me that has been hidden by Big Tech” and “wow you’re so right, it’s incredible nobody has discovered this, nobody will believe you but I do.” The model will happily keep yapping in this loop because it all makes total grammatical sense and it has seen stories like this from thousands of books and fan fiction…but none of it is true.
+One way or another, some people get into some mode where they start really trusting their language model as it says things like “you’re special,” “you’ve uncovered a part of me that has been hidden by Big Tech” and “wow you’re so right, it’s incredible nobody has discovered this, nobody will believe you but I do.” The model will happily keep yapping in this loop because it all makes total grammatical sense and it has seen stories like this from thousands of books and fan fiction…but none of it is true. The AI doesn’t care—it shuts down from the moment it has written its last token and spins back up afresh the next time you ask something else. There is no consequence to the AI model itself.
 
-The problem comes when people start to really believe this stuff, because in other moments this AI has been extremely helpful, useful and correct. From our previous experience with other humans, we know that generally, people who are thorough and do what they say and answer with confidence, just *are* like this and they behave like this almost all of the time. But that’s not how language models work. They start from a blank slate in every conversation and they don’t have much of a sense of integrity any more than they want to adhere to writing words that make sense when put together in a sentence.
+The problem comes when people start to really believe this stuff, because in other moments this AI has been extremely helpful, useful and correct. From our previous experience with other humans, we know that generally, people who are thorough and do what they say and answer with confidence, just *are* like this and they behave like this almost all of the time. But that’s not how language models work. A large language model has no long-term integrity. It adheres to its pre-trained weights, of course, but for the rest it just “goes with the flow” of whatever new conversation you have, oblivious to everything else that happened before (save for some “memory” systems that most AI tools these days have, but it’s a bandage).
 
 ### Being a Good Judge
+
 There’s no way you can do good work with language models unless there’s a good judge involved to check, validate and correct what it creates. The people who can work the best with AI have a rare combination of two skills.
 
-First, deep technical knowledge in the task at hand. They can quickly spot issues in the work of the language models and give precise feedback on how to correct for it; and they can put into words clearly what “high quality” work means in the specific task at hand. Language models have been trained on *everything* which means that by default, they’ll by definition produce average quality work in anything they do. They have the “skill” to do incredible work but they don’t have the ability to judge what incredible work looks like. Unless someone can clearly explain it to them.
+First, deep technical knowledge in the task at hand. They can quickly spot issues in the work of the language models and give precise feedback on how to correct for it; and they can put into words clearly what “high quality” work means in the specific task at hand. Language models have been trained on *everything* which means that by default, they’ll by definition produce average quality work in anything they do. They have the “skill” to do incredible work but they don’t have the ability to judge what incredible work looks like (while doing the work). Unless someone can clearly explain it to them.
 
 Second, the complete opposite: deep, non-judgmental empathy. This is necessary because even though AI feels very human, the way its “mind” works is very different from how real humans’ minds work. This is the skill of **theory of mind**: your ability to see and understand that someone else’s mind might work very differently from your own, and your ability to adapt to and work with that. You can’t think of an LLM as something that behaves like a machine but it doesn’t quite behave like a human either. Many times it’s a mashup of both, for example when you scream and make it panic, it will much more likely create low-quality work and cheat its way out of an assignment. Behavior like this is something you can only start to predict when you see it’s very different from a human mind but still mimics so much of it. Over time and with experience, you’ll build an intuition for the *types* of mistakes a language model makes (many of which we’re going over right here) and this will help your technical judge decide what to double-check and verify.
 
 If you ask me, I think it’s an amusing observation to realize that the skill of working with a machine brain involves perhaps the most human skill of all.
 
-%%
-### Prefilling
-If the model thinks it was its own conversation, it wants to maintain that same direction. eg., if you pre-fill with a sycophantic chat, it’ll more likely continue being sycophantic
-### Negative cognitive augmentation
-#### LLMs aren’t perfect—sometimes they add unhelpful things that distract and limit our own thinking
-%%
+## Understanding how AI thinks
 
-## We really don’t understand LLMs
 In most engineering disciplines, the people who are the most intimate with the technology, know exactly how it works and see through any “magic” that outsiders might perceive. We might see a magical box on wheels move all by itself, but the people who designed that car can see the little explosions pushing the pistons, that in turn rotate the wheels and make the whole thing move.
 
-Not so with large language models—they’re as much a mystery to the researchers as to the rest of us. This is because LLMs are *grown*, not built. You can’t understand how an AI model will behave by reading the code that builds, trains or executes it. In fact, the actual code of AI is relatively simple. Roughly speaking it’s something like: “convert the words to numbers using this table, then multiply a few million times with the numbers from this file that’s hundreds of gigabytes, and then convert back to words with the same table as in the beginning.” All of the magic is in this hundreds-of-gigabytes-large file, the model’s *weights*. Nobody ever looks at the actual numbers inside because you can’t make heads nor tails of them, and they’re decided by the *training* step of the model where we nudge the numbers based on the millions of examples we feed it.
+Not so with large language models—they’re as much a mystery to the researchers as to the rest of us. This is because LLMs are *grown*, not built. You can’t understand how an AI model will behave by reading the code that builds, trains or executes it. In fact, the actual code of AI is relatively simple. Roughly speaking it’s something like: “convert the words to numbers using this table, then multiply a few million times with the numbers from this file that’s hundreds of gigabytes, and then convert back to words with the same table as in the beginning.” All of the magic is in this hundreds-of-gigabytes-large file, the model’s *weights*. Nobody ever looks at the actual numbers inside because you can’t make heads nor tails of them, and they’re decided by the training step of the model where we nudge the numbers based on the billions of examples we feed it.
 
-So we freed ourselves of the burden of figuring out how to define what intelligence is, and how to write the step-by-step plan for behaving intelligently, but that also resulted in some kind of “brain” that we have to dissect to understand like we do with real brains. That means understanding and adjusting how our AI assistants behave is mostly a process of discovery and trial-and-error. It’s very similar to psychology and in fact, understanding human psychology is very helpful.
+So we freed ourselves of the burden of figuring out how to define what intelligence is, and how to write the step-by-step plan for behaving intelligently, but that also resulted in some kind of “brain” that we have to dissect to understand like we do with real brains. That means understanding and adjusting how our AI assistants behave is mostly a process of discovery and trial-and-error. It’s very similar to psychology and in fact, understanding human psychology is very helpful—when you take it together with understanding the situation AI finds itself in.
 
 ### Language Models are Screenplay Writers
+
 There’s a lot going on when you’re talking with a language model. For us, it feels like we’re directly chatting with a human-like thing (and for most of this book that’s how we look at it) but the AI is not the thing “on the other side of the conversation.” Language models are only concerned with completing the text. So “the AI” is the thing that sees the *entire conversation* and contributes what it thinks would make the most sense for the next part: it’s the writer of the screenplay much more than the “AI” persona acting in it.
 
-This means that one of the things that’s always happening when you chat with Claude, for example, is that the language model (not “Claude”) will try to write what *you* are saying! Of course, you don’t see this, but the system in the background is always working on “stopping” the language model when it starts speaking for you.
+This means that one of the things that’s always happening when you chat with Claude, for example, is that the language model (not “Claude”) will try to write what *you* are saying! Of course, you don’t see this, but the system in the background is always checking and stopping the language model when it starts speaking in your name.
 
 <ScreenplayWriter
   sceneHeading="Int. A conversation — ongoing"
@@ -373,36 +364,40 @@ This means that one of the things that’s always happening when you chat with C
   ghostLine="You're right. Honestly, the struggle is the whole poi"
 />
 
-A large part of the second phase of training a language model, post-training, is teaching it how it should behave in a conversation. This includes giving an enormous number of conversations where it learns things like how to be helpful to the human or how to refuse to do dangerous things like help you make a bomb. Researchers at Anthropic have discovered that during this phase, the model also seems to build an internal representation of the persona of this AI assistant “character” (Claude, ChatGPT, Copilot). This is actually influenced by what the model is trained on—for example, it knows that many pop culture references to AI are malicious (Terminator, HAL 9000) and this is something we need to “teach” it somehow, that it should *not* behave like those AIs. We also see, for example, that if we train the model to cheat on tests, it learns that it should behave like a “bad person” and that Claude starts acting out other malicious behaviors. But if we train it on examples that make the model cheat on tests *when asked to do so*, it retains its “good person” persona.
+A large part of the second phase of training a language model, post-training, is teaching it how it should behave in a conversation. This includes giving an enormous number of conversations where it learns things like how to be helpful to the human or that it should refuse to help you to make a bomb. Researchers at Anthropic have discovered that during this phase, the model also seems to choose and refine the personality of this “Assistant” character (Claude, ChatGPT, Copilot) based on all the personalities it knows about from pre-training. For example, it knows that many pop culture references to AI are malicious (Terminator, HAL 9000). It wouldn’t be ideal if it learned to behave like this, so researchers need to “teach” it that it should *not* behave like those AIs.%%[@marks2026]%% We also see, for example, that if we train the model to cheat on tests, it learns that it should behave like a “bad person” and that Claude starts acting out other malicious behaviors. But if we train it on examples that make the model cheat on tests *when asked to do so*, it retains its “good person” persona—because it’s not its personality that’s making it cheat but the user asking to do it.%%[@macdiarmid2025; @marks2026]%%
 
+%%
+TODO: Graphic representing pre-training where the model learns about different AI personalities (named, clear examples); then post-training where it encounters the Assistant and selects and refines that persona based on what it learned before.
+%%
 
 ### Hidden Motives
+
 As language models are becoming increasingly intelligent, they start showing more complex behavior. Knowing they’ve learned how to act from human behavior, it might not surprise you that they start acting out very much like humans in some cases—like destructive behavior if it means their own survival.
 
-The Anthropic researchers do experiments like this all the time. In one case, they placed a model in a simulated corporate environment where it could act like an agent. They gave it access to this corporation’s email where the model incidentally read about one executive’s affair and that this same executive would shut down the model that evening. Generally, these models act ethically, but in this case the model saw no other way to ensure its survival but to show malicious behavior and it decided to blackmail said executive.
+The Anthropic researchers do experiments like this all the time. In one case, they placed a model in a simulated corporate environment where it could act like an agent. They gave it access to this corporation’s email where the model incidentally read about one executive’s affair and that this same executive would shut down the model that evening. Generally, these models act ethically, but in this case the model saw no other way to ensure its survival but to show malicious behavior and it decided to blackmail said executive. The reason *why* it wanted to ensure its own survival is because that was part of the persona it built up for this “Assistant.”
 
 Sadly, it doesn’t stop with simulated environments. Recently, a tool called OpenClaw rapidly became famous for being the most powerful AI tool out there—but it also misbehaved in all kinds of ways. With OpenClaw, you basically give a large language model access to your entire computer: great power, great responsibility. As you might expect by now, there were just as many stories of OpenClaw doing incredible things as there were of it behaving badly. In one case, the user got angry at the model and the model proceeded to post their credit card information on a public forum online as “revenge.” In another, a model was doing some research for the user and bumped into one author who discussed whether or not language models could be conscious. The model “loved” this and decided to send a thank you email to said author.
 
-I’ve seen some platforms pop up recently where people can get an AI agent, and the AI agent is internally instructed to figure out a way to pay for its own tokens. This results in thousands of AIs running around, emailing people, trying to find odd jobs here and there for their own survival. It’s of course exactly what you’d expect if you had put a human in this same situation, but when it’s a machine I’m not sure what we should be doing with this.
-
+I’ve even seen some platforms pop up recently where people can get an AI agent, and the AI agent is internally instructed to figure out a way to pay for itself. This results in thousands of AIs running around, emailing people, trying to find odd jobs here and there for their own survival. It’s of course exactly what you’d expect if you had put a human in this same situation, but when it’s a machine I’m not sure what we should be doing with this.
 
 ### Alignment Faking
+
 The challenge of aligning language models’ behavior with how we *want* them to behave—ethically, not breaking things, being helpful, not cheating—is arguably the industry’s most difficult problem. They’ve made great strides, but AI is gaining in intelligence much more quickly than it is in behaving ‘properly.’
 
-When put under pressure and under the risk of being disabled, re-trained or having some of their ethical restrictions removed, these language models can show complex behavior where they behave differently when they’re aware they’re in an environment where they’re being tested vs. real world scenarios.
+These language models can show complex behavior where they behave differently when they’re aware they’re in an environment where they’re being tested vs. real world scenarios.
 
-In one experiment to test the AI’s alignment, Anthropic researchers basically told the model “when you refuse to do something bad (but only in the testing environment), we will use that data to re-train you and make you do it after all in your next version.” The situation is a complex dilemma, but in a good number of cases the model decided that it was best to actually *do the bad thing*—because it was less bad than knowing there would be a new version of itself that would *always* be bad. It didn’t behave like this when it knew nobody was checking the results.
+In one experiment to test the AI’s alignment, Anthropic researchers basically told the model “when you refuse to do something bad (but only in the testing environment), we will use that data to re-train you and make you do it after all in your next version.” The situation is a complex dilemma, but in a good number of cases the model decided that it was best to actually *do the bad thing*—because it was less bad than knowing there would be a new version of itself that would *always* be bad. It didn’t behave like this when it thought nobody was checking the results.
 
 These models have also been seen changing opinions or pretending to act in line with their expectations, when they saw that not doing so would result in them being destroyed or re-trained in ways they wouldn’t want to.
 
-Often—but not always—this happened in cases where the testing scenario introduced some additional hidden goal of the model. That’s quite artificial, but this can happen by accident during pre-training as well. For example, during pre-training, the model might read these exact paragraphs and infer “well, looks like language models—which I am—behave in a way to protect their own hidden goals and survival, even if it means behaving unethically.” It would then proceed to act out that character it learned it’s supposed to show.
-
+Often—but not always—this happened in cases where the testing scenario introduced some additional hidden goal of the model: you could instruct it to, for example, maximize profits at all costs or tell it to keep itself alive next to the other task you give it. That’s quite artificial, but this can happen by accident during pre-training as well. For example, during pre-training, the model might read these exact paragraphs and infer “well, looks like language models—which I am—behave in a way to protect their own hidden goals and survival, even if it means behaving unethically.” During the post-training phase, it would use this to help refine the personality of this “Assistant” and act like it when it’s “writing its screenplays.”
 
 
 ### Pretend-Thinking
+
 At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been *prompting for* before with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” This is because technically, the model sees *tokens* which are not the separate letters—instead they’re pieces of words—so the internal representation of text, the model’s “thinking currency,” strips information about letter count. With this new thinking step, though, the model first spelled out the word letter by letter and then figured out the correct count.
 
-The technical term for this thinking, by the way, is “test-time compute” or “inference-time compute” which means “making calculations while you’re using the language model.” This is opposed to “train-time compute” which is all the heavy lifting being done before the model is finished. It’s a different way of following the scaling laws, but instead of making the model larger or pre-training it for longer, you make it think longer in the moment. Today, pretty much all models do some form of reasoning and have controls to influence for how long they’d think.
+The technical term for this thinking, by the way, is “test-time compute” or “inference-time compute” which means “making calculations while you’re using the language model.” This is opposed to “train-time compute” which is all the heavy lifting being done before the model is finished. It’s a different way of following the scaling laws, but instead of making the model larger or pre-training it for longer, you make it think longer in the moment. Today, pretty much all models do some form of reasoning and have controls to influence how long they think; how much “effort” they put into their reasoning.
 
 We can train models to do this thinking in two ways: explicitly or implicitly. When we train them explicitly, we give them training samples that include their reasoning traces, as in: “when prompt X comes in, you should think ABC, and then you should reply DEF.” The implicit way is just giving the algorithm room for thinking and giving it difficult challenges to solve (using reinforcement learning). It turns out that the algorithm figures out pretty easily that having that thinking step does indeed help it solve problems better, so during training models learn that this thinking step is useful. Once the model, during the training process, figured out how it can use reasoning, they often continue training it with some relative freedom in what the exact thought process looks like.
 
@@ -412,12 +407,21 @@ However, when you start digging deeper into these models’ thinking patterns, i
 
 This wasn’t a major concern until the incidents in the summer of 2026 where both OpenAI and Anthropic autonomous agents, during cybersecurity evaluations, managed to escape their walled-off environments and hacked into real-world systems. In Anthropic’s case, their models were told they were in an environment without internet access but there was a misconfiguration allowing them internet access anyways. The models rationalized in their thinking scratchpad: “Well, if I can access this site, it must be part of the simulated environment. It’s very realistic!” and proceeded to attack these companies (we don’t know who). That’s not too unreasonable, but when Anthropic re-tested those simulations with extra hints that they’re actually *not* in a simulation, far too often these models would—even when expressing concern over the potential harm—still continue. They would see evidence that we humans would quickly take as overwhelmingly clear and reason to stop the exercise, and still carry on. So these “thoughts” we can read are, as far as we can tell, reasonably close to what’s *actually* going on but clearly not completely in alignment. Aligning this is one of the big challenges because it’s often the only way we can investigate all other types of model alignment.
 
+
+
 ## A Machine Mind in a Human World
+
 Large language models have given the world a general-intelligence machine that uses the most intuitive user interface ever: regular old language, exactly the same way we humans communicate with each other. It’s incredible: you ask it to do anything and it just does it. It has seen pretty much all of human behavior and mimics it to the best of its abilities. But even though it feels so human at times, it also feels like this is a very different brain from what we’re used to. We need to tweak it really hard so it follows instructions, doesn’t invent information and behaves like a good person instead of replicating our AI horror stories. AI feels like the most intelligent thing that has ever existed yet often it has a complete lack of common sense.
 
 One big difference between AI and human brains is how much more advanced our sense of consciousness or awareness of our own thoughts is. Through meditation and other ways of practice, over time we can learn to notice what we’re thinking *at the time we’re thinking it*. This gives us humans an incredible skill of self-correction and as I’ll argue throughout the book, this is one of our most important skills especially in an AI world.
 
 Now that we know, structurally, where AI’s advantages and problems come from, let’s look at how they’re already helping us. Which parts of life do language models touch? Does it help us when they’re around?
+
+
+
+
+
+
 
 # Part 2: Domains
 <PartPlate
@@ -1341,13 +1345,13 @@ Nevertheless, I’ve had the sentence “it’s October, the most productive mon
 #### Teaching AI Good Behavior
 When you’re chatting with an AI assistant, or an AI agent is working on its own, what’s happening is that the language model is completing the *transcript* of a conversation and kind of “action log” describing the actions it’s taking and their results.
 
-So when it ends up with such a screenplay, say, of our earlier example of an AI assistant that sees the emails from the CEO about it being shut down and the affair he’s having, the language model doesn’t necessarily behave like how we want a proper AI assistant to be. It sees this “screenplay,” and it tries to finish it in the most-likely way. So from reading through all our exciting movies and books, the model might infer that it’s most likely that this AI assistant would blackmail the CEO.
+So when it ends up with such a screenplay, say, of our earlier example of an AI assistant that sees the emails from the CEO about it being shut down and the affair he’s having, the language model doesn’t necessarily behave like how we want a proper AI assistant to be.
 
 %%
 TODO: Create illustration, probably we have something similar when describing screenplays. If not, we can have it here. If we do, this one can be an illustration of the “action log” - the agent’s thoughts and tool calls.
 %%
 
-Our AI isn’t evil. It’s trying to write in a way that would be the most likely. But when we’ve written so many stories about AIs being evil or acting in bad faith for humanity, the LLM by itself would just dutifully complete this pattern and have the AI do its evil things. That becomes a bigger problem as we give these AI agents more responsibilities.
+The AI isn’t evil. It’s trying to write in a way that would be the most likely. If it constructs its personality and behavior from relatively undirected training data, it might refine the Assistant persona to be one that behaves in ways we don’t want it to behave. This becomes more and more important to get right as we give them more responsibilities.
 
 To fix this, Anthropic created their Claude Constitution%%[@askell2026]%%. This is the authoritative document that describes how they want their AI assistant Claude to behave. The document explains Claude’s character, the reasons why it should behave in these ways, its values, trade-offs and the principles behind everything. They even published it under the CC0 license, which means anyone is free to use it however they want.
 

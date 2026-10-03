@@ -542,6 +542,71 @@ references:
   page: 20563051241296229
   issued: 2024
   DOI: 10.1177/20563051241296229
+- id: macdiarmid2025
+  type: article
+  author:
+  - family: "MacDiarmid"
+    given: "Monte"
+  - family: "Wright"
+    given: "Benjamin"
+  - family: "Uesato"
+    given: "Jonathan"
+  - family: "Benton"
+    given: "Joe"
+  - family: "Kutasov"
+    given: "Jon"
+  - family: "Price"
+    given: "Sara"
+  - family: "Bouscal"
+    given: "Naia"
+  - family: "Bowman"
+    given: "Sam"
+  - family: "Bricken"
+    given: "Trenton"
+  - family: "Cloud"
+    given: "Alex"
+  - family: "Denison"
+    given: "Carson"
+  - family: "Gasteiger"
+    given: "Johannes"
+  - family: "Greenblatt"
+    given: "Ryan"
+  - family: "Leike"
+    given: "Jan"
+  - family: "Lindsey"
+    given: "Jack"
+  - family: "Mikulik"
+    given: "Vlad"
+  - family: "Perez"
+    given: "Ethan"
+  - family: "Rodrigues"
+    given: "Alex"
+  - family: "Thomas"
+    given: "Drake"
+  - family: "Webson"
+    given: "Albert"
+  - family: "Ziegler"
+    given: "Daniel"
+  - family: "Hubinger"
+    given: "Evan"
+  title: "Natural Emergent Misalignment From Reward Hacking in Production RL"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2025
+  DOI: 10.48550/arXiv.2511.18397
+- id: marks2026
+  type: post-weblog
+  author:
+  - family: "Marks"
+    given: "Sam"
+  - family: "Lindsey"
+    given: "Jack"
+  - family: "Olah"
+    given: "Christopher"
+  title: "The Persona Selection Model: Why AI Assistants Might Behave Like Humans"
+  container-title: "Alignment Science Blog"
+  issued: 2026-02-23
+  URL: https://alignment.anthropic.com/2026/psm/
 - id: monin2001
   type: article-journal
   author:
