@@ -542,6 +542,30 @@ references:
   page: 20563051241296229
   issued: 2024
   DOI: 10.1177/20563051241296229
+- id: lynch2025
+  type: article
+  author:
+  - family: "Lynch"
+    given: "Aengus"
+  - family: "Wright"
+    given: "Benjamin"
+  - family: "Larson"
+    given: "Caleb"
+  - family: "Ritchie"
+    given: "Stuart J."
+  - family: "Mindermann"
+    given: "Soren"
+  - family: "Hubinger"
+    given: "Evan"
+  - family: "Perez"
+    given: "Ethan"
+  - family: "Troy"
+    given: "Kevin"
+  title: "Agentic Misalignment: How LLMs Could Be Insider Threats"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2025
+  DOI: 10.48550/arXiv.2510.05179
 - id: macdiarmid2025
   type: article
   author:

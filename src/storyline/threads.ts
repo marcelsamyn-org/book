@@ -172,7 +172,7 @@ export const threads = [
     title: "Socrates' worry: will we lose skills?",
     question: "Every technology took a skill and we survived. Is AI different, and does the skill loss matter at all?",
     mentions: [
-      { kind: "explain", quote: "Socrates was worried", note: "Part 2 opens with the writing panic and the pattern of new skills replacing old ones." },
+      { kind: "explain", quote: "Socrates didn’t trust writing", note: "Part 2 opens with the writing panic and the pattern of new skills replacing old ones." },
       { kind: "use", quote: "Workers become dramatically more productive when they leave themselves behind", note: "Today's Socrates Moment recaps the trade-off in every domain." },
       { kind: "payoff", quote: "It was never about the skills.", note: "The pursuit of skill was a vehicle for contribution, agency, relatedness and effort." },
       { kind: "use", quote: "This chapter isn’t even about how we’ll lose the skill of remembering", note: "The Mental Gym: for skills, just do the thing anyway." },
