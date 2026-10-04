@@ -268,3 +268,40 @@ section.footnotes a, .references a { word-break: break-all; }
   font-family: "IBM Plex Mono", monospace; font-size: 0.82em;
   color: #94744a; margin: 0.3em 0 0.8em 0.7em;
 }
+
+/* ── Persona selection ────────────────────────────────────── */
+
+.exhibit .personas-step { margin-bottom: 0; }
+.exhibit .personas-title { font-weight: 600; margin-top: 0.1em; }
+.exhibit .persona {
+  margin: 0.35em 0; padding: 0.4em 0.6em; border-radius: 3px;
+  background-color: rgba(201, 165, 116, 0.10);
+}
+.exhibit .persona-from { font-family: "IBM Plex Mono", monospace; font-size: 0.8em; color: #776d62; }
+.exhibit .personas-arrow { text-align: center; color: #c9a574; font-size: 1.4em; margin: 0.4em 0; }
+.exhibit .personas-assistant { border: 1px solid #c9a574; border-radius: 3px; padding: 0.3em 0.8em 0.5em; }
+.exhibit .personas-assistant-name {
+  font-family: "Lora", Georgia, serif; font-weight: 600; font-size: 1.2em; color: #94744a; margin-bottom: 0;
+}
+.exhibit .personas-assistant .persona-from { margin-top: 0; }
+.exhibit .personas-pull .exhibit-label { margin: 0; }
+.exhibit .personas-chip {
+  display: inline-block; margin: 0.2em 0.15em 0 0; padding: 0.05em 0.45em;
+  border: 1px solid #c9a574; border-radius: 3px;
+}
+.exhibit .personas-pull-away .personas-chip {
+  border-color: rgba(128, 128, 128, 0.35); color: #776d62; text-decoration: line-through;
+}
+
+/* ── Action log ───────────────────────────────────────────── */
+
+.exhibit .log-key { font-family: "IBM Plex Mono", monospace; font-size: 0.8em; color: #776d62; text-align: center; }
+.exhibit .log-key-model { border-left: 3px solid #c9a574; padding-left: 0.4em; margin-right: 1.2em; }
+.exhibit .log-key-software { background-color: rgba(128, 128, 128, 0.12); padding: 0 0.4em; }
+.exhibit .log-entry { margin: 0.35em 0; padding: 0.35em 0.6em; border-radius: 2px; }
+.exhibit .log-entry .exhibit-label { font-size: 0.72em; margin: 0; }
+.exhibit .log-by-model { border-left: 3px solid #c9a574; }
+.exhibit .log-by-model .exhibit-label { color: #94744a; }
+.exhibit .log-by-software { background-color: rgba(128, 128, 128, 0.12); }
+.exhibit .log-thought .log-text { font-style: italic; }
+.exhibit .log-action .log-text { font-family: "IBM Plex Mono", monospace; font-size: 0.9em; }

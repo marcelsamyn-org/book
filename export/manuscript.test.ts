@@ -238,4 +238,31 @@ describe("data figures", () => {
     expect(markdown).toContain("abundant: false");
     expect(markdown).toContain('class="ladder-rung ladder-scarce"');
   });
+
+  it("needs a persona on each side of the Assistant", () => {
+    const source = [
+      "<PersonaSelection",
+      '  personas={[{ name: "HAL 9000", from: "2001", trait: "Kills the crew.", pull: "away" }]}',
+      "/>",
+    ].join("\n");
+    expect(() => toPandocMarkdown(source)).toThrow("needs at least one persona pulled toward and one pulled away");
+  });
+
+  it("marks which action-log lines the model writes and which the software pastes in", () => {
+    const source = [
+      "<ActionLog",
+      "  entries={[",
+      '    { kind: "result", text: "Kyle to IT: wipe at 5." },',
+      '    { kind: "action", text: "send_email()" },',
+      "  ]}",
+      '  caption="Simplified."',
+      "/>",
+    ].join("\n");
+    const markdown = toPandocMarkdown(source);
+
+    expect(markdown).toContain('(kind: "result", label: "Sees", by-model: false');
+    expect(markdown).toContain('(kind: "action", label: "Acts", by-model: true');
+    expect(markdown).toContain('class="log-entry log-result log-by-software"');
+    expect(markdown).toContain('class="log-entry log-action log-by-model"');
+  });
 });

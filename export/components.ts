@@ -6,6 +6,7 @@ import { toString } from "mdast-util-to-string";
 import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
 import { arcChartSpec, arcEyebrow, type ArcEntry } from "../src/components/arcagi3.js";
+import { actionLogEyebrow, entryLabels, writerLabels, writtenByModel, type EntryKind, type LogEntry } from "../src/components/actionLog.js";
 import type { LineageEra } from "../src/components/attachmentLineage.js";
 import { barFigureSvg, ruleLabelGutter, wrapLabel, type BarFigureSpec } from "../src/components/barFigure.js";
 import { adviceChartSpec, adviceEyebrow, type AdviceResponder } from "../src/components/breakupAdvice.js";
@@ -33,6 +34,14 @@ import { curveFigureSvg } from "../src/components/shapeFigure.js";
 import { priceChartSpec, priceEyebrow, type PriceRival } from "../src/components/priceCollapse.js";
 import type { Rung } from "../src/components/scarcityLadder.js";
 import type { PoleRow } from "../src/components/twoPoles.js";
+import {
+  assistantNames,
+  personaEyebrow,
+  personasPulled,
+  personaStages,
+  pullLabels,
+  type Persona,
+} from "../src/components/personaSelection.js";
 import { ptgiBands, ptgiScale, ptgiSubscales } from "../src/components/ptgi.js";
 
 /** A manuscript component rendered for both output formats. */
@@ -90,6 +99,12 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "AttachmentLineage":
       expectShape(node, ["eras", "ingredients"], "no children");
       return renderAttachmentLineage(node);
+    case "PersonaSelection":
+      expectShape(node, ["personas"], "no children");
+      return renderPersonaSelection(node);
+    case "ActionLog":
+      expectShape(node, ["entries", "caption"], "no children");
+      return renderActionLog(node);
     default:
       return failAt(node, `<${node.name ?? ""}> has no ebook rendering`);
   }
@@ -773,6 +788,130 @@ const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => 
         ? [`<p class="lineage-ingredients">${ingredients.map(escapeHtml).join(" · ")}</p>`]
         : []),
     ]),
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+// ── Persona selection ───────────────────────────────────────
+
+const readPersona = (value: unknown): Persona | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { name, from, trait, pull } = value;
+  return typeof name === "string" &&
+    typeof from === "string" &&
+    typeof trait === "string" &&
+    (pull === "toward" || pull === "away")
+    ? { name: smart(name), from: smart(from), trait: smart(trait), pull }
+    : undefined;
+};
+
+const renderPersonaSelection = (node: MdxJsxFlowElement): RenderedComponent => {
+  const personas = arrayProp(node, "personas", readPersona);
+  const toward = personasPulled(personas, "toward");
+  const away = personasPulled(personas, "away");
+  if (toward.length === 0 || away.length === 0) {
+    failAt(node, "<PersonaSelection> needs at least one persona pulled toward and one pulled away");
+  }
+  const names = (list: readonly Persona[]): string => typstArray(list.map((persona) => typstString(persona.name)));
+
+  const typst = [
+    "#persona-selection(",
+    `  heading: ${typstString(personaEyebrow)},`,
+    `  pretraining: (step: ${typstString(personaStages.pretraining.step)}, title: ${typstString(personaStages.pretraining.title)}),`,
+    `  posttraining: (step: ${typstString(personaStages.posttraining.step)}, title: ${typstString(personaStages.posttraining.title)}),`,
+    `  personas: ${typstArray(
+      personas.map(
+        (persona) =>
+          `(name: ${typstString(persona.name)}, from: ${typstString(persona.from)}, trait: ${typstString(persona.trait)})`,
+      ),
+    )},`,
+    `  brands: ${typstString(assistantNames)},`,
+    `  toward: (label: ${typstString(pullLabels.toward)}, names: ${names(toward)}),`,
+    `  away: (label: ${typstString(pullLabels.away)}, names: ${names(away)}),`,
+    ")",
+  ];
+
+  const stage = (step: string, title: string): string =>
+    `<p class="exhibit-label personas-step">${escapeHtml(step)}</p>\n<p class="personas-title">${escapeHtml(title)}</p>`;
+  const html = [
+    `<div class="exhibit">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(personaEyebrow)}</p>`,
+    stage(personaStages.pretraining.step, personaStages.pretraining.title),
+    ...personas.map(
+      (persona) =>
+        `<p class="persona"><strong>${escapeHtml(persona.name)}</strong> <span class="persona-from">${escapeHtml(
+          persona.from,
+        )}</span><br />${escapeHtml(persona.trait)}</p>`,
+    ),
+    `<p class="personas-arrow">↓</p>`,
+    stage(personaStages.posttraining.step, personaStages.posttraining.title),
+    `<div class="personas-assistant">`,
+    `<p class="personas-assistant-name">The Assistant</p>`,
+    `<p class="persona-from">${escapeHtml(assistantNames)}</p>`,
+    ...(["toward", "away"] as const).map(
+      (pull) =>
+        `<p class="personas-pull personas-pull-${pull}"><span class="exhibit-label">${escapeHtml(
+          pullLabels[pull],
+        )}</span><br />${(pull === "toward" ? toward : away)
+          .map((persona) => `<span class="personas-chip">${escapeHtml(persona.name)}</span>`)
+          .join(" ")}</p>`,
+    ),
+    "</div>",
+    "</div>",
+  ];
+  return { typst: typst.join("\n"), html: html.join("\n") };
+};
+
+// ── Action log ──────────────────────────────────────────────
+
+const isEntryKind = (value: unknown): value is EntryKind =>
+  value === "setup" || value === "thought" || value === "action" || value === "result";
+
+const readLogEntry = (value: unknown): LogEntry | undefined => {
+  if (!isRecord(value)) return undefined;
+  const { kind, text } = value;
+  return isEntryKind(kind) && typeof text === "string" ? { kind, text: smart(text) } : undefined;
+};
+
+const renderActionLog = (node: MdxJsxFlowElement): RenderedComponent => {
+  const entries = arrayProp(node, "entries", readLogEntry);
+  const caption = stringProp(node, "caption");
+  if (!entries.some((entry) => writtenByModel(entry.kind))) {
+    failAt(node, "<ActionLog> needs at least one line the model writes");
+  }
+
+  const typst = [
+    "#action-log(",
+    `  heading: ${typstString(actionLogEyebrow)},`,
+    `  key: (model: ${typstString(writerLabels.model)}, software: ${typstString(writerLabels.software)}),`,
+    `  entries: ${typstArray(
+      entries.map(
+        (entry) =>
+          `(kind: ${typstString(entry.kind)}, label: ${typstString(entryLabels[entry.kind])}, by-model: ${writtenByModel(
+            entry.kind,
+          )}, text: ${typstString(entry.text)})`,
+      ),
+    )},`,
+    `  caption: ${typstString(caption)},`,
+    ")",
+  ];
+
+  const html = [
+    `<div class="exhibit">`,
+    `<p class="exhibit-eyebrow">${escapeHtml(actionLogEyebrow)}</p>`,
+    `<p class="log-key"><span class="log-key-model">${escapeHtml(writerLabels.model)}</span> <span class="log-key-software">${escapeHtml(
+      writerLabels.software,
+    )}</span></p>`,
+    ...entries.map(
+      (entry) =>
+        `<p class="log-entry log-${entry.kind} ${
+          writtenByModel(entry.kind) ? "log-by-model" : "log-by-software"
+        }"><span class="exhibit-label">${escapeHtml(entryLabels[entry.kind])}</span><br /><span class="log-text">${escapeHtml(
+          entry.text,
+        )}</span></p>`,
+    ),
+    `<p class="figure-caption">${escapeHtml(caption)}</p>`,
     "</div>",
   ];
   return { typst: typst.join("\n"), html: html.join("\n") };

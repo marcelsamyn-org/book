@@ -1,0 +1,30 @@
+---
+/**
+ * Renders an agent's action log, marking which lines the model writes and
+ * which the software pastes in. Aliases: agent transcript, tool calls,
+ * reasoning, blackmail, Summit Bridge, agentic misalignment.
+ */
+
+import { actionLogEyebrow, entryLabels, writerLabels, writtenByModel, type ActionLogSpec } from "./actionLog.js";
+
+const { entries, caption } = Astro.props as ActionLogSpec;
+---
+
+<figure class="figure figure-log">
+  <span class="figure-eyebrow">{actionLogEyebrow}</span>
+  <p class="log-key">
+    <span class="log-key-item log-key-model">{writerLabels.model}</span>
+    <span class="log-key-item log-key-software">{writerLabels.software}</span>
+  </p>
+  <ol class="log">
+    {
+      entries.map((entry) => (
+        <li class:list={["log-entry", `log-${entry.kind}`, writtenByModel(entry.kind) ? "log-by-model" : "log-by-software"]}>
+          <span class="log-tag">{entryLabels[entry.kind]}</span>
+          <span class="log-text">{entry.text}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <figcaption class="figure-caption">{caption}</figcaption>
+</figure>

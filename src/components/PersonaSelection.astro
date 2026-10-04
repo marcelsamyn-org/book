@@ -1,0 +1,62 @@
+---
+/**
+ * Renders the persona selection figure. Aliases: pre-training, post-training,
+ * Assistant persona, HAL 9000, Terminator, character, persona selection model.
+ */
+
+import {
+  assistantNames,
+  personaEyebrow,
+  personasPulled,
+  personaStages,
+  pullLabels,
+  type Pull,
+  type PersonaSelectionSpec,
+} from "./personaSelection.js";
+
+const { personas } = Astro.props as PersonaSelectionSpec;
+const pulls: readonly Pull[] = ["toward", "away"];
+---
+
+<figure class="figure figure-personas">
+  <span class="figure-eyebrow">{personaEyebrow}</span>
+
+  <section class="personas-stage">
+    <p class="personas-step">{personaStages.pretraining.step}</p>
+    <p class="personas-title">{personaStages.pretraining.title}</p>
+    <ul class="personas-cast">
+      {
+        personas.map((persona) => (
+          <li class="persona">
+            <span class="persona-name">{persona.name}</span>
+            <span class="persona-from">{persona.from}</span>
+            <span class="persona-trait">{persona.trait}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <div class="personas-arrow" aria-hidden="true">↓</div>
+
+  <section class="personas-stage">
+    <p class="personas-step">{personaStages.posttraining.step}</p>
+    <p class="personas-title">{personaStages.posttraining.title}</p>
+    <div class="personas-assistant">
+      <p class="personas-assistant-name">The Assistant</p>
+      <p class="personas-assistant-brands">{assistantNames}</p>
+      <dl class="personas-pulls">
+        {
+          pulls.map((pull) => (
+            <div class:list={["personas-pull", `personas-pull-${pull}`]}>
+              <dt>{pullLabels[pull]}</dt>
+              {personasPulled(personas, pull).map((persona) => (
+                <dd>{persona.name}</dd>
+              ))}
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</figure>

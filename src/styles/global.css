@@ -1414,6 +1414,237 @@ main .ladder li.ladder-rung {
   }
 }
 
+/* ── Persona selection ─────────────────────────────────── */
+
+main .figure p.personas-step {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+main .figure p.personas-title {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0.2rem 0 0.9rem;
+}
+
+/* Pre-training does not judge, so every character is drawn the same. */
+main .figure ul.personas-cast {
+  list-style: none;
+  display: grid;
+  /* At most three columns, so six characters fill two even rows. */
+  grid-template-columns: repeat(auto-fit, minmax(max(11rem, calc((100% - 1rem) / 3)), 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+main .personas-cast li.persona {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  background: var(--paper-inset);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.persona-name {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--ink);
+}
+
+.persona-from {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+}
+
+.persona-trait {
+  color: var(--ink-secondary);
+  margin-top: 0.2rem;
+}
+
+.personas-arrow {
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 1rem 0;
+}
+
+.personas-assistant {
+  border: 1px solid var(--accent);
+  border-radius: 0.25rem;
+  padding: 0.9rem 1rem;
+}
+
+main .figure p.personas-assistant-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+main .figure p.personas-assistant-brands {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+  margin: 0.1rem 0 0.8rem;
+}
+
+main .figure dl.personas-pulls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+
+.personas-pull {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+main .personas-pull dt {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 0.15rem;
+}
+
+main .personas-pull dd {
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.personas-pull-toward dd {
+  border: 1px solid var(--accent);
+  color: var(--ink);
+}
+
+.personas-pull-away dd {
+  border: 1px solid var(--rule);
+  color: var(--ink-muted);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--ink-muted) 60%, transparent);
+}
+
+@media (max-width: 40rem) {
+  main .figure dl.personas-pulls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Action log ────────────────────────────────────────── */
+
+main .figure p.log-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin: -0.5rem 0 1rem;
+}
+
+.log-key-item::before {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.15rem;
+  border-radius: 0.1rem;
+}
+
+.log-key-model::before {
+  border-left: 3px solid var(--accent);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+
+.log-key-software::before {
+  background: var(--paper-inset);
+}
+
+main .figure ol.log {
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+main .log li.log-entry {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.2rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.log-by-software {
+  /* Same edge width as the model's lines, so the text columns align. */
+  border-left: 3px solid transparent;
+  background: var(--paper-inset);
+  color: var(--ink-secondary);
+}
+
+.log-by-model {
+  border-left: 3px solid var(--accent);
+  color: var(--ink);
+}
+
+.log-tag {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.log-by-model .log-tag {
+  color: var(--accent);
+}
+
+.log-thought .log-text {
+  font-style: italic;
+}
+
+.log-action .log-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 40rem) {
+  main .log li.log-entry {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
 /* ── Two-pole table ────────────────────────────────────── */
 
 .poles {

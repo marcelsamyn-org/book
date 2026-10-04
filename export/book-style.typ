@@ -914,3 +914,118 @@
     }
   }
 })
+
+// Persona selection: pre-training meets every AI character on equal terms,
+// then post-training shapes the Assistant toward some and away from others.
+#let persona-selection(
+  heading: "",
+  pretraining: (:),
+  posttraining: (:),
+  personas: (),
+  brands: "",
+  toward: (:),
+  away: (:),
+) = exhibit(breakable: false, {
+  let stage(it) = block(above: 0pt, below: 7pt, {
+    eyebrow(it.step, fill: muted, size: 5.6pt)
+    linebreak()
+    text(weight: 600, size: 8.2pt, it.title)
+  })
+  let pulled(it, struck: false) = block(above: 0pt, below: 0pt, {
+    eyebrow(it.label, fill: muted, size: 5.4pt)
+    v(1pt)
+    set par(leading: 0.9em)
+    for name in it.names {
+      box(
+        stroke: 0.5pt + if struck { hairline.darken(15%) } else { gold },
+        radius: 2pt,
+        inset: (x: 4pt, y: 2pt),
+        text(size: 7.2pt, fill: if struck { muted } else { ink }, if struck { strike(stroke: 0.4pt + muted, name) } else {
+          name
+        }),
+      )
+      h(3pt)
+    }
+  })
+
+  align(center, block(below: 10pt, eyebrow(heading)))
+  stage(pretraining)
+  // Cells carry the fill so every card in a row shares the tallest one's height.
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 5pt,
+    fill: white,
+    inset: (x: 6pt, y: 5.5pt),
+    ..personas.map(p => {
+      set par(leading: 0.45em)
+      text(weight: 600, size: 7.8pt, p.name)
+      linebreak()
+      text(font: mono-font, size: 5.6pt, fill: muted, p.from)
+      v(3pt)
+      text(size: 7pt, fill: muted, p.trait)
+    }),
+  )
+  align(center, block(above: 7pt, below: 7pt, text(fill: gold, size: 11pt)[↓]))
+  stage(posttraining)
+  block(width: 100%, stroke: 0.6pt + gold, radius: 2pt, inset: (x: 9pt, y: 8pt), {
+    text(font: display-font, weight: 600, size: 10.5pt, fill: gold-ink)[The Assistant]
+    h(6pt)
+    text(font: mono-font, size: 5.8pt, fill: muted, brands)
+    v(6pt)
+    grid(columns: (1fr, 1fr), column-gutter: 10pt, pulled(toward), pulled(away, struck: true))
+  })
+})
+
+// The action log an agent completes: the model's own lines carry a gold
+// edge, the lines the software pastes in sit flat on the exhibit.
+#let action-log(heading: "", key: (:), entries: (), caption: "") = exhibit(breakable: true, {
+  align(center, block(below: 6pt, eyebrow(heading)))
+  let swatch(by-model) = box(
+    width: 7pt,
+    height: 7pt,
+    baseline: 1pt,
+    fill: if by-model { white } else { hairline.lighten(40%) },
+    stroke: if by-model { (left: 1.6pt + gold, rest: 0.4pt + hairline) } else { none },
+  )
+  align(center, block(below: 9pt, {
+    set text(font: mono-font, size: 5.8pt, fill: muted)
+    swatch(true)
+    h(3pt)
+    key.model
+    h(12pt)
+    swatch(false)
+    h(3pt)
+    key.software
+  }))
+  for entry in entries {
+    block(
+      width: 100%,
+      breakable: false,
+      above: 3.5pt,
+      below: 0pt,
+      inset: (x: 7pt, y: 5pt),
+      fill: if entry.by-model { white } else { hairline.lighten(40%) },
+      stroke: if entry.by-model { (left: 1.6pt + gold) } else { none },
+      grid(
+        columns: (3.6em, 1fr),
+        column-gutter: 7pt,
+        align: (left + top, left + top),
+        pad(top: 1.2pt, eyebrow(entry.label, fill: if entry.by-model { gold-ink } else { muted }, size: 5.4pt)),
+        if entry.kind == "thought" {
+          text(style: "italic", entry.text)
+        } else if entry.kind == "action" {
+          text(font: mono-font, size: 6.8pt, entry.text)
+        } else if entry.by-model {
+          entry.text
+        } else {
+          text(fill: muted, entry.text)
+        },
+      ),
+    )
+  }
+  block(above: 8pt, below: 0pt, width: 100%, stroke: (top: 0.4pt + hairline), inset: (top: 5pt), text(
+    style: "italic",
+    fill: muted,
+    caption,
+  ))
+})
