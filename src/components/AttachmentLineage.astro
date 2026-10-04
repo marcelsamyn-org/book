@@ -4,7 +4,7 @@
  * para-social, companions, attachment ingredients.
  */
 
-import type { AttachmentLineageSpec } from "./attachmentLineage.js";
+import { lineageDrawingSvg, type AttachmentLineageSpec } from "./attachmentLineage.js";
 
 const { eras, ingredients } = Astro.props as AttachmentLineageSpec;
 ---
@@ -16,7 +16,10 @@ const { eras, ingredients } = Astro.props as AttachmentLineageSpec;
       eras.map((era) => (
         <li class:list={["lineage-era", era.holdsAll === true && "lineage-all"]}>
           <span class="lineage-when">{era.when}</span>
-          <span class="lineage-what">{era.what}</span>
+          <span class="lineage-what">
+            <Fragment set:html={lineageDrawingSvg(era.what)} />
+            {era.what}
+          </span>
           <span class="lineage-added">{era.added}</span>
           {era.holdsAll === true && (
             <ul class="lineage-ingredients">

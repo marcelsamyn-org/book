@@ -1274,7 +1274,7 @@ main .figure figcaption.figure-caption {
 
 main .lineage li.lineage-era {
   display: grid;
-  grid-template-columns: 4.5rem 11rem 1fr;
+  grid-template-columns: 4.5rem 13rem 1fr;
   align-items: baseline;
   gap: 0.75rem;
   margin: 0;
@@ -1305,9 +1305,26 @@ main .lineage li.lineage-all::before {
   color: var(--ink-muted);
 }
 
+/* The drawing sits outside the text flow, so the row still aligns on the name's baseline. */
 .lineage-what {
+  position: relative;
+  padding-left: 2.5rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.lineage-drawing {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--ink-secondary);
+}
+
+.lineage-all .lineage-drawing {
+  color: var(--accent);
 }
 
 .lineage-added {

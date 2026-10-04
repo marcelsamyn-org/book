@@ -7,7 +7,7 @@ import remarkSmartypants from "remark-smartypants";
 import { unified } from "unified";
 import { arcChartSpec, arcEyebrow, type ArcEntry } from "../src/components/arcagi3.js";
 import { actionLogEyebrow, entryLabels, writerLabels, writtenByModel, type EntryKind, type LogEntry } from "../src/components/actionLog.js";
-import type { LineageEra } from "../src/components/attachmentLineage.js";
+import { lineageDrawingSvg, type LineageEra } from "../src/components/attachmentLineage.js";
 import { barFigureSvg, ruleLabelGutter, wrapLabel, type BarFigureSpec } from "../src/components/barFigure.js";
 import { adviceChartSpec, adviceEyebrow, type AdviceResponder } from "../src/components/breakupAdvice.js";
 import {
@@ -768,9 +768,10 @@ const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => 
     `  eras: ${typstArray(
       eras.map(
         (era) =>
-          `(when: ${typstString(era.when)}, what: ${typstString(era.what)}, added: ${typstString(
-            era.added,
-          )}, holds-all: ${era.holdsAll === true})`,
+          `(when: ${typstString(era.when)}, what: ${typstString(era.what)}, drawing: ${typstString(
+            // Typst draws SVG without CSS, so the stroke takes the exhibit's ink directly.
+            lineageDrawingSvg(era.what, era.holdsAll === true ? "#94744a" : "#776d62"),
+          )}, added: ${typstString(era.added)}, holds-all: ${era.holdsAll === true})`,
       ),
     )},`,
     `  ingredients: ${typstArray(ingredients.map(typstString))},`,
@@ -783,7 +784,9 @@ const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => 
     ...eras.flatMap((era) => [
       `<p class="lineage-era${era.holdsAll === true ? " lineage-all" : ""}"><span class="lineage-when">${escapeHtml(
         era.when,
-      )}</span> <strong>${escapeHtml(era.what)}</strong> — ${escapeHtml(era.added)}</p>`,
+      )}</span> ${lineageDrawingSvg(era.what)} <strong>${escapeHtml(era.what)}</strong> — ${escapeHtml(
+        era.added,
+      )}</p>`,
       ...(era.holdsAll === true
         ? [`<p class="lineage-ingredients">${ingredients.map(escapeHtml).join(" · ")}</p>`]
         : []),

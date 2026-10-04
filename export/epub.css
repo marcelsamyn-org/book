@@ -263,6 +263,8 @@ section.footnotes a, .references a { word-break: break-all; }
 
 .exhibit .lineage-era { margin: 0.4em 0; padding-left: 0.7em; border-left: 2px solid rgba(128, 128, 128, 0.35); }
 .exhibit .lineage-all { border-left-color: #c9a574; }
+.exhibit .lineage-drawing { width: 1.4em; height: 1.4em; vertical-align: -0.35em; color: #776d62; }
+.exhibit .lineage-all .lineage-drawing { color: #94744a; }
 .exhibit .lineage-when { font-family: "IBM Plex Mono", monospace; font-size: 0.85em; color: #776d62; }
 .exhibit .lineage-ingredients {
   font-family: "IBM Plex Mono", monospace; font-size: 0.82em;

@@ -893,17 +893,18 @@
   for era in eras {
     let all = era.at("holds-all", default: false)
     block(width: 100%, above: 5pt, below: 0pt, grid(
-      columns: (3.6em, 8.4em, 1fr),
+      columns: (3.6em, 2.2em, 8.4em, 1fr),
       column-gutter: 8pt,
       align: top,
       text(font: mono-font, size: 6.2pt, fill: muted, era.when),
+      move(dy: -0.45em, image(bytes(era.drawing), format: "svg", width: 2.2em)),
       text(weight: 600, fill: ink, era.what),
       text(fill: if all { gold-ink } else { muted }, weight: if all { 600 } else { "regular" }, era.added),
     ))
     if all {
       // Chips flow like inline text and wrap on their own; a fixed grid clipped
       // the longer names.
-      block(width: 100%, above: 6pt, below: 2pt, inset: (left: 12.4em), {
+      block(width: 100%, above: 6pt, below: 2pt, inset: (left: 14.2em + 24pt), {
         set text(font: mono-font, size: 5.8pt, fill: muted)
         set par(leading: 0.75em)
         for i in ingredients {
