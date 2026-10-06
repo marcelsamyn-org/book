@@ -48,6 +48,12 @@ Usage notes:
 - View the site with `bun run dev:site` (or `bun run build:site` then `bun run preview`). Never open `dist/index.html` directly; asset paths are server-relative and the page renders unstyled.
 - `bun test` runs the unit tests. `bun run build:site` is the check that the site still builds.
 
+## Copyediting
+
+- Fix small mechanical errors in `book.mdx` as you meet them, without asking: typos, a missing or doubled word, grammar, and punctuation. Keep the author's voice and word choice; a fix changes the error and nothing around it.
+- Flag larger problems and leave them for the author to reword: a sentence that does not flow, a jump to a new point without a bridge, an argument that is hard to follow. Quote the passage so it can be found with grep, and say what is wrong.
+- A fix can break a story line anchor, so run `bun run storyline:check` afterwards.
+
 ## Manuscript typography
 
 - `bun run typography:check` reports prose that still uses straight quotes, `...`, or `--`, and fails until it is fixed. `bun run typography:fix` applies the change in place. Both use `remark-smartypants`, the rules the site build and the ebook export already apply, so the source carries the glyphs both render.
