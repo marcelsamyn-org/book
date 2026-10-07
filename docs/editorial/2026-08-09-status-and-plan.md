@@ -131,7 +131,7 @@ One caution: don't let "choosing imperfection" swallow the book's other meaning-
 
 ## Site tracker
 
-Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part targets re-keyed to the current part titles (the old keys — "Digital Mirage" etc. — were silently ignored). Per-part: Overview 800 · Introduction 2,200 · Part 1 7,500 · Part 2 13,000 · Part 3 15,000 · Conclusion 1,500. The progress panel renders this checklist by parsing this file's checkboxes at build time — check a box here, rebuild, site updates.
+Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part targets re-keyed to the current part titles (the old keys — "Digital Mirage" etc. — were silently ignored). Per-part: Overview 800 · Introduction 2,200 · Part 1 7,500 · Part 2 13,000 · Part 3 15,000 · Conclusion 1,500.
 
 ## Early access flags, 2026-09-14
 

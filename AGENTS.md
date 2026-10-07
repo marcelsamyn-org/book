@@ -41,7 +41,7 @@ Usage notes:
 
 # Sacred Struggle
 
-`book.mdx` is the manuscript. The Astro site in `src/` renders it with the author's editorial tooling: a progress tracker, the endgame checklist, and the story line diagram.
+`book.mdx` is the manuscript. The Astro site in `src/` renders it with the author's editorial tooling: a progress tracker and the story line diagram.
 
 ## Site
 
@@ -62,8 +62,8 @@ Usage notes:
 
 ## Editorial checklist
 
-- `docs/editorial/2026-08-09-status-and-plan.md` is the tracked todo list. The site's progress panel parses its `- [ ]` and `- [x]` lines under `##` headings at build time. The bold lead-in on the checkbox line is the item title, so keep it there.
-- Each open item carries *What* (the move), *Why* (the reasoning), and *Your call* (the open question) as indented sub-bullets. The parser ignores sub-bullets. The author writes the book; items hand him a question, they do not dictate prose.
+- `docs/editorial/2026-08-09-status-and-plan.md` is the tracked todo list: `- [ ]` and `- [x]` lines under `##` headings. The bold lead-in on the checkbox line is the item title, so keep it there.
+- Each open item carries *What* (the move), *Why* (the reasoning), and *Your call* (the open question) as indented sub-bullets. The author writes the book; items hand him a question, they do not dictate prose.
 - Locate passages by quotes that can be found with grep, not line numbers. Line numbers drift.
 
 ## Story line diagram

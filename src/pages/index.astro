@@ -2,13 +2,11 @@
 import { readFile } from "node:fs/promises";
 import BookLayout from "../layouts/BookLayout.astro";
 import ProgressTracker from "../components/ProgressTracker.astro";
-import ChecklistTracker from "../components/ChecklistTracker.astro";
 import CommitHistory from "../components/CommitHistory.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import WordHistoryGraph from "../components/WordHistoryGraph.astro";
 import { parseOutline } from "../md/parseOutline.js";
 import { computeBookProgress } from "../publish/progress.js";
-import { loadEndgameChecklist } from "../publish/checklist.js";
 import {
   getLastCommitMetadata,
   getRecentCommits,
@@ -29,7 +27,6 @@ const outline = parseOutline(rawContent);
 // Progress
 const progress = computeBookProgress(outline.headings);
 const progressSummary = `~${progress.totalWords.toLocaleString("en-US")} of ${progress.targetWords.toLocaleString("en-US")} words`;
-const checklist = await loadEndgameChecklist();
 
 // TOC — anchors come from the full-outline walk so they match Astro's ids
 const anchors = buildAnchorMap(outline.headings);
@@ -68,7 +65,6 @@ const { Content } = await import("../../book.mdx");
   <span slot="progress-summary" class="opacity-40">{progressSummary}</span>
   <Fragment slot="progress">
     <ProgressTracker progress={progress} />
-    <ChecklistTracker checklist={checklist} />
     <a href="/storyline" class="mt-5 inline-block text-xs text-ink-muted hover:text-accent transition-colors">Story line diagram →</a>
   </Fragment>
   <Fragment slot="toc">
