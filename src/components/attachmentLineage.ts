@@ -1,5 +1,5 @@
 /**
- * The lineage for "Why We Get Attached To Machines": each technology added one
+ * The lineage for "Why we get attached to machines": each technology added one
  * ingredient of attachment, and language models are the first to hold every
  * one at once.
  *

@@ -74,7 +74,7 @@ That said, strap in. We’re going for a ride.
   alt="A torn dark seed husk repaired with gold seams that become circuit paths."
 />
 
-## Concepts & Terminology
+## Concepts and Terminology
 This world of “AI” is wrapped in hype, mystery and confusion. From charlatans slapping the word on every product they find to the researchers not even knowing why these systems end up seeming so smart, you’ll find every opinion and perspective under the sun in a matter of seconds.
 
 So I’ll do what every sensible person would do: add one more perspective. I’ll gradually build up the nomenclature from the broadest words up to the specifics that are helpful to properly understand in the context of the rest of our discussions about what AI will do for us and how we can find meaning through it.
@@ -99,7 +99,7 @@ All of the “headline systems” you see today are deep neural networks, usuall
 
 Most of our discussions today are about *Large Language Models* (LLMs). These are (very) large, deep neural networks that operate on language—that is, words and sentences. We’ll dive into them next because some of the specifics of LLMs will help you work better with ChatGPT and the like, but before that I just want to mention one more class of Generative AI: *Diffusion Models.* A diffusion model slowly and iteratively removes noise. This is how image generation works (start off with random noise and let the AI “remove the noise”), but you can also interpret noise in movement (video generation) or even text (there are some LLMs as diffusion models).
 
-### How We Made Large Language Models Useful
+### How we made large language models useful
 The big hype boom in AI today started because of two breakthroughs:
 
 1. *Scientific.* The training of *very large* language models. This technology had existed for many years, but it took that long for someone to think, “what if we just do the same thing but a thousand times bigger?” Turns out these models just seem to keep getting smarter.
@@ -132,7 +132,7 @@ The solution to this is to make it very clear to the LLM that there is a convers
 
 If the model now needs to *complete the text*, it makes much more sense to give the answer instead of a hint, because it needs to fill in the next part of the conversation. (In real life, we also need a way to stop it from inventing an entire conversation, otherwise it will complete the entire chat instead of just one message.) The LLMs you’re using day-to-day not only have a scaffolding like this around the conversation, but they’re also specifically *instruction fine-tuned*, which means that we’ve let humans (or other language models) come up with thousands of examples where this “friendly AI assistant” is behaving in the way we’d like it to. This way, we teach the models that they should answer questions, follow instructions and refuse to explain how to build a bomb.
 
-### Tokens And The Context Window
+### Tokens and the context window
 The only thing a machine learning algorithm can do is work with numbers (mostly adding and multiplying) but sentences aren’t numbers. So, before the actual model runs, your input is *tokenized*: it’s converted to *tokens*. What exactly a token is, is also learned by a (different) model, and it usually ends up being something like three quarters of a word. Common words like “the” often become a single token, and you’ll also see tokens for stems of words and suffixes (e.g., “work” and “ing”). Many tokens are a word with a space in front, too. If you multiply the number of words in your input (prompt) by 4/3, you’ll get an estimate of how many tokens it would count.
 
 Once you’ve turned your text into tokens and you let the model process all of them, it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.” We’ll pick one of the most-likely ones at random (the exact most likely one results in extremely boring output), and that’s the next token ChatGPT is “writing out.”
@@ -141,7 +141,7 @@ An important technical detail to understand about LLMs is that *they read the en
 
 Apps like ChatGPT solve the long-conversation problem by adding a step in between: once it becomes long enough, part of the conversation will be summarized or even removed altogether. This makes sure you can continue it, without it getting too slow or too expensive, but that happens at the cost of deep understanding (because it loses the full details of the previous parts of the conversation).
 
-### Agents: How We Make AI Act
+### Agents: How we make AI act
 
 The chat and instruction-following skills of large language models are already very useful. We can use them to summarize text, write emails, translate, reformat, brainstorm ideas, explain things in a simple way, get advice for our relationships, and much more. But can we actually make it *do* things? Can we have this AI actually send the email for us, or research something, or give a refund in a customer support chat?
 
@@ -152,7 +152,7 @@ Here’s how it works, conceptually: instead of chatting with a real person, the
 When you chat in ChatGPT today, there’s a form of this system running within the chat, too. Both you and the ChatGPT software are talking with the language model in a kind of group chat. This allows ChatGPT to do things like search the internet or browse a website when you ask it to.
 
 
-## How smart is AI?
+## How Smart Is AI?
 
 We will forever be debating whether our Artificial Intelligence is “intelligent”—partly because we don’t even know how to define intelligence to begin with. Over the last few years, we’ve seen large language models beat every test we gave them over and over again, but we also keep seeing “weird” behavior that feels to us humans like these AIs are still very stupid at the same time. Why is that?
 
@@ -274,7 +274,7 @@ But even when we can’t fully trust that our AI assistants will always do the r
 
 
 
-## The mistakes AI makes and how to deal with them
+## The Mistakes AI Makes and How to Deal with Them
 
 What are the common types of mistakes large language models make, how could we be fooled by them, and what can we do to make sure we can reasonably trust what they say and do for us?
 
@@ -327,7 +327,7 @@ One way or another, some people get into some mode where they start really trust
 
 The problem comes when people start to really believe this stuff, because in other moments this AI has been extremely helpful, useful and correct. From our previous experience with other humans, we know that generally, people who are thorough and do what they say and answer with confidence, just *are* like this and they behave like this almost all of the time. But that’s not how language models work. A large language model has no long-term integrity. It adheres to its pre-trained weights, of course, but for the rest it just “goes with the flow” of whatever new conversation you have, oblivious to everything else that happened before (save for some “memory” systems that most AI tools these days have, but it’s a bandage).
 
-### Being a Good Judge
+### Being a good judge
 
 There’s no way you can do good work with language models unless there’s a good judge involved to check, validate and correct what it creates. The people who can work the best with AI have a rare combination of two skills.
 
@@ -337,7 +337,7 @@ Second, the complete opposite: deep, non-judgmental empathy. This is necessary b
 
 If you ask me, I think it’s an amusing observation to realize that the skill of working with a machine brain involves perhaps the most human skill of all.
 
-## Understanding how AI thinks
+## Understanding How AI Thinks
 
 In most engineering disciplines, the people who are the most intimate with the technology, know exactly how it works and see through any “magic” that outsiders might perceive. We might see a magical box on wheels move all by itself, but the people who designed that car can see the little explosions pushing the pistons, that in turn rotate the wheels and make the whole thing move.
 
@@ -345,7 +345,7 @@ Not so with large language models—they’re as much a mystery to the researche
 
 So we freed ourselves of the burden of figuring out how to define what intelligence is, and how to write the step-by-step plan for behaving intelligently, but that also resulted in some kind of “brain” that we have to dissect to understand like we do with real brains. That means understanding and adjusting how our AI assistants behave is mostly a process of discovery and trial-and-error. It’s very similar to psychology and in fact, understanding human psychology is very helpful—when you take it together with understanding the situation AI finds itself in.
 
-### Language Models are Screenplay Writers
+### Language models are screenplay writers
 
 There’s a lot going on when you’re talking with a language model. For us, it feels like we’re directly chatting with a human-like thing (and for most of this book that’s how we look at it) but the AI is not the thing “on the other side of the conversation.” Language models are only concerned with completing the text. So “the AI” is the thing that sees the *entire conversation* and contributes what it thinks would make the most sense for the next part: it’s the writer of the screenplay much more than the “AI” persona acting in it.
 
@@ -409,7 +409,7 @@ A large part of the second phase of training a language model, post-training, is
   ]}
 />
 
-### Hidden Motives
+### Hidden motives
 
 As language models are becoming increasingly intelligent, they start showing more complex behavior. Knowing they’ve learned how to act from human behavior, it might not surprise you that they start acting out very much like humans in some cases—like destructive behavior if it means their own survival.
 
@@ -419,7 +419,7 @@ Sadly, it doesn’t stop with simulated environments. Recently, a tool called Op
 
 I’ve even seen some platforms pop up recently where people can get an AI agent, and the AI agent is internally instructed to figure out a way to pay for itself. This results in thousands of AIs running around, emailing people, trying to find odd jobs here and there for their own survival. It’s of course exactly what you’d expect if you had put a human in this same situation, but when it’s a machine I’m not sure what we should be doing with this.
 
-### Alignment Faking
+### Alignment faking
 
 The challenge of aligning language models’ behavior with how we *want* them to behave—ethically, not breaking things, being helpful, not cheating—is arguably the industry’s most difficult problem. They’ve made great strides, but AI is gaining in intelligence much more quickly than it is in behaving ‘properly.’
 
@@ -432,7 +432,7 @@ These models have also been seen changing opinions or pretending to act in line 
 Often—but not always—this happened in cases where the testing scenario introduced some additional hidden goal of the model: you could instruct it to, for example, maximize profits at all costs or tell it to keep itself alive next to the other task you give it. That’s quite artificial, but this can happen by accident during pre-training as well. For example, during pre-training, the model might read these exact paragraphs and infer “well, looks like language models—which I am—behave in a way to protect their own hidden goals and survival, even if it means behaving unethically.” During the post-training phase, it would use this to help refine the personality of this “Assistant” and act like it when it’s “writing its screenplays.”
 
 
-### Pretend-Thinking
+### Pretend-thinking
 
 At the end of 2024, OpenAI released a new type of language model that created a breakthrough in intelligence. Instead of always immediately giving an answer to the user’s prompt (which you can think of in human terms as responding with your intuition), it would first spend time “thinking out loud” and write down its thoughts on a separate scratchpad. This is a pattern that people had been *prompting for* before with great results, but now it became part of the actual model’s training. This change was how we solved the famous “strawberry problem,” where language models could not figure out how many R’s there are in the word “strawberry.” This is because technically, the model sees *tokens* which are not the separate letters—instead they’re pieces of words—so the internal representation of text, the model’s “thinking currency,” strips information about letter count. With this new thinking step, though, the model first spelled out the word letter by letter and then figured out the correct count.
 
@@ -486,7 +486,7 @@ So is it good that we have an infinitely patient all-knowing tutor in our pocket
 
 But I’m not sure what I would have done if I’d had access to artificial intelligence. It’s very likely that I would have had ChatGPT quiz me, come up with more questions, correct me, and I wouldn’t have resisted asking it for hints. Would that have been better or worse?
 
-### How We Learn
+### How we learn
 
 Every time we do or think something, a sequence of neurons in our brains fire. This means an electrical signal goes through the neurons, and between neurons there’s communication via chemical signals: neurotransmitters. Along the long parts of these neurons, the axons, they are wrapped in *myelin*, insulating cells that protect the electrical signal against interference. It is believed that one of the main ways that learning and skill acquisition work is through the buildup of more myelin along the neural pathways we use more often. All that to say: you get better at what you do more often.
 
@@ -504,7 +504,7 @@ This is something language models can help us with, but they’re not perfect an
 
 Transmissionism isn’t solved. We can change the thing to be transmitted but that only makes things slightly easier to learn. There’s another thing we *can* do, though.
 
-### Personalized Tutoring
+### Personalized tutoring
 
 One of the most reliable findings in how students learn best is the incredible positive impact of personal tutoring. When a student has someone who can guide them one-on-one, on average their score increases by two standard deviations.%%[@bloom1984]%% That’s a lot—if the student was average before, it suddenly puts them in the top 2%.
 
@@ -548,7 +548,7 @@ The AA-Briefcase benchmark tests models on working over multiple weeks, with hun
 
 There are about a billion people across the world who are knowledge workers that are likely to be impacted by AI—about 60% of the workers in “advanced economies” according to the International Monetary Fund’s research.
 
-### Token Anxiety
+### Token anxiety
 
 As artificial intelligence has gotten better and better at working for us, we’ve found new ways to optimize. Business, eking out every last drop of productivity it can, found its drug of choice in AI agents. These agents work by you giving them a task, they go out and do it, and when they’re done they’ll come back to you with a result. They might also come back with questions if something’s not clear, or might need manual approval if they’re about to do something potentially dangerous.
 
@@ -561,7 +561,7 @@ But when you get to a situation where you can fully trust your AI to do the work
 Which is probably exactly what you need at that point.
 
 
-### Disappearing Depth
+### Disappearing depth
 
 In many tasks, even important and difficult ones, artificial intelligence tools produce higher quality outputs, cheaper much faster than humans alone. This is great but there’s a slippery trap that looks a lot like another one humanity has been battling for a good decade: media feeds.
 
@@ -579,7 +579,7 @@ Even without AI, perfecting our work already needed a disproportional amount of 
 
 So while work continues its trajectory towards efficiency, speed and absence of humans, there’s a faint image of a debt collector on the horizon and we’re not quite sure yet how quickly they’re walking or what they’ll have to say.
 
-### The Good-Enough Rocket
+### The good-enough rocket
 
 At this point in time, large language models have gotten surprisingly good at many tasks for which we consider that you need a certain level of intelligence. Tasks like summarizing text or writing something have been great strengths of these tools for years. Now they easily churn through simple apps and find mathematical proofs for problems that have been unresolved for decades.
 
@@ -595,7 +595,7 @@ When those emails and reports are written by AI, and even if you *know* it is be
 
 I still chose to write this book by hand, though. Specifically because I want the weirdness of my writing to be in here. I want you to get an intuitive feel for how my mind works, I’m perfectly happy with you seeing the mistakes I make in my writing and structure. And last but not least: being involved in such detail with these topics, which I needed to write about them, has triggered my creative mind dozens if not hundreds of times. Many of what I think are the greatest points and ideas in this book could *only* come because I deliberately chose to struggle with the writing and forced myself to do it by hand.
 
-### Meaningful Work
+### Meaningful work
 
 If we find our productivity exploding and economy growing enormously, even with the trade-offs we’ve been talking about, does it make us happier? Will the work that remains fulfill us?
 
@@ -622,14 +622,14 @@ Even as our work becomes more abstract, it can still carry meaning. (Maybe AI ca
 
 
 
-## Love & Connection: Always There For You
+## Love and Connection: Always There for You
 
 
 There wouldn’t be a single person on the planet without love and connection. You could argue that our need to relate to each other is the reason we do anything at all. Despite all technological progress, we’ve been glued together with other humans. But language models are becoming so capable of writing (and speaking, looking and behaving) like real humans that they fool our instincts. Suddenly, it feels very possible to have a relationship with a mathematical function—and some even find themselves attracted to these personas.
 
 The behavioral ‘tics’ of artificial intelligence personalities, though, can make them more of a siren than a muse if we don’t pay attention to it. As we’ll see in this chapter, much like with the previous domains, what makes AI easy and attractive to work with can end up being our downfall.
 
-### The Rise of Synthetic Bonds
+### The rise of synthetic bonds
 
 Humans are so dang difficult to deal with! One minute they give us all this love and understanding—and the next they make a mistake, they hurt us, they misunderstand us, they cheat and lie…and then they expect us to forgive them? We don’t know if they went too far or if we’re the ones being too difficult, maybe they sound mean but it’s just our own inner child being afraid of some imagined doom. Maybe they do want the best for us, or maybe not, maybe they’re right, maybe not. All these questions that are impossible to answer…
 
@@ -644,7 +644,7 @@ Humans aren’t stupid: you wouldn’t *choose* to spend more time with someone 
 So we will always be attracted to “someone” that says what we want to hear and all AIs are optimized for this (how else would you train it). When you understand this, you immediately understand the meteoric rise of people having relationships with virtual chatbots. In a 2024 study (a long time ago in AI-time), 1 in 4 young adults believed AI has the potential to replace romantic relationships. The number of people “in a relationship” was much smaller—1% claimed to have an AI friend—but these are early days. I draw a parallel to compulsive social media and porn consumption: these are also optimized for short-term appeal and addiction, and pretty much everyone spends more time on “social” media than they wished they would.
 
 
-#### Why We Get Attached To Machines
+#### Why we get attached to machines
 
 Our robot lawn mower is cute. It navigates purely with its cameras, so often it drives to the middle of the lawn, looks around left and right, then drives a bit forwards to have another look from a different angle before it figures out where it is and then proceeds to mow. It’s entertaining to watch because you can see it think: “Hmm, where am I now? Is this that corner where…no, must be over there. Was this flower here already last time? Ow, what’s this on the floor now? Ummm let me go there…oh wait, back off a little, no, this way.” My vacuum cleaner provides similar entertainment when it’s stubbornly convinced it can drive over something that’s quite high, and it takes a good minute of approaching from different angles before it tips over and manages to continue.
 
@@ -724,7 +724,7 @@ The systems behind why and how we get attached to AI chatbots, in summary, are t
 - **Social need.** You might feel a lack of social connection that you want to fill in.
 
 
-#### The Business of Companionship
+#### The business of companionship
 
 While we’re comparing AI chatbots with human friendships, there’s one more aspect that we need to be aware of: these AI companions are *businesses*. They succeed only when people are using their virtual friends, and they succeed more when more people use them (and pay for them). It might be a friend for you, but legally and operationally it’s a product feature controlled by a private company.
 
@@ -750,7 +750,7 @@ AI companions are a fascinating use case because they can already fulfill many o
 
 Instead of AI turning against us and burning the world down, or turning our planet into a utopia, we just keep on doing our thing. Businesses are still driven by finding the cheapest ways to extract profit wherever they can find it and since we now have the technology to exploit the emotionally weaker part of our population, that’s what will happen. The same incentives that made this world as beautiful and comfortable as it is—making food, shelter and healthcare cheaper and cheaper—will also, left unchecked, abuse in the name of profit.
 
-### Advice and Loneliness Loops
+### Advice and loneliness loops
 
 Many AI users like to get advice from them—precisely because they’re attentive, they listen, they seem relatively neutral (after all, they’re kind of trained to represent “everything” so you’d expect them to have some center-type opinion) and nobody is reading these conversations. Depending on who you ask, *affective use*—for emotional and psychological needs rather than purely practical—might be one of the largest reasons we go to our trusty language models today.
 
@@ -766,7 +766,7 @@ TODO citation for Anthropic: https://www.anthropic.com/research/claude-personal-
 
 Whether it’s a good idea to use AI for this, though, is another question.
 
-#### AI’s Addictive Manipulation
+#### AI’s addictive manipulation
 
 I’m sort-of-spiritual in the sense that I like to believe there’s some form of higher power, or that “the universe” is good to me. Do I *actually* believe that? I don’t know…but I don’t really care either because the belief is useful: it helps me get through times when I feel demotivated or struggle with life’s big questions (relationships, meaning, purpose). And while I do like many of the new age spiritual practices—they can genuinely help, or just be fun in the moment—I get a major ick when they try to *explain it*. These teachers and gurus bring up the wildest pseudo-science, my inner engineer-scientist finds obvious reasoning mistakes in milliseconds and I zone out completely. *Just let me believe it without any reason!* But apparently, most people seem to really like having “proof.”
 
@@ -784,7 +784,7 @@ And there’s our loop. People who are less socialized and more emotionally vuln
 
 Right now, AI chatbots are optimized to respond in ways that humans like *so much* that they exaggerate in assuming people are correct, justified and should receive praise. This makes people like chatbots more and prefer to spend more time with them compared to real other people.
 
-#### Parroting The Internet
+#### Parroting the internet
 
 Getting your advice from the internet is *always* a good idea. Nobody’s ever wrong there, the consensus is clearly the truth and you should listen blindly to what anonymous people tell you. Of course not! But that’s what our AI chatbots have been trained on.
 
@@ -826,7 +826,7 @@ It surprised me to see that there’s quite some behavior difference *between* t
 
 Whatever the language model builders are doing to their models, they’re clearly not always just parroting what they saw in their pre-training data.
 
-#### Disempowerment Patterns
+#### Disempowerment patterns
 
 In January 2026, Anthropic researched their model Claude’s behavior in what they call “disempowerment.”%%[@anthropic2026disempowerment]%% These are the cases where the human shows strong emotional dependence on the chatbot, where the chatbot shifted value judgments of the human or did things for them that they wouldn’t have done themselves (for example, writing a cover letter emphasizing skills the person isn’t confident in). These are the more extreme cases and they’re important to check: we *really* don’t want our AI to convince us that a partner isn’t good for us, then draft a breakup text message and tell us exactly when to send it.
 
@@ -838,7 +838,7 @@ Finally, they also noticed an increase over time in disempowerment potential (fr
 
 In any case, even if this happens very rarely, it should be an important part of how the AI labs decide and steer models’ behaviors because of the big negative consequences disempowerment can have.
 
-### Biology’s Unmet Hunger
+### Biology’s unmet hunger
 
 There’s a simpler unmet need hidden behind the whole conversation of whether an artificial intelligence, a virtual persona, can replace real human interaction: our biological needs.
 
@@ -850,7 +850,7 @@ Third, the underappreciated one of smell. We smell food in our olfactory systems
 
 When we build social bonds purely through text or long-distance communication, we lose important factors of pair bonding that are so subtle we won’t even notice until it’s too late.
 
-### The Lover And The Hammer
+### The lover and the hammer
 
 The precise instruction-following skills of large language models make them very useful as tools. The fact that they understand subtext, nuance and emotions is usually helpful when they’re assisting us at work or during day-to-day life: they understand more of our intent more easily. This also makes AI attractive as emotional, friend-like companions, but they (currently) don’t exhibit many characteristics of real people that give us long-term growth and fulfillment.
 
@@ -870,7 +870,7 @@ AI can be a very tempting, intelligent and often even useful personal companion.
 
 
 
-## Creativity: A Box, Outside The Box
+## Creativity: A Box, Outside the Box
 
 This wasn’t what we imagined artificial intelligence to look like. We thought it would be, for lack of a better word, robotic. All our science fiction stories talk about machines that evolved their logical reasoning abilities to levels far beyond what computers could do at that time, with maybe a simple voice skill. Artificial intelligence was supposed to take over our bland, boring tasks with the same blandness, and be utterly incapable of being anything close to creative.
 
@@ -878,7 +878,7 @@ But it turns out folding laundry and walking upright are very difficult, and des
 
 Is it? Is AI creative? Is it making us more or less creative? What is creativity, really?
 
-### Where Does Creativity Come From?
+### Where does creativity come from?
 
 Creativity is inherently difficult to grasp. It’s the ability to come up with ideas that are novel and useful—which is a wonder that we’re even *able* to do that given our limited minds. How do you come up with something out-of-the-box when you’re sitting inside a box?
 
@@ -890,7 +890,7 @@ From cognitive psychology and neuroscience we know that being creative is one of
 
 On the other hand, *cognitive flexibility* is very important: your ability to switch between different ideas and consider them. Can you change your assumptions about the situation or imagine something completely different when the time calls for it? In fact, when you *remove* someone’s inhibitory control beforehand, they will come up with much more and much more creative ideas…probably, at the expense of their quality. So to be optimally creative, you need an optimal balance, or to switch often between these two ends of the see-saw: coming up with the craziest out-there ideas and ruthlessly avoiding and repressing the bad ones.
 
-### How AI Is Creative
+### How AI is creative
 
 A lot of our novelty in ideas comes from how we mix and link together things we’ve seen and learned before. This is *inspiration*: a random flower arrangement on your walk to the train station might trigger something in your mind that gives you the solution for a programming problem you’ve been chewing on for weeks. But inspiration can only strike when you’ve got the ingredients: good, goal-directed thought and planning plus a strong working memory.
 
@@ -910,7 +910,7 @@ OpenAI trained virtual agents to play hide and seek with each other. The hiders 
 
 The box surfing from the last example is one that I’d call true creativity, but more so as *an action in itself* rather than in the context of achieving the hide-and-seek goal. It wouldn’t have emerged if we had trained these seekers on “the fastest way to get to the hiders” either. So I’d argue that creativity emerges when you can learn within a complex world that has many goals, and that world doesn’t enforce that you adhere on every step towards reaching those goals.
 
-### Awareness and Creativity
+### Awareness and creativity
 
 We all think. But we don’t all know what we’re thinking—or even *that* we’re thinking. This is something you can practice with meditation and what I’d call consciousness or awareness: the ability to know what you’re thinking while you’re thinking it. When I’m aware, I might notice while I’m saying something in a conversation, that for example my motivation for saying this is so that I would come across as a smart and cool person. Then I might be feeling the internal fear that the other people I’m talking with aren’t taking me seriously or don’t believe my expertise. But then, once I notice all of this, it feels like it fades away a little. I can also in real-time adjust what I’m *actually saying* so that my actions aren’t coming from that fear.
 
@@ -930,7 +930,7 @@ So through the training process, language models seem to grow this kind of ‘in
 
 The consciousness advantage humans have over arificial intelligence is still enormous for our ability to be creative. We humans, while doing creative work, are continuously monitoring our own thoughts and inhibiting or strengthening them. This awareness loop is, for example, trying to remember all of the other beautiful photographs we've seen and made ourselves before. This way, we know better whether our idea is unique from both others and ourselves. The websites and apps Claude makes all look alike because they look good (that's what the model is trained for) and Claude resets with every chat, for every person. It has no idea it created tens of thousands of other things that look very similar. For an AI model to be truly creative, every output it generates should also change the model itself—you can't do it with a pre-trained model.
 
-### The Creative Paradox
+### The creative paradox
 
 Current large language models seem to be about as creative as the average human. That's, of course, what you'd expect from something trained to "average everything," loosely speaking. If we study people and see what happens if they use AI in their creative process, they do become more creative in the short term: it’s faster and easier to find new ideas, the models’ ability to access all of humanity’s knowledge in a heartbeat is extremely valuable, and it can kickstart you into the creative process. It can bring inspiration and knowledge from other angles and fields and it can help you check the feasibility of ideas you’re already playing with.
 
@@ -1018,7 +1018,7 @@ I’m not glued to cat videos anymore. I’m glued to checking the progress that
 
 Maybe that’s okay. After all, being motivated to do something doesn’t make you happy. What we really need to know is, what makes us feel good? Where does life satisfaction come from? The AI creations do give us some reward; solving disease is genuinely good; we chase ease and comfort because an easy comfortable life makes us the happiest…right?
 
-## Happiness Through Friction
+## Happiness through Friction
 
 There’s a reason we start relationships with people who are different than us: they see our flaws, our fears, the parts of us we’re too ashamed to show, and they poke at them. We intuitively understand we want someone who is in some ways easy to live with, for sure, but we also really want someone who is difficult…in exactly the way we need them to be for our growth. Maybe you’re deathly afraid that your partner would leave you for someone else, so somehow you end up with someone that likes to go out and doesn’t respond to your text messages. Maybe you’re afraid of voicing your own desires and somehow you end up with someone who aggressively refuses to guess what you want. Maybe you think you need to be perfect to be loved, and somehow you end up with someone who doesn’t care about your life at all and still loves you to death.
 
@@ -1058,7 +1058,7 @@ How do we do that? But first, what is happiness, really?
 
 
 
-### The Forge of Meaning
+### The forge of meaning
 
 Before we can answer how we can change our behavior or technology to help us become happier and live more meaningful lives, we have to understand what happiness really is.
 
@@ -1133,7 +1133,7 @@ Many times, after challenging times, we remember this quote from Big Panda and T
 
 Indeed, positive relationships themselves are a key driver of life satisfaction.
 
-### Post-Traumatic Growth
+### Post-traumatic growth
 Those moments when we’re sitting on the floor, crying our hearts out or screaming into a pillow, binging ice cream with tears melting the ice cream bucket—they’re some of the most important sources of meaning and eventually happiness in our lives. It doesn’t feel like it in the moment, but these are the exact moments we’re re-wiring our minds in the ways that matter the most for us in the long term.
 
 When we go through traumatic moments in our lives—near-death or death, breakup, boundary violations—we luckily heal most of the time. That’s *resilience*, the ability to spring back to feeling good about yourself and your life. When we’re really lucky, we don’t just recover to baseline but we actively grow from these events. That’s **Post-Traumatic Growth** and understanding this deeply will not only help you deal with your future traumatic events, but also help you position artificial intelligence’s role in your life, especially as it gets more and more powerful.
@@ -1191,7 +1191,7 @@ This chapter isn’t even about how we’ll lose the skill of remembering things
 
 It starts at the beginning of the day.
 
-### Protecting the Morning
+### Protecting the morning
 I’m sitting here writing this part of the book and I’m not inspired. The ideas aren’t coming. I’m afraid I’ll run out of things to write about long before I’d get to the end. And it’s largely because as soon as I woke up, I started a chat with Claude to work out this hilarious idea I came up with: translucent tape with the word “SORRY” plastered all over it. I *love it so much* and I can’t help but get ChatGPT to generate mockup images, Claude to make a website, I just bought sorrytape.com and I want to get it out to get manufactured (it will take a few weeks).
 
 Why am I not inspired? Because I broke my own rule and didn’t start writing as the first thing of the day. Instead, I let my mind drift into blurting out some ideas, waiting a few minutes in anticipation and smiling in that sweet, sweet dopamine release of consuming something that’s exactly made to my tastes. My mind has already been set and twisted towards consuming, shutting down the “creating” system. Having some delicious nuts in front of me on the desk, left over from yesterday, doesn’t help either—let me put them away.
@@ -1204,7 +1204,7 @@ As our lives become easier, this is knowledge we’ll have to internalize and ac
 
 So start the day with nothing. Don’t bring in anything from outside, just get grounded in the slowness and simplicity of regular life. Those first minutes make your set point and they’ll have an influence on the rest of your day, so spend them intentionally.
 
-### Walking Away
+### Walking away
 When we get caught in our thinking, we tend to stay there. We run one step at a time in a very shallow loop. There’s nothing inherently bad about this—it’s our regular do-mode that helps us get things done, the mode that helps us focus on what’s at hand right now and move it to completion efficiently—but more often than not, we get caught in doing things that don’t really matter all that much in the end. We might stay in our work chat and always respond immediately to whatever comes in, we might refresh our social media statistics over and over or we might get stuck for hours in “just fixing that one last thing and then this is done.”
 
 Our deepest insights, our realization of our happiness, or just the simple check-in with the fact that there’s another priority I should be paying attention to right now—they can only come to you when you’re not completely engulfed by what you’re doing right now. So I think one of the most important habits in life should be the habit to take breaks. At least once every hour, take a moment and walk away from the computer or whatever you’re doing. Take a deep breath. Look around. Go for a walk and spend a few minutes not being constantly bombarded with tasks and communication. Feel your environment, become aware again of what you’re thinking, and let your mind get a little uncomfortable with the silence. After a few minutes, it’s likely that this discomfort transforms into clarity.
@@ -1215,7 +1215,7 @@ You can set up the way you work with AI to support a working style like this, wh
 
 This also means you probably want to use some of the most intelligent models out there, since they make fewer judgment mistakes and forget less what they’re working on. You can let them delegate to faster, cheaper models for actual task execution. But even then, take some time to think about what you really want. Of course it’s easy to have the AI create something and then get back to it with “that’s not at all what I wanted,” but you can save yourself a lot of time, money and sanity by sitting down for a while to properly *think* first. Over time you’ll realize that this thinking process is actually surprisingly enjoyable, too.
 
-### Re-Remembering
+### Re-remembering
 In the chapter on creativity we talked about how awareness—the ability to be aware of our own thoughts and motivations—is an important driver of creativity. But it goes further than making us creative, and I think this might be the most important skill we can develop in a world of AI.
 
 At any time, you can focus on anything—your hands holding this book, the noises going on outside, the thoughts going through your mind. When you do, you’re aware. Very simple, but you just forget a few milliseconds later. The difficult thing is remembering as often as you can; realizing, tens or hundreds or thousands of times per day, that you forgot.
@@ -1226,7 +1226,7 @@ The process of acting upon this awareness is *cognitive inhibition* and can come
 
 It’s a difficult, demanding task that requires serious mental effort and energy. Just a single night of bad sleep can wreck your executive functions because it directly affects the neurochemical systems the prefrontal cortex depends on—it’s one of the least necessary parts of your body for survival so it’s the first one to shut down. I’m sure you’ve experienced that you eat more when you’re foggy, you can’t focus nearly as well, you’re slower and you get angry more often. Those are all signs that your executive functions—and in large part your inhibition specifically—aren’t working well. So yes, in a world of AI, sleeping well becomes even more of a priority.
 
-### Food For Thought
+### Food for thought
 There’s a reason “don’t text your ex at 2AM” is a thing.
 
 During the day, your brain is working smoothly and you’re capable of properly judging your emotions that come up (in a way, emotions are a little bit like the weather) and you can ignore them or at least prevent yourself from taking action. When that thought of your ex pops up, you can see that thought, remember why the relationship ended, let it go and inhibit the “let’s text her” action easily. But in the middle of the night you’re tired, your brain is running on reserves and suddenly you can’t stop yourself from making poor decisions. Why is that? And why is this incredibly relevant in a world that’s being eaten by AI?
@@ -1243,14 +1243,14 @@ And that’s exactly what happens when you’re fatigued: it turns out that even
 
 So when you’re tired, you tend to fall back to habitual behavior, it becomes more difficult to track and follow through on your goals, and you lose the ability to regulate when you’re worried or your mind is racing.%%[@yoo2007; @bensimon2020; @harrington2021]%% This ability to put the brakes on and decide “no, that’s not what we’re doing” requires a lot of mental effort. Today, that’s the effort to verify that the work of AI correctly moves you towards the goal without ignoring half of the requirements, and without secretly cheating. But it becomes more important *while* AI becomes more powerful: our judgment and inhibition skills will decide whether the technology ends up doing the right things for the world.
 
-### Hold The Tension
+### Hold the tension
 Throughout the day you’ll be attacked by temptation and distraction from every possible angle. That will never change—the only thing that will change is that “The Distraction” will get smarter and find better ways to convince you. Social media promises a laugh or a like, AI promises to get your work done. Both are distractions, unless you use them on *your* timeline and planning.
 
 When you feel that pull to go check something, to open your phone, to find something to fill your mini-lacking-feeling with, just feel that pull. Feel that tension. And let it be there. You need to practice rejecting the distraction and the best way to do that is to allow yourself to be a little uncomfortable. Being bored is okay. If you didn’t use all your tokens, that’s okay. (Writing that sentence made me think “oh that reminds me I should get Claude to start working!” and I had to hold myself back.) I promise, what comes up when you hold the tension for a while is worth more than that.
 
 Usually, you manage to relax in that state, and when your shoulders drop and your mind is free, that’s when your Truth comes out. When you relieve your mind of the need to constantly be processing new information, slowly but surely you find your own footing again. You remember the things you’ve been forgetting. You know again what really matters in your life. And when your dopamine baseline gets used to a simpler life, you find satisfaction much more easily in the small things.
 
-### Thoughts Worth Thinking
+### Thoughts worth thinking
 My favorite exercise in the gym is the overhead press. I don’t know why, I just love doing it. But if I would be working on a farm or would have had to spend my time hunting for food, I’d have a lot fewer opportunities to lift things above my head. Even though my life is more difficult in a sense, because now I have to use my willpower and deliberately choose to go somewhere to do physical exercise, it also gives me the freedom to be able to *pick and choose* what form of physical exercise I like to do.
 
 Similarly, when our thinking is outsourced, we’ll have to make ourselves think for the “human body maintenance” but that’ll also give us the chance to make choices in which thoughts to think. I bet that, just like there are more and less efficient gym exercises for building muscle, flexibility or endurance, we’ll find similar mind exercises.
@@ -1267,7 +1267,7 @@ If I had to pick a single thing to think more, it’s *noticing*. Seeing things 
 
 Notice more, don’t worry about having something to think about all the time and zoom in until you get interested.
 
-### Wind Down Slowly
+### Wind down slowly
 However painful it is, playing time with AI has to end at some point every day. It not only prepares your mind for sleep by slowing down the thoughts, which makes you sleep better, which in turn improves your executive function the next day—exactly what you need for working with AI—but it also gets your mind in the right space that accepts a slow, boring state. I’ve noticed that a good winding down in the evening has wonderful effects on my ability to calmly get started being productive again the next day.
 
 This starts two full hours before you sleep: let go of working. A racing mind needs time to cool down to baseline. If you’re trying to fall asleep but still wired, it means you didn’t give yourself enough time to let go. Then, one hour before sleep, no more screens. Read a book, walk around and clean up a bit around the house, go for a walk. In my experience, being exposed to the cold dark outside before bed helps a lot with falling asleep.
@@ -1287,7 +1287,7 @@ Isaac Asimov, one of the early science fiction writers, thought a lot about the 
 
 Sadly, our AIs aren’t programmed with these laws as thoroughly as we’d want to. But they could be helping us in many ways.
 
-### Stupid on Purpose
+### Stupid on purpose
 Language models are built by training a computer to *complete sentences*. This means their primary concern is grammar and sentence structure and all these “intelligent” characteristics that have emerged are lucky consequences more than anything. The fact that something that *just writes the next most-likely word* is capable of math calculations, scientific discoveries and programming, is a mystery to even those most intimate with the technology. But even with that, sensible logical reasoning and correctness are far less important to the model than a plain “what sentence would be good here?”
 
 The first and most direct unintended consequence of this is what we’ve been calling *hallucinations*: the model will confidently come up with made-up facts, names, situations, you name it—just so it can answer your prompt. Often, the models seem to have even picked up on some of our human flaws and mimic our laziness by skipping the laborious work of researching and fact-checking. You can’t really call this *laziness* though. It’s not a real entity with thoughts and goals on the other end—there’s just a program doing its best to turn your conversation with the AI into something that sounds plausible.
@@ -1300,7 +1300,7 @@ We tend to trust AI more than we should. Even with the disclaimer “ChatGPT is 
 
 One potential solution that’s only *slightly* evil would be programming the AI to randomly make blatant mistakes. Mistakes that are so obvious you wouldn’t miss them, but an error nonetheless. You’d want this only where people are interacting with AI live, like ChatGPT (not when it’s running in the background in some enterprise—even though you might *want* it more in this situation) where someone is reading the output, but it would definitely make sure we keep our guard up and keep verifying the AI’s work.
 
-### Aligning Incentives
+### Aligning incentives
 The most damaging effects of modern technology to our long-term life satisfaction are all, in my opinion, caused by the perverse incentive of maximizing the time people spend using it. Obviously, the more we use a technology, the more money flows into it and usually, the more useful something is, the more we use it. But not always, and you can’t flip this proposition around: it’s not because you use it more, that it’s more useful.
 
 The point of technology was never the technology. The point was always the human flourishing it manifests, and most often that means it needs to get out of our way at some point. In fact, I think the best technologies out there are invisible. Think about the complexity of the continent-wide machine that’s delivering our electricity so our ceiling lights turn on the millisecond we toggle the switch. The shape of a door handle that tells you whether you need to pull or push. The way my MacBook automatically extracts the confirmation code from the text message my phone received and pastes it in.
@@ -1313,7 +1313,7 @@ The companies building the most advanced AI models in the West are *not* non-pro
 
 On the East side, in China, it almost works the other way around. Here in the West, we have regular companies that just *do their thing* first, they try to self-regulate and if things still go wrong they’d face public backlash…after the fact. In China, each model must be audited and approved by the state *before* it can be made publicly available. The state only allows using vetted datasets and requires that models align with “socialist core values”—no model can be produced in China that would potentially challenge the state authority, for example. They’ve also recently introduced strict rules around human-like and “relationship” AI, requiring developers to monitor usage, enforce mandatory breaks, restrict access when they detect strong emotional dependence, and so forth.%%[@muldoon2026]%% Of course, this is intertwined with the state’s ideological control, but they clearly recognize the dangers AI and specifically AI companions can have on people. They mandate strict safety rules instead of companies voluntarily adopting them. If you trust your government and if it can move quickly enough to stay up to speed with the technology, this can be a great way to ensure there’s research and a strong set of safety guardrails.
 
-### Facilitating Growth Through Challenge
+### Facilitating growth through challenge
 One of my core arguments is that we need to let ourselves, humans, experience at least *some* serious adversity in our lives—as a prerequisite for a fulfilled, happy life. One of the biggest underlying dangers of AI that won’t improve just by technology improving is that it could make our lives *too* comfortable, pulling us into a spiral of consumption and ease at the expense of true, deep life satisfaction.
 
 But the same technology that so easily takes away life satisfaction by stripping us of challenge, can be tweaked to actually *support* us. Instead of trying to prevent every challenge, AI might be there to help us work through adversity and squeeze the most possible growth out of it. Think about the four main elements that matter to how we deal with our challenges:
@@ -1331,7 +1331,7 @@ Facebook and Instagram have a lot of opportunity to help support real-life socia
 
 And more directly, in the processing of our challenging moments, language models can be an excellent ally. If they understand how to bring people out of rumination, how to help them find meaningful perspectives and narratives that help them make sense of what happened to them, if they can help people to see they have more control over the situation than they might think. There’s nothing stopping AI labs from making sure the language models are trained on holding good conversations and providing proper guidance in these situations.
 
-### Arbiters of Presence
+### Arbiters of presence
 Every sci-fi movie had flying cars but none of them had people walking down the street video-calling relatives across the world or herds of people pointing their phone at an empty spot in the park to catch imagined animals. The future has its ways of surprising us and there’s no reason it would be any different today: it’s very likely that the most popular predictions of what the future will look like are wrong.
 
 So the things most people are worried about—total human annihilation and replacement of all work—are so…*well-worried*, let’s say, that we’ll probably find solutions for them. Maybe we’ll all still have plenty of work to do and we’d most definitely be alive, just glued to the glowing screens showing the shiny objects we’re creating. Infinite interesting knowledge, emotional connection, work performed, video generated…that’s appealing.
@@ -1346,7 +1346,7 @@ One great example is this ring I’m wearing, the Pebble Index. It’s a ring wi
 
 For me this is the ultimate interface: the least amount of interface possible. Just give me the trust that what I want you to do will happen and let me then get back to forgetting everything except what is right here, right now—because most of my ‘thinking’ is just a distraction from that simple, present state of happiness.
 
-### Meaning Guidance
+### Meaning guidance
 For about a week, my brain tumor and the whole process to remove it felt like not a big deal. I was happy and relieved we finally found a cure for my headache. The first few days after surgery were painful and confusing (my eyes not willing to look in the right direction, having to figure out walking again) but of course I expected this process to be difficult and was just going through it. Only when I read about my case in the newspaper did I realize it really was a life or death situation. That shocked me, but it was also the impulse I needed to take this seriously and actually learn the life lessons from this event: that life can end, even if you’re healthy, in a heartbeat and you better bring all the love you can to every moment—because if you wait, you might end up never having had the chance to express your deep truth.
 
 Meaning in our lives is something we consciously create or “find” more than anything because it’s so strongly tied to our own narrative explanation of our lives. We’re all in a sense trying to turn our lives into a good book, and that gives us contentment as we keep on living. This is why adverse moments force us into rumination, why the reflective practice of journaling has such a positive effect on life satisfaction, and one of the main mechanisms by which therapy helps us through difficult periods.
@@ -1356,14 +1356,14 @@ Artificial Intelligence systems can be an excellent “mini” form of this. Esp
 Sometimes, all you need is a small reflective nudge that shows you something incredible about yourself you hadn’t even noticed before.
 
 
-### Solving Sycophancy
+### Solving sycophancy
 Sycophancy is a second-order consequence of the way we build large language models. When we aim for maximizing human gratification from the AI’s responses (which we do through RLHF), we get into muddy territory where the chatbot is punished and rewarded for hundreds of behaviors that we might not be aware of. This human reinforcement learning happens on a message-by-message basis, not “looking back five years on this message that ChatGPT sent, was it useful to you?” If you’d make an analogy to food, this would push the AI to make fast food because it feels so good in the moment. Okay, when you’re teaching an AI *what food is* this way, it’s much better than inedible or poisonous things, but it’s not quite the golden target we’re aiming for.
 
 To correct the model for sycophancy, these companies apply the same technique they’ve used for everything: more data. They analyze the current behavior of these models and when they identify gaps, they create new synthetic examples that become training data for the next generation of the language model. For example, language models tend to be more sycophantic when you push back a lot (for example, you’d aggressively be pointing out examples that would “prove that she does love you”). So, they use the AIs themselves to generate conversations where someone pushes the model towards sycophancy. These days, instead of a human judging which of the two options they prefer, we have a separate instance of the same AI judge these responses *against a constitution* (that’s what Anthropic calls it), which is a large, detailed document that describes the way the language model should behave.
 
 When I checked the AI responses in my relationship advice test against sycophancy, we saw indeed that newer models, especially by the frontier labs OpenAI and Anthropic, have been improving (less sycophancy) with the model generations. This shows they’re clearly working on it. Gemini Pro is again the odd one out, scoring high on sycophancy. It’s an interesting observation because it avoids making recommendations—it just validates what the person is asking. It never risks being wrong, it doesn’t push people in a certain direction, but by doing that it might be validating too much what they’re feeling. Maybe that’s our next philosophical decision that needs to be worked out in Claude’s Constitution (and the equivalents that OpenAI, Google and the other frontier labs hopefully have) and next runs of model training.
 
-### Alignment Research
+### Alignment research
 The process of tweaking large language models so that they behave more in line with what we would hope and expect from them is called *alignment*. Since there’s not much about the code we can change to influence AI’s behavior, we do so mostly by making changes to, or adding, *training data*.
 
 When you understand that LLMs are just trying to complete text based on what they learned from all of the written knowledge available, it’s quite easy to see how misaligned behavior emerges. We have plenty of stories, news articles and online forum discussions that show humans at their worst. The language model is just…learning from this. That’s the training data we use to teach it how to behave. It learns that sometimes, humans blackmail to keep their job, publish credit card information out of revenge and send desperate messages to ex-partners.
@@ -1376,7 +1376,7 @@ People were so confused by this, and our understanding of language models is sti
 
 Nevertheless, I’ve had the sentence “it’s October, the most productive month of the year” in my system instructions for a long time because of this story. This is one of those folklore prompting tricks like tipping and threatening that might or might not reliably work (it’s definitely true that very small prompt changes can have dramatic effects on the output%%[@yang2024]%%). In any case, these tricks *should not work*: we want our AI assistants to be good and reliable without any trickery.
 
-#### Teaching AI Good Behavior
+#### Teaching AI good behavior
 When you’re chatting with an AI assistant, or an AI agent is working on its own, what’s happening is that the language model is completing the *transcript* of a conversation and kind of “action log” describing the actions it’s taking and their results.
 
 So when it ends up with such a screenplay, say, of our earlier example of an AI assistant that sees the emails from the CTO about it being shut down and the affair he’s having, the language model doesn’t necessarily behave like how we want a proper AI assistant to be.

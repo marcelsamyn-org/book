@@ -1,5 +1,5 @@
 /**
- * The action log for "Teaching AI Good Behavior": an agent's transcript is one
+ * The action log for "Teaching AI good behavior": an agent's transcript is one
  * document the model keeps completing. It writes its own thoughts and actions;
  * the software around it only runs each action and pastes back the result.
  * The figure has to make that split visible, because it is why a story about

@@ -9,9 +9,9 @@
 All six of the shortlist are in the manuscript and render in the site, the PDF and the EPUB.
 
 1. **The capability curve** (How smart is AI) — resolved `"TODO: Add graphs"`.
-2. **The relationship-advice results** (Parroting The Internet) — your own data, was seven bullets.
-3. **The attachment lineage** (Why We Get Attached To Machines) — resolved `"TODO: Add pictures"`.
-4. **The inverted U** (Post-Traumatic Growth) — the thesis shape, named twice, now drawn.
+2. **The relationship-advice results** (Parroting the internet) — your own data, was seven bullets.
+3. **The attachment lineage** (Why we get attached to machines) — resolved `"TODO: Add pictures"`.
+4. **The inverted U** (Post-traumatic growth) — the thesis shape, named twice, now drawn.
 5. **The ladder of scarcity** (Is that it?) — three rungs abundant, one standing alone.
 6. **Poiesis and the unmade** (AI as Infinite Creation) — five traditions, two columns.
 
@@ -31,19 +31,19 @@ The rest of this document is the original analysis, unchanged. The items below t
   - *Why:* The paragraph's claim is `"AI though is growing at a *hyper*-exponential pace. That’s an exponential of an exponential."` A linear axis hides the first four points entirely. A log axis is the only one that shows the claim, because a plain exponential is a straight line on a log axis and a hyper-exponential bends upward. The chart is the argument, not decoration for it.
   - *Your call:* The points from 2025 on are the book's forward setting, not published measurement. Mark the projected points differently, cite the source for the measured ones, or state the whole series as your own estimate — an unmarked chart reads as measured data.
 
-- [x] **The attachment lineage** — `"TODO: Add pictures"`, Why We Get Attached To Machines. Priority H
+- [x] **The attachment lineage** — `"TODO: Add pictures"`, Why we get attached to machines. Priority H
   - *What:* Not product photos. A timeline strip in the part-plate visual language — ELIZA 1966, Tamagotchi 1996, AIBO and Paro, LLM companions — where each era adds the attachment ingredient it introduced, so the ingredients accumulate left to right and the last column has all of them.
   - *Why:* Three product photos would illustrate the passage. This shows the passage's actual claim, which is that each technology added one ingredient and language models are the first to hold every one at once. It also avoids clearing rights on Tamagotchi, AIBO, and Paro imagery for a commercially sold ebook.
   - *Your call:* Making this figure forces a reconciliation you'll have to do anyway. The prose names self-disclosure at ELIZA (`“the next ingredient we’ve just discovered is **self-disclosure**”`) and neediness at Tamagotchi (`"another ingredient that creates emotional attachment: **neediness**"`), but neediness is absent from the seven-item summary list that follows (`"Responsiveness"` through `"Social need"`). Either add neediness to the list, fold it into Availability, or drop the word at Tamagotchi.
 
-- [ ] **The agent action log** — `"TODO: Create illustration"`, Teaching AI Good Behavior. Priority H
+- [ ] **The agent action log** — `"TODO: Create illustration"`, Teaching AI good behavior. Priority H
   - *What:* Your TODO already answers itself: reuse the screenplay form. Extend `ScreenplayWriter` into a variant that renders a transcript of model turns interleaved with tool calls and their results, with the ghost-line device showing the model about to write the next turn.
-  - *Why:* Two placements, one component. Introduce the form at `"instead of chatting with a real person, the LLM is chatting with a piece of software"` in Agents: How We Make AI Act, where the reader meets the agent loop for the first time. Then reuse it at the blackmail example, where the point lands only if the reader already sees the transcript as a screenplay the model is completing. Introducing the form at the blackmail example asks the reader to learn the notation and the argument at the same time.
+  - *Why:* Two placements, one component. Introduce the form at `"instead of chatting with a real person, the LLM is chatting with a piece of software"` in Agents: How we make AI act, where the reader meets the agent loop for the first time. Then reuse it at the blackmail example, where the point lands only if the reader already sees the transcript as a screenplay the model is completing. Introducing the form at the blackmail example asks the reader to learn the notation and the argument at the same time.
   - *Your call:* Whether the Part 1 instance is neutral (the refund example already in the text) or already slightly ominous. Neutral first makes the Part 3 reuse hit harder.
 
 ## Part 1 — other candidates
 
-- [ ] **Next-token probabilities** — `“it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.””`, Tokens And The Context Window. Priority H
+- [ ] **Next-token probabilities** — `“it’ll hand you a little table saying “of each possible token, this is the chance that this one comes next.””`, Tokens and the context window. Priority H
   - *What:* One sentence tokenized with real boundaries (show `"work"` and `"ing"` as separate tokens, since you name that example), then the ranked probability list for the next token, with the sampled one marked and the mode marked separately.
   - *Why:* This is the most load-bearing mechanic in the book and the only one the reader must hold for 1,400 lines. The Conclusion pays it off directly — `"a machine that works, at its base, by predicting the next most-likely thing"` and `"The minimal error, the thing that is least likely to be wrong"` — and Creativity's temperature argument depends on it too. Right now the reader has to build that picture from prose alone and then keep it.
   - *Your call:* Whether the Conclusion reuses the same figure with the dopamine curve laid over it, so The Inevitable and The Surprise are visibly the same axis read from opposite ends. That's one figure doing the book's two hardest jobs, but it also risks looking clever.
@@ -63,7 +63,7 @@ The rest of this document is the original analysis, unchanged. The items below t
   - *Why:* This is a mechanism claim the reader currently has to take on trust, and it's the one that makes the cybersecurity-escape passage frightening rather than merely odd. Two columns make the mismatch a thing you see instead of a thing you're told.
   - *Your call:* The status doc already flags that the underlying paper uses addition, not multiplication. Settle that first, because the figure will be read as a direct illustration of the cited result.
 
-- [ ] **Base model versus chat scaffold** — `"Hint: It should be measured around the equator"`, How We Made Large Language Models Useful. Priority L
+- [ ] **Base model versus chat scaffold** — `"Hint: It should be measured around the equator"`, How we made large language models useful. Priority L
   - *What:* The same prompt side by side: raw completion on the left, transcript-wrapped completion on the right.
   - *Why:* Makes the second breakthrough a visible difference rather than a described one.
   - *Your call:* Probably skip. The two blockquotes already sit next to each other and do most of this. Only worth building if the chat-exhibit component can render it with no new code.
@@ -75,22 +75,22 @@ The rest of this document is the original analysis, unchanged. The items below t
 
 ## Part 2 — candidates
 
-- [ ] **Bloom's two sigma** — `"on average their score increases by two standard deviations"`, Personalized Tutoring. Priority M
+- [ ] **Bloom's two sigma** — `"on average their score increases by two standard deviations"`, Personalized tutoring. Priority M
   - *What:* Two overlapping distributions shifted by 2σ, with the top 2% tail shaded.
   - *Why:* The prose already translates the number (`"it suddenly puts them in the top 2%"`), so the chart doesn't add a fact. It adds the feel of how far that is, which is the reason you cite it.
   - *Your call:* Worth a figure at all, or is the translated sentence enough? If the Learning chapter gets only one figure, this is the one.
 
-- [ ] **Income and two kinds of well-being** — `"emotional* well-being—positive affect, absence of stress and worry—plateaued at around $75,000"`, Happiness Through Friction. Priority H
+- [ ] **Income and two kinds of well-being** — `"emotional* well-being—positive affect, absence of stress and worry—plateaued at around $75,000"`, Happiness through Friction. Priority H
   - *What:* One chart, two lines against log income: life evaluation rising steadily, experienced well-being flattening.
-  - *Why:* This is the empirical floor under the book's entire thesis, and it's the one claim where the shape *is* the finding — two measures of happiness that come apart. It also serves the Easterlin passage in Meaningful Work, so one figure covers two chapters.
+  - *Why:* This is the empirical floor under the book's entire thesis, and it's the one claim where the shape *is* the finding — two measures of happiness that come apart. It also serves the Easterlin passage in Meaningful work, so one figure covers two chapters.
   - *Your call:* The $75,000 plateau was substantially revised by the 2023 Killingsworth, Kahneman and Mellers adversarial collaboration, which found the flattening holds mainly for the least happy fifth. A chart makes the plateau look settled in a way the sentence doesn't. Either chart the revised finding, or keep the figure and add the revision to the text — charting the 2010 result alone is the one option that would misinform.
 
-- [ ] **What makes work satisfying** — `"Autonomy: I have some control over what I do"`, Meaningful Work. Priority M
+- [ ] **What makes work satisfying** — `"Autonomy: I have some control over what I do"`, Meaningful work. Priority M
   - *What:* Four bars, ordered, for autonomy, beneficence, competence, relatedness.
   - *Why:* The sentence after the list says `"The first two, autonomy and beneficence, are by far the most important."` A bulleted list flattens that; bars show "by far".
   - *Your call:* Only if you have effect sizes to put on the bars. Drawing relative heights you don't have a source for is worse than the list.
 
-- [x] **The relationship-advice results** — `“The “real” people in these comments recommended breaking up primarily in 42% of the cases”`, Parroting The Internet. Priority H
+- [x] **The relationship-advice results** — `“The “real” people in these comments recommended breaking up primarily in 42% of the cases”`, Parroting the internet. Priority H
   - *What:* One grouped chart of your own test: break-up rate by responder (humans plus each model), with the second-order findings as small paired marks — communicate as primary advice (humans 11% versus most models top), harsh tone (humans 14%, models 0%), self-consistency (humans 54%, models 90%+).
   - *Why:* This is the only original research in the book and it's currently seven bullets holding eleven numbers. Readers skim bullet lists of percentages. A chart is also the only way to show the finding that makes the section interesting: the models don't just differ from humans, they differ from each other, which is your evidence for the post-training hypothesis.
   - *Your call:* The figure needs a method line — how many posts, when collected, how many runs per model, how the classifier judged. Without it you publish a confident-looking chart with no method, in a book that argues against trusting confident-looking output. A small inset for the Shaw 2010–2025 Reddit trend (30% to almost 50%) would also give that citation a home.
@@ -105,19 +105,19 @@ The rest of this document is the original analysis, unchanged. The items below t
 - [ ] **Dopamine shifting to the cue** — `"The next time, we’ll already start receiving our squirt of dopamine in anticipation of the reward"`, Why we do what we do. Priority H
   - *What:* Three panels of firing over time: unexpected reward fires at the reward, learned cue fires at the cue, omitted reward dips below baseline at the moment the reward doesn't come.
   - *Why:* You describe the shift in words and then build most of Part 3 on it — superstimuli, token anxiety, the morning, the Conclusion's prediction-error argument. The shift is a change in timing, and timing is the one thing prose describes worst.
-  - *Your call:* Whether the third panel (omission) goes in. It isn't in your text, but it's where `"they usually leave us feeling *less* good afterwards"` in Arbiters of Presence comes from, so the figure could earn that claim its evidence.
+  - *Your call:* Whether the third panel (omission) goes in. It isn't in your text, but it's where `"they usually leave us feeling *less* good afterwards"` in Arbiters of presence comes from, so the figure could earn that claim its evidence.
 
 - [ ] **The herring gull and the painted rod** — `"a plain red rod with white stripes—which looks nothing like a mommy or daddy herring gull"`, Superstimuli. Priority H
   - *What:* The real beak beside the rod, with the pecking rates.
   - *Why:* This is the one place where the literal picture beats any diagram. The absurdity of the rod out-pecking a parent is the argument, and it survives being looked at for one second. Drawn in the part-plate language it also carries the book's own aesthetic into its funniest moment.
   - *Your call:* Nothing much. This one is cheap and it works.
 
-- [x] **The inverted U** — `“It seems like there’s an inverted U-curve to it”`, Post-Traumatic Growth. Priority H
+- [x] **The inverted U** — `“It seems like there’s an inverted U-curve to it”`, Post-traumatic growth. Priority H
   - *What:* One curve, adversity on the x-axis, life satisfaction on the y, with three positions marked: none, some, too much.
   - *Why:* You name the shape twice — once for a single episode's severity, once for lifetime adversity from Seery 2010 (`"experiencing *some* amount of life adversity leads to a greater sense of life satisfaction than none at all"`) — and never draw it. This is the shape of the book's whole argument, and Seery gives you real data for the lifetime version. If Part 3 gets one figure, it's this.
   - *Your call:* One curve or two. They're different claims on different axes, and merging them would overstate what either study shows. My read: draw Seery's lifetime curve with its data, and let the prose keep the single-episode version.
 
-- [ ] **What AI helps and what it takes, across PERMA** — `"A bunch of these can actually be *improved* with large language models"`, The Forge of Meaning. Priority M
+- [ ] **What AI helps and what it takes, across PERMA** — `"A bunch of these can actually be *improved* with large language models"`, The forge of meaning. Priority M
   - *What:* Five rows, one per PERMA element, each marked helped, hurt, or complicated, with your one-line reason.
   - *Why:* The passage gives three helps in one sentence and then spends paragraphs on the two that are harder. A five-row block makes the asymmetry visible at a glance and stops the three helps from being forgotten by the time Meaning arrives.
   - *Your call:* Cheap and low-risk. Main question is whether Meaning reads as "complicated" or as its own thing, since the text says `"it seems like AI is neutral here"` and then spends two pages disagreeing.
@@ -132,7 +132,7 @@ The rest of this document is the original analysis, unchanged. The items below t
   - *Why:* The rhetorical move is that five unrelated traditions drew the same line. Five consecutive paragraphs make the reader do the alignment themselves; two columns do it instantly, and the instant is the point. This is the highest ratio of effect to effort in the list.
   - *Your call:* Whether the table replaces the paragraphs or sits beside them. Replacing loses your phrasing (`"the Tao does nothing, yet nothing is undone"`). My read: keep the paragraphs, add the table as a summary, and cut a sentence from each paragraph.
 
-- [ ] **Hedonic adaptation** — `"even these people return to their baseline level of happiness after just a few months"`, The Forge of Meaning. Priority L
+- [ ] **Hedonic adaptation** — `"even these people return to their baseline level of happiness after just a few months"`, The forge of meaning. Priority L
   - *What:* Happiness over time after a large positive event, returning to baseline.
   - *Why:* Familiar shape, clearly written paragraph.
   - *Your call:* Skip unless the chapter feels text-heavy after the other figures land.

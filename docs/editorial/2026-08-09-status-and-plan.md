@@ -6,18 +6,18 @@
 
 ## Where you are
 
-The restructure and dedupe work is finished: Part 1 is trimmed, the domains are real chapters, every duplicated concept has one canonical home, Happiness Through Friction ends on the God passage, and the Conclusion is drafted and lands. What's left is: a front door (Introduction + Methodology are empty headings), the payoff chapter (Mental Gym, half-written), two credibility sections (Steelman, Children), a handful of one-sentence plants, and the Overview rewrite. Site tracker: target 40k, per-part targets tuned 2026-08-09.
+The restructure and dedupe work is finished: Part 1 is trimmed, the domains are real chapters, every duplicated concept has one canonical home, Happiness through Friction ends on the God passage, and the Conclusion is drafted and lands. What's left is: a front door (Introduction + Methodology are empty headings), the payoff chapter (Mental Gym, half-written), two credibility sections (Steelman, Children), a handful of one-sentence plants, and the Overview rewrite. Site tracker: target 40k, per-part targets tuned 2026-08-09.
 
 ## Sitting 1 — mechanical leftovers
 
-- [x] **Dissolve `### Motivation`** — done 2026-08-09 (Claude). Duplicate dopamine/serotonin treatment removed; citations moved to Captured by Consumption; Happiness Through Friction now ends on the God passage.
+- [x] **Dissolve `### Motivation`** — done 2026-08-09 (Claude). Duplicate dopamine/serotonin treatment removed; citations moved to Captured by Consumption; Happiness through Friction now ends on the God passage.
 - [x] **Delete the PTG paraphrase** — done 2026-08-09 (Claude). Kept the unique thought experiment and Big Panda quote.
-- [x] **Move The Lover And The Hammer** — done 2026-08-09 (Claude). Now closes Love & Connection.
+- [x] **Move The lover and the hammer** — done 2026-08-09 (Claude). Now closes Love and Connection.
 - [x] **Kill the empty `### Inform People` heading** — done 2026-08-09 (Claude).
-- [x] **Delete stray debris** in Token Anxiety — done 2026-08-09 (Claude).
+- [x] **Delete stray debris** in Token anxiety — done 2026-08-09 (Claude).
 - [x] **Delete the stale TODO** atop Captured by Consumption — done 2026-08-09 (Claude).
 - [x] **Decide the tumor story** — should the brain-tumor story open the book?
-  - *What:* The story currently sits deep in Part 3 (find `"When they discovered my brain tumor"`, in the Meaning Guidance section). The move under consideration: make it the opening scene of the empty "Story-based intro", leaving a one-line callback where it is now. The *other* tumor passage — the second-surgery comparison in When Superintelligence Turns Away (`"I’ve had two brain surgeries"`) — stays either way; it makes a different point (knowing what to expect blunts growth) and would become a callback to the intro.
+  - *What:* The story currently sits deep in Part 3 (find `"When they discovered my brain tumor"`, in the Meaning guidance section). The move under consideration: make it the opening scene of the empty "Story-based intro", leaving a one-line callback where it is now. The *other* tumor passage — the second-surgery comparison in When Superintelligence Turns Away (`"I’ve had two brain surgeries"`) — stays either way; it makes a different point (knowing what to expect blunts growth) and would become a callback to the intro.
   - *Why:* The book currently opens with two empty headings, and this story does in miniature what the whole book argues: the meaning didn't come from the surgery, it came from the *not-knowing* and from other people reflecting the gravity back at you afterward ("no Marcel, this is actually a big one"). Opening on it stakes the book to lived experience before any theory arrives.
   - *Your call:* What should the reader feel on page one — the fear itself, or the meaning-making afterward? And is this the confession you want to lead with, or is the sorry-tape morning (in Cultivating Discipline) the truer front door for a book about AI temptation? Both are yours; only one goes first.
 
@@ -28,13 +28,13 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *Why:* Nobody else can write this section, it costs only honesty, and it buys the book's credibility up front — you're a heavy AI user, not a luddite, and the reader needs to know that before Part 1 explains the machine. It also answers the question every reader now silently asks: "did AI write this?"
   - *Your call:* What do you actually want the reader to *do* with this book — read it straight through, argue with it, practice it? Say so here. And how honest are you willing to be about where the line between you and the tools ran while writing it?
 - [x] **Introduction** (~1–1.5k words; unblocks after the tumor decision above)
-  - *What:* Write the "Story-based intro" — the tumor story if promoted, told as scene rather than summary; the raw material is already drafted in Meaning Guidance.
+  - *What:* Write the "Story-based intro" — the tumor story if promoted, told as scene rather than summary; the raw material is already drafted in Meaning guidance.
   - *Why:* The front door carries the whole book's register. Everything strongest in the manuscript (sorry-tape, the God passage, the Conclusion's sideboard scene) is personal confession — the intro should be too.
   - *Your call:* Where does the scene end and the book's question begin? The story hands you a natural pivot: everything worked out *because you didn't know* — and we're building the machine that always knows.
 - [x] **Finish The Mental Gym** (~1.5–2.5k words, the payoff chapter)
   - *What:* The chapter promised by the book's whole premise is half-written. Cultivating Discipline (sorry-tape) and Becoming Lucid (awareness → inhibition → sleep) exist; "What Is Brain Energy?" stops mid-sentence at `"your brain prefers to run on"`; your own note-stubs list the remaining practices: prompt the AI for challenge, context resets, verifying outputs, staying with the latest models.
   - *Why:* The reader who bought "deliberately stress your mind like sport" is owed the program. Right now they get two beautiful confessions and a dangling sentence.
-  - *Your call:* The hard part is the organizing principle — the thing that makes this a *program* rather than a tip list, the way "progressive overload" organizes the physical gym. Two candidates already live in your manuscript: (a) the four knobs you defined in Facilitating Growth Through Challenge — severity, controllability, social support, processing style — each practice tunes a knob; (b) the daily-cycle arc your sections already trace — protect the morning → hold boredom → notice → inhibit → sleep. Pick one and organize under it; resist inventing a third. Separately: the brain-energy neuroscience needs either real research or an honest paragraph — with five weeks left, which does the chapter actually need?
+  - *Your call:* The hard part is the organizing principle — the thing that makes this a *program* rather than a tip list, the way "progressive overload" organizes the physical gym. Two candidates already live in your manuscript: (a) the four knobs you defined in Facilitating growth through challenge — severity, controllability, social support, processing style — each practice tunes a knob; (b) the daily-cycle arc your sections already trace — protect the morning → hold boredom → notice → inhibit → sleep. Pick one and organize under it; resist inventing a third. Separately: the brain-energy neuroscience needs either real research or an honest paragraph — with five weeks left, which does the chapter actually need?
 - [x] **Steelman** (~800 words; buffer item — cut this first if time runs out)
   - *What:* One honest section answering the two strongest objections the book never faces: (1) "Socrates said exactly this about writing" — every generation panics about cognitive offloading (calculators, GPS, Google) and humans adapted; (2) "people adapt — new games always emerge" — we invented sport when physical labor vanished, we'll invent mental sport too.
   - *Why:* Without this section, your sharpest readers dismiss the book as one more moral panic. Facing the objections honestly is a credibility multiplier for everything else.
@@ -60,9 +60,9 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
 
 
 - [x] **Explain the Constitution work once, properly** (one passage)
-  - *What:* Claude's Constitution is mentioned four times and explained at none of them: the parenthetical in Solving Sycophancy (`that’s what Anthropic calls it`), the passing wish at `worked out in Claude’s Constitution`, the mechanism sentence in Teaching AI Good Behavior (`they use this as a starting point to generate thousands of fictional situations`), and the Conclusion's one-line assertion (`principles-driven training`). The mechanism sentence is the natural home — it already describes constitution-driven training data and carries no citation. What is missing: what the document actually is (written primarily *for* Claude, published in full under CC0, and treated as the final authority on Claude's behavior); that the 2026 rewrite moved from a list of standalone rules to explaining reasons and character, because judgment in situations nobody anticipated cannot come from rules; and the result that carries the section — training on documents that explain the principles improved behavior in situations that were never in the training data, and the improvement survived later reinforcement learning.
+  - *What:* Claude's Constitution is mentioned four times and explained at none of them: the parenthetical in Solving sycophancy (`that’s what Anthropic calls it`), the passing wish at `worked out in Claude’s Constitution`, the mechanism sentence in Teaching AI good behavior (`they use this as a starting point to generate thousands of fictional situations`), and the Conclusion's one-line assertion (`principles-driven training`). The mechanism sentence is the natural home — it already describes constitution-driven training data and carries no citation. What is missing: what the document actually is (written primarily *for* Claude, published in full under CC0, and treated as the final authority on Claude's behavior); that the 2026 rewrite moved from a list of standalone rules to explaining reasons and character, because judgment in situations nobody anticipated cannot come from rules; and the result that carries the section — training on documents that explain the principles improved behavior in situations that were never in the training data, and the improvement survived later reinforcement learning.
   - *Why:* This is the book's most concrete answer to "can we actually steer these things?", and right now it reads as an aside. Two hard claims in that section also stand uncited — `have an enormous impact on the behavior of AI assistants` and the `Goliath` result — which is the one thing the book's own rule forbids.
-  - *Your call:* Expand it in place in Teaching AI Good Behavior, or give it a short section in Designing Aligned Allies, which owns the design question? And is the transparency angle yours to use — Anthropic published the document in full under CC0, which almost nobody does?
+  - *Your call:* Expand it in place in Teaching AI good behavior, or give it a short section in Designing Aligned Allies, which owns the design question? And is the transparency angle yours to use — Anthropic published the document in full under CC0, which almost nobody does?
 
 - [x] Check in with how often I explain the social media comparison and "but now AI makes it useful." I feel like it's there a few too many times.
 
@@ -70,36 +70,36 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
 
 *The `/storyline` page of the site maps thirty threads of the book to the exact quotes where each is planted, used, explained, and paid off. These are the items it flagged. Each carries **What**, **Why**, and **Your call**. Three copyedit catches from the same pass are in the Copyedit item under Final week. The reading of the diagram itself is in `2026-09-09-storyline.md`; nothing there is required to act on these.*
 
-- [x] **Name "sampling" in Part 1** — closed 2026-09-09. The Good-Enough Rocket rewrite deleted the callback, so nothing points at the word any more. The mechanism keeps its clause at `the exact most likely one results in extremely boring output`, which is what the Conclusion's `The Inevitable` cashes.
-  - *What:* In Tokens And The Context Window, `We’ll pick one of the most-likely ones at random` never says the word. The Good-Enough Rocket later says `Like we discussed before, this probably has something to do with sampling`. Add the word where the mechanism is, for example "...at random (this step is called *sampling*)".
+- [x] **Name "sampling" in Part 1** — closed 2026-09-09. The good-enough rocket rewrite deleted the callback, so nothing points at the word any more. The mechanism keeps its clause at `the exact most likely one results in extremely boring output`, which is what the Conclusion's `The Inevitable` cashes.
+  - *What:* In Tokens and the context window, `We’ll pick one of the most-likely ones at random` never says the word. The good-enough rocket later says `Like we discussed before, this probably has something to do with sampling`. Add the word where the mechanism is, for example "...at random (this step is called *sampling*)".
   - *Why:* The callback points at a term the reader never met. The Trim item under Final week counts three later payoffs on this sentence, and the first of them refers to a word that is not there.
   - *Your call:* One word, or a clause that also says why the exact most-likely token is boring? The Conclusion's `The Inevitable` cashes exactly that, so the clause would plant the ending.
 - [x] **Decide what "dopamine" means in Part 2**
-  - *What:* Three mentions come before Why We Do What We Do explains it: `your brain squirts some dopamine` (Transmissionism), `highly dopaminergic content` (The Business of Companionship), and `our dopamine, norepinephrine and serotonin systems` (Where Does Creativity Come From?).
+  - *What:* Three mentions come before Why we do what we do explains it: `your brain squirts some dopamine` (Transmissionism), `highly dopaminergic content` (The business of companionship), and `our dopamine, norepinephrine and serotonin systems` (Where does creativity come from?).
   - *Why:* The Conclusion turns on `Dopamine encodes reward prediction error`. Part 2 teaches the reader the pop meaning first (dopamine is pleasure), and Part 3 has to unteach it: `It’s important to know that dopamine does not feel “good.”`
   - *Your call:* Keep the pop usage as bait and correct it out loud in Part 3, or replace the three with plain words (a rush, addictive, drive) so the term arrives once, with its meaning?
-- [x] **Define alignment where Alignment Faking appears**
-  - *What:* `#### Alignment Faking` in Part 1 uses the term. `is called *alignment*` in Alignment Research, Part 3, defines it, about 26,000 words later. One clause in the section's first sentence closes the gap.
+- [x] **Define alignment where Alignment faking appears**
+  - *What:* `#### Alignment faking` in Part 1 uses the term. `is called *alignment*` in Alignment research, Part 3, defines it, about 26,000 words later. One clause in the section's first sentence closes the gap.
   - *Why:* The reader also meets the word in the chapter title Designing Aligned Allies before the definition.
   - *Your call:* Define it in Part 1, or rename the Part 1 section to what it shows ("Pretending to be good when watched") and leave the definition where it is?
 - [x] **Make "the theme of the book so far" true**
   - *What:* Biology's Unmet Hunger says `as the theme of the book has been so far, in many ways we're attracted to the benefits of artificial intelligence because of what it gives our *conscious* mind, *right now*, but we forget the subtle subconscious and long-term effects`.
-  - *Why:* This is the first sentence in the book that states the now-versus-later theme, at 44%, inside a subsection about touch and smell. The Forge of Meaning restates it at 63% as hedonia and eudaimonia. "So far" asks the reader to have noticed a theme nobody named.
+  - *Why:* This is the first sentence in the book that states the now-versus-later theme, at 44%, inside a subsection about touch and smell. The forge of meaning restates it at 63% as hedonia and eudaimonia. "So far" asks the reader to have noticed a theme nobody named.
   - *Your call:* Keep the sentence as the plant for the Forge and give it its own paragraph, or state the theme once in the Introduction so "so far" holds?
 - [x] **Pay off the debt collector**
-  - *What:* `a faint image of a debt collector on the horizon and we’re not quite sure yet how quickly they’re walking or what they’ll have to say` closes Disappearing Depth and never returns. Two places can take a one-sentence callback: Food For Thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
+  - *What:* `a faint image of a debt collector on the horizon and we’re not quite sure yet how quickly they’re walking or what they’ll have to say` closes Disappearing depth and never returns. Two places can take a one-sentence callback: Food for thought at `dramatically increases the complexity and difficulty of the tasks that are left for me to do`, or Captured by Consumption at `comfortable and hollow, wondering what went wrong`.
   - *Why:* "We're not sure yet" is a promise to the reader.
   - *Your call:* Which debt is it, skill or satisfaction? `It was never about the skills.` points at the second.
 - [ ] **Pay off or cut "siren or muse"**
-  - *What:* `more of a siren than a muse` appears once, in the Love & Connection intro. The Lover And The Hammer already has the two halves it maps onto: the lover-only companion is the siren, the hammer is the muse. The TODO `The work of this guy writing about siren vs. muse?` is still open.
+  - *What:* `more of a siren than a muse` appears once, in the Love and Connection intro. The lover and the hammer already has the two halves it maps onto: the lover-only companion is the siren, the hammer is the muse. The TODO `The work of this guy writing about siren vs. muse?` is still open.
   - *Why:* One image, one use.
-  - *Your call:* One sentence in The Lover And The Hammer, cut it, or find the source first?
+  - *Your call:* One sentence in The lover and the hammer, cut it, or find the source first?
 - [x] **Return to the mountain, or rename Part 3**
-  - *What:* Part 3 is "The Ascent". Captured by Consumption opens on `the uphill mountain trails` and `the magnificent view on the mountaintop`. Neither returns. The only later mountain, `plant the flag on the most impossible-to-climb mountain` in Falling in Love with Resistance, is a different image, a sports goal. The Part ends on God and the Conclusion ends at the sideboard.
+  - *What:* Part 3 is "The Ascent". Captured by Consumption opens on `the uphill mountain trails` and `the magnificent view on the mountaintop`. Neither returns. The only later mountain, `plant the flag on the most impossible-to-climb mountain` in Falling in love with resistance, is a different image, a sports goal. The Part ends on God and the Conclusion ends at the sideboard.
   - *Why:* A Part title is the biggest promise in the book, and this one is made of an image used once.
   - *Your call:* Return to the mountain once, in the last paragraph of When Superintelligence Turns Away or in the sideboard scene (the view was never the point, the trail was), or rename the Part to what it delivers?
 - [x] **Plant awareness in Part 1**
-  - *What:* `what I’d call consciousness or awareness` is introduced in Awareness and Creativity at 50%. Re-Remembering then calls it `the most important skill we can develop in a world of AI` and Arbiters of Presence calls it `the key`. Pretend-Thinking already has the machine half: `The thoughts a language model presents are not always the thoughts it actually has`. Add the human half there in one sentence: we can notice a thought while we think it, and the model cannot.
+  - *What:* `what I’d call consciousness or awareness` is introduced in Awareness and creativity at 50%. Re-Remembering then calls it `the most important skill we can develop in a world of AI` and Arbiters of presence calls it `the key`. Pretend-Thinking already has the machine half: `The thoughts a language model presents are not always the thoughts it actually has`. Add the human half there in one sentence: we can notice a thought while we think it, and the model cannot.
   - *Why:* The largest claim in Part 3 rests on a concept the reader met as a side note in a domain chapter.
   - *Your call:* Plant it in Pretend-Thinking, or move the "structurally incapable of self-introspection" argument out of Creativity into Re-Remembering and leave a pointer in Creativity?
 - [x] **Check the machine-consciousness claims against Anthropic's global workspace paper**
@@ -109,15 +109,15 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
 - [ ] **Plant "set apart" before consecration**
   - *What:* `What remains? Consecration.` in AI as Infinite Creation is the word's first appearance, at 93%. The Conclusion uses it once more. Nothing earlier says "set apart". The word "sacred" appears only in the Overview, in the title.
   - *Why:* The title stays *Sacred Struggle*, and to consecrate is to make sacred. This passage is where the book explains the first word of its title, and the reader meets that idea five pages from the end.
-  - *Your call:* Plant it in the Introduction (`There’s something special about moments like this` is one sentence away from it), in The Forge of Meaning, or keep it as the last reveal?
-- [x] **Re-anchor "Then comes" in When Superintelligence Turns Away** — closed 2026-09-13. The chapter now opens on `If we imagine a superintelligence exists` and the severity-and-chronicity sentence is gone, so there is no back-reference left to re-anchor. The knobs keep their home in Facilitating Growth Through Challenge at `**Severity and chronicity.** Not too bad, not too much.`
-  - *What:* The chapter opens with `Then comes the more philosophical and controversial part: tweaking severity and chronicity of hardship...on purpose`. Severity and chronicity are the four knobs in Facilitating Growth Through Challenge, two chapters earlier. New World, New Scarcity and AI as Infinite Creation sit between them.
+  - *Your call:* Plant it in the Introduction (`There’s something special about moments like this` is one sentence away from it), in The forge of meaning, or keep it as the last reveal?
+- [x] **Re-anchor "Then comes" in When Superintelligence Turns Away** — closed 2026-09-13. The chapter now opens on `If we imagine a superintelligence exists` and the severity-and-chronicity sentence is gone, so there is no back-reference left to re-anchor. The knobs keep their home in Facilitating growth through challenge at `**Severity and chronicity.** Not too bad, not too much.`
+  - *What:* The chapter opens with `Then comes the more philosophical and controversial part: tweaking severity and chronicity of hardship...on purpose`. Severity and chronicity are the four knobs in Facilitating growth through challenge, two chapters earlier. New World, New Scarcity and AI as Infinite Creation sit between them.
   - *Why:* The transition reads as if the knobs were on the previous page.
   - *Your call:* Rewrite the sentence to point back ("In Designing Aligned Allies we tuned severity and chronicity by hand. Now let a superintelligence do it."), or move the chapter to right after Designing Aligned Allies? The move puts God before New World and gives up the God-then-Conclusion ending.
-- [ ] **Say why The Lover And The Hammer sits in Part 2**
+- [ ] **Say why The lover and the hammer sits in Part 2**
   - *What:* `There are a few ways we could build this.` at 46% is the only "how to build it" section inside the Domains. Designing Aligned Allies opens the design question at 75%.
-  - *Why:* Sitting 1 moved the section to close Love & Connection on purpose. The cost: the reader gets solutions before the book has argued that solutions are needed.
-  - *Your call:* Keep it as the chapter closer and add one line that says so ("we'll come back to building this in Part 3"), or move it under Facilitating Growth Through Challenge?
+  - *Why:* Sitting 1 moved the section to close Love and Connection on purpose. The cost: the reader gets solutions before the book has argued that solutions are needed.
+  - *Your call:* Keep it as the chapter closer and add one line that says so ("we'll come back to building this in Part 3"), or move it under Facilitating growth through challenge?
 
 ## How to talk about the book (the spoken pitch)
 
@@ -142,18 +142,18 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
   - *Why:* It is the most serious incident in the book, and the reader cannot tell who was harmed.
   - *Your call:* Name the companies, or describe them without names?
 - [x] **Fix two sentences whose meaning could not be recovered**
-  - *What:* Decision-Making: `figure out what to write a book about that would, next` is missing a word after "would". Food For Thought: `our judgment and inhibition become the why or why not the technology ends up doing the right things for us` does not parse.
+  - *What:* Decision-Making: `figure out what to write a book about that would, next` is missing a word after "would". Food for thought: `our judgment and inhibition become the why or why not the technology ends up doing the right things for us` does not parse.
   - *Why:* Both stop the reader in the middle of an argument.
   - *Your call:* What does each sentence say?
 - [x] **Resolve the contradiction about machine awareness**
-  - *What:* Re-Remembering calls awareness `something large language models don’t possess`. Your rewrite of Awareness and Creativity now says `They can be aware of some of their “thoughts”`.
+  - *What:* Re-Remembering calls awareness `something large language models don’t possess`. Your rewrite of Awareness and creativity now says `They can be aware of some of their “thoughts”`.
   - *Why:* The recap two chapters later still states the claim the rewrite narrowed.
   - *Your call:* Narrow the recap to what the model lacks (a loop over time, a self that persists), or point back to J-space?
 - [x] **Check the interpretability example in Pretend-Thinking**
   - *What:* `doing long multiplication in their “thoughts” correctly`. Anthropic's 2025 "On the Biology of a Large Language Model" studied addition: the model described the carry-the-one method while its internal computation ran on parallel paths.
   - *Why:* The passage presents the example as research, and the details differ from the research.
   - *Your call:* Switch to the addition example, or keep multiplication as an illustration that is not attributed to the paper?
-- [x] **Recheck the growth numbers in How smart is AI?**
+- [x] **Recheck the growth numbers in How Smart Is AI?**
   - *What:* `(9x growth in 1 year)`: 36 seconds to 4 minutes is about 6.7x. The paragraph then asks `what about in one year where it got another 100 times better?`, a bigger yearly jump than any it lists.
   - *Why:* A reader who does the arithmetic finds that the claim does not follow from its own numbers.
   - *Your call:* Recheck the source figures, or soften the "100 times"?
@@ -162,7 +162,7 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
   - *Why:* The story that frames Part 2 is the first historical claim a skeptical reader can check.
   - *Your call:* Reframe the moment (writing spreading through Athens, as in the *Phaedrus*), and is the insight Socrates' or Plato's?
 - [x] **Hallucinations leans on ideas that come later**
-  - *What:* It says `in the post-training phase` before Language Models are Screenplay Writers introduces post-training. The paragraph starting `It’s clear that we haven’t figured this out yet` is about fake balanced disagreement, which is sycophancy, the next section.
+  - *What:* It says `in the post-training phase` before Language models are screenplay writers introduces post-training. The paragraph starting `It’s clear that we haven’t figured this out yet` is about fake balanced disagreement, which is sycophancy, the next section.
   - *Why:* The reader meets both ideas before the book explains them.
   - *Your call:* Move that paragraph into Sycophancy, and add a clause that says what post-training is?
 - [x] **Asimov's laws in the Designing Aligned Allies conclusion**
@@ -170,11 +170,11 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
   - *Why:* The conclusion cites evidence the chapter itself denies.
   - *Your call:* Drop Asimov from that list, or say what you mean by it?
 - [x] **Gemini's sycophancy and Claude's Constitution**
-  - *What:* Solving Sycophancy describes Gemini Pro, then says the question `needs to be worked out in Claude’s Constitution`.
+  - *What:* Solving sycophancy describes Gemini Pro, then says the question `needs to be worked out in Claude’s Constitution`.
   - *Why:* The reader cannot see how Anthropic's document would change Google's model.
   - *Your call:* Generalize to every lab's model rules, or add the bridge from Gemini to Claude?
 - [ ] **Source the December "laziness" story**
-  - *What:* Alignment Research says a date prompt `immediately returned “good behavior.”` As far as the copyedit knew (not checked against a source), the December effect came from informal user tests that later attempts did not reliably reproduce. The note now attached there, Chen et al. (2024), measured how GPT-4 changed between March and June 2023, not the December effect.
+  - *What:* Alignment research says a date prompt `immediately returned “good behavior.”` As far as the copyedit knew (not checked against a source), the December effect came from informal user tests that later attempts did not reliably reproduce. The note now attached there, Chen et al. (2024), measured how GPT-4 changed between March and June 2023, not the December effect.
   - *Why:* An anecdote reads as fact in a section that otherwise cites research, and its note supports a different finding.
   - *Your call:* Find a source for the December effect, frame it as a rumor, or move the Chen note to a sentence it supports?
 - [x] **Correct the touch-fiber mechanism in Biology's Unmet Hunger**
@@ -200,18 +200,18 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 ## Final week — polish
 
-- [x] **Trim the vector mechanics** in Tokens And The Context Window (find `"represents each token as a *vector*"`)
+- [x] **Trim the vector mechanics** in Tokens and the context window (find `"represents each token as a *vector*"`)
   - *What:* Cut the one-hot dictionary-vector detail (the 32,000-zeroes list) and the "part of the output is passed back in as memory" loop. Keep the sampling sentence — `"pick one of the most-likely ones at random"` — and the probabilities framing.
   - *Why:* This is the last un-executed piece of the old "Part 1 is too deep" feedback, and the cut removes your least defensible mechanics claim in the same stroke: the "memory passed back" framing describes a recurrent network more than a transformer, and it contradicts your own (correct) next paragraph — "they read the entire conversation fully, every time." The sampling sentence, by contrast, pays off three times later: Creativity's temperature argument, the Conclusion's Inevitable, and the error-minimization plant.
 - [x] **Copyedit pass** — done 2026-09-14 (Claude), for the early access release. About 200 fixes to spelling, grammar, and punctuation, including every catch previously listed here, plus plural apostrophes (LLMs, AIs) and one spelling per term (judgment, eudaimonia, well-being, and em dashes where the source had `---`). The pass changed errors only, not style or rhythm. Two catches need your judgment and moved to Early access flags: Socrates versus Plato, and post-training mentioned before it is introduced.
 - [x] **Format the sources** — done 2026-09-14 (Claude). All 52 sources are in `references.yaml`, checked against their DOI or live page, and each is cited right after its claim as `%%[@key]%%` (format in `CLAUDE.md`). Corrections made on the way: Horton and Wohl is 1956, not 1954; Pentina, not Petina, and 2023; Roepke is 2013; Derrick is 2009; Chen et al. is 2024; Cheng et al. is 2026 in *Science*; Muldoon, not Mulodon.
-- [ ] **Resolve the prose TODOs** — the two remaining are the depression/meaning study numbers (`"TODO talk about depression"`, Work intro) and the citation for "people prefer AI writing unless they know it's AI" (`"TODO: Citation"`, The Good-Enough Rocket). *Your call on each:* cite it, cut the claim, or soften it to opinion — an uncited hard claim is the only wrong option. The pace-of-progress graphs and the Tamagotchi pictures are done, as figures rather than images; see `2026-09-21-imagery-and-charts.md` for what was built, the sixteen candidates still open, and the three decisions those figures left to you.
-- [x] **Write a Love & Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The Rise of Synthetic Bonds. One paragraph framing what the chapter will argue.
+- [ ] **Resolve the prose TODOs** — the two remaining are the depression/meaning study numbers (`"TODO talk about depression"`, Work intro) and the citation for "people prefer AI writing unless they know it's AI" (`"TODO: Citation"`, The good-enough rocket). *Your call on each:* cite it, cut the claim, or soften it to opinion — an uncited hard claim is the only wrong option. The pace-of-progress graphs and the Tamagotchi pictures are done, as figures rather than images; see `2026-09-21-imagery-and-charts.md` for what was built, the sixteen candidates still open, and the three decisions those figures left to you.
+- [x] **Write a Love and Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The rise of synthetic bonds. One paragraph framing what the chapter will argue.
 - [x] **Optional: half-page Part 2 opener** — Part 2 currently opens cold on Learning right after Part 1's mechanics. A short bridge could do the old "seduction of ease" teaser work: our reward system is wired for pursuit-against-resistance, AI removes the resistance, here's what that does in four domains. *Your call:* only write it if it doesn't crowd out the must-haves above — the domain chapters do survive without it.
 
 ## More Stuff
 
-- [x] Re-write *Captured By Consumption* so it can be driven by Superstimuli
+- [x] Re-write *Captured by Consumption* so it can be driven by Superstimuli
 
 ## Deadline math, redone
 

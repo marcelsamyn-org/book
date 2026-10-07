@@ -1,5 +1,5 @@
 /**
- * The inverted U in "Post-Traumatic Growth", plotted from the fitted model in
+ * The inverted U in "Post-traumatic growth", plotted from the fitted model in
  * Seery, Holman and Silver (2010), Table 2 and Figure 1.
  *
  * Their model is a quadratic in cumulative lifetime adversity. Adversity counts

@@ -1,5 +1,5 @@
 /**
- * The break-up advice comparison in "Parroting The Internet": how often each
+ * The break-up advice comparison in "Parroting the internet": how often each
  * responder's main advice was to end the relationship. The manuscript supplies
  * the responders, the aggregate rule, and the method line, because these are
  * the author's own test rather than a published result.

@@ -40,7 +40,7 @@
   - *Why:* Without it the sequence jumps from making things to judging them, and skips the part the reader spends most of their working day on.
   - *Your call:* Two different attentions are in play here — the one advertisers buy, and the one you spend at work deciding what is worth looking at. Social media made the first scarce, agents are taking the second. Separate them, or let the reader feel the overlap?
 - [x] **Add judgement as the third step**
-  - *What:* Where the chapter says value moves to describing and judging, add that judgement gets cheap too. You have already written this twice elsewhere: `"even at that step of the ladder, AI might just be able to step right along with us"` in Decision-Making, and `"need to rely on it even for judgement"` in Meaningful Work.
+  - *What:* Where the chapter says value moves to describing and judging, add that judgement gets cheap too. You have already written this twice elsewhere: `"even at that step of the ladder, AI might just be able to step right along with us"` in Decision-Making, and `"need to rely on it even for judgement"` in Meaningful work.
   - *Why:* Without this step, the chapter leaves taste standing as an answer, and the book has already argued that taste does not hold.
   - *Your call:* You think taste lasts longer than execution but not forever. Do you want to say how much longer, or leave it unquantified?
 - [x] **Keep the lamp and the inner-world paragraph together**
@@ -67,7 +67,7 @@
 ## Outside this chapter — two problems in nearby chapters
 
 - [ ] **Shorten the alignment sections in Designing Aligned Allies**
-  - *What:* Cut down Alignment Research and Teaching AI Good Behavior. `"We discussed earlier how"` re-explains the screenplay idea from Part 1's `"Language Models are Screenplay Writers"`, and `"Synthetic Document Fine-Tuning"` explains how training works rather than making an argument.
+  - *What:* Cut down Alignment research and Teaching AI good behavior. `"We discussed earlier how"` re-explains the screenplay idea from Part 1's `"Language models are screenplay writers"`, and `"Synthetic Document Fine-Tuning"` explains how training works rather than making an argument.
   - *Why:* It is the longest stretch of how-the-technology-works explanation in Part 3, and it sits directly before this chapter.
   - *Your call:* How much of the alignment detail does your argument need, and how much is there because it is interesting? Only you know which examples you would miss.
 - [ ] **Keep "you" the same person across four chapters**

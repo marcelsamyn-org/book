@@ -1,5 +1,5 @@
 /**
- * The persona selection figure for "Language Models are Screenplay Writers":
+ * The persona selection figure for "Language models are screenplay writers":
  * pre-training teaches the model every AI character it reads about, and
  * post-training refines one of them, the Assistant, pulling it toward some of
  * those characters and away from others (Marks, Lindsey and Olah 2026).
