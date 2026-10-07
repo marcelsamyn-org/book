@@ -10,17 +10,33 @@ interface Props {
 }
 
 const { entries } = Astro.props;
+
+// "Part 1: The Machine Mind" sets "Part 1" as a label above the title.
+const splitPart = (title: string): { label: string | null; name: string } => {
+  const match = /^(Part \d+): (.+)$/.exec(title);
+  return match ? { label: match[1]!, name: match[2]! } : { label: null, name: title };
+};
 ---
 
-{entries.map((entry) => (
-  <div class="toc-entry">
-    <a href={`#${entry.id}`} class="toc-link toc-parent">{entry.title}</a>
-    {entry.children.length > 0 && (
-      <div class="toc-children">
-        {entry.children.map((child) => (
-          <a href={`#${child.id}`} class="toc-link toc-child">{child.title}</a>
-        ))}
-      </div>
-    )}
-  </div>
-))}
+<ol class="toc">
+  {entries.map((entry) => {
+    const { label, name } = splitPart(entry.title);
+    return (
+      <li class="toc-entry">
+        <a href={`#${entry.id}`} class="toc-link toc-parent">
+          {label && <span class="toc-label">{label}</span>}
+          <span>{name}</span>
+        </a>
+        {entry.children.length > 0 && (
+          <ol class="toc-children">
+            {entry.children.map((child) => (
+              <li>
+                <a href={`#${child.id}`} class="toc-link toc-child">{child.title}</a>
+              </li>
+            ))}
+          </ol>
+        )}
+      </li>
+    );
+  })}
+</ol>

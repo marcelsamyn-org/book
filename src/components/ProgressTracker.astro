@@ -1,19 +1,11 @@
 ---
-import type { BookProgress, SectionProgress, SectionStatus } from "../publish/progress.js";
+import type { BookProgress } from "../publish/progress.js";
 
 interface Props {
   progress: BookProgress;
 }
 
 const { progress } = Astro.props;
-
-const STATUS_CSS: Record<SectionStatus, string> = {
-  notes: "progress-status-notes",
-  outline: "progress-status-outline",
-  sketched: "progress-status-sketched",
-  draft: "progress-status-draft",
-  revised: "progress-status-revised",
-};
 
 const formatWordCount = (count: number): string =>
   count.toLocaleString("en-US");
@@ -58,30 +50,3 @@ const empty = barWidth - filled;
   });
 </script>
 
-<div class="progress-sections">
-  {progress.sections.map((section) => {
-    const h2Children = section.children.filter((c) => c.level === 2);
-    return (
-      <>
-        <div class="progress-section">
-          <span class="progress-title">{section.title}</span>
-          <span class="progress-leader"></span>
-          <span class="progress-words">{formatWordCount(section.totalWordCount)}</span>
-          <span class={STATUS_CSS[section.status]}>{section.status}</span>
-        </div>
-        {h2Children.length > 0 && (
-          <div class="progress-chapters">
-            {h2Children.map((child) => (
-              <div class="progress-section">
-                <span class="progress-title">{child.title}</span>
-                <span class="progress-leader"></span>
-                <span class="progress-words">{formatWordCount(child.totalWordCount)}</span>
-                <span class={STATUS_CSS[child.status]}>{child.status}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </>
-    );
-  })}
-</div>

@@ -56,8 +56,8 @@ const { lastUpdatedIso, lineChanges } = Astro.props;
       </details>
     </header>
 
-    <nav class="mb-16">
-      <details class="group">
+    <nav class="mb-16" aria-label="Contents">
+      <details class="group" open>
         <summary class="cursor-pointer list-none flex items-center gap-2 text-xs text-ink-muted hover:text-ink-secondary transition-colors">
           <span class="text-[10px] group-open:rotate-90 transition-transform duration-200">&#9654;</span>
           <span>Contents</span>
