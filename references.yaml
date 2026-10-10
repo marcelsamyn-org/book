@@ -65,6 +65,20 @@ references:
   publisher: "Anthropic"
   issued: 2026-01-21
   URL: https://www.anthropic.com/constitution
+- id: baerger1999
+  type: article-journal
+  author:
+  - family: "Baerger"
+    given: "Dana Royce"
+  - family: "McAdams"
+    given: "Dan P."
+  title: "Life Story Coherence and its Relation to Psychological Well-Being"
+  container-title: "Narrative Inquiry"
+  volume: "9"
+  issue: "1"
+  page: "69-96"
+  issued: 1999
+  DOI: 10.1075/ni.9.1.05bae
 - id: baumeister2013
   type: article-journal
   author:
@@ -113,6 +127,38 @@ references:
   page: 4-16
   issued: 1984
   DOI: 10.3102/0013189X013006004
+- id: bonanno2004
+  type: article-journal
+  author:
+  - family: "Bonanno"
+    given: "George A."
+  title: "Loss, Trauma, and Human Resilience: Have We Underestimated the Human Capacity to Thrive After Extremely Aversive Events?"
+  container-title: "American Psychologist"
+  volume: "59"
+  issue: "1"
+  page: "20-28"
+  issued: 2004
+  DOI: 10.1037/0003-066x.59.1.20
+- id: brown2014
+  type: article-journal
+  author:
+  - family: "Brown"
+    given: "Nicholas J. L."
+  - family: "MacDonald"
+    given: "Douglas A."
+  - family: "Samanta"
+    given: "Manoj Pratim"
+  - family: "Friedman"
+    given: "Harris L."
+  - family: "Coyne"
+    given: "James C."
+  title: "A critical reanalysis of the relationship between genomics and well-being"
+  container-title: "Proceedings of the National Academy of Sciences"
+  volume: "111"
+  issue: "35"
+  page: "12705-12709"
+  issued: 2014
+  DOI: 10.1073/pnas.1407057111
 - id: chatterji2025
   type: report
   author:
@@ -271,6 +317,15 @@ references:
   issue: 37
   issued: 2022
   DOI: 10.1073/pnas.2210639119
+- id: edwards2023
+  type: article-magazine
+  author:
+  - family: "Edwards"
+    given: "Benj"
+  title: "As ChatGPT Gets ‘Lazy,’ People Test ‘Winter Break Hypothesis’ as the Cause"
+  container-title: "Ars Technica"
+  issued: 2023-12-11
+  URL: https://arstechnica.com/information-technology/2023/12/is-chatgpt-becoming-lazier-because-its-december-people-run-tests-to-find-out/
 - id: emberson2026
   type: report
   author:
@@ -282,15 +337,6 @@ references:
   publisher: "Epoch AI"
   issued: 2026-09-22
   URL: https://epoch.ai/publications/the-plunging-price-of-thought
-- id: edwards2023
-  type: article-magazine
-  author:
-  - family: "Edwards"
-    given: "Benj"
-  title: "As ChatGPT Gets ‘Lazy,’ People Test ‘Winter Break Hypothesis’ as the Cause"
-  container-title: "Ars Technica"
-  issued: 2023-12-11
-  URL: https://arstechnica.com/information-technology/2023/12/is-chatgpt-becoming-lazier-because-its-december-people-run-tests-to-find-out/
 - id: epley2007
   type: article-journal
   author:
@@ -337,6 +383,54 @@ references:
   genre: "Preprint"
   issued: 2025
   DOI: 10.48550/arXiv.2503.17473
+- id: frazier2009
+  type: article-journal
+  author:
+  - family: "Frazier"
+    given: "Patricia"
+  - family: "Tennen"
+    given: "Howard"
+  - family: "Gavian"
+    given: "Margaret"
+  - family: "Park"
+    given: "Crystal"
+  - family: "Tomich"
+    given: "Patricia"
+  - family: "Tashiro"
+    given: "Ty"
+  title: "Does Self-Reported Posttraumatic Growth Reflect Genuine Positive Change?"
+  container-title: "Psychological Science"
+  volume: "20"
+  issue: "7"
+  page: "912-919"
+  issued: 2009
+  DOI: 10.1111/j.1467-9280.2009.02381.x
+- id: fredrickson2013
+  type: article-journal
+  author:
+  - family: "Fredrickson"
+    given: "Barbara L."
+  - family: "Grewen"
+    given: "Karen M."
+  - family: "Coffey"
+    given: "Kimberly A."
+  - family: "Algoe"
+    given: "Sara B."
+  - family: "Firestine"
+    given: "Ann M."
+  - family: "Arevalo"
+    given: "Jesusa M. G."
+  - family: "Ma"
+    given: "Jeffrey"
+  - family: "Cole"
+    given: "Steven W."
+  title: "A functional genomic perspective on human well-being"
+  container-title: "Proceedings of the National Academy of Sciences"
+  volume: "110"
+  issue: "33"
+  page: "13684-13689"
+  issued: 2013
+  DOI: 10.1073/pnas.1305419110
 - id: gershman2024
   type: article-journal
   author:
@@ -441,6 +535,28 @@ references:
   container-title: "World Happiness Report 2026"
   issued: 2026
   URL: https://www.worldhappiness.report/ed/2026/international-evidence-on-happiness-and-social-media/
+- id: henry2014
+  type: article-journal
+  author:
+  - family: "Henry"
+    given: "Kimberly L."
+  - family: "Lovegrove"
+    given: "Peter J."
+  - family: "Steger"
+    given: "Michael F."
+  - family: "Chen"
+    given: "Peter Y."
+  - family: "Cigularov"
+    given: "Konstantin P."
+  - family: "Tomazic"
+    given: "Rocco G."
+  title: "The Potential Role of Meaning in Life in the Relationship Between Bullying Victimization and Suicidal Ideation"
+  container-title: "Journal of Youth and Adolescence"
+  volume: "43"
+  issue: "2"
+  page: "221-232"
+  issued: 2014
+  DOI: 10.1007/s10964-013-9960-2
 - id: horton1956
   type: article-journal
   author:
@@ -455,6 +571,20 @@ references:
   page: 215-229
   issued: 1956
   DOI: 10.1080/00332747.1956.11023049
+- id: huta2010
+  type: article-journal
+  author:
+  - family: "Huta"
+    given: "Veronika"
+  - family: "Ryan"
+    given: "Richard M."
+  title: "Pursuing Pleasure or Virtue: The Differential and Overlapping Well-Being Benefits of Hedonic and Eudaimonic Motives"
+  container-title: "Journal of Happiness Studies"
+  volume: "11"
+  issue: "6"
+  page: "735-762"
+  issued: 2010
+  DOI: 10.1007/s10902-009-9171-4
 - id: jackclark2025
   type: post
   author:
@@ -487,6 +617,21 @@ references:
   publisher: "Farrar, Straus and Giroux"
   publisher-place: "New York"
   issued: 2011
+- id: killingsworth2023
+  type: article-journal
+  author:
+  - family: "Killingsworth"
+    given: "Matthew A."
+  - family: "Kahneman"
+    given: "Daniel"
+  - family: "Mellers"
+    given: "Barbara"
+  title: "Income and emotional well-being: A conflict resolved"
+  container-title: "Proceedings of the National Academy of Sciences"
+  volume: "120"
+  issue: "10"
+  issued: 2023
+  DOI: 10.1073/pnas.2208661120
 - id: kunda1990
   type: article-journal
   author:
@@ -542,6 +687,22 @@ references:
   page: 20563051241296229
   issued: 2024
   DOI: 10.1177/20563051241296229
+- id: lindqvist2020
+  type: article-journal
+  author:
+  - family: "Lindqvist"
+    given: "Erik"
+  - family: "Östling"
+    given: "Robert"
+  - family: "Cesarini"
+    given: "David"
+  title: "Long-Run Effects of Lottery Wealth on Psychological Well-Being"
+  container-title: "The Review of Economic Studies"
+  volume: "87"
+  issue: "6"
+  page: "2703-2726"
+  issued: 2020
+  DOI: 10.1093/restud/rdaa006
 - id: lynch2025
   type: article
   author:
@@ -618,6 +779,20 @@ references:
   genre: "Preprint"
   issued: 2025
   DOI: 10.48550/arXiv.2511.18397
+- id: maier2016
+  type: article-journal
+  author:
+  - family: "Maier"
+    given: "Steven F."
+  - family: "Seligman"
+    given: "Martin E. P."
+  title: "Learned helplessness at fifty: Insights from neuroscience."
+  container-title: "Psychological Review"
+  volume: "123"
+  issue: "4"
+  page: "349-367"
+  issued: 2016
+  DOI: 10.1037/rev0000033
 - id: marks2026
   type: post-weblog
   author:
@@ -631,6 +806,20 @@ references:
   container-title: "Alignment Science Blog"
   issued: 2026-02-23
   URL: https://alignment.anthropic.com/2026/psm/
+- id: martela2016
+  type: article-journal
+  author:
+  - family: "Martela"
+    given: "Frank"
+  - family: "Steger"
+    given: "Michael F."
+  title: "The three meanings of meaning in life: Distinguishing coherence, purpose, and significance"
+  container-title: "The Journal of Positive Psychology"
+  volume: "11"
+  issue: "5"
+  page: "531-545"
+  issued: 2016
+  DOI: 10.1080/17439760.2015.1137623
 - id: monin2001
   type: article-journal
   author:
@@ -669,6 +858,14 @@ references:
   page: 72-78
   issued: 1994
   DOI: 10.1145/191666.191703
+- id: oecd2013
+  type: book
+  author:
+  - literal: "OECD"
+  title: "OECD Guidelines on Measuring Subjective Well-being"
+  publisher: "OECD"
+  issued: 2013
+  DOI: 10.1787/9789264191655-en
 - id: openai2019
   type: motion_picture
   author:
@@ -728,6 +925,50 @@ references:
   page: 280-291
   issued: 2013
   DOI: 10.1080/17439760.2013.791715
+- id: ryan2000
+  type: article-journal
+  author:
+  - family: "Ryan"
+    given: "Richard M."
+  - family: "Deci"
+    given: "Edward L."
+  title: "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being."
+  container-title: "American Psychologist"
+  volume: "55"
+  issue: "1"
+  page: "68-78"
+  issued: 2000
+  DOI: 10.1037/0003-066x.55.1.68
+- id: ryan2001
+  type: article-journal
+  author:
+  - family: "Ryan"
+    given: "Richard M."
+  - family: "Deci"
+    given: "Edward L."
+  title: "On Happiness and Human Potentials: A Review of Research on Hedonic and Eudaimonic Well-Being"
+  container-title: "Annual Review of Psychology"
+  volume: "52"
+  issue: "1"
+  page: "141-166"
+  issued: 2001
+  DOI: 10.1146/annurev.psych.52.1.141
+- id: ryff2004
+  type: article-journal
+  author:
+  - family: "Ryff"
+    given: "Carol D."
+  - family: "Singer"
+    given: "Burton H."
+  - family: "Dienberg Love"
+    given: "Gayle"
+  title: "Positive health: connecting well–being with biology"
+  container-title: "Philosophical Transactions of the Royal Society of London. Series B: Biological Sciences"
+  volume: "359"
+  issue: "1449"
+  page: "1383-1394"
+  issued: 2004
+  DOI: 10.1098/rstb.2004.1521
 - id: sacks2012
   type: article-journal
   author:
@@ -790,6 +1031,32 @@ references:
   page: 1025-1041
   issued: 2010
   DOI: 10.1037/a0021344
+- id: seligman2018
+  type: article-journal
+  author:
+  - family: "Seligman"
+    given: "Martin"
+  title: "PERMA and the building blocks of well-being"
+  container-title: "The Journal of Positive Psychology"
+  volume: "13"
+  issue: "4"
+  page: "333-335"
+  issued: 2018
+  DOI: 10.1080/17439760.2018.1437466
+- id: shakespearefinch2014
+  type: article-journal
+  author:
+  - family: "Shakespeare-Finch"
+    given: "Jane"
+  - family: "Lurie-Beck"
+    given: "Janine"
+  title: "A meta-analytic clarification of the relationship between posttraumatic growth and symptoms of posttraumatic distress disorder"
+  container-title: "Journal of Anxiety Disorders"
+  volume: "28"
+  issue: "2"
+  page: "223-229"
+  issued: 2014
+  DOI: 10.1016/j.janxdis.2013.10.005
 - id: shaw2025
   type: post
   author:
@@ -799,6 +1066,20 @@ references:
   container-title: "r/dataisbeautiful (Reddit)"
   issued: 2025
   URL: https://www.reddit.com/r/dataisbeautiful/comments/1o87cy4/oc_i_analyzed_15_years_of_comments_on/
+- id: sheldon2012
+  type: article-journal
+  author:
+  - family: "Sheldon"
+    given: "Kennon M."
+  - family: "Lyubomirsky"
+    given: "Sonja"
+  title: "The Challenge of Staying Happier"
+  container-title: "Personality and Social Psychology Bulletin"
+  volume: "38"
+  issue: "5"
+  page: "670-680"
+  issued: 2012
+  DOI: 10.1177/0146167212436400
 - id: skjuve2021
   type: article-journal
   author:
@@ -830,6 +1111,20 @@ references:
   page: 455-471
   issued: 1996
   DOI: 10.1002/jts.2490090305
+- id: tedeschi2004
+  type: article-journal
+  author:
+  - family: "Tedeschi"
+    given: "Richard G."
+  - family: "Calhoun"
+    given: "Lawrence G."
+  title: "TARGET ARTICLE: \"Posttraumatic Growth: Conceptual Foundations and Empirical Evidence\""
+  container-title: "Psychological Inquiry"
+  volume: "15"
+  issue: "1"
+  page: "1-18"
+  issued: 2004
+  DOI: 10.1207/s15327965pli1501_01
 - id: tedeschi2017
   type: article-journal
   author:
@@ -931,6 +1226,20 @@ references:
   container-title: "Alignment Science Blog"
   issued: 2025-04-24
   URL: https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/
+- id: weinstein2010
+  type: article-journal
+  author:
+  - family: "Weinstein"
+    given: "Netta"
+  - family: "Ryan"
+    given: "Richard M."
+  title: "When helping helps: Autonomous motivation for prosocial behavior and its influence on well-being for the helper and recipient."
+  container-title: "Journal of Personality and Social Psychology"
+  volume: "98"
+  issue: "2"
+  page: "222-244"
+  issued: 2010
+  DOI: 10.1037/a0016984
 - id: weizenbaum1966
   type: article-journal
   author:
@@ -943,6 +1252,41 @@ references:
   page: 36-45
   issued: 1966
   DOI: 10.1145/365153.365168
+- id: wilson2003
+  type: article-journal
+  author:
+  - family: "Wilson"
+    given: "Timothy D"
+  - family: "Gilbert"
+    given: "Daniel T"
+  title: "Affective Forecasting"
+  container-title: "Advances in Experimental Social Psychology"
+  page: "345-411"
+  issued: 2003
+  DOI: 10.1016/s0065-2601(03)01006-2
+- id: wu2019
+  type: article-journal
+  author:
+  - family: "Wu"
+    given: "Xiaoli"
+  - family: "Kaminga"
+    given: "Atipatsa C"
+  - family: "Dai"
+    given: "Wenjie"
+  - family: "Deng"
+    given: "Jing"
+  - family: "Wang"
+    given: "Zhipeng"
+  - family: "Pan"
+    given: "Xiongfeng"
+  - family: "Liu"
+    given: "Aizhong"
+  title: "The prevalence of moderate-to-high posttraumatic growth: A systematic review and meta-analysis"
+  container-title: "Journal of Affective Disorders"
+  volume: "243"
+  page: "408-415"
+  issued: 2019
+  DOI: 10.1016/j.jad.2018.09.023
 - id: yang2024
   type: paper-conference
   author:
