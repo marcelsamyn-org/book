@@ -61,7 +61,7 @@
   - *Your call:* This ends the chapter on preference rather than on consequence. Responsibility is the harder claim, and the Conclusion relies on it (`"The notary making the call, the artist writing the love song"`). If you want the chapter to end on that instead, swap the two and accept that Personality interrupts the sequence.
 - [x] **End on the question instead of a summary**
   - *What:* Close by asking what happens when creation itself gets cheap, rather than restating what survived.
-  - *Why:* Infinite Creation answers that question. Its last line, `"What remains? Consecration."`, names both things this chapter leaves standing: setting something apart, and binding it to responsibility.
+  - *Why:* Infinite Creation answers that question. Its line `"What remains after infinite creation? Consecration."` names both things this chapter leaves standing: setting something apart, and binding it to responsibility.
   - *Your call:* Designing Aligned Allies already ends on a question (`"So what happens when artificial intelligence keeps on becoming more and more intelligent?"`). Two in a row makes it a pattern. Do you want that, or a different ending here?
 
 ## Outside this chapter — two problems in nearby chapters
