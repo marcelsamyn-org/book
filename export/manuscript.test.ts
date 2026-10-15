@@ -48,10 +48,10 @@ describe("toPandocMarkdown", () => {
     );
 
     expect(markdown).toContain(
-      '#part-plate(src: "/public/images/book/part-1-machine-mind.png", alt: "A torn seed husk repaired with gold.")',
+      '#part-plate(src: "/dist-book/images/part-1-machine-mind.jpg", alt: "A torn seed husk repaired with gold.")',
     );
     expect(markdown).toContain(
-      '<figure class="part-plate"><img src="public/images/book/part-1-machine-mind.png" alt="A torn seed husk repaired with gold." /></figure>',
+      '<figure class="part-plate"><img src="dist-book/images/part-1-machine-mind.jpg" alt="A torn seed husk repaired with gold." /></figure>',
     );
   });
 

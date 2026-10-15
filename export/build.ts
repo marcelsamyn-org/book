@@ -5,6 +5,9 @@
  */
 import { $ } from "bun";
 import { mkdir } from "node:fs/promises";
+import { basename } from "node:path";
+import sharp from "sharp";
+import { EXPORT_IMAGE_DIR } from "./components.js";
 import { toPandocMarkdown } from "./manuscript.js";
 
 const OUT_DIR = "dist-book";
@@ -94,12 +97,34 @@ const readVersion = async (): Promise<string> => {
   return `${new Date().toISOString().slice(0, 10)} · ${blob}`;
 };
 
-await mkdir(OUT_DIR, { recursive: true });
+/**
+ * The source illustrations are lossless PNGs of about 4 MB each. 1600 px covers
+ * the 6 in cover at its 267 ppi and the 3.8 in part plates at over 400 ppi.
+ * The density writes an Exif header, without which pandoc cannot size the EPUB cover.
+ */
+const toJpeg = (source: string, target: string): Promise<sharp.OutputInfo> =>
+  sharp(source)
+    .resize({ width: 1600, withoutEnlargement: true })
+    .flatten()
+    .withMetadata({ density: 267 })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(target);
+
+const compressImages = async (): Promise<void> => {
+  const sources = [
+    "assets/illustrations/cover/sacred-struggle-cover.png",
+    ...(await Array.fromAsync(new Bun.Glob("public/images/book/*.png").scan())),
+  ];
+  await Promise.all(sources.map((source) => toJpeg(source, `${EXPORT_IMAGE_DIR}/${basename(source, ".png")}.jpg`)));
+};
+
+await mkdir(EXPORT_IMAGE_DIR, { recursive: true });
 const [cover, version, manuscript, fonts] = await Promise.all([
   readCoverText(),
   readVersion(),
   Bun.file("book.mdx").text(),
   Array.fromAsync(new Bun.Glob("export/fonts/*.{ttf,otf}").scan()),
+  compressImages(),
 ]);
 await Bun.write(`${OUT_DIR}/book.md`, `${toPandocMarkdown(manuscript)}\n\n# Sources\n\n::: {#refs}\n:::\n`);
 
@@ -128,6 +153,7 @@ await run([
   "export/cover.typ",
   `${OUT_DIR}/cover.png`,
 ]);
+await toJpeg(`${OUT_DIR}/cover.png`, `${OUT_DIR}/cover.jpg`);
 
 await Promise.all([
   (async () => {
@@ -144,7 +170,7 @@ await Promise.all([
       "--css",
       "export/epub.css",
       "--epub-cover-image",
-      `${OUT_DIR}/cover.png`,
+      `${OUT_DIR}/cover.jpg`,
       ...fonts.sort().flatMap((font) => ["--epub-embed-font", font]),
       "--split-level",
       "2",

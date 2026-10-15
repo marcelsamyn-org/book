@@ -123,13 +123,17 @@ const expectShape = (node: MdxJsxFlowElement, props: readonly string[], content:
 
 // ── Part plates ─────────────────────────────────────────────
 
+/** Where export/build.ts writes the compressed JPEG of each image under public/images/book/. */
+export const EXPORT_IMAGE_DIR = "dist-book/images";
+
 const renderPartPlate = (node: MdxJsxFlowElement): RenderedComponent => {
   const src = stringProp(node, "src");
   const alt = stringProp(node, "alt");
-  if (!/^\/images\/book\/[a-z0-9-]+\.png$/.test(src)) {
+  const name = /^\/images\/book\/([a-z0-9-]+)\.png$/.exec(src)?.[1];
+  if (name === undefined) {
     return failAt(node, "<PartPlate> src must be a PNG under /images/book/");
   }
-  const exportSrc = `public${src}`;
+  const exportSrc = `${EXPORT_IMAGE_DIR}/${name}.jpg`;
   return {
     typst: `#part-plate(src: ${typstString(`/${exportSrc}`)}, alt: ${typstString(alt)})`,
     html: `<figure class="part-plate"><img src="${escapeHtml(exportSrc)}" alt="${escapeHtml(alt)}" /></figure>`,

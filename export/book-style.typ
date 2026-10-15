@@ -76,7 +76,7 @@
   header: none,
   footer: none,
   background: image(
-    "/assets/illustrations/cover/sacred-struggle-cover.png",
+    "/dist-book/images/sacred-struggle-cover.jpg",
     width: 100%,
     height: 100%,
     fit: "cover",
