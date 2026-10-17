@@ -82,7 +82,7 @@ export const threads = [
     title: "Sycophancy: trained to please",
     question: "Why does AI always agree with me, what does that do to people, and can it be fixed?",
     mentions: [
-      { kind: "plant", quote: "AI just tries to tell you whatever you’ll like to read", note: "How Smart Is AI lists it among the weird behaviors." },
+      { kind: "plant", quote: "AI just tries to tell you whatever you’d like to read", note: "How Smart Is AI lists it among the weird behaviors." },
       { kind: "explain", quote: "we humans are a little bit like a god", note: "The Sycophancy section explains RLHF: we reward what we like." },
       { kind: "use", quote: "this is exactly how AI is trained: we show a human two responses", note: "Love and Connection: the perfect partner is the training objective." },
       { kind: "use", quote: "Sycophancy is profitable", note: "The business of companionship: the flaw is a feature for revenue." },
