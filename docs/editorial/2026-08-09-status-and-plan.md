@@ -209,6 +209,13 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 - [x] **Write a Love and Connection chapter intro** — the book's biggest chapter (~5.2k words) currently opens with zero preamble, falling straight into The rise of synthetic bonds. One paragraph framing what the chapter will argue.
 - [x] **Optional: half-page Part 2 opener** — Part 2 currently opens cold on Learning right after Part 1's mechanics. A short bridge could do the old "seduction of ease" teaser work: our reward system is wired for pursuit-against-resistance, AI removes the resistance, here's what that does in four domains. *Your call:* only write it if it doesn't crowd out the must-haves above — the domain chapters do survive without it.
 
+## Last two weeks — reading passes
+
+- [ ] **Work through the sentence and flow pass**
+  - *What:* `2026-10-17-sentence-and-flow-pass.md` lists 234 flags in book order, 68 of them marked Fix. Each flag is either a sentence a reader has to read twice or a step missing from the reasoning. Eight problems span chapters, such as the second brain surgery that first appears in When Superintelligence Turns Away. The 105 mechanical fixes from the same read are already in `book.mdx`.
+  - *Why:* These are the places where a careful reader stalls or loses the argument.
+  - *Your call:* Which Polish items are worth your time before release, after the Fix items?
+
 ## More Stuff
 
 - [x] Re-write *Captured by Consumption* so it can be driven by Superstimuli
