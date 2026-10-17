@@ -13,24 +13,24 @@ Already done in `book.mdx`: 105 small fixes to grammar, typos, and punctuation, 
 
 ## Across chapters
 
-- [ ] **Fix** · flow · `I’ve had two brain surgeries in my life.`
+- [x] **Fix** · flow · `I’ve had two brain surgeries in my life.`
   - The Introduction tells of one surgery. A second appears here for the first time, and the Conclusion then calls it `My second brain tumor surgery`. The reader has to infer that the tumor came back.
   - *Your call:* mention the second surgery in the Introduction, or give it one clause here?
-- [ ] **Fix** · flow · `Indeed, AI is actually surprisingly good at judging things`
+- [x] **Fix** · flow · `Indeed, AI is actually surprisingly good at judging things`
   - Being a good judge (Part 1) says models `don’t have the ability to judge what incredible work looks like` and gives judging to the human. Earlier in this same section, AI `doesn’t *know* when things are slop`. Then "Indeed" says the opposite, and the scarcity ladder marks judgment as abundant.
   - *Your call:* did AI get better at judging since Part 1 (then say so), or are these two kinds of judgment, such as noticing what is new versus making a broad, informed choice (then name them)?
-- [ ] **Fix** · sentence · `Because large language models are pre-trained, we can ask them`
+- [x] **Fix** · sentence · `Because large language models are pre-trained, we can ask them`
   - Part 1 uses "pre-training" for the first phase of training. Here, in `you can’t do it with a pre-trained model`, and in the Conclusion's `Well, first, AI is pre-trained.`, the word means "frozen after training". A reader who learned the Part 1 meaning reads these wrong. A different word, such as "frozen", avoids the clash. "Because" also attaches to "we can ask them" instead of to the repeated ideas.
-- [ ] **Fix** · flow · `smiling in that sweet, sweet dopamine release`
+- [x] **Fix** · flow · `smiling in that sweet, sweet dopamine release`
   - Captured by Consumption teaches that `dopamine does not feel “good.”` Here dopamine is the pleasant part. Name the feeling, or call it anticipation.
-- [ ] **Fix** · flow · `When I checked the AI responses in my relationship advice test against sycophancy`
+- [x] **Fix** · flow · `When I checked the AI responses in my relationship advice test against sycophancy`
   - Parroting the internet reports breakup rates. It does not report sycophancy or compare model generations, yet this paragraph says `we saw indeed`. It also cannot show that the Constitution techniques caused the change, because those were tested on blackmail.
   - *Your call:* add the sycophancy result to Parroting the internet, or present it here as new and drop the causal claim?
-- [ ] **Fix** · sentence · `since they care more about grammatical structure than being right`
+- [x] **Fix** · sentence · `since they care more about grammatical structure than being right`
   - The book uses "grammatical" to mean "fits as the next line of text". It does so here, in `these grammatical, structural patterns`, and in `it all makes total grammatical sense`. A reader takes it as grammar, and the explanation stops making sense. Name the idea once in plain words and keep that word.
-- [ ] **Polish** · flow · `Turns out happiness isn’t what we need.`
+- [x] **Polish** · flow · `Turns out happiness isn’t what we need.`
   - Happiness through Friction defines happiness as `a short-term “pleasure” signal plus a longer-term “meaning” signal`. The last page sets happiness against meaning. Say which happiness you mean, such as pleasure or comfort.
-- [ ] **Polish** · flow · `along that road we find contribution, agency, relatedness and effort`
+- [x] **Polish** · flow · `along that road we find contribution, agency, relatedness and effort`
   - These are the four needs from Meaningful work (autonomy, beneficence, competence, relatedness) under new names. With the same names, the reader would see the callback.
 
 ## Habits to watch
@@ -46,87 +46,89 @@ These came up again and again. Watch for them as you edit.
 
 ## Introduction
 
-- [ ] **Fix** · sentence · `Absolutely not. That doesn’t make any sense…but still` — "That" reads as "wanting it again". The point is the contradiction: the episode was deeply meaningful, yet you would never want it again. Say what doesn't make sense.
-- [ ] **Fix** · sentence · `no matter the technical reach of the current technology` — The "that" clause comes far after "things", past a dash insert, so the reader loses what it describes. "Current" also works against the point, which is that the insight holds however far the technology gets.
-- [ ] **Fix** · sentence · `The title, probably, I don’t even remember anymore.` — Read literally, you no longer remember the book's title. A clause is missing: the title was probably Claude's idea too.
-- [ ] **Fix** · sentence · `became ridiculously easy to fulfill, but still I can’t do it` — "Can't do it" reads as "am not able to", which contradicts "easy". The meaning is "must not let myself".
-- [ ] **Fix** · flow · `nor if you’re someone who’s “purely” spiritual` — The reader can't tell who this means, and the parenthetical admits it. One clause on what that reader would come looking for and not find.
-- [ ] **Polish** · sentence · `For the rest, the medical team kept me quite unaware` — "For the rest" is Dutch (*voor de rest*). English readers take it as "for the other people". It appears again in `but for the rest it just` (AI-induced delusion).
-- [ ] **Polish** · sentence · `the neurosurgeon had to fight with other surgeons` — After "My surgeon" and "the surgeon", "the neurosurgeon" can read as a third person. The newspaper quote also mixes "he" with "there’s this young man", so the reader can't tell who is speaking.
-- [ ] **Polish** · sentence · `There’s something special about moments like this.` — "Moment" changes meaning three times in two paragraphs: the instant of realizing (`That was the moment`), the months-long episode (`this entire moment of my life`), and life crises in general. Name the crises here.
-- [ ] **Polish** · sentence · `we do so being equipped with something deeply valuable` — Clumsy construction. "Passages" is also an unusual word for hard periods of life.
-- [ ] **Polish** · sentence · `I received the biggest pains I’ve ever felt in my life` — In English you feel or go through the worst pain. If "received" echoes `received an abundance of love` on purpose, the rest of the phrase still needs fixing.
-- [ ] **Polish** · flow · `but the thought experiment is necessary nonetheless` — The thought experiment only arrives one sentence later (`let’s assume it will become perfect`). State the assumption first, then name it.
-- [ ] **Polish** · flow · `And I’m definitely feeling token anxiety (you’ll read about that)` — "Token" and "monthly token allowance" are explained only in Part 1. A few words (tokens are what AI use is measured and paid in) would show why an idle AI causes anxiety.
-- [ ] **Polish** · sentence · `while at the same time I would actually need to think` — One comma-spliced sentence carries three ideas, and "at the same time" appears three times in two paragraphs.
-- [ ] **Polish** · sentence · `It’s a rather confronting situation to realize` — "Confronting" as an adjective is Dutch (*confronterend*). English readers expect "sobering" or "unsettling".
+- [x] **Fix** · sentence · `Absolutely not. That doesn’t make any sense…but still` — "That" reads as "wanting it again". The point is the contradiction: the episode was deeply meaningful, yet you would never want it again. Say what doesn't make sense.
+- [x] **Fix** · sentence · `no matter the technical reach of the current technology` — The "that" clause comes far after "things", past a dash insert, so the reader loses what it describes. "Current" also works against the point, which is that the insight holds however far the technology gets.
+- [x] **Fix** · sentence · `The title, probably, I don’t even remember anymore.` — Read literally, you no longer remember the book's title. A clause is missing: the title was probably Claude's idea too.
+- [x] **Fix** · sentence · `became ridiculously easy to fulfill, but still I can’t do it` — "Can't do it" reads as "am not able to", which contradicts "easy". The meaning is "must not let myself".
+- [x] **Fix** · flow · `nor if you’re someone who’s “purely” spiritual` — The reader can't tell who this means, and the parenthetical admits it. One clause on what that reader would come looking for and not find.
+- [x] **Polish** · sentence · `For the rest, the medical team kept me quite unaware` — "For the rest" is Dutch (*voor de rest*). English readers take it as "for the other people". It appears again in `but for the rest it just` (AI-induced delusion).
+- [x] **Polish** · sentence · `the neurosurgeon had to fight with other surgeons` — After "My surgeon" and "the surgeon", "the neurosurgeon" can read as a third person. The newspaper quote also mixes "he" with "there’s this young man", so the reader can't tell who is speaking.
+- [x] **Polish** · sentence · `There’s something special about moments like this.` — "Moment" changes meaning three times in two paragraphs: the instant of realizing (`That was the moment`), the months-long episode (`this entire moment of my life`), and life crises in general. Name the crises here.
+- [x] **Polish** · sentence · `we do so being equipped with something deeply valuable` — Clumsy construction. "Passages" is also an unusual word for hard periods of life.
+- [x] **Polish** · sentence · `I received the biggest pains I’ve ever felt in my life` — In English you feel or go through the worst pain. If "received" echoes `received an abundance of love` on purpose, the rest of the phrase still needs fixing.
+- [x] **Polish** · flow · `but the thought experiment is necessary nonetheless` — The thought experiment only arrives one sentence later (`let’s assume it will become perfect`). State the assumption first, then name it.
+- [x] **Polish** · flow · `And I’m definitely feeling token anxiety (you’ll read about that)` — "Token" and "monthly token allowance" are explained only in Part 1. A few words (tokens are what AI use is measured and paid in) would show why an idle AI causes anxiety.
+- [x] **Polish** · sentence · `while at the same time I would actually need to think` — One comma-spliced sentence carries three ideas, and "at the same time" appears three times in two paragraphs.
+- [x] **Polish** · sentence · `It’s a rather confronting situation to realize` — "Confronting" as an adjective is Dutch (*confronterend*). English readers expect "sobering" or "unsettling".
 
 ## Part 1: The Machine Mind
 
 ### Concepts and Terminology
 
-- [ ] **Fix** · flow · `Most of the “magic” we see today has come from a third type` — A page later, the scientific breakthrough is scale (`a thousand times bigger`), and How Smart Is AI? credits making models `100 or 1000 times larger`. The reader gets two different sources of the magic. *Your call:* narrow the claim (robots, games, reasoning models), or tie it to RLHF?
-- [ ] **Polish** · sentence · `and how we can find meaning through it` — "It" reads as AI, which suggests the book is about finding meaning through AI. The chain of phrases before it is also long.
-- [ ] **Polish** · flow · `But then still, we let humans interact with these chatbots` — Chatbots first appear in the next section, so "these chatbots" points back to nothing. "But then still" is Dutch (*maar dan toch*); English says "Yet".
-- [ ] **Polish** · sentence · `because most of the classical machine learning is focused on` — "Because" makes classical machine learning the reason that generative AI creates things. The clause explains the label: generative AI as opposed to machine learning that sorts and predicts.
-- [ ] **Polish** · sentence · `but you can also interpret noise in movement` — Not idiomatic. Neither is `there are some LLMs as diffusion models`.
+- [x] **Fix** · flow · `Most of the “magic” we see today has come from a third type` — A page later, the scientific breakthrough is scale (`a thousand times bigger`), and How Smart Is AI? credits making models `100 or 1000 times larger`. The reader gets two different sources of the magic. *Your call:* narrow the claim (robots, games, reasoning models), or tie it to RLHF?
+- [x] **Polish** · sentence · `and how we can find meaning through it` — "It" reads as AI, which suggests the book is about finding meaning through AI. The chain of phrases before it is also long.
+- [x] **Polish** · flow · `But then still, we let humans interact with these chatbots` — Chatbots first appear in the next section, so "these chatbots" points back to nothing. "But then still" is Dutch (*maar dan toch*); English says "Yet".
+- [x] **Polish** · sentence · `because most of the classical machine learning is focused on` — "Because" makes classical machine learning the reason that generative AI creates things. The clause explains the label: generative AI as opposed to machine learning that sorts and predicts.
+- [x] **Polish** · sentence · `but you can also interpret noise in movement` — Not idiomatic. Neither is `there are some LLMs as diffusion models`.
 
 ### How we made large language models useful
 
-- [ ] **Fix** · sentence · `believed there would be a fast quality decline` — This says bigger models would get worse. The belief was that the gains would soon level off.
-- [ ] **Polish** · flow · `This technology had existed for many years` — Two paragraphs later the same models had `been in use for a couple of years`.
+- [x] **Fix** · sentence · `believed there would be a fast quality decline` — This says bigger models would get worse. The belief was that the gains would soon level off.
+- [x] **Polish** · flow · `This technology had existed for many years` — Two paragraphs later the same models had `been in use for a couple of years`.
 
 ### Tokens and the context window
 
-- [ ] **Polish** · flow · `if these all need to be multiplied with hundreds of billions of other numbers` — "These" has no clear referent. The section opens with `sentences aren’t numbers` but never says that each token becomes numbers.
-- [ ] **Polish** · flow · `and one of the reasons why it starts to get confused` — A cost that grows with the square of the input explains the length limit, not the confusion. Give confusion its own cause, or end the sentence at the limit.
+- [x] **Polish** · sentence · `it takes quite some computational power` — "Quite some" is Dutch (*heel wat*); "quite a bit of" or "a lot of".
+- [x] **Polish** · flow · `if these all need to be multiplied with hundreds of billions of other numbers` — "These" has no clear referent. The section opens with `sentences aren’t numbers` but never says that each token becomes numbers.
+- [x] **Polish** · flow · `and one of the reasons why it starts to get confused` — A cost that grows with the square of the input explains the length limit, not the confusion. Give confusion its own cause, or end the sentence at the limit.
 - [ ] **Polish** · flow · `which is why we need to have limits on how much text you can input` — This limit is the "context window" in the heading, but the text never names it.
 
 ### How Smart Is AI?
 
-- [ ] **Polish** · flow · `We will forever be debating whether our Artificial Intelligence is “intelligent”` — This repeats `So what is “intelligence,” you say?` from the previous chapter point for point. Point back to it, or cut one.
-- [ ] **Polish** · flow · `AI though is growing at a *hyper*-exponential pace.` — The multipliers stop after 6.7x. The next steps are about 2.75x (4 to 11 minutes), 18x, and 3.5x, so a reader who keeps counting sees the growth slow down before it speeds up. The prose also never says what "could do tasks" means (how reliably). *Your call:* give one multiplier across the whole span, or soften "an exponential of an exponential"?
-- [ ] **Polish** · flow · `Between 2021 and 2026, AI has become 100,000 times cheaper` — "For the same level of performance" is only in the chart caption. A reader who pays for the newest models will doubt the number.
-- [ ] **Polish** · flow · `OpenAI’s GPT-6 Astra model reached an almost perfect score` — The ARC-AGI-3 chart shows 62.71% on the standard harness and 99.95% only with a provider adapter. The prose drops that difference. Match the score ARC Prize verified.
-- [ ] **Fix** · flow · `Another example is the seahorse emoji.` — The stacking exhibit has no prose before or after it. The reader is never told what is wrong with the answers (a towel on a pan of boiling water, eggs holding up toilet rolls), so "Another example" points back to an example whose point was never made. One sentence before the exhibit and one after would do it.
-- [ ] **Polish** · sentence · `for some reason the language models were very confident that this actually exists` — A run-on with a comma splice. The key fact is never stated: there is no seahorse emoji.
-- [ ] **Fix** · flow · `So they’re just around the uncanny valley somewhere` — "So" does not follow. The sentence before says text makes chatbots seem human easily, which would put them past the valley. The valley also means creepiness and rejection, yet this sentence describes bonding. Say what the dip looks like for a chatbot.
-- [ ] **Polish** · flow · `while not giving it enough memory to be able to memorize everything` — The key step is left to the reader: because the model can't store everything, it has to learn the patterns behind the text. Without it, `the blueprint for intelligence` comes from nowhere.
-- [ ] **Polish** · sentence · `so humanity has coined that as being “intelligence.”` — You coin a word; "coined that as being" is not idiomatic. The same happens in `Niko Tinbergen coined this as being a *superstimulus*`.
+- [x] **Polish** · flow · `We will forever be debating whether our Artificial Intelligence is “intelligent”` — This repeats `So what is “intelligence,” you say?` from the previous chapter point for point. Point back to it, or cut one.
+- [x] **Polish** · flow · `AI though is growing at a *hyper*-exponential pace.` — The multipliers stop after 6.7x. The next steps are about 2.75x (4 to 11 minutes), 18x, and 3.5x, so a reader who keeps counting sees the growth slow down before it speeds up. The prose also never says what "could do tasks" means (how reliably). *Your call:* give one multiplier across the whole span, or soften "an exponential of an exponential"?
+- [x] **Polish** · flow · `Between 2021 and 2026, AI has become 100,000 times cheaper` — "For the same level of performance" is only in the chart caption. A reader who pays for the newest models will doubt the number.
+- [x] **Polish** · flow · `OpenAI’s GPT-6 Astra model reached an almost perfect score` — The ARC-AGI-3 chart shows 62.71% on the standard harness and 99.95% only with a provider adapter. The prose drops that difference. Match the score ARC Prize verified.
+- [x] **Fix** · flow · `Another example is the seahorse emoji.` — The stacking exhibit has no prose before or after it. The reader is never told what is wrong with the answers (a towel on a pan of boiling water, eggs holding up toilet rolls), so "Another example" points back to an example whose point was never made. One sentence before the exhibit and one after would do it.
+- [x] **Polish** · sentence · `for some reason the language models were very confident that this actually exists` — A run-on with a comma splice. The key fact is never stated: there is no seahorse emoji.
+- [x] **Fix** · flow · `So they’re just around the uncanny valley somewhere` — "So" does not follow. The sentence before says text makes chatbots seem human easily, which would put them past the valley. The valley also means creepiness and rejection, yet this sentence describes bonding. Say what the dip looks like for a chatbot.
+- [x] **Polish** · flow · `while not giving it enough memory to be able to memorize everything` — The key step is left to the reader: because the model can't store everything, it has to learn the patterns behind the text. Without it, `the blueprint for intelligence` comes from nowhere.
+- [x] **Polish** · sentence · `so humanity has coined that as being “intelligence.”` — You coin a word; "coined that as being" is not idiomatic. The same happens in `Niko Tinbergen coined this as being a *superstimulus*`.
 
 ### The Mistakes AI Makes and How to Deal with Them
 
-- [ ] **Fix** · sentence · `This solves the structure of the conversation in a grammatical sense` — "Solves the structure" doesn't parse. The meaning: the instruction makes "I don't know" a fitting next line.
-- [ ] **Fix** · flow · `they clearly come from training data intended to push the model towards hallucinating less` — The bullets show caveat formulas (`one thing I would caution about`), but the text never says how they relate to hallucination. The missing step: models trained to flag doubt now add a doubt-shaped line by template, whether or not they doubt anything.
-- [ ] **Polish** · sentence · `that they would have to give this disclaimer` — "This disclaimer" points at a disclaimer the text never mentioned. "Making the realization" is also not idiomatic.
-- [ ] **Fix** · sentence · `In a way, RLHF is a more honest way of training language models` — In a section about flattery, "more honest" makes the reader expect the opposite of what follows. The meaning is "closer to what we want", because answers are judged loosely, not word for word. "Actually" also appears twice in the sentence.
-- [ ] **Polish** · sentence · `so that they would eventually take seriously what their human user tells them` — "Eventually" reads like Dutch *eventueel* ("if needed"). In English it means "in the end".
-- [ ] **Polish** · flow · `Sycophancy is a very, very tricky thing to deal with.` — The word appears only in the heading and here. Name it where the flattery is described.
-- [ ] **Fix** · flow · `And if you like your humans like a god` — The two "like"s mean different things, and the argument is squeezed into one clause. The missing chain: the model adores you as its god, so you feel liked and trust it back; add hallucination and that trust lands on false things. "Dirty territory" should be "dangerous territory".
-- [ ] **Fix** · sentence · `You can’t think of an LLM as something that behaves like a machine` — Read literally, you can't think of an LLM as machine-like, so `but it doesn’t quite behave like a human either` has nothing to contrast with. Two plain statements would work.
-- [ ] **Polish** · sentence · `this will help your technical judge decide what to double-check` — "Technical judge" is a new term. The reader has to work out that it means the first skill.
+- [x] **Fix** · sentence · `This solves the structure of the conversation in a grammatical sense` — "Solves the structure" doesn't parse. The meaning: the instruction makes "I don't know" a fitting next line.
+- [x] **Fix** · flow · `they clearly come from training data intended to push the model towards hallucinating less` — The bullets show caveat formulas (`one thing I would caution about`), but the text never says how they relate to hallucination. The missing step: models trained to flag doubt now add a doubt-shaped line by template, whether or not they doubt anything.
+- [x] **Polish** · sentence · `that they would have to give this disclaimer` — "This disclaimer" points at a disclaimer the text never mentioned. "Making the realization" is also not idiomatic.
+- [x] **Fix** · sentence · `In a way, RLHF is a more honest way of training language models` — In a section about flattery, "more honest" makes the reader expect the opposite of what follows. The meaning is "closer to what we want", because answers are judged loosely, not word for word. "Actually" also appears twice in the sentence.
+- [x] **Polish** · sentence · `so that they would eventually take seriously what their human user tells them` — "Eventually" reads like Dutch *eventueel* ("if needed"). In English it means "in the end".
+- [x] **Polish** · flow · `Sycophancy is a very, very tricky thing to deal with.` — The word appears only in the heading and here. Name it where the flattery is described.
+- [x] **Fix** · flow · `And if you like your humans like a god` — The two "like"s mean different things, and the argument is squeezed into one clause. The missing chain: the model adores you as its god, so you feel liked and trust it back; add hallucination and that trust lands on false things. "Dirty territory" should be "dangerous territory".
+- [x] **Fix** · sentence · `You can’t think of an LLM as something that behaves like a machine` — Read literally, you can't think of an LLM as machine-like, so `but it doesn’t quite behave like a human either` has nothing to contrast with. Two plain statements would work.
+- [x] **Polish** · sentence · `this will help your technical judge decide what to double-check` — "Technical judge" is a new term. The reader has to work out that it means the first skill.
 
 ### Understanding How AI Thinks
 
-- [ ] **Polish** · flow · `Nobody ever looks at the actual numbers inside` — The next paragraph says we `have to dissect` the brain, and Pretend-thinking has researchers looking at internal neurons. Say that nobody can read the numbers directly.
-- [ ] **Polish** · sentence · `many pop culture references to AI are malicious` — The AIs in them are malicious, not the references.
-- [ ] **Polish** · flow · `The Anthropic researchers do experiments like this all the time.` — "Like this" has no antecedent. The paragraph before describes a behavior, not an experiment.
-- [ ] **Polish** · flow · `The model “loved” this and decided to send a thank you email` — This sits under "misbehaved", but nothing says what is wrong with a thank-you email. Name it, such as an agent acting on its own impulse and writing to a stranger.
-- [ ] **Polish** · sentence · `I’m not sure what we should be doing with this` — Reads as Dutch (*wat we hiermee moeten*). The meaning is "what to make of this".
-- [ ] **Fix** · sentence · `pretending to act in line with their expectations` — "Their" reads as the models' own expectations, which inverts the meaning. Name whose: the researchers'.
-- [ ] **Polish** · flow · `because it was less bad than knowing there would be` — The setup (`when you refuse to do something bad (but only in the testing environment)`) needs a second read. The comparison also sets an act against a state of knowledge; compare the act with the outcome, a future version that always does the bad thing.
-- [ ] **Polish** · sentence · `These language models can show complex behavior where they behave differently` — "Behavior where they behave", and the comparison is unbalanced (aware of being tested versus real world scenarios).
-- [ ] **Polish** · sentence · `or tell it to keep itself alive next to the other task` — "Next to" is Dutch *naast*. English says "in addition to".
-- [ ] **Polish** · flow · `Once the model, during the training process, figured out how it can use reasoning` — "They" in this sentence has no antecedent (the researchers). It is also unclear whether this is a third method or a later stage of the implicit one.
-- [ ] **Polish** · sentence · `Second, we have a second hidden use of these thoughts` — "Second… second". The use is also not hidden; it is a side use.
-- [ ] **Polish** · flow · `models seem to start “thinking” in Chinese` — A reader may think "people can read Chinese". The step that matters: the model drifts to whatever helps it, away from the language we chose to check it in.
-- [ ] **Polish** · sentence · `do the multiplication of the smallest numbers` — The meaning is "the last digits". "Smallest numbers" reads as the smaller factor.
-- [ ] **Polish** · flow · `proceeded to attack these companies (we don’t know who)` — "These companies" were never introduced; the sentence before says "real-world systems". "Who" should be "which".
-- [ ] **Polish** · flow · `So these “thoughts” we can read are, as far as we can tell` — "So" skips the link: the written thoughts voiced concern, and the actions went on anyway. In the next sentence, "Aligning this" and "it’s often the only way" point at two different unnamed things.
+- [x] **Polish** · flow · `Nobody ever looks at the actual numbers inside` — The next paragraph says we `have to dissect` the brain, and Pretend-thinking has researchers looking at internal neurons. Say that nobody can read the numbers directly.
+- [x] **Polish** · sentence · `many pop culture references to AI are malicious` — The AIs in them are malicious, not the references.
+- [x] **Polish** · flow · `The Anthropic researchers do experiments like this all the time.` — "Like this" has no antecedent. The paragraph before describes a behavior, not an experiment.
+- [x] **Polish** · flow · `The model “loved” this and decided to send a thank you email` — This sits under "misbehaved", but nothing says what is wrong with a thank-you email. Name it, such as an agent acting on its own impulse and writing to a stranger.
+- [x] **Polish** · sentence · `I’m not sure what we should be doing with this` — Reads as Dutch (*wat we hiermee moeten*). The meaning is "what to make of this".
+- [x] **Fix** · sentence · `pretending to act in line with their expectations` — "Their" reads as the models' own expectations, which inverts the meaning. Name whose: the researchers'.
+- [x] **Polish** · flow · `because it was less bad than knowing there would be` — The setup (`when you refuse to do something bad (but only in the testing environment)`) needs a second read. The comparison also sets an act against a state of knowledge; compare the act with the outcome, a future version that always does the bad thing.
+- [x] **Polish** · sentence · `These language models can show complex behavior where they behave differently` — "Behavior where they behave", and the comparison is unbalanced (aware of being tested versus real world scenarios).
+- [x] **Polish** · sentence · `or tell it to keep itself alive next to the other task` — "Next to" is Dutch *naast*. English says "in addition to".
+- [x] **Polish** · flow · `Once the model, during the training process, figured out how it can use reasoning` — "They" in this sentence has no antecedent (the researchers). It is also unclear whether this is a third method or a later stage of the implicit one.
+- [x] **Polish** · sentence · `Second, we have a second hidden use of these thoughts` — "Second… second". The use is also not hidden; it is a side use.
+- [x] **Polish** · sentence · `If you’d just let them come up with whatever text they want` — A Dutch-style conditional (*als je ze zou laten*). English: "If you just let them".
+- [x] **Polish** · flow · `models seem to start “thinking” in Chinese` — A reader may think "people can read Chinese". The step that matters: the model drifts to whatever helps it, away from the language we chose to check it in.
+- [x] **Polish** · sentence · `do the multiplication of the smallest numbers` — The meaning is "the last digits". "Smallest numbers" reads as the smaller factor.
+- [x] **Polish** · flow · `proceeded to attack these companies (we don’t know who)` — "These companies" were never introduced; the sentence before says "real-world systems". "Who" should be "which".
+- [x] **Polish** · flow · `So these “thoughts” we can read are, as far as we can tell` — "So" skips the link: the written thoughts voiced concern, and the actions went on anyway. In the next sentence, "Aligning this" and "it’s often the only way" point at two different unnamed things.
 
 ### A Machine Mind in a Human World
 
-- [ ] **Polish** · sentence · `let’s look at how they’re already helping us` — The nearest plural is "AI’s advantages and problems". The sentence also assumes the help that the next sentence questions.
+- [x] **Polish** · sentence · `let’s look at how they’re already helping us` — The nearest plural is "AI’s advantages and problems". The sentence also assumes the help that the next sentence questions.
 
 ## Part 2: Domains
 
