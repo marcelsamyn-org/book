@@ -3,18 +3,23 @@
 // exhibit functions at the bottom are called from the raw Typst blocks that
 // export/components.ts writes for each manuscript component.
 
+// The print interior (`--input print=true`) is printed black and white, and
+// IngramSpark wants every color and image in it converted to grayscale.
+#let print = sys.inputs.at("print", default: "false") == "true"
+#let tone(color) = if print { luma(color) } else { color }
+
 // ── Palette (taken from the cover) and fonts ────────────────
-#let ink = rgb("#2a2520")
-#let muted = rgb("#776d62")
-#let navy = rgb("#1c2540")
-#let deep = rgb("#131a2f")
-#let night = rgb("#0a1020")
-#let gold = rgb("#c9a574")
-#let gold-ink = rgb("#94744a")
-#let cream = rgb("#f0e6d0")
-#let cream-dim = rgb("#d9c8a3")
-#let wash = rgb("#f8f4ed")
-#let hairline = rgb("#e3d9c9")
+#let ink = tone(rgb("#2a2520"))
+#let muted = tone(rgb("#776d62"))
+#let navy = tone(rgb("#1c2540"))
+#let deep = tone(rgb("#131a2f"))
+#let night = tone(rgb("#0a1020"))
+#let gold = tone(rgb("#c9a574"))
+#let gold-ink = tone(rgb("#94744a"))
+#let cream = tone(rgb("#f0e6d0"))
+#let cream-dim = tone(rgb("#d9c8a3"))
+#let wash = tone(rgb("#f8f4ed"))
+#let hairline = tone(rgb("#e3d9c9"))
 
 #let text-font = ("Literata 12pt",)
 #let display-font = ("Lora",)
@@ -210,7 +215,7 @@
 
 #let part-plate(src: "", alt: "") = {
   v(0.38in)
-  align(center, image(src, width: 3.8in, alt: alt))
+  align(center, image(if print { src.replace(regex("\.jpg$"), "-gray.jpg") } else { src }, width: 3.8in, alt: alt))
   v(1fr)
   pagebreak()
 }
@@ -314,7 +319,8 @@
     it
   }
 
-  cover(title: plain(title), subtitle: plain(subtitle), author: plain(author))
+  // The printer binds the interior into a separate cover file.
+  if not print { cover(title: plain(title), subtitle: plain(subtitle), author: plain(author)) }
   title-page(title, subtitle, author, edition)
   copyright-page(
     title: title,
@@ -331,6 +337,12 @@
   set page(header: page-header, footer: page-footer)
   counter(page).update(1)
   body
+  // Printers need an even page count, so a blank last page makes up an odd one.
+  // The marker pins the last text page; the blank page would move a bare `here()`.
+  if print {
+    [#metadata(none) <book-end>]
+    context if calc.odd(locate(<book-end>).page()) { page(header: none, footer: none)[] }
+  }
 }
 
 // ── Exhibits (manuscript components) ────────────────────────
@@ -438,8 +450,8 @@
   template: (:),
   response: (:),
 ) = exhibit({
-  let mark-keyword(body) = highlight(fill: gold.transparentize(50%), extent: 1pt, body)
-  let mark-fragment(body) = highlight(fill: navy.transparentize(87%), extent: 1pt, body)
+  let mark-keyword(body) = highlight(fill: color.mix((gold, 50%), (white, 50%), space: rgb), extent: 1pt, body)
+  let mark-fragment(body) = highlight(fill: color.mix((navy, 13%), (white, 87%), space: rgb), extent: 1pt, body)
   let message(tag, body, reply: false) = block(
     width: 100%,
     above: 8pt,
@@ -897,7 +909,12 @@
       column-gutter: 8pt,
       align: top,
       text(font: mono-font, size: 6.2pt, fill: muted, era.when),
-      move(dy: -0.45em, image(bytes(era.drawing), format: "svg", width: 2.2em)),
+      // The drawing strokes in currentColor, which Typst's SVG renderer leaves to the caller.
+      move(dy: -0.45em, image(
+        bytes(era.drawing.replace("currentColor", (if all { gold-ink } else { muted }).to-hex())),
+        format: "svg",
+        width: 2.2em,
+      )),
       text(weight: 600, fill: ink, era.what),
       text(fill: if all { gold-ink } else { muted }, weight: if all { 600 } else { "regular" }, era.added),
     ))

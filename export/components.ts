@@ -773,8 +773,7 @@ const renderAttachmentLineage = (node: MdxJsxFlowElement): RenderedComponent => 
       eras.map(
         (era) =>
           `(when: ${typstString(era.when)}, what: ${typstString(era.what)}, drawing: ${typstString(
-            // Typst draws SVG without CSS, so the stroke takes the exhibit's ink directly.
-            lineageDrawingSvg(era.what, era.holdsAll === true ? "#94744a" : "#776d62"),
+            lineageDrawingSvg(era.what),
           )}, added: ${typstString(era.added)}, holds-all: ${era.holdsAll === true})`,
       ),
     )},`,

@@ -61,10 +61,10 @@ const drawings: Readonly<Record<string, string>> = {
 };
 
 /** The drawing for one era, as a standalone SVG decorated for screen readers to skip. */
-export const lineageDrawingSvg = (what: string, stroke = "currentColor"): string => {
+export const lineageDrawingSvg = (what: string): string => {
   const shapes = drawings[what];
   if (shapes === undefined) {
     throw new Error(`No lineage drawing for "${what}"; add one in src/components/attachmentLineage.ts`);
   }
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lineage-drawing">${shapes}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lineage-drawing">${shapes}</svg>`;
 };

@@ -1,6 +1,7 @@
 /**
- * Builds the ebook editions of book.mdx: a PDF typeset with Typst and an EPUB,
- * both written by pandoc from the same Markdown and the same bibliography.
+ * Builds the editions of book.mdx: a PDF typeset with Typst, the same PDF as a
+ * black-and-white print interior, and an EPUB. pandoc writes all of them from
+ * the same Markdown and the same bibliography.
  * Run with `bun run book:export`; needs pandoc, typst, and epubcheck on PATH.
  */
 import { $ } from "bun";
@@ -110,12 +111,23 @@ const toJpeg = (source: string, target: string): Promise<sharp.OutputInfo> =>
     .jpeg({ quality: 82, mozjpeg: true })
     .toFile(target);
 
+/** The black-and-white print interior gets one-channel copies with no ICC profile, as IngramSpark asks. */
+const toGrayJpeg = (source: string, target: string): Promise<sharp.OutputInfo> =>
+  sharp(source)
+    .resize({ width: 1600, withoutEnlargement: true })
+    .flatten()
+    .toColourspace("b-w")
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(target);
+
 const compressImages = async (): Promise<void> => {
-  const sources = [
-    "assets/illustrations/cover/sacred-struggle-cover.png",
-    ...(await Array.fromAsync(new Bun.Glob("public/images/book/*.png").scan())),
-  ];
-  await Promise.all(sources.map((source) => toJpeg(source, `${EXPORT_IMAGE_DIR}/${basename(source, ".png")}.jpg`)));
+  const plates = await Array.fromAsync(new Bun.Glob("public/images/book/*.png").scan());
+  const sources = ["assets/illustrations/cover/sacred-struggle-cover.png", ...plates];
+  const target = (source: string, suffix = ""): string => `${EXPORT_IMAGE_DIR}/${basename(source, ".png")}${suffix}.jpg`;
+  await Promise.all([
+    ...sources.map((source) => toJpeg(source, target(source))),
+    ...plates.map((source) => toGrayJpeg(source, target(source, "-gray"))),
+  ]);
 };
 
 await mkdir(EXPORT_IMAGE_DIR, { recursive: true });
@@ -158,7 +170,31 @@ await toJpeg(`${OUT_DIR}/cover.png`, `${OUT_DIR}/cover.jpg`);
 await Promise.all([
   (async () => {
     await run([...pandoc, "--to", "typst", "--template", "export/template.typ", "--output", `${OUT_DIR}/book.typ`]);
-    await run([...typst, `${OUT_DIR}/book.typ`, `${OUT_DIR}/${NAME}.pdf`]);
+    await Promise.all([
+      run([...typst, `${OUT_DIR}/book.typ`, `${OUT_DIR}/${NAME}.pdf`]),
+      (async () => {
+        await run([...typst, "--input", "print=true", `${OUT_DIR}/book.typ`, `${OUT_DIR}/interior-typst.pdf`]);
+        // Typst tags every color with an ICC profile, which IngramSpark rejects in a black-and-white
+        // interior. Ghostscript rewrites them as plain DeviceGray and keeps the JPEGs as they are.
+        await run([
+          "gs",
+          "-q",
+          "-dNOPAUSE",
+          "-dBATCH",
+          "-dSAFER",
+          "-sDEVICE=pdfwrite",
+          "-dCompatibilityLevel=1.4",
+          "-sColorConversionStrategy=Gray",
+          "-dProcessColorModel=/DeviceGray",
+          "-dOverrideICC",
+          "-dAutoFilterGrayImages=false",
+          "-dGrayImageFilter=/FlateEncode",
+          "-dDownsampleGrayImages=false",
+          `-sOutputFile=${OUT_DIR}/${NAME}-interior.pdf`,
+          `${OUT_DIR}/interior-typst.pdf`,
+        ]);
+      })(),
+    ]);
   })(),
   (async () => {
     await run([
@@ -184,4 +220,4 @@ await Promise.all([
   })(),
 ]);
 
-console.log(`Wrote ${OUT_DIR}/${NAME}.pdf and ${OUT_DIR}/${NAME}.epub, version ${version}`);
+console.log(`Wrote ${OUT_DIR}/${NAME}.pdf, ${NAME}-interior.pdf (print, black and white), and ${NAME}.epub, version ${version}`);
