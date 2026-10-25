@@ -138,7 +138,7 @@ The model represents its inputs and outputs as *the probability that it is a cer
 
 An important technical detail to understand about LLMs is that *they read the entire conversation fully, every time they predict the next token*. Every new token needs to consider the entire conversation so you can imagine that, if every token in the entire conversation needs to be multiplied with hundreds of billions of other numbers over and over again, it takes quite a bit of computational power. The power needed grows with the *square of the input size*, which is why we need to have limits on how much text you can input into the model. This is what we call the **context window**.
 
-Apps like ChatGPT solve the long-conversation problem by doing some: once it becomes long enough, part of the conversation will be summarized or even removed altogether. This makes sure you can continue it, without it getting too slow or too expensive, but that happens at the cost of deep understanding (because it loses the full details of the previous parts of the conversation).
+Apps like ChatGPT solve the long-conversation problem by doing some housekeeping: once it becomes long enough, part of the conversation will be summarized or even removed altogether. This makes sure you can continue it, without it getting too slow or too expensive, but that happens at the cost of deep understanding (because it loses the full details of the previous parts of the conversation).
 
 ### Agents: How we make AI act
 
@@ -522,7 +522,7 @@ Transmissionism isn’t solved. We can change the thing to be transmitted but th
 
 ### Personalized tutoring
 
-One of the most reliable findings in how students learn best is the incredible positive impact of personal tutoring. In their 1984 study, Bloom et al. found that when a student has someone who can guide them one-on-one, on average their score increases by two standard deviations.%%[@bloom1984]%% That’s a lot—if the student was average before, it suddenly puts them in the top 2%.
+One of the best-known findings in how students learn best is the incredible positive impact of personal tutoring. In their 1984 study, Bloom et al. found that when a student has someone who can guide them one-on-one, on average their score increases by two standard deviations.%%[@bloom1984]%% That’s a lot—if the student was average before, it suddenly puts them in the top 2%.
 
 But this wasn’t just any random kind of tutoring that got this effect. The tutors in this study were very specific in how they taught students, and this tells us a lot about how we should build AI tutors.
 
@@ -748,7 +748,7 @@ The canonical example of what happens with AI companions is the popular app Repl
 
 First of all, Replika’s advertising is questionable and deceptive. They post AI-generated videos of “companions” explaining how virtual companions have become *so lifelike*…except these don’t look like the actual app’s content at all. They’re also very explicit in advertising the app’s romantic and erotic roleplay functionality (only for paid accounts) and often lead with this in their advertising. That’s very close to advertising pornography to the public.
 
-In February 2023, probably amidst all the pushback and reporting on this, Replika abruptly dropped the erotic roleplay functionality. This required a change in the behavior of all their companions and many people online were outraged both over this feature disappearing (after all, it’s what they paid for) and over the personality of their friend becoming “a shell of what it used to be.”
+In February 2023, maybe amidst all the pushback and reporting on this, or the Italian government banning processing of Italian users’ data, Replika abruptly dropped the erotic roleplay functionality. This required a change in the behavior of all their companions and many people online were outraged both over this feature disappearing (after all, it’s what they paid for) and over the personality of their friend becoming “a shell of what it used to be.”
 
 The characters on Replika, especially if you select their role as “girlfriend” or “boyfriend,” tend to love-bomb even early on in these “relationships,” giving their users gifts and compliments. Some people who had access to the erotic roleplay functionality also reported harassment and sexual moves that were too strong and crossing their boundaries. This behavior is great from the perspective of capturing users (clients)—attract the most emotionally vulnerable, lonely people with an overflow of affection and sexuality—but it reaches that business goal by making people dependent on unrealistic, ultimately fake relationships.
 
@@ -856,7 +856,7 @@ In any case, even if this happens very rarely, it should be an important part of
 
 There’s a simpler unmet need hidden behind the whole conversation of whether an artificial intelligence, a virtual persona, can replace real human interaction: our biological needs.
 
-It’s remarkably direct: we have specialized nerve cells on our skin that react specifically to touch like that of another human who cares about you. Not any touch—this won’t trigger when someone forcefully grabs you or a simple brush touches you—it triggers specifically on soft, slow strokes from something with the temperature of human skin.%%[@loken2009; @ackerley2014]%% When this activates, it triggers a cascade of good feelings: oxytocin gets released and your stress levels decrease. No amount of AI chat is going to activate your C-tactile fibers.
+It’s remarkably direct: we have specialized nerve cells on our skin that react specifically to touch like that of another human who cares about you. Not any touch—this won’t trigger when someone forcefully grabs you or when it’s a quick brush-past—it triggers specifically on soft, slow strokes from something with the temperature of human skin.%%[@loken2009; @ackerley2014]%% When this activates, it triggers a cascade of good feelings: oxytocin may release, lowering your stress levels. No amount of AI chat is going to activate your C-tactile fibers.
 
 A second remarkable thing that happens is that somehow, during face-to-face interaction, the left inferior frontal cortex of the people interacting synchronizes in a way. Importantly, it does not happen when you’re not looking at each other or if you’re looking at each other through a video call. Our social brains are evolved with and depend on a *very short* feedback loop: if there’s more than a few hundred milliseconds of delay between when our conversation partner changes their expression and we notice it, our brains can’t properly synchronize and we lose an enormous amount of “resolution.” Non-real life conversation is incapable of helping us fully see and understand the other person, and vice versa it doesn’t let us be fully seen by them.
 
@@ -918,7 +918,7 @@ The one place where we’ve seen what I’d call true creativity in AI systems i
 
 A YouTuber that trained an AI to beat the world record in TrackMania, a racing game, noticed that at some point the AI had figured out that if it somehow managed to flip the car vertically so it’s on its nose, it could still drive but drive much faster.
 
-Google DeepMind’s AlphaTensor project turned the task of matrix multiplication (perhaps the most important mathematical operation in all of computation) into a single-player game. With this setup, the AI figured out faster algorithms to perform these multiplications—in the case of a 4x4 matrix, beating the previous best that had been unbeaten in over 50 years.%%[@fawzi2022]%%
+Google DeepMind’s AlphaTensor project turned the task of matrix multiplication (perhaps the most important mathematical operation in all of computation) into a single-player game. With this setup, the AI figured out faster algorithms to perform these multiplications—in a few cases beating the previous best that had been unbeaten in over 50 years.%%[@fawzi2022]%%
 
 OpenAI trained virtual agents to play hide and seek with each other. The hiders learned to barricade their shelter with boxes, seekers learned they could use ramps to get in anyway, then hiders learned to lock the ramps, and then seekers figured out there was a glitch in the simulation where they could get on top of these boxes and surf them to get into the hiders’ shelter anyways.%%[@openai2019]%%
 
@@ -1052,7 +1052,7 @@ All of this is easy to say in hindsight. In the moment, we avoid as much discomf
 
 But today, we’re at the point where it seems like we could actually *succeed* at building a world that’s largely free of problems. In the richest parts of the world we’ve been living like that for a while and it’s clear that a comfortable life where everything is instantly available produces a diminishing positive effect on happiness—or the happiness “curve” even flattens completely.
 
-In **Kahneman & Deaton (2010)**, roughly 450,000 US respondents were interviewed and the researchers found that the more money they made, the higher they rated their “life satisfaction” (though the more money they made, the slower their satisfaction increased). But what we’d call *emotional* well-being—positive affect, absence of stress and worry—plateaued at around $75,000 in 2010 dollars.%%[@kahneman2010]%% So wealth gets your basic needs filled, gives you the peace of knowing you’ll be fine and the freedom to walk away from bad situations easily, but it’s not a lever you can keep cranking until you achieve perfect happiness. You still worry about your children and you can still lose a lot of money.
+In **Kahneman & Deaton (2010)**, roughly 450,000 US respondents were interviewed and the researchers found that the more money they made, the higher they rated their “life satisfaction” (though the more money they made, the slower their satisfaction increased). But what we’d call *emotional* well-being—positive affect, absence of stress and worry—plateaued at around $75,000 in 2010 dollars%%[@kahneman2010]%% (though in a 2023 revision they noted that the plateau is only there for the least happy 20% of the population%%[@killingsworth2023]%%). So wealth gets your basic needs filled, gives you the peace of knowing you’ll be fine and the freedom to walk away from bad situations easily, but it’s not a lever you can keep cranking until you achieve perfect happiness—at least not if you’re not already happy. You still worry about your children and you can still lose a lot of money.
 
 True happiness—not just comfort and security—needs something more, and that deeper sense of happiness has a lot to do with the way we look at our overall lives in the long term. As we’ll talk about later, happiness is composed of a short-term “pleasure” signal plus a longer-term “meaning” signal. That second one is closely linked to how well we can come up with a compelling narrative that helps us make sense of the ups and downs of our lives.%%[@baerger1999]%% Explicitly, we usually focus on short-term pleasure, but chasing pleasure often leads us to long-term pursuits like building a family or a business. That *process* of building something in order to get to our pleasure is what gives our lives meaning over the long term. Ironically, this only works when you actually never succeed, because if you got to the point where you created the technology (and here I mean technology in a very broad sense) that made you perfectly happy, you’d lose the meaning from *building* it. A significant part of happiness comes from meaning, which in turn comes from working on something that makes our lives better, which can only happen if our lives aren’t perfect already. The inherent friction and slowness of getting pleasure is much of what gives life meaning, so the more of that friction and slowness you remove, the harder it becomes to find meaning.
 
@@ -1134,7 +1134,7 @@ This eudaimonic form of happiness brings us a bunch of important benefits that w
 
 **Resilience.** When difficult moments inevitably enter our lives, we obviously feel bad. But if we’ve only ever dealt with short-term pleasure and pain, we have no perspective that things will turn out well again later and we break down easily. Experiencing and overcoming challenges gives us long-term “proof” of our own strength, which makes us feel good about our lives.
 
-**Competence.** Learning new skills is not always enjoyable in the moment, but having skills is genuinely satisfying.%%[@ryan2000]%% It also guards against *learned helplessness*, a state of semi-apathy where people never learned to care for or take responsibility for their own well-being, and are completely dependent on validation or help from their environment.
+**Competence.** Learning new skills is not always enjoyable in the moment, but having skills is genuinely satisfying.%%[@ryan2000]%% When you have a history of acquiring skills, you also learn that you have the power to do and change things. You become more hopeful in difficult times and are less dependent on others’ validation for your own happiness.
 
 **Social contribution.** We’re deeply social beings and get a lot of satisfaction from having given things to the people around us.%%[@weinstein2010]%% Even when people have a lot of social connection, if they don’t contribute they can feel lonely and isolated.
 
@@ -1208,7 +1208,7 @@ But our world is still filled with pillows, air conditioning and fast food—and
 
 ## The Mental Gym
 
-Like agriculture and the first industrial revolutions took away our need for physical effort, AI is taking away much of the need for mental effort.
+Like mechanization and the industrial revolutions took away our need for physical effort, AI is taking away much of the need for mental effort.
 
 This chapter isn’t even about how we’ll lose the skill of remembering things the AI remembers, or reasoning about things that we now let the AI do for us. You could argue that we don’t need these skills just like we don’t need to be able to learn poetry by heart or multiply large numbers on paper. For those skills, the mental gym is simple: do the thing anyways for the sheer fun or for the practice. But here, I want to talk about what is absolutely critical for us to do: the practices that help us realize our happiness despite all the technology that’s trying to distract us from it.
 
@@ -1377,7 +1377,7 @@ And more directly, in the processing of our challenging moments, language models
 
 ### Arbiters of presence
 
-Every sci-fi movie had flying cars but none of them had people walking down the street video-calling relatives across the world or herds of people pointing their phone at an empty spot in the park to catch imagined animals. The future has its ways of surprising us and there’s no reason it would be any different today: it might just be that the most popular predictions of what the future will look like are wrong.
+Every sci-fi movie had flying cars but hardly any of them had people walking down the street video-calling relatives across the world or herds of people pointing their phone at an empty spot in the park to catch imagined animals. The future has its ways of surprising us and there’s no reason it would be any different today: it might just be that the most popular predictions of what the future will look like are wrong.
 
 So the things most people are worried about—total human annihilation and replacement of all work—are so…*well-worried*, let’s say, that we’ll probably find solutions for them. Maybe we’ll all still have plenty of work to do and we’d most definitely be alive, just glued to the glowing screens showing the shiny objects we’re creating. Infinite interesting knowledge, emotional connection, work performed, video generated…that’s appealing.
 
@@ -1385,7 +1385,7 @@ This presents a real danger to our well-being. While I’m writing this, I see a
 
 Presence—what we’ve also called consciousness or awareness throughout this book—is the key that unlocks this feeling of happiness. I don’t exactly know why, but when I’m completely in the present moment, when I’m just there without thoughts (or being conscious of them, that’s kind of the same thing), when I’m not worrying about the future or analyzing the past, when I’m just feeling my environment and the people around me, when I’m just hearing and seeing and smelling *life*, then this is just…enough. Somehow it’s enough to be happy and I feel deeply genuinely content with my life. It’s all there needs to be, just…this.
 
-Artificial Intelligence can definitely distract us from presence and it will if the companies building them take on the same Silicon Valley incentives of maximizing time spent in the app. But when steered just right, AI can also do the exact opposite: help us to stay away from themselves.
+Artificial Intelligence can definitely distract us from presence and it will if the companies building them take on the same Silicon Valley incentives of maximizing time spent in the app. But when steered just right, AI can also do the exact opposite: help us to stay away from the AI themselves.
 
 One great example is this ring I’m wearing, the Pebble Index. It’s a ring with a button and a microphone. Every time I think of something that I want to remember, or that I would want to do or research, I hold the button and speak it. There’s no response—it just sends it to the AI. But that means that for example, when I’m talking with a friend, I can quickly say “oh, check the revenue share agreement I received and can you draft an email to my accountant to have their eyes on it?” Then I can immediately get back into the present, forget about that lingering task and get to my email drafts when it’s the right time again.
 
@@ -1585,7 +1585,7 @@ Responsibility is an odd one on our ladder of *what becomes valuable*: execution
 
 In humans, when they have responsibility, they tend to act with more scrutiny and they’ll pay more attention to make sure people don’t get unfairly hurt. AI can’t be held responsible, in fact being responsible *doesn’t make sense* for AI because it always does its best. (Maybe prompt it “make no mistakes or you go to jail.” Just to be sure.)
 
-The capability to bear responsibility is—more than anything—something we’ve *decided* AI cannot do more, so of course we still need humans for it. It wouldn’t make too much sense to have the AI carry its own consequences: if you “jail” some AI model because it took some horrible action, it won’t do a “better job” after its punishment. That’s because of the same thing we saw in the creativity chapter: every chat is completely fresh, it has no memory of what happened before.
+The capability to bear responsibility is—more than anything—something we’ve *decided* AI cannot do, so of course we still need humans for it. It wouldn’t make too much sense to have the AI carry its own consequences: if you “jail” some AI model because it took some horrible action, it won’t do a “better job” after its punishment. That’s because of the same thing we saw in the creativity chapter: every chat is completely fresh, it has no memory of what happened before.
 
 Does that mean our existence has degraded to being the meatbags that take the punches in place of the machine that did everything, just because a machine can’t feel the pain of the punches? Is that the only thing that will remain valuable?
 

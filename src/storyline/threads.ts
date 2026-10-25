@@ -334,7 +334,7 @@ export const threads = [
       { kind: "explain", quote: "to take on a shape that supports us humans in what we *actually want*", note: "Designing Aligned Allies: AI's responsibility to support what we actually want." },
       { kind: "use", quote: "programming the AI to randomly make blatant mistakes", note: "Stupid on purpose answers the Friction question." },
       { kind: "use", quote: "can be tweaked to actually *support* us", note: "Facilitating Growth: tune the four knobs." },
-      { kind: "use", quote: "help us to stay away from them", note: "Arbiters of presence." },
+      { kind: "use", quote: "help us to stay away from the AI themselves", note: "Arbiters of presence." },
       { kind: "use", quote: "a language model can prompt you with questions to think through in your journal", note: "Meaning guidance." },
       { kind: "payoff", quote: "because *we’ll know it’s from the AI*", note: "The ceiling: a benevolent superintelligence cannot make things hard on purpose, because knowing kills the meaning." },
     ],
