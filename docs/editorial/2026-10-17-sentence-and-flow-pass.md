@@ -348,10 +348,9 @@ These came up again and again. Watch for them as you edit.
 
 Checked against sources on 2026-10-25. Items marked `[x]` are fixed or cited in `book.mdx`. Items marked `[ ]` need rewording, so they are left for you.
 
-- [ ] **Fact** · `plateaued at around $75,000 in 2010 dollars` — Correct as a report of Kahneman and Deaton (2010). Killingsworth, Kahneman, and Mellers revised it: “the flattening pattern exists but is restricted to the least happy 20% of the population”. For everyone else, emotional well-being keeps rising with income. `killingsworth2023` is already in `references.yaml`.
+- [x] **Fact** · `plateaued at around $75,000 in 2010 dollars` — Correct as a report of Kahneman and Deaton (2010). Killingsworth, Kahneman, and Mellers revised it: “the flattening pattern exists but is restricted to the least happy 20% of the population”. For everyone else, emotional well-being keeps rising with income. `killingsworth2023` is already in `references.yaml`.
   - *Your call:* add a sentence on the 2023 revision, or narrow the claim to unhappy people. The revision supports your point that money is not a lever you can keep cranking.
-- [ ] **Fact** · `That’s great for general world knowledge like the height of the Eiffel Tower` — 330 m is correct today. The tower was 324 m until a DAB+ antenna went up on 15 March 2022, so the training data holds both figures.
-  - *Your call:* keep the example, or choose a fact that has not changed.
+- [x] **Fact** · `That’s great for general world knowledge like the boiling point of water` — Was the Eiffel Tower, whose height changed in 2022 (324 m to 330 m). The boiling point of water at sea level does not change.
 - [ ] **Fact** · `in the case of a 4x4 matrix, beating the previous best` — Cited (`fawzi2022`). The 4x4 result, 47 multiplications against Strassen’s 49, holds only in mod-2 arithmetic. For ordinary numbers, AlphaTensor’s improvements were on other sizes, for example 4×5 by 5×5 in 76 multiplications instead of 80.
   - *Your call:* add “in a simplified kind of arithmetic”, or use a size where it beat the record for ordinary numbers.
 - [ ] **Fact** · `One of the most reliable findings in how students learn best` — The 2 SD (top 2%) figure is a correct report of Bloom (1984). But Bloom’s groups combined tutoring with mastery learning, and later reviews find smaller effects: d = 0.79 for human tutoring (VanLehn 2011, *Educational Psychologist*) and 0.29 SD across 89 trials (Nickow, Oreopoulos, and Quan 2024, *AERJ*). “Most reliable” overstates it.
