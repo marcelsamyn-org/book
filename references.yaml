@@ -1,5 +1,27 @@
 ---
 references:
+- id: ackerley2014
+  type: article-journal
+  author:
+  - family: "Ackerley"
+    given: "Rochelle"
+  - family: "Backlund Wasling"
+    given: "Helena"
+  - family: "Liljencrantz"
+    given: "Jaquette"
+  - family: "Olausson"
+    given: "Håkan"
+  - family: "Johnson"
+    given: "Richard D."
+  - family: "Wessberg"
+    given: "Johan"
+  title: "Human C-Tactile Afferents Are Tuned to the Temperature of a Skin-Stroking Caress"
+  container-title: "The Journal of Neuroscience"
+  volume: 34
+  issue: 8
+  page: 2879-2883
+  issued: 2014
+  DOI: 10.1523/JNEUROSCI.2847-13.2014
 - id: allan2018
   type: article-journal
   author:
@@ -97,6 +119,23 @@ references:
   page: 505-516
   issued: 2013
   DOI: 10.1080/17439760.2013.830764
+- id: bender2021
+  type: paper-conference
+  author:
+  - family: "Bender"
+    given: "Emily M."
+  - family: "Gebru"
+    given: "Timnit"
+  - family: "McMillan-Major"
+    given: "Angelina"
+  - family: "Shmitchell"
+    given: "Shmargaret"
+  title: "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?"
+  container-title: "Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency"
+  publisher: "ACM"
+  page: 610-623
+  issued: 2021
+  DOI: 10.1145/3442188.3445922
 - id: bensimon2020
   type: article-journal
   author:
@@ -139,6 +178,15 @@ references:
   page: "20-28"
   issued: 2004
   DOI: 10.1037/0003-066x.59.1.20
+- id: brandom2025
+  type: article-newspaper
+  author:
+  - family: "Brandom"
+    given: "Russell"
+  title: "OpenAI Completes Its For-Profit Recapitalization"
+  container-title: "TechCrunch"
+  issued: 2025-10-28
+  URL: https://techcrunch.com/2025/10/28/openai-completes-its-for-profit-recapitalization/
 - id: brown2014
   type: article-journal
   author:
@@ -353,6 +401,13 @@ references:
   page: 864-886
   issued: 2007
   DOI: 10.1037/0033-295X.114.4.864
+- id: europeancommission2025investai
+  type: webpage
+  author:
+  - literal: "European Commission"
+  title: "EU Launches InvestAI Initiative to Mobilise €200 Billion of Investment in Artificial Intelligence"
+  issued: 2025-02-11
+  URL: https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence
 - id: fang2025
   type: article
   author:
@@ -383,6 +438,42 @@ references:
   genre: "Preprint"
   issued: 2025
   DOI: 10.48550/arXiv.2503.17473
+- id: fawzi2022
+  type: article-journal
+  author:
+  - family: "Fawzi"
+    given: "Alhussein"
+  - family: "Balog"
+    given: "Matej"
+  - family: "Huang"
+    given: "Aja"
+  - family: "Hubert"
+    given: "Thomas"
+  - family: "Romera-Paredes"
+    given: "Bernardino"
+  - family: "Barekatain"
+    given: "Mohammadamin"
+  - family: "Novikov"
+    given: "Alexander"
+  - family: "R. Ruiz"
+    given: "Francisco J."
+  - family: "Schrittwieser"
+    given: "Julian"
+  - family: "Swirszcz"
+    given: "Grzegorz"
+  - family: "Silver"
+    given: "David"
+  - family: "Hassabis"
+    given: "Demis"
+  - family: "Kohli"
+    given: "Pushmeet"
+  title: "Discovering Faster Matrix Multiplication Algorithms with Reinforcement Learning"
+  container-title: "Nature"
+  volume: 610
+  issue: 7930
+  page: 47-53
+  issued: 2022
+  DOI: 10.1038/s41586-022-05172-4
 - id: frazier2009
   type: article-journal
   author:
@@ -703,6 +794,26 @@ references:
   page: "2703-2726"
   issued: 2020
   DOI: 10.1093/restud/rdaa006
+- id: loken2009
+  type: article-journal
+  author:
+  - family: "Löken"
+    given: "Line S."
+  - family: "Wessberg"
+    given: "Johan"
+  - family: "Morrison"
+    given: "India"
+  - family: "McGlone"
+    given: "Francis"
+  - family: "Olausson"
+    given: "Håkan"
+  title: "Coding of Pleasant Touch by Unmyelinated Afferents in Humans"
+  container-title: "Nature Neuroscience"
+  volume: 12
+  issue: 5
+  page: 547-548
+  issued: 2009
+  DOI: 10.1038/nn.2312
 - id: lynch2025
   type: article
   author:
@@ -880,6 +991,15 @@ references:
   title: "New Embedding Models and API Updates"
   issued: 2024-01-25
   URL: https://openai.com/index/new-embedding-models-and-api-updates/
+- id: osmonbekov2026
+  type: article-newspaper
+  author:
+  - family: "Osmonbekov"
+    given: "Mia"
+  title: "Shopify CEO Says Employees’ ‘Slop Grenades’ Are Making More Work for Everyone Else"
+  container-title: "Fortune"
+  issued: 2026-09-17
+  URL: https://fortune.com/2026/09/17/shopify-tobias-lutke-ai-slop-grenades/
 - id: pentina2023
   type: article-journal
   author:

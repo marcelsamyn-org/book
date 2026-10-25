@@ -346,17 +346,36 @@ These came up again and again. Watch for them as you edit.
 
 ## Facts to check
 
-Nobody checked these against sources in this pass. Each is a place where an informed reader may write in.
+Checked against sources on 2026-10-25. Items marked `[x]` are fixed or cited in `book.mdx`. Items marked `[ ]` need rewording, so they are left for you.
 
-- `plateaued at around $75,000 in 2010 dollars` — Killingsworth, Kahneman, and Mellers (*PNAS*, 2023) revised this. Emotional well-being keeps rising with income for most people; the plateau appears only in the least happy group.
-- `That’s great for general world knowledge like the height of the Eiffel Tower` — The height changed in 2022, from 324 m to 330 m, when a new antenna went up. Both figures are in training data, which weakens it as the example of a fact that doesn't change.
-- `in the case of a 4x4 matrix, beating the previous best` — AlphaTensor's 4x4 result holds in mod-2 arithmetic. For ordinary numbers, Strassen's method still stood.
-- `One of the most reliable findings in how students learn best` — Bloom's two-sigma result combined tutoring with mastery learning. The Socratic questioning and motivation details may come from elsewhere. Later reviews find smaller tutoring effects, about 0.8 standard deviations.
-- `The Shopify CEO coined the term *slop grenade*` — Reports say he popularized the term and credited a colleague.
-- `probably amidst all the pushback and reporting on this, Replika abruptly dropped` — The widely reported trigger was the Italian data protection authority's order in February 2023.
-- `this won’t trigger when someone forcefully grabs you or a simple brush touches you` — Researchers activate C-tactile fibers with slow strokes of a soft brush. If "a simple brush" means a quick brush-past, say so.
-- `*learned helplessness*, a state of semi-apathy where people never learned to care for` — In Seligman's sense, it means learning that your actions don't change the outcome, so you stop trying.
-- `Like agriculture and the first industrial revolutions took away our need for physical effort` — Agriculture is usually described as adding physical labor compared with foraging.
-- `OpenAI is additionally partly owned (26% on the board)` — The 26% is the OpenAI Foundation's equity stake, not a share of board seats. The Foundation appoints the board.
-- `they want their own AI “megafactories” running on the mainland` — The EU's InvestAI plan calls them "AI gigafactories".
-- `none of them had people walking down the street video-calling relatives` — Video calls appear in older science fiction, such as *2001: A Space Odyssey* and *Back to the Future Part II*. Only "walking down the street" holds.
+- [ ] **Fact** · `plateaued at around $75,000 in 2010 dollars` — Correct as a report of Kahneman and Deaton (2010). Killingsworth, Kahneman, and Mellers revised it: “the flattening pattern exists but is restricted to the least happy 20% of the population”. For everyone else, emotional well-being keeps rising with income. `killingsworth2023` is already in `references.yaml`.
+  - *Your call:* add a sentence on the 2023 revision, or narrow the claim to unhappy people. The revision supports your point that money is not a lever you can keep cranking.
+- [ ] **Fact** · `That’s great for general world knowledge like the height of the Eiffel Tower` — 330 m is correct today. The tower was 324 m until a DAB+ antenna went up on 15 March 2022, so the training data holds both figures.
+  - *Your call:* keep the example, or choose a fact that has not changed.
+- [ ] **Fact** · `in the case of a 4x4 matrix, beating the previous best` — Cited (`fawzi2022`). The 4x4 result, 47 multiplications against Strassen’s 49, holds only in mod-2 arithmetic. For ordinary numbers, AlphaTensor’s improvements were on other sizes, for example 4×5 by 5×5 in 76 multiplications instead of 80.
+  - *Your call:* add “in a simplified kind of arithmetic”, or use a size where it beat the record for ordinary numbers.
+- [ ] **Fact** · `One of the most reliable findings in how students learn best` — The 2 SD (top 2%) figure is a correct report of Bloom (1984). But Bloom’s groups combined tutoring with mastery learning, and later reviews find smaller effects: d = 0.79 for human tutoring (VanLehn 2011, *Educational Psychologist*) and 0.29 SD across 89 trials (Nickow, Oreopoulos, and Quan 2024, *AERJ*). “Most reliable” overstates it.
+  - *Your call:* soften to “one of the best-known findings”, or add the smaller modern figure.
+- [x] **Fact** · `The Shopify CEO uses the term *slop grenade*` — Was “coined”. Lütke said “We call those ‘slop grenades’ that people toss at each other” on *The Knowledge Project* (Fortune, 17 September 2026). Nothing shows he coined it. Cited (`osmonbekov2026`).
+- [ ] **Fact** · `probably amidst all the pushback and reporting on this, Replika abruptly dropped` — On 2 February 2023, the Italian data protection authority ordered Replika’s maker to stop processing Italian users’ data. In March 2023, Eugenia Kuyda told Reuters the change “had nothing to do with the Italian government ban or any investor pressure”.
+  - *Your call:* name the Garante order and Kuyda’s denial, or keep “probably”. The order is the better-documented context.
+- [ ] **Fact** · `this won’t trigger when someone forcefully grabs you or a simple brush touches you` — Cited (`loken2009; ackerley2014`). Researchers activate C-tactile fibers with a soft brush stroked at 1–10 cm/s, so “a simple brush” contradicts the source. A fast or hard touch is what does not trigger them. The oxytocin link is a hypothesis: the main review is titled “C-tactile afferents: Cutaneous mediators of oxytocin release during affiliative tactile interactions?” (Walker et al. 2017).
+  - *Your call:* change to “a quick brush-past”, and soften the oxytocin sentence to “may”.
+- [ ] **Fact** · `*learned helplessness*, a state of semi-apathy where people never learned to care for` — In the research sense (Maier and Seligman, *Psychological Review*, 2016), learned helplessness is giving up after learning that your actions don’t change the outcome. It is not about never learning to care for yourself or depending on validation.
+  - *Your call:* use the research definition, or drop the term and describe the state in your own words.
+- [ ] **Fact** · `Like agriculture and the first industrial revolutions took away our need for physical effort` — Bioarchaeology does not support this for agriculture. Larsen (*Annual Review of Anthropology*, 1995) found that the old idea that farming lowered the workload is “incorrect”: health got worse. Whether early farmers worked harder than foragers is still debated.
+  - *Your call:* drop agriculture, or write “mechanization and the industrial revolutions”.
+- [x] **Fact** · `OpenAI is additionally partly owned (26%) by a non-profit OpenAI Foundation` — Was “26% on the board”. The 26% is equity. The Foundation also appoints the board. Cited (`brandom2025`).
+- [x] **Fact** · `they want their own AI “gigafactories” running on European turf` — Was “megafactories”. InvestAI (11 February 2025) includes a €20 billion fund for AI gigafactories. Cited (`europeancommission2025investai`).
+- [ ] **Fact** · `none of them had people walking down the street video-calling relatives` — Dick Tracy’s 2-Way Wrist TV (comic strip, 1964) is a video call made on the move. Video calls also appear in *2001: A Space Odyssey* (1968) and *Back to the Future Part II* (1989), but not while walking. The claim about movies mostly holds; “none” does not.
+  - *Your call:* “hardly any”, or keep “none” and say “movie”.
+
+Also added during this check: `%%[@bender2021]%%` after the “stochastic parrot” question in How Smart Is AI?.
+
+## Left after the lock-day proofread
+
+- [ ] **Fix** · sentence · `solve the long-conversation problem by doing some:` — A word is missing after “some”, perhaps “housekeeping”.
+- [ ] **Fix** · sentence · `help us to stay away from themselves` — “Themselves” has no clear referent. It probably means the apps or the screen.
+- [ ] **Fix** · sentence · `something we’ve *decided* AI cannot do more` — Still open from the New World, New Scarcity list above. “Cannot do more” is unclear.
+- [ ] **Story line** · `sycophancy` is now owed. The flow pass deleted its payoff, the relationship-advice test that showed newer models being less sycophantic.
+  - *Your call:* put a payoff back (for example, a line in Teaching AI good behavior), or accept that the thread stays open.
