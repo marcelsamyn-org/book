@@ -95,6 +95,13 @@ h4 { font-size: 1em; font-style: italic; font-weight: 400; margin: 1.8em 0 0.5em
   margin: 0 auto;
 }
 
+.photo { width: 60%; margin: 1.5em auto; page-break-inside: avoid; }
+.photo img { display: block; width: 100%; height: auto; }
+.photo figcaption {
+  font-style: italic; font-size: 0.85em; color: #776d62; text-indent: 0; text-align: left;
+  border-top: 1px solid #e3d9c9; padding-top: 0.5em; margin-top: 0.8em;
+}
+
 /* ── Title page and contents ──────────────────────────────── */
 
 .titlepage { text-align: center; margin-top: 15%; }

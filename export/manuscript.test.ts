@@ -63,6 +63,22 @@ describe("toPandocMarkdown", () => {
     }
   });
 
+  it("renders a captioned photo from a JPEG and refuses other formats", () => {
+    const markdown = toPandocMarkdown(
+      `<Photo src="/images/book/sorry-tape-mug.jpg" alt="A taped mug." caption='Sorry & "taped".' />`,
+    );
+
+    expect(markdown).toContain(
+      '#photo(src: "/dist-book/images/sorry-tape-mug.jpg", alt: "A taped mug.", caption: "Sorry & “taped”.")',
+    );
+    expect(markdown).toContain(
+      '<figure class="photo"><img src="dist-book/images/sorry-tape-mug.jpg" alt="A taped mug." /><figcaption>Sorry &amp; “taped”.</figcaption></figure>',
+    );
+    expect(() => toPandocMarkdown('<Photo src="/images/book/mug.gif" alt="A." caption="B." />')).toThrow(
+      "<Photo> src must be a PNG or JPEG under /images/book/",
+    );
+  });
+
   it("removes imports and renders a chat exhibit as escaped Typst and HTML", () => {
     const source = [
       "import ChatExhibit from './src/components/ChatExhibit.astro';",

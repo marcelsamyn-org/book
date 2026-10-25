@@ -10,6 +10,7 @@ import InvertedU from './src/components/InvertedU.astro';
 import PTGIQuestionnaire from './src/components/PTGIQuestionnaire.astro';
 import PartPlate from './src/components/PartPlate.astro';
 import PersonaSelection from './src/components/PersonaSelection.astro';
+import Photo from './src/components/Photo.astro';
 import ScarcityLadder from './src/components/ScarcityLadder.astro';
 import PriceCollapse from './src/components/PriceCollapse.astro';
 import ScreenplayWriter from './src/components/ScreenplayWriter.astro';
@@ -624,11 +625,7 @@ Luckily, it seems like that’s not completely the case. From the research, what
 - Autonomy: I have some control over what I do
 - Beneficence: I’m doing something that matters to someone
 - Competence: I can build skills and get better at things
-- Relatedness: I have meaningful interactions with others
-
-%%
-TODO: Find research and cite it
-%%
+- Relatedness: I have meaningful interactions with others%%[@martela2018]%%
 
 The first two, autonomy and beneficence, are by far the most important. 
 
@@ -661,7 +658,7 @@ The thing is, if you remember RLHF, this is exactly how AI is trained: we show a
 
 Humans aren’t stupid: of course we prefer to spend time with people we like, we wouldn’t *choose* to spend more time with someone who consistently frustrates us. But because humans are so beautifully messy, once in a while other people will end up hurting us. That’s unpleasant but more often than not, when we emerge from those tears and shouts we do so with a deeper understanding of ourselves, better social calibration, and appreciation for all the good things we have in our life. Easy positive interactions are addictive, but when we lose the effort we also lose both growth and meaning. When dealing with real-life humans, we get our necessary hardship even when we try to avoid it.
 
-But an AI isn’t chaotic like this—it acts in line with how it’s trained, and its weights are frozen so it keeps acting pretty much the same way forever. We get attracted the same way as to real people—because they’re nice—and they *keep being nice forever*! When you understand this, you immediately understand the appeal of relationships with AIs. In a 2024 study (a long time ago in AI-time), 1 in 4 young adults believed AI has the potential to replace romantic relationships. The number of people “in a relationship” was much smaller—1% claimed to have an AI friend—but these are early days. I draw a parallel to compulsive social media and porn consumption: these are also optimized for short-term appeal and addiction, and pretty much everyone spends more time on “social” media than they wish they did.
+But an AI isn’t chaotic like this—it acts in line with how it’s trained, and its weights are frozen so it keeps acting pretty much the same way forever. We get attracted the same way as to real people—because they’re nice—and they *keep being nice forever*! When you understand this, you immediately understand the appeal of relationships with AIs. In a 2024 study (a long time ago in AI-time), 1 in 4 young adults believed AI has the potential to replace romantic relationships. The number of people “in a relationship” was much smaller—1% claimed to have an AI friend—but these are early days.%%[@wang2024]%% I draw a parallel to compulsive social media and porn consumption: these are also optimized for short-term appeal and addiction, and pretty much everyone spends more time on “social” media than they wish they did.
 
 %%
 TODO: Find and cite source of study
@@ -772,11 +769,7 @@ Many AI users like to get advice from their AIs—precisely because they’re at
 - **Common Sense Media** reported in 2025 that 52% of US teens are regular users of AI companions and 33% of teens use AI companions for social interaction and relationships.%%[@commonsensemedia2025]%%
 - **AP-NORC** measured 16% of US adults had used AI for companionship, rising to a quarter of people if you only look at those under 30.%%[@apnorc2025]%%
 - **OpenAI**’s own *How People Use ChatGPT* only reported Relationships and Personal Reflection at 1.9%, but this number represents the *number of messages* so this probably underreports how much it matters to people: you might go less back-and-forth compared to tweaking some document you’re writing but you’ll very likely *feel* more emotionally involved compared to non-affective use.%%[@chatterji2025]%%
-- **Anthropic** reports that roughly 6% of the conversations people have with Claude are people asking for personal guidance.
-
-%%
-TODO citation for Anthropic: https://www.anthropic.com/research/claude-personal-guidance
-%%
+- **Anthropic** reports that roughly 6% of the conversations people have with Claude are people asking for personal guidance.%%[@anthropic2026guidance]%%
 
 Whether it’s a good idea to use AI for this, though, is another question.
 
@@ -1218,9 +1211,11 @@ It starts at the beginning of the day.
 
 I’m sitting here writing this part of the book and I’m not inspired. The ideas aren’t coming. I’m afraid I’ll run out of things to write about long before I’d get to the end. And it’s largely because as soon as I woke up, I started a chat with Claude to work out this hilarious idea I came up with: translucent tape with the word “SORRY” plastered all over it. I *love it so much* and I can’t help but get ChatGPT to generate mockup images, Claude to make a website. I just bought sorrytape.com and I’ll send it off to be manufactured (it will take a few weeks).
 
-%%
-TODO: Picture of Sorry Tape. Caption says how it’s a wonderful, fun, great idea, that I could actually bring to fruition *because of* AI, but it also distracted me from doing what I already knew was more deeply meaningful to me: writing my book.
-%%
+<Photo
+  src="/images/book/sorry-tape-mug.jpg"
+  alt="A cracked “World’s Best Dad” mug held together with clear tape printed with the word SORRY."
+  caption="One of the ChatGPT mockups for Sorry Tape. A wonderful, fun idea that I could only bring to life because of AI—and it kept me from what I already knew mattered more to me: writing this book."
+/>
 
 Why am I not inspired? Because I broke my own rule and didn’t start writing as the first thing of the day. Instead, I let my mind drift into blurting out some ideas, waiting a few minutes in anticipation and gorging on that infinite dopamine coming from consuming something that’s made exactly to my taste. My mind has already been set and twisted towards consuming, shutting down the “creating” system. Having some delicious nuts in front of me on the desk, left over from yesterday, doesn’t help either—let me put them away.
 

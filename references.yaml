@@ -47,6 +47,13 @@ references:
   title: "Disempowerment Patterns in Real-World AI Usage"
   issued: 2026-01-28
   URL: https://www.anthropic.com/research/disempowerment-patterns
+- id: anthropic2026guidance
+  type: webpage
+  author:
+  - literal: "Anthropic"
+  title: "How People Ask Claude for Personal Guidance"
+  issued: 2026-04-30
+  URL: https://www.anthropic.com/research/claude-personal-guidance
 - id: apnorc2025
   type: report
   author:
@@ -931,6 +938,19 @@ references:
   page: "531-545"
   issued: 2016
   DOI: 10.1080/17439760.2015.1137623
+- id: martela2018
+  type: article-journal
+  author:
+  - family: "Martela"
+    given: "Frank"
+  - family: "Riekki"
+    given: "Tapani J. J."
+  title: "Autonomy, Competence, Relatedness, and Beneficence: A Multicultural Comparison of the Four Pathways to Meaningful Work"
+  container-title: "Frontiers in Psychology"
+  volume: "9"
+  page: "1157"
+  issued: 2018
+  DOI: 10.3389/fpsyg.2018.01157
 - id: monin2001
   type: article-journal
   author:
@@ -1325,6 +1345,17 @@ references:
   page: 11-14
   issued: 2019
   DOI: 10.1016/j.copsyc.2018.04.014
+- id: wang2024
+  type: report
+  author:
+  - family: "Wang"
+    given: "Wendy"
+  - family: "Toscano"
+    given: "Michael"
+  title: "Artificial Intelligence and Relationships: 1 in 4 Young Adults Believe AI Partners Could Replace Real-life Romance"
+  publisher: "Institute for Family Studies"
+  issued: 2024-11
+  URL: https://ifstudies.org/report-brief/artificial-intelligence-and-relationships-1-in-4-young-adults-believe-ai-partners-could-replace-real-life-romance
 - id: wang2025
   type: post-weblog
   author:

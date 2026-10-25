@@ -6,7 +6,7 @@
  */
 import { $ } from "bun";
 import { mkdir } from "node:fs/promises";
-import { basename } from "node:path";
+import { basename, extname } from "node:path";
 import sharp from "sharp";
 import { EXPORT_IMAGE_DIR } from "./components.js";
 import { toPandocMarkdown } from "./manuscript.js";
@@ -121,12 +121,13 @@ const toGrayJpeg = (source: string, target: string): Promise<sharp.OutputInfo> =
     .toFile(target);
 
 const compressImages = async (): Promise<void> => {
-  const plates = await Array.fromAsync(new Bun.Glob("public/images/book/*.png").scan());
-  const sources = ["assets/illustrations/cover/sacred-struggle-cover.png", ...plates];
-  const target = (source: string, suffix = ""): string => `${EXPORT_IMAGE_DIR}/${basename(source, ".png")}${suffix}.jpg`;
+  const images = await Array.fromAsync(new Bun.Glob("public/images/book/*.{png,jpg}").scan());
+  const sources = ["assets/illustrations/cover/sacred-struggle-cover.png", ...images];
+  const target = (source: string, suffix = ""): string =>
+    `${EXPORT_IMAGE_DIR}/${basename(source, extname(source))}${suffix}.jpg`;
   await Promise.all([
     ...sources.map((source) => toJpeg(source, target(source))),
-    ...plates.map((source) => toGrayJpeg(source, target(source, "-gray"))),
+    ...images.map((source) => toGrayJpeg(source, target(source, "-gray"))),
   ]);
 };
 

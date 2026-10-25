@@ -59,6 +59,9 @@ export const renderComponent = (node: MdxJsxFlowElement): RenderedComponent => {
     case "PartPlate":
       expectShape(node, ["src", "alt"], "no children");
       return renderPartPlate(node);
+    case "Photo":
+      expectShape(node, ["src", "alt", "caption"], "no children");
+      return renderPhoto(node);
     case "ChatExhibit":
       expectShape(node, ["prompt"], "children");
       return renderChatExhibit(node);
@@ -121,22 +124,42 @@ const expectShape = (node: MdxJsxFlowElement, props: readonly string[], content:
   }
 };
 
-// ── Part plates ─────────────────────────────────────────────
+// ── Part plates and photos ──────────────────────────────────
 
 /** Where export/build.ts writes the compressed JPEG of each image under public/images/book/. */
 export const EXPORT_IMAGE_DIR = "dist-book/images";
 
-const renderPartPlate = (node: MdxJsxFlowElement): RenderedComponent => {
+/** Maps a site image under /images/book/ to the compressed JPEG that export/build.ts writes for it. */
+const exportImage = (node: MdxJsxFlowElement, format: RegExp, kind: string): string => {
   const src = stringProp(node, "src");
-  const alt = stringProp(node, "alt");
-  const name = /^\/images\/book\/([a-z0-9-]+)\.png$/.exec(src)?.[1];
-  if (name === undefined) {
-    return failAt(node, "<PartPlate> src must be a PNG under /images/book/");
+  const match = /^\/images\/book\/([a-z0-9-]+)\.([a-z]+)$/.exec(src);
+  if (match === null || !format.test(match[2] ?? "")) {
+    return failAt(node, `<${node.name ?? ""}> src must be ${kind} under /images/book/`);
   }
-  const exportSrc = `${EXPORT_IMAGE_DIR}/${name}.jpg`;
+  return `${EXPORT_IMAGE_DIR}/${match[1]}.jpg`;
+};
+
+const renderPartPlate = (node: MdxJsxFlowElement): RenderedComponent => {
+  const exportSrc = exportImage(node, /^png$/, "a PNG");
+  const alt = stringProp(node, "alt");
   return {
     typst: `#part-plate(src: ${typstString(`/${exportSrc}`)}, alt: ${typstString(alt)})`,
     html: `<figure class="part-plate"><img src="${escapeHtml(exportSrc)}" alt="${escapeHtml(alt)}" /></figure>`,
+  };
+};
+
+const renderPhoto = (node: MdxJsxFlowElement): RenderedComponent => {
+  const exportSrc = exportImage(node, /^(png|jpg)$/, "a PNG or JPEG");
+  const alt = stringProp(node, "alt");
+  const caption = stringProp(node, "caption");
+  return {
+    typst: `#photo(src: ${typstString(`/${exportSrc}`)}, alt: ${typstString(alt)}, caption: ${typstString(caption)})`,
+    html: [
+      `<figure class="photo">`,
+      `<img src="${escapeHtml(exportSrc)}" alt="${escapeHtml(alt)}" />`,
+      `<figcaption>${escapeHtml(caption)}</figcaption>`,
+      "</figure>",
+    ].join(""),
   };
 };
 

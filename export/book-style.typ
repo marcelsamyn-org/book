@@ -220,6 +220,20 @@
   pagebreak()
 }
 
+// A photo in the running text, set narrower than the measure so a portrait
+// image does not take over the page. The caption matches the figure captions.
+#let photo(src: "", alt: "", caption: "") = block(width: 100%, breakable: false, above: 1.8em, below: 1.8em, {
+  set par(justify: false, first-line-indent: 0em)
+  align(center, block(width: 2.8in, {
+    image(if print { src.replace(regex("\.jpg$"), "-gray.jpg") } else { src }, width: 100%, alt: alt)
+    block(above: 8pt, below: 0pt, {
+      line(length: 100%, stroke: 0.4pt + hairline)
+      v(5pt)
+      align(left, text(size: 6.6pt, fill: muted, style: "italic", caption))
+    })
+  }))
+})
+
 #let chapter-opener(it) = {
   pagebreak(weak: true)
   set par(justify: false, first-line-indent: 0em)
