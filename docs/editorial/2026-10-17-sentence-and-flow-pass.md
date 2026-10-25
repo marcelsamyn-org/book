@@ -268,81 +268,81 @@ These came up again and again. Watch for them as you edit.
 - [x] **Fix** · sentence · `It prepares your mind for sleep by slowing down the thoughts` — "It" points to play time with AI. The meaning is that ending it does.
 - [x] **Polish** · sentence · `I want to get it out to get manufactured` — "Send it off to be manufactured". The sentence is also a run-on with five actions.
 - [x] **Polish** · flow · `most of our good things come *only* when we’re not under pressure` — The first half of the paragraph says surprise needs real mental effort; the story about your dad says good things come when you aim at nothing. The reader has to reconcile them. `start writing in your book` is also odd, because the reader isn't writing one.
-- [ ] **Polish** · sentence · `Not just because when you think through it, you’re actually integrating it` — Two nested "because" clauses and three "it"s.
-- [ ] **Polish** · flow · `So start the day with nothing.` — The rule you broke was to `start writing as the first thing of the day`. The reader asks which rule is the real one.
-- [ ] **Polish** · sentence · `sit with the struggle of not knowing the answer` — The nearest "answer" belongs to the trivia question. The meaning is what to write in the slide deck.
-- [ ] **Polish** · sentence · `it’s one of the least necessary parts of your body for survival` — The "it" before the dash means the bad night; this one means the prefrontal cortex.
-- [ ] **Polish** · flow · `I want to pay particular attention to our executive functions` — The 2 AM question (`Why is that? And why is this incredibly relevant`) gets its answer two paragraphs later, after a detour through AI and the debt collector.
-- [ ] **Polish** · flow · `Today, that’s the effort to verify that the work of AI` — Holding back an impulse and checking AI output are different acts, and the link is unstated. In the next sentence, "But" has nothing to contrast with, and "while" can read as "although".
-- [ ] **Polish** · flow · `I’d have a lot fewer opportunities to lift things above my head` — Farm work involves a lot of lifting, so this reads backwards until the next sentence.
-- [ ] **Polish** · sentence · `If I had to pick a single thing to think more, it’s *noticing*.` — "Think more" doesn't fit "noticing"; "practice".
-- [ ] **Polish** · flow · `our entire day is tuned towards optimally working with the most intelligent AI` — The chapter promised practices for happiness `despite all the technology`. The close makes AI productivity the goal and happiness a side effect. If the irony is intended, a reader may still take it as a reversal.
+- [x] **Polish** · sentence · `Not just because when you think through it, you’re actually integrating it` — Two nested "because" clauses and three "it"s.
+- [x] **Polish** · flow · `So start the day with nothing.` — The rule you broke was to `start writing as the first thing of the day`. The reader asks which rule is the real one.
+- [x] **Polish** · sentence · `sit with the struggle of not knowing the answer` — The nearest "answer" belongs to the trivia question. The meaning is what to write in the slide deck.
+- [x] **Polish** · sentence · `it’s one of the least necessary parts of your body for survival` — The "it" before the dash means the bad night; this one means the prefrontal cortex.
+- [x] **Polish** · flow · `I want to pay particular attention to our executive functions` — The 2 AM question (`Why is that? And why is this incredibly relevant`) gets its answer two paragraphs later, after a detour through AI and the debt collector.
+- [x] **Polish** · flow · `Today, that’s the effort to verify that the work of AI` — Holding back an impulse and checking AI output are different acts, and the link is unstated. In the next sentence, "But" has nothing to contrast with, and "while" can read as "although".
+- [x] **Polish** · flow · `I’d have a lot fewer opportunities to lift things above my head` — Farm work involves a lot of lifting, so this reads backwards until the next sentence.
+- [x] **Polish** · sentence · `If I had to pick a single thing to think more, it’s *noticing*.` — "Think more" doesn't fit "noticing"; "practice".
+- [x] **Polish** · flow · `our entire day is tuned towards optimally working with the most intelligent AI` — The chapter promised practices for happiness `despite all the technology`. The close makes AI productivity the goal and happiness a side effect. If the irony is intended, a reader may still take it as a reversal.
 
 ### Designing Aligned Allies
 
-- [ ] **Fix** · sentence · `one of the bigger changes of highly intelligent AI is *our own laziness*` — "Changes of AI" doesn't parse. "Dangers" or "risks"?
-- [ ] **Fix** · flow · `which will lead to our AIs making “stupid” classic language model-type mistakes` — Trusting the AI too much doesn't make it err; it lets its errors through unchecked.
-- [ ] **Fix** · flow · `And you can’t make the opposite claim: people use the technology more` — The "opposite claim" repeats the first claim's direction. The converse you mean is "heavy use proves it is useful".
-- [ ] **Fix** · sentence · `This doesn’t prevent them from seeking profit, but they can’t be sued` — "This" follows the OpenAI Foundation sentence but means the PBC status from two sentences back.
-- [ ] **Fix** · sentence · `If they understand how to bring people out of rumination` — A chain of "if" clauses with no main clause.
-- [ ] **Fix** · flow · `but his Dot (that persistent AI agent) noticed it` — Dot appears nowhere else. If Dot noticed the message, why keep looking? "But… but" doubles. In the next sentence, `this agent noticed the person` leaves unclear whose agent and which person.
-- [ ] **Fix** · sentence · `can be an excellent “mini” form of this` — "This" could be narrative-making, journaling, or therapy. "Those thoughts" in the next sentence has no antecedent.
-- [ ] **Fix** · flow · `Another approach is training the model on chat transcripts` — The reader loses count of the methods: documents explaining the Constitution, `A second way`, `the approach they do take` (stories), and chat transcripts. `It works.` doesn't say which method produced 65% to 19%, and "relatively unrelated" doesn't say unrelated to what. Two paragraphs later, `without us needing to train it on direct examples of chat conversations` contradicts the transcript method.
-- [ ] **Polish** · flow · `But they could be helping us in many ways.` — The Asimov passage never says why it is here. The First Law's `through inaction, allow a human being to come to harm` matches the idea of an AI that protects us from our own impulses. Say so.
-- [ ] **Polish** · flow · `making its “owner” filthy rich in the process` — The paragraph is about risk, and this example ends in a windfall. Name the risk.
-- [ ] **Polish** · sentence · `Mistakes that are so obvious you wouldn’t miss them` — Mistakes you can't miss don't test attention, and `It might even be made easy to spot` repeats the point.
-- [ ] **Polish** · flow · `So how do we make sure AI “behaves properly”?` — The next section answers a different question (who profits from our use). The technical answer comes four sections later, under a heading that repeats this question.
-- [ ] **Polish** · sentence · `interrupting you with a “better way” of doing what you’re doing` — Three list items are joined by "and", so the reader loses where each ends.
-- [ ] **Polish** · flow · `On the other hand, in a year or two pretty much everyone` — On-device AI is a second way to weaken the same incentive, not a contrast. The reason it removes the pull (no bill per use) isn't stated.
-- [ ] **Polish** · sentence · `instead of hoping companies voluntarily adopt them (and are honest about it)` — Who is honest?
-- [ ] **Polish** · flow · `they want their own AI “megafactories” running on the mainland` — The US, China, and EU tour ends with no line that returns to the section's question. "On the mainland" reads oddly for Europe.
-- [ ] **Polish** · flow · `Think about the four main elements that matter to how we deal` — "The four main elements" reads as already introduced, but they are new and uncited, and only two get discussed. `Not too bad, not too little` mixes two scales.
-- [ ] **Polish** · sentence · `This is a combination of the stressor itself, but also our own self-belief` — Broken construction, and "locus of control" isn't defined.
-- [ ] **Polish** · sentence · `I’m seeing a man sit on the bench across my street` — "I see a man sitting… across the street".
-- [ ] **Polish** · sentence · `throughout this book—is the key that unlocks this` — "This" has no near referent.
-- [ ] **Polish** · sentence · `But they can also do the exact opposite: help us to stay away from them.` — "Artificial Intelligence" becomes "them", then "they" (the companies or the AIs?), then "them" again.
-- [ ] **Polish** · sentence · `the modern world throws at you is impeccable` — "Impeccable" means flawless. "Invaluable"?
-- [ ] **Polish** · flow · `I don’t see any problem with honestly reflecting on our successes` — This answers an objection nobody raised. If the worry is flattery (sycophancy, from Part 1), name it.
-- [ ] **Polish** · flow · `ChatGPT knew today’s date from its system prompt` — "System prompt" is never defined, and `folklore prompting tricks like tipping and threatening` assumes the reader knows them.
-- [ ] **Polish** · flow · `of our earlier example of an AI assistant that sees the emails from the CTO` — Hidden motives calls him `one executive`. In the same sentence, `behave like how we want a proper AI assistant to be` mixes two constructions.
-- [ ] **Polish** · sentence · `When it was trained on why it behaved a certain way, it influenced` — The first "it" is the model, the second the training. "Much better" than what?
+- [x] **Fix** · sentence · `one of the bigger changes of highly intelligent AI is *our own laziness*` — "Changes of AI" doesn't parse. "Dangers" or "risks"?
+- [x] **Fix** · flow · `which will lead to our AIs making “stupid” classic language model-type mistakes` — Trusting the AI too much doesn't make it err; it lets its errors through unchecked.
+- [x] **Fix** · flow · `And you can’t make the opposite claim: people use the technology more` — The "opposite claim" repeats the first claim's direction. The converse you mean is "heavy use proves it is useful".
+- [x] **Fix** · sentence · `This doesn’t prevent them from seeking profit, but they can’t be sued` — "This" follows the OpenAI Foundation sentence but means the PBC status from two sentences back.
+- [x] **Fix** · sentence · `If they understand how to bring people out of rumination` — A chain of "if" clauses with no main clause.
+- [x] **Fix** · flow · `but his Dot (that persistent AI agent) noticed it` — Dot appears nowhere else. If Dot noticed the message, why keep looking? "But… but" doubles. In the next sentence, `this agent noticed the person` leaves unclear whose agent and which person.
+- [x] **Fix** · sentence · `can be an excellent “mini” form of this` — "This" could be narrative-making, journaling, or therapy. "Those thoughts" in the next sentence has no antecedent.
+- [x] **Fix** · flow · `Another approach is training the model on chat transcripts` — The reader loses count of the methods: documents explaining the Constitution, `A second way`, `the approach they do take` (stories), and chat transcripts. `It works.` doesn't say which method produced 65% to 19%, and "relatively unrelated" doesn't say unrelated to what. Two paragraphs later, `without us needing to train it on direct examples of chat conversations` contradicts the transcript method.
+- [x] **Polish** · flow · `But they could be helping us in many ways.` — The Asimov passage never says why it is here. The First Law's `through inaction, allow a human being to come to harm` matches the idea of an AI that protects us from our own impulses. Say so.
+- [x] **Polish** · flow · `making its “owner” filthy rich in the process` — The paragraph is about risk, and this example ends in a windfall. Name the risk.
+- [x] **Polish** · sentence · `Mistakes that are so obvious you wouldn’t miss them` — Mistakes you can't miss don't test attention, and `It might even be made easy to spot` repeats the point.
+- [x] **Polish** · flow · `So how do we make sure AI “behaves properly”?` — The next section answers a different question (who profits from our use). The technical answer comes four sections later, under a heading that repeats this question.
+- [x] **Polish** · sentence · `interrupting you with a “better way” of doing what you’re doing` — Three list items are joined by "and", so the reader loses where each ends.
+- [x] **Polish** · flow · `On the other hand, in a year or two pretty much everyone` — On-device AI is a second way to weaken the same incentive, not a contrast. The reason it removes the pull (no bill per use) isn't stated.
+- [x] **Polish** · sentence · `instead of hoping companies voluntarily adopt them (and are honest about it)` — Who is honest?
+- [x] **Polish** · flow · `they want their own AI “megafactories” running on the mainland` — The US, China, and EU tour ends with no line that returns to the section's question. "On the mainland" reads oddly for Europe.
+- [x] **Polish** · flow · `Think about the four main elements that matter to how we deal` — "The four main elements" reads as already introduced, but they are new and uncited, and only two get discussed. `Not too bad, not too little` mixes two scales.
+- [x] **Polish** · sentence · `This is a combination of the stressor itself, but also our own self-belief` — Broken construction, and "locus of control" isn't defined.
+- [x] **Polish** · sentence · `I’m seeing a man sit on the bench across my street` — "I see a man sitting… across the street".
+- [x] **Polish** · sentence · `throughout this book—is the key that unlocks this` — "This" has no near referent.
+- [x] **Polish** · sentence · `But they can also do the exact opposite: help us to stay away from them.` — "Artificial Intelligence" becomes "them", then "they" (the companies or the AIs?), then "them" again.
+- [x] **Polish** · sentence · `the modern world throws at you is impeccable` — "Impeccable" means flawless. "Invaluable"?
+- [x] **Polish** · flow · `I don’t see any problem with honestly reflecting on our successes` — This answers an objection nobody raised. If the worry is flattery (sycophancy, from Part 1), name it.
+- [x] **Polish** · flow · `ChatGPT knew today’s date from its system prompt` — "System prompt" is never defined, and `folklore prompting tricks like tipping and threatening` assumes the reader knows them.
+- [x] **Polish** · flow · `of our earlier example of an AI assistant that sees the emails from the CTO` — Hidden motives calls him `one executive`. In the same sentence, `behave like how we want a proper AI assistant to be` mixes two constructions.
+- [x] **Polish** · sentence · `When it was trained on why it behaved a certain way, it influenced` — The first "it" is the model, the second the training. "Much better" than what?
 
 ### New World, New Scarcity
 
-- [ ] **Fix** · flow · `the person that judges what is worth paying attention to` — This nearly repeats `the person who can *decide what is worth looking at* becomes valuable` from a paragraph earlier, and the difference (setting the rules, saying what we want) is buried. "Attention" also switches meaning inside the section: ours is scarce, the AI's is abundant (`In a way, today already, attention is abundant`). Say the switch.
-- [ ] **Fix** · flow · `you quickly realize it’s hanging on a very thin piece of string` — The quoted romantic view already says humans will be `responsible for the decisions`. You call it thin, then make responsibility the answer. Say which half fails (choosing what to do) and which survives (bearing the consequences). The idiom is "hanging by a thread", and in `If you’re lucky, this closes your case` it is unclear whose case.
-- [ ] **Fix** · flow · `is very, very out of distribution` — A machine-learning term the book never defines. "In the same vein" also has an unclear referent.
-- [ ] **Fix** · sentence · `doesn’t have more reasoning other than “it feels like we should have it.”` — Garbled ("more … other than"). The next sentence then gives a reason after all.
-- [ ] **Fix** · sentence · `is something we’ve *decided* AI cannot do more than anything` — Reads as "AI cannot do more than anything". Move "more than anything" forward.
-- [ ] **Polish** · flow · `For example, we used to measure our intelligence with programming and mathematics` — "For example" promises tasks that lost and gained value. What follows is about measuring intelligence.
-- [ ] **Polish** · flow · `As we’ve seen in Domains, AI makes things abundant` — "Domains" reads as a common noun; "in Part 2".
-- [ ] **Polish** · flow · `We’ve also seen a shift towards more mindful activities` — Mindful activities and dumb phones are not curation. They are a different answer to too much content.
-- [ ] **Polish** · sentence · `The moment something has been prompted once it becomes worthless slop` — "It" reads as the first video, which you just called valuable. The copies are what become worthless.
-- [ ] **Polish** · sentence · `Just like how many notaries are very well-paid` — "Just like how" opens a comparison that never gets its second half.
-- [ ] **Polish** · flow · `and even artists in a way—whether their next piece succeeds or not` — The clause ends on `comes down to their ideas`, which makes artists an example of ideas, not responsibility.
-- [ ] **Polish** · sentence · `On the one hand you could say AI can’t be held responsible` — Both halves argue the same side.
+- [x] **Fix** · flow · `the person that judges what is worth paying attention to` — This nearly repeats `the person who can *decide what is worth looking at* becomes valuable` from a paragraph earlier, and the difference (setting the rules, saying what we want) is buried. "Attention" also switches meaning inside the section: ours is scarce, the AI's is abundant (`In a way, today already, attention is abundant`). Say the switch.
+- [x] **Fix** · flow · `you quickly realize it’s hanging on a very thin piece of string` — The quoted romantic view already says humans will be `responsible for the decisions`. You call it thin, then make responsibility the answer. Say which half fails (choosing what to do) and which survives (bearing the consequences). The idiom is "hanging by a thread", and in `If you’re lucky, this closes your case` it is unclear whose case.
+- [x] **Fix** · flow · `is very, very out of distribution` — A machine-learning term the book never defines. "In the same vein" also has an unclear referent.
+- [x] **Fix** · sentence · `doesn’t have more reasoning other than “it feels like we should have it.”` — Garbled ("more … other than"). The next sentence then gives a reason after all.
+- [x] **Fix** · sentence · `is something we’ve *decided* AI cannot do more than anything` — Reads as "AI cannot do more than anything". Move "more than anything" forward.
+- [x] **Polish** · flow · `For example, we used to measure our intelligence with programming and mathematics` — "For example" promises tasks that lost and gained value. What follows is about measuring intelligence.
+- [x] **Polish** · flow · `As we’ve seen in Domains, AI makes things abundant` — "Domains" reads as a common noun; "in Part 2".
+- [x] **Polish** · flow · `We’ve also seen a shift towards more mindful activities` — Mindful activities and dumb phones are not curation. They are a different answer to too much content.
+- [x] **Polish** · sentence · `The moment something has been prompted once it becomes worthless slop` — "It" reads as the first video, which you just called valuable. The copies are what become worthless.
+- [x] **Polish** · sentence · `Just like how many notaries are very well-paid` — "Just like how" opens a comparison that never gets its second half.
+- [x] **Polish** · flow · `and even artists in a way—whether their next piece succeeds or not` — The clause ends on `comes down to their ideas`, which makes artists an example of ideas, not responsibility.
+- [x] **Polish** · sentence · `On the one hand you could say AI can’t be held responsible` — Both halves argue the same side.
 
 ### AI as Infinite Creation
 
-- [ ] **Fix** · sentence · `Infinite *stuff* is nothing; the ocean is shaped by what’s holding it` — One sentence earlier, "nothing" was the space that gives everything meaning. Here it means worthless.
-- [ ] **Polish** · flow · `but it’s more something like *orientation*` — "Manifestation" replaces "creation" without notice. "Orientation" is offered as the opposite and never used again.
-- [ ] **Polish** · flow · `the foundation of the production of *meaning*` — "Semiosis" is not defined, and "production" puts a making word on the side of the unmade.
+- [x] **Fix** · sentence · `Infinite *stuff* is nothing; the ocean is shaped by what’s holding it` — One sentence earlier, "nothing" was the space that gives everything meaning. Here it means worthless.
+- [x] **Polish** · flow · `but it’s more something like *orientation*` — "Manifestation" replaces "creation" without notice. "Orientation" is offered as the opposite and never used again.
+- [x] **Polish** · flow · `the foundation of the production of *meaning*` — "Semiosis" is not defined, and "production" puts a making word on the side of the unmade.
 
 ### When Superintelligence Turns Away
 
-- [ ] **Polish** · sentence · `positively and negatively, over what time frame` — The tacked-on clause reads as unfinished, and "imagine… imagine" repeats.
-- [ ] **Polish** · sentence · `trying to answer the question of “why did they leave me”` — The scenario was cheating, not leaving.
-- [ ] **Polish** · sentence · `They might leave a mini-version of themselves` — The superintelligence is "it" in the chapter's first paragraph and "they" here.
-- [ ] **Polish** · sentence · `and that made them motivated and pull through those rough times` — One "made" governs both an adjective and a verb.
-- [ ] **Polish** · sentence · `Religion worked to give people meaning before anything else existed` — Reads as "before anything at all existed". The meaning is "before any other technology".
+- [x] **Polish** · sentence · `positively and negatively, over what time frame` — The tacked-on clause reads as unfinished, and "imagine… imagine" repeats.
+- [x] **Polish** · sentence · `trying to answer the question of “why did they leave me”` — The scenario was cheating, not leaving.
+- [x] **Polish** · sentence · `They might leave a mini-version of themselves` — The superintelligence is "it" in the chapter's first paragraph and "they" here.
+- [x] **Polish** · sentence · `and that made them motivated and pull through those rough times` — One "made" governs both an adjective and a verb.
+- [x] **Polish** · sentence · `Religion worked to give people meaning before anything else existed` — Reads as "before anything at all existed". The meaning is "before any other technology".
 
 ## Conclusion
 
-- [ ] **Polish** · sentence · `(out of where, by the way? who or what in us` — "Out of where" is Dutch (*van waar*); "from where". The aside also splits "we have chosen… to make".
-- [ ] **Polish** · sentence · `they’re a dull starting point scaled up, stamped out, lived in` — "Lived in" doesn't fit a stamped-out template.
-- [ ] **Polish** · sentence · `It’s shoving our face into meaning.` — The idioms are "rubbing our nose in it" and "shoving it in our face".
-- [ ] **Polish** · flow · `our minds that are constantly adapting to that tension` — "That tension" has no near referent; the last one was in the Conclusion's first paragraph.
-- [ ] **Polish** · sentence · `everything disappears anyways—so the fact that we decide to be here anyways` — "Anyways" twice in one sentence.
+- [x] **Polish** · sentence · `(out of where, by the way? who or what in us` — "Out of where" is Dutch (*van waar*); "from where". The aside also splits "we have chosen… to make".
+- [x] **Polish** · sentence · `they’re a dull starting point scaled up, stamped out, lived in` — "Lived in" doesn't fit a stamped-out template.
+- [x] **Polish** · sentence · `It’s shoving our face into meaning.` — The idioms are "rubbing our nose in it" and "shoving it in our face".
+- [x] **Polish** · flow · `our minds that are constantly adapting to that tension` — "That tension" has no near referent; the last one was in the Conclusion's first paragraph.
+- [x] **Polish** · sentence · `everything disappears anyways—so the fact that we decide to be here anyways` — "Anyways" twice in one sentence.
 
 ## Facts to check
 
