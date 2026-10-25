@@ -81,7 +81,8 @@ These came up again and again. Watch for them as you edit.
 - [x] **Polish** · sentence · `it takes quite some computational power` — "Quite some" is Dutch (*heel wat*); "quite a bit of" or "a lot of".
 - [x] **Polish** · flow · `if these all need to be multiplied with hundreds of billions of other numbers` — "These" has no clear referent. The section opens with `sentences aren’t numbers` but never says that each token becomes numbers.
 - [x] **Polish** · flow · `and one of the reasons why it starts to get confused` — A cost that grows with the square of the input explains the length limit, not the confusion. Give confusion its own cause, or end the sentence at the limit.
-- [ ] **Polish** · flow · `which is why we need to have limits on how much text you can input` — This limit is the "context window" in the heading, but the text never names it.
+- [x] **Polish** · flow · `which is why we need to have limits on how much text you can input` — This limit is the "context window" in the heading, but the text never names it.
+  - *Decided 2026-10-25:* left as is; the manuscript is locked.
 
 ### How Smart Is AI?
 
@@ -164,7 +165,8 @@ These came up again and again. Watch for them as you edit.
 - [x] **Polish** · sentence · `exactly what the infrastructure of a large language model works best for` — "Infrastructure" is the wrong word (design? the way it works?).
 - [x] **Polish** · sentence · `but *how much happier* people become slows down` — An amount doesn't slow down; the gain shrinks.
 - [x] **Polish** · sentence · `food, shelter and good relationships, becomes less and less meaningful` — The subject is "this process", but it is the work that loses meaning.
-- [ ] **Polish** · flow · `From the research, what matters most in work satisfaction` — The research is not named and has no citation.
+- [x] **Polish** · flow · `From the research, what matters most in work satisfaction` — The research is not named and has no citation.
+  - *Decided 2026-10-25:* left as is; the manuscript is locked.
 - [x] **Polish** · sentence · `doesn’t matter in the end—but it seems like it doesn’t` — The nearest verb is "doesn’t matter", so "it doesn’t" first reads as "it doesn’t matter", which inverts the sentence.
 - [x] **Polish** · sentence · `Even as our work becomes more abstract, it can still carry meaning.` — The paragraph before says `The task itself doesn’t carry meaning, we apply meaning.` "Carry meaning" means opposite things in two consecutive paragraphs.
 
@@ -206,7 +208,8 @@ These came up again and again. Watch for them as you edit.
 - [x] **Fix** · flow · `These last two are maybe the biggest advantages` — The last two are goal-directed planning and working memory. The AI side offers stored knowledge (not working memory) and goals, in reverse order, so the reader tries to match them and can't.
 - [x] **Fix** · flow · `The box surfing from the last example is one that I’d call true creativity` — Hard to follow. "An action in itself" versus "in the context of the goal" is unclear. Training on "the fastest way to get to the hiders" sounds like the goal itself. The game had one goal, not "many goals". `adhere on every step` is not idiomatic. *Your call:* what is the contrast, such as rewarding only the end result versus prescribing each step?
 - [x] **Fix** · sentence · `Claude showed “fake” in its J-space while it read through instructions` — One sentence carries three experiments with three subjects, and "showed “fake”" is opaque. Split it, and say what "showed" means.
-- [ ] **Polish** · flow · `This wasn’t what we imagined artificial intelligence to look like.` — "This" opens the chapter. The reader learns two sentences later that it means AI that designs posters and films.
+- [x] **Polish** · flow · `This wasn’t what we imagined artificial intelligence to look like.` — "This" opens the chapter. The reader learns two sentences later that it means AI that designs posters and films.
+  - *Decided 2026-10-25:* left as is; the manuscript is locked.
 - [x] **Polish** · flow · `the most boring short-sighted “obvious” ideas that don’t bring in any value` — The tension is novelty against usefulness, so this pole should be "useful but not new". "Don’t bring in any value" makes them useless too.
 - [x] **Polish** · flow · `it’s anything but truly random, precisely because of this` — Spotify's reason was that true randomness produces clusters that listeners hear as not random. "Because of this" (judging and steering ideas) doesn't explain it.
 - [x] **Polish** · sentence · `In literature, they call these two systems` — "Literature" reads as novels. The meaning is the research literature.
