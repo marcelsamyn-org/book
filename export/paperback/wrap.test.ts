@@ -10,7 +10,7 @@ interface RenderResult {
   readonly svg: string;
 }
 
-const render = async (config: string): Promise<RenderResult> => {
+const render = async (config: string, panel = "wrap"): Promise<RenderResult> => {
   const directory = await mkdtemp(join(process.cwd(), "export/paperback/.test-"));
   try {
     const configPath = join(directory, "config.yaml");
@@ -19,6 +19,7 @@ const render = async (config: string): Promise<RenderResult> => {
     const child = Bun.spawn([
       "typst", "compile", "--root", ".", "--font-path", "export/fonts", "--format", "svg",
       "--input", `config=/${relative(process.cwd(), configPath)}`,
+      "--input", `panel=${panel}`,
       "export/paperback/wrap.typ", svgPath,
     ], { stdout: "pipe", stderr: "pipe" });
     const [exitCode, stderr] = await Promise.all([child.exited, new Response(child.stderr).text()]);
@@ -41,6 +42,16 @@ describe("paperback wrap", () => {
     expect(result.exitCode).toBe(0);
     const width = result.svg.match(/width="([\d.]+)pt"/)?.[1];
     expect(Number(width)).toBeCloseTo((152.4 * 2 + 16 + 3.175 * 2) * 72 / 25.4, 5);
+  });
+
+  it("exports each panel at trim size with the configured spine width", async () => {
+    for (const [panel, width] of [["back", 432], ["front", 432], ["spine", 16 * 72 / 25.4]] as const) {
+      const result = await render(original.replace("spine-width-mm: 10", "spine-width-mm: 16"), panel);
+      expect(result.exitCode).toBe(0);
+      expect(result.stderr).toBe("");
+      expect(Number(result.svg.match(/width="([\d.]+)pt"/)?.[1])).toBeCloseTo(width, 5);
+      expect(result.svg).toContain('height="648pt"');
+    }
   });
 
   it("reflows the design with a different trim and bleed", async () => {

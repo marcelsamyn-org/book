@@ -1,6 +1,6 @@
 /**
  * Builds the editions of book.mdx: a PDF typeset with Typst, the same PDF as a
- * black-and-white print interior, and an EPUB. pandoc writes all of them from
+ * black-and-white print interior, an introduction teaser, and an EPUB. pandoc writes all of them from
  * the same Markdown and the same bibliography.
  * Run with `bun run book:export`; needs pandoc, typst, and epubcheck on PATH.
  */
@@ -63,7 +63,7 @@ const isExpectedWarning = (line: string): boolean => {
   return id !== undefined && socialPostIds.has(id);
 };
 
-const run = async (command: readonly string[]): Promise<void> => {
+const run = async (command: readonly string[]): Promise<string> => {
   const child = Bun.spawn([...command], { stdout: "pipe", stderr: "pipe" });
   const [exitCode, stdout, stderr] = await Promise.all([
     child.exited,
@@ -74,6 +74,7 @@ const run = async (command: readonly string[]): Promise<void> => {
   if (exitCode !== 0 || warnings.length > 0) {
     throw new Error(`${command[0]} failed (exit ${exitCode}):\n${stdout}${stderr}`.trim());
   }
+  return stdout;
 };
 
 interface CoverText {
@@ -171,8 +172,18 @@ await toJpeg(`${OUT_DIR}/cover.png`, `${OUT_DIR}/cover.jpg`);
 await Promise.all([
   (async () => {
     await run([...pandoc, "--to", "typst", "--template", "export/template.typ", "--output", `${OUT_DIR}/book.typ`]);
+    const introductionLastPage: unknown = JSON.parse(await run([
+      "typst", "eval", "--root", ".", "--font-path", "export/fonts", "--ignore-system-fonts",
+      "--in", `${OUT_DIR}/book.typ`,
+      '{ import "/export/introduction.typ": last-page; last-page() }',
+    ]));
+    if (typeof introductionLastPage !== "number" || !Number.isSafeInteger(introductionLastPage) || introductionLastPage < 1) {
+      throw new Error("Typst did not return a valid last page for the introduction");
+    }
     await Promise.all([
       run([...typst, `${OUT_DIR}/book.typ`, `${OUT_DIR}/${NAME}.pdf`]),
+      // Typst cannot retain PDF accessibility tags when exporting selected pages.
+      run([...typst, "--no-pdf-tags", "--pages", `1-${introductionLastPage}`, `${OUT_DIR}/book.typ`, `${OUT_DIR}/${NAME}-introduction.pdf`]),
       (async () => {
         await run([...typst, "--input", "print=true", `${OUT_DIR}/book.typ`, `${OUT_DIR}/interior-typst.pdf`]);
         // Typst tags every color with an ICC profile, which IngramSpark rejects in a black-and-white
@@ -221,4 +232,4 @@ await Promise.all([
   })(),
 ]);
 
-console.log(`Wrote ${OUT_DIR}/${NAME}.pdf, ${NAME}-interior.pdf (print, black and white), and ${NAME}.epub, version ${version}`);
+console.log(`Wrote ${OUT_DIR}/${NAME}.pdf, ${NAME}-introduction.pdf (teaser, full contents), ${NAME}-interior.pdf (print, black and white), and ${NAME}.epub, version ${version}`);

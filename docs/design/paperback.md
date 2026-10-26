@@ -11,6 +11,7 @@ The command writes:
 - `dist-book/paperback/wrap.pdf`: one flat spread, ordered back, spine, front, with outer bleed.
 - `dist-book/paperback/wrap-guides.pdf`: the spread with an outer proof margin, trim lines, fold lines, and safe areas. This is a review file.
 - `dist-book/paperback/wrap.png`: a preview of the clean spread at 160 ppi. Use the PDF for full-resolution inspection.
+- `dist-book/paperback/back.png`, `spine.png`, and `front.png`: separate panels with artwork and text at 300 ppi. Each uses its configured trim size, without outer bleed or guides. They use the same layout as the wrap, so dimension and copy changes also update the images.
 
 Open both PDFs after each layout or copy change. Check the back at physical size, read the spine, and inspect the barcode area. Text and fonts remain embedded in the PDF. A successful build proves that the configured text areas fit; it does not prove that a printer will accept the file.
 

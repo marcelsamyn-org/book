@@ -37,13 +37,18 @@
 #let scale = w / 6in
 #let guide-pad = if guides { 12mm } else { 0mm }
 #let front-x = bleed + w + spine
+#let panel = sys.inputs.at("panel", default: "wrap")
+#let panel-x = (wrap: 0mm, back: bleed, spine: bleed + w, front: front-x).at(panel)
+#let panel-w = (wrap: full-w, back: w, spine: spine, front: w).at(panel)
+#let panel-y = if panel == "wrap" { 0mm } else { bleed }
+#let panel-h = if panel == "wrap" { full-h } else { h }
 #let front-title-inset = calc.max(w * 0.05, safe)
 #let front-subtitle-inset = calc.max(w * 0.08, safe)
 #let navy = rgb("#1c2540")
 #let guide-color = rgb("#f0749b")
 
 #set document(title: "Sacred Struggle — paperback cover concept", author: metadata.author)
-#set page(width: full-w + 2 * guide-pad, height: full-h + 2 * guide-pad, margin: 0pt, fill: if guides { rgb("#f8f4ed") } else { navy })
+#set page(width: panel-w + 2 * guide-pad, height: panel-h + 2 * guide-pad, margin: 0pt, fill: if guides { rgb("#f8f4ed") } else { navy })
 #set text(font: display-font, fill: cream, hyphenate: false, lang: "en")
 #set par(justify: false, first-line-indent: 0pt)
 
@@ -54,7 +59,7 @@
   block(width: width, body)
 }
 
-#place(top + left, dx: guide-pad, dy: guide-pad, box(width: full-w, height: full-h, {
+#place(top + left, dx: guide-pad - panel-x, dy: guide-pad - panel-y, box(width: full-w, height: full-h, {
   // Extend backgrounds through the outer bleed; text is positioned from trim.
   place(top + left, panel-image(config.at("back-artwork"), w + bleed, full-h))
   place(top + left, dx: bleed + w, rect(width: spine, height: full-h, fill: navy, stroke: none))
