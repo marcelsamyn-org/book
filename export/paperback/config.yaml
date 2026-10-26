@@ -1,0 +1,29 @@
+# Concept dimensions. Replace these with the printer's paperback template.
+trim-width-mm: 152.4
+trim-height-mm: 228.6
+spine-width-mm: 10
+bleed-mm: 3.175
+safe-inset-mm: 6.35
+spine-safe-inset-mm: 2
+back-text-inset-mm: 16
+
+front-artwork: /assets/illustrations/cover/sacred-struggle-cover.png
+back-artwork: /assets/illustrations/cover/sacred-struggle-back.png
+
+# This is proposed back-cover copy, not manuscript text or approved sales copy.
+back:
+  headline: What makes life meaningful when machines can do it all?
+  paragraphs:
+    - AI promises to make our lives easier. It can write our words, do our work, and offer companionship whenever we need it. But what happens when the things we once struggled for become effortless?
+    - In Sacred Struggle, Marcel Samyn starts with how these machines work and follows the question into learning, work, love, and creativity. Along the way, his own experience of a brain tumor gives the question a deeply personal weight.
+    - If we could solve every problem, would we be happier? Or would we lose something we need?
+  closing: Some things matter because they aren’t perfect.
+
+# Reserve a white area; do not invent an ISBN or draw a fake barcode.
+# Use a repository-root-relative /path when the printer supplies barcode art.
+barcode:
+  artwork: null
+  width-mm: 50.8
+  height-mm: 30.48
+  right-mm: 12.7
+  bottom-mm: 12.7

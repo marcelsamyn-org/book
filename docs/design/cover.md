@@ -2,6 +2,8 @@
 
 Status: approved and used by the PDF and EPUB exports.
 
+The adjustable paperback back and spine are a separate [wrap design concept](paperback.md).
+
 ## Design
 
 The cover uses one dark material field. A smoke-blue current crosses the lower half and faintly recalls a coastline without becoming a seascape. Its irregular gold repair acts as a line of tension. The same gold gradually becomes precise circuit traces, so organic force and machine structure belong to one system.

@@ -10,6 +10,7 @@
     "research:dashboard": "bun run src/tools/research-dashboard.tsx",
     "build:site": "astro build",
     "book:export": "bun run export/build.ts",
+    "cover:proof": "bun run export/paperback/build.ts",
     "report:progress": "bun run src/publish/reportProgress.ts",
     "storyline:check": "bun run src/tools/storyline-check.ts",
     "typography:check": "bun run src/tools/typography.ts book.mdx",
