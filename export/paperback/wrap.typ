@@ -94,7 +94,7 @@
   }))
 
   // Match the approved front-cover type, with positions relative to trim.
-  place(top + left, dx: front-x + front-title-inset, dy: bleed + calc.max(h * (0.98 / 9), safe), block(width: w - 2 * front-title-inset, {
+  place(top + left, dx: front-x + front-title-inset, dy: bleed + calc.max(h * (1.15 / 9), safe), block(width: w - 2 * front-title-inset, {
     set align(center)
     set par(leading: 0.30em)
     text(size: 41pt * scale, weight: 600, tracking: 0.005em, metadata.title.split(" ").join(linebreak()))

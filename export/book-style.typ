@@ -90,7 +90,7 @@
     set text(font: display-font, fill: cream, number-type: "lining", hyphenate: false)
     set par(justify: false, first-line-indent: 0em)
     set align(center)
-    place(top + center, dy: 0.98in, block(width: 90%, {
+    place(top + center, dy: 1.15in, block(width: 90%, {
       set par(leading: 0.30em)
       text(size: 41pt, weight: 600, tracking: 0.005em, title.split(" ").join(linebreak()))
     }))
