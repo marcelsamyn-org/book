@@ -107,6 +107,13 @@ The `/storyline` page maps the book's ideas to the exact quotes where each is pl
 - A new component needs a renderer in `export/components.ts` and a matching Typst function in `export/book-style.typ`. Put data or logic that the site component also needs in a module under `src/components/`, as `eliza.ts` and `ptgi.ts` do.
 - The version line on the copyright page is the build date plus the git blob hash of `book.mdx`, so a reader's report can be traced to the exact text.
 
+## Paperback cover design
+
+- `bun run cover:proof` builds the adjustable back/spine/front concept and a guided proof in `dist-book/paperback/`. It does not rebuild the book editions.
+- `export/paperback/config.yaml` owns trim, spine, bleed, safe margins, barcode space, and proposed back copy. Title and author stay in `export/metadata.yaml`.
+- Read `docs/design/paperback.md` before changing the wrap or applying printer details. The 10 mm spine and other printer values are provisional. Use the printer's template for final geometry; do not infer the spine from page count alone.
+- Type stays editable in `export/paperback/wrap.typ`; artwork contains no text. Run `bun test export/paperback` after changing the renderer, and inspect both clean and guided PDFs after any design change.
+
 ## Releases
 
 A release freezes one edition of the book. The tag is the edition; the attachments are the files readers received.
