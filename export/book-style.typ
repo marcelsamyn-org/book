@@ -134,6 +134,8 @@
   notice: none,
   version: none,
   colophon: none,
+  print-isbn: none,
+  legal-deposit: none,
 ) = page(header: none, footer: none)[
   #set text(size: 7.8pt, fill: muted, number-type: "lining")
   #set par(justify: false, first-line-indent: 0em, leading: 0.62em, spacing: 1.2em)
@@ -145,6 +147,11 @@
   #notice
 
   Version #version
+
+  #if print [
+    ISBN #print-isbn (paperback) \
+    Legal deposit #legal-deposit
+  ]
 
   #publisher \
   #website
@@ -270,6 +277,8 @@
   website: none,
   notice: none,
   colophon: none,
+  print-isbn: none,
+  legal-deposit: none,
   body,
 ) = {
   set document(title: plain(title), author: plain(author))
@@ -345,6 +354,8 @@
     notice: notice,
     version: version,
     colophon: colophon,
+    print-isbn: print-isbn,
+    legal-deposit: legal-deposit,
   )
   contents-page()
 

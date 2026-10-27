@@ -7,6 +7,9 @@ publisher: Kalon Solutions BV
 rights: Copyright © 2026 Marcel Samyn. All rights reserved.
 website: kalon.solutions/sacred-struggle
 colophon: Set in Literata, Lora, and IBM Plex.
+# Printed on the paperback interior only; the EPUB and the reading PDF carry no ISBN.
+print-isbn: 978-90-838078-0-5
+legal-deposit: D/2026/16522/01
 identifier:
   - scheme: UUID
     text: urn:uuid:957461cc-a9a4-49ac-bd0d-3fc554fadd58
