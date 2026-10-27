@@ -29,7 +29,7 @@ The production artwork is [`assets/illustrations/cover/sacred-struggle-cover.png
 - Title: Lora Semibold, 41 pt, two centered lines, `0.30em` leading.
 - Subtitle: Lora Italic, 11.8 pt, balanced over two centered lines.
 - Author: IBM Plex Sans Medium, 8 pt, uppercase with wide tracking.
-- Title top offset: 0.98 inches.
+- Title top offset: 1.15 inches.
 - Subtitle top offset: 2.56 inches.
 - Author bottom offset: 0.42 inches.
 - Title and subtitle: warm cream. Author: muted gold.

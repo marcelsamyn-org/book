@@ -11,6 +11,8 @@
   website: [$website$],
   notice: [$notice$],
   colophon: [$colophon$],
+  print-isbn: [$print-isbn$],
+  legal-deposit: [$legal-deposit$],
 )
 
 $body$

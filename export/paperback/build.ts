@@ -24,5 +24,8 @@ const compile = ["typst", "compile", "--root", ".", "--font-path", "export/fonts
 await run([...compile, "export/paperback/wrap.typ", `${output}/wrap.pdf`]);
 await run([...compile, "--input", "guides=true", "export/paperback/wrap.typ", `${output}/wrap-guides.pdf`]);
 await run([...compile, "--ppi", "160", "export/paperback/wrap.typ", `${output}/wrap.png`]);
-console.log(`Paperback concept: ${output}/wrap.pdf, wrap-guides.pdf, wrap.png`);
+await Promise.all(["back", "spine", "front"].map((panel) => run([
+  ...compile, "--input", `panel=${panel}`, "--ppi", "300", "export/paperback/wrap.typ", `${output}/${panel}.png`,
+])));
+console.log(`Paperback concept: ${output}/wrap.pdf, wrap-guides.pdf, wrap.png, back.png, spine.png, front.png`);
 console.log("Dimensions and copy are provisional. Match the printer template before production.");

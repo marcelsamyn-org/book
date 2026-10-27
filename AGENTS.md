@@ -98,7 +98,8 @@ The `/storyline` page maps the book's ideas to the exact quotes where each is pl
 
 ## Ebook export
 
-- `bun run book:export` writes `dist-book/sacred-struggle.pdf`, `dist-book/sacred-struggle.epub`, and `dist-book/sacred-struggle-interior.pdf` in about five seconds. It needs `pandoc`, `typst`, `epubcheck`, and `ghostscript` (`brew install pandoc typst epubcheck ghostscript`). It stops on any unexpected warning, including an unknown citation key or an EPUBCheck warning.
+- `bun run book:export` writes `dist-book/sacred-struggle.pdf`, `dist-book/sacred-struggle.epub`, `dist-book/sacred-struggle-interior.pdf`, and `dist-book/sacred-struggle-introduction.pdf`. It needs `pandoc`, `typst` with `eval` support, `epubcheck`, and `ghostscript` (`brew install pandoc typst epubcheck ghostscript`). It stops on any unexpected warning, including an unknown citation key or an EPUBCheck warning.
+- The introduction PDF is a teaser: the cover, front matter, full table of contents, and all of the introduction. `export/introduction.typ` locates the next top-level heading in the full layout, then the build exports only the preceding pages. Contents entries retain the full book's page numbers; later chapters are absent from the teaser.
 - `export/manuscript.ts` prepares `book.mdx` for pandoc: comments are dropped, citation comments become citations, and each component becomes a raw Typst block and a raw XHTML block from `export/components.ts`. A component without a renderer, or JSX inside a paragraph, stops the build with the `book.mdx` line number.
 - Citations render with `export/chicago-notes.csl` (Chicago 18, notes and bibliography): footnotes in the PDF, notes at the end of each chapter in the EPUB, and a Sources list in both.
 - The cover and part plates are lossless PNGs of about 4 MB each. The export writes 1600 px JPEGs of them to `dist-book/images/` with `sharp`, and both editions embed those; the source PNGs stay unchanged.
@@ -109,7 +110,7 @@ The `/storyline` page maps the book's ideas to the exact quotes where each is pl
 
 ## Paperback cover design
 
-- `bun run cover:proof` builds the adjustable back/spine/front concept and a guided proof in `dist-book/paperback/`. It does not rebuild the book editions.
+- `bun run cover:proof` builds the adjustable back/spine/front concept, a guided proof, and separate `back.png`, `spine.png`, and `front.png` images in `dist-book/paperback/`. Panel images include the cover text at 300 ppi and trim size, without bleed or guides. It does not rebuild the book editions.
 - `export/paperback/config.yaml` owns trim, spine, bleed, safe margins, barcode space, and proposed back copy. Title and author stay in `export/metadata.yaml`.
 - Read `docs/design/paperback.md` before changing the wrap or applying printer details. The 10 mm spine and other printer values are provisional. Use the printer's template for final geometry; do not infer the spine from page count alone.
 - Type stays editable in `export/paperback/wrap.typ`; artwork contains no text. Run `bun test export/paperback` after changing the renderer, and inspect both clean and guided PDFs after any design change.
