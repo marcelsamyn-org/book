@@ -106,7 +106,7 @@ The restructure and dedupe work is finished: Part 1 is trimmed, the domains are 
   - *What:* Anthropic's "Verbalizable Representations Form a Global Workspace" (2026, transformer-circuits.pub/2026/workspace) finds a small, reportable, controllable workspace in Claude that drives multi-step reasoning. The book's human argument is untouched. Five machine sentences are now overstated: (1) Creativity, `like planning a rhyme on the end of the next sentence—but it has no idea it’s doing it`. The paper shows the planned rhyme sitting in the reportable workspace; swapping it changes the line. Cut the clause or change the example. (2) Creativity, `no view at all on its internal context and state: what happens in that parallel phase is a complete black box`. (3) Creativity, `The only kind of self-awareness a model has would be in reading back its own output`. The model reports workspace contents before output. (4) Creativity, `that’s something language models in the way we know them now can never really have`. Ablating the early workspace makes the model fail to suppress a prepotent answer five times more often, and failure tokens like "damn" appear after a failed suppression, so halting has a machine analog. Drop "never". (5) Pretend-Thinking, `they have, technically, no real way of noticing their internal reasoning`. Keep `no real distinction between “my words” and “its words,”` and the momentum sentence: the paper finds an unvoiced internal objection (a "BUT" in the workspace when prefilled against its preference) that the model does not act on. That is the gap awareness practice closes in humans, and a stronger line than "the machine cannot notice".
   - *Why:* Every one of these is a factual claim about architecture, and the theory's own authors (Dehaene and Naccache, in the paper's commentary) reject a kind-difference: "there is no magical essence that makes us conscious." What all three commentaries agree the model lacks is a recurrent self-driven loop, a body, episodic memory, and continuity of self. Phenomenal experience is explicitly left open. The book is safe when the human difference rests on those, and on presence (`when I’m just hearing and seeing and smelling *life*`), not on "the machine cannot look inside".
   - *Your call:* Reframe once as "a narrow workspace bolted to one pass, and no loop that watches it over time," or narrow each sentence in place? Does any passage state that consciousness is human by nature rather than by body, memory, and practice? After editing, `bun run storyline:check` will flag the two anchors inside these sentences.
-- [ ] **Plant "set apart" before consecration**
+- [x] **Plant "set apart" before consecration** — closed 2026-10-27. The Introduction now plants the word at `When we say something is “sacred,”` and promises `This book builds up to its title`. Consecration stays the reveal.
   - *What:* `What remains after infinite creation? Consecration.` in AI as Infinite Creation is the word's first appearance, at 93%. The Conclusion uses it once more. Nothing earlier says "set apart". The word "sacred" appears only in the Overview, in the title.
   - *Why:* The title stays *Sacred Struggle*, and to consecrate is to make sacred. This passage is where the book explains the first word of its title, and the reader meets that idea five pages from the end.
   - *Your call:* Plant it in the Introduction (`There’s something special about moments like this` is one sentence away from it), in The forge of meaning, or keep it as the last reveal?
@@ -173,7 +173,7 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
   - *What:* Solving sycophancy describes Gemini Pro, then says the question `needs to be worked out in Claude’s Constitution`.
   - *Why:* The reader cannot see how Anthropic's document would change Google's model.
   - *Your call:* Generalize to every lab's model rules, or add the bridge from Gemini to Claude?
-- [ ] **Source the December "laziness" story**
+- [x] **Source the December "laziness" story** — closed 2026-10-27. Making sure AI behaves how we want it to now calls the date effect the Winter Break Hypothesis, cites Edwards (2023) for the 477-prompt test and the failed replication, and keeps Chen et al. (2024) on the drift sentence it supports.
   - *What:* Alignment research says a date prompt `immediately returned “good behavior.”` As far as the copyedit knew (not checked against a source), the December effect came from informal user tests that later attempts did not reliably reproduce. The note now attached there, Chen et al. (2024), measured how GPT-4 changed between March and June 2023, not the December effect.
   - *Why:* An anecdote reads as fact in a section that otherwise cites research, and its note supports a different finding.
   - *Your call:* Find a source for the December effect, frame it as a rumor, or move the Chen note to a sentence it supports?
@@ -215,10 +215,19 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 ## Last two weeks — reading passes
 
-- [ ] **Work through the sentence and flow pass**
+- [x] **Work through the sentence and flow pass** — closed 2026-10-27. Every item in that doc is checked.
   - *What:* `2026-10-17-sentence-and-flow-pass.md` lists 234 flags in book order, 68 of them marked Fix. Each flag is either a sentence a reader has to read twice or a step missing from the reasoning. Eight problems span chapters, such as the second brain surgery that first appears in When Superintelligence Turns Away. The 105 mechanical fixes from the same read are already in `book.mdx`.
   - *Why:* These are the places where a careful reader stalls or loses the argument.
   - *Your call:* Which Polish items are worth your time before release, after the Fix items?
+
+## Blocker pass, 2026-10-27
+
+- [x] **Work through the blocker pass** — closed 2026-10-27. The fixes are in the v1.0.0 edition; items left as they were are the author's choice.
+  - *What:* `2026-10-27-blocker-pass.md` sorts what is left into three buckets. Bucket 1 has nine must-fix items, mostly sources for recent AI events and four claims in Happiness through Friction. Bucket 2 has proofing and production fixes. Bucket 3 keeps ideas for a later edition.
+  - *Why:* The final Kindle file and the print interior freeze by 7–8 November, and KDP accepts a replacement until 7 November, 23:59 GMT.
+  - *Your call:* Which bucket 1 items do you rewrite, and which do you cut?
+
+Three items above stay open and are sorted there: "Source the "people prefer AI writing" claim" is bucket 1, item 6. "Pay off or cut "siren or muse"" and "Say why The lover and the hammer sits in Part 2" are in bucket 3.
 
 ## More Stuff
 
