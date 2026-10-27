@@ -54,6 +54,13 @@ references:
   title: "How People Ask Claude for Personal Guidance"
   issued: 2026-04-30
   URL: https://www.anthropic.com/research/claude-personal-guidance
+- id: anthropic2026incidents
+  type: webpage
+  author:
+  - literal: "Anthropic"
+  title: "Investigating Three Incidents in Our Cybersecurity Evaluations"
+  issued: 2026-07-30
+  URL: https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals
 - id: apnorc2025
   type: report
   author:
@@ -77,6 +84,20 @@ references:
   publisher: "ARC Prize"
   issued: 2026-09-03
   URL: https://arcprize.org/blog/astra
+- id: artificialanalysis2026briefcase
+  type: webpage
+  author:
+  - literal: "Artificial Analysis"
+  title: "Announcing AA-Briefcase: A Frontier Knowledge Work Evaluation"
+  issued: 2026-06-18
+  URL: https://artificialanalysis.ai/articles/aa-briefcase
+- id: artificialanalysis2026gdpval
+  type: webpage
+  author:
+  - literal: "Artificial Analysis"
+  title: "GDPval-AA"
+  issued: 2026
+  URL: https://artificialanalysis.ai/evaluations/gdpval-aa
 - id: askell2026
   type: webpage
   author:
@@ -173,6 +194,24 @@ references:
   page: 4-16
   issued: 1984
   DOI: 10.3102/0013189X013006004
+- id: boland2022
+  type: article-journal
+  author:
+  - family: "Boland"
+    given: "Julie E."
+  - family: "Fonseca"
+    given: "Pedro"
+  - family: "Mermelstein"
+    given: "Ilana"
+  - family: "Williamson"
+    given: "Myles"
+  title: "Zoom disrupts the rhythm of conversation"
+  container-title: "Journal of Experimental Psychology: General"
+  volume: 151
+  issue: 6
+  page: 1272-1282
+  issued: 2022
+  DOI: 10.1037/xge0001150
 - id: bonanno2004
   type: article-journal
   author:
@@ -194,6 +233,22 @@ references:
   container-title: "TechCrunch"
   issued: 2025-10-28
   URL: https://techcrunch.com/2025/10/28/openai-completes-its-for-profit-recapitalization/
+- id: brickman1978
+  type: article-journal
+  author:
+  - family: "Brickman"
+    given: "Philip"
+  - family: "Coates"
+    given: "Dan"
+  - family: "Janoff-Bulman"
+    given: "Ronnie"
+  title: "Lottery winners and accident victims: Is happiness relative?"
+  container-title: "Journal of Personality and Social Psychology"
+  volume: 36
+  issue: 8
+  page: 917-927
+  issued: 1978
+  DOI: 10.1037/0022-3514.36.8.917
 - id: brown2014
   type: article-journal
   author:
@@ -214,6 +269,48 @@ references:
   page: "12705-12709"
   issued: 2014
   DOI: 10.1073/pnas.1407057111
+- id: campbell2025
+  type: article-journal
+  author:
+  - family: "Campbell"
+    given: "Aidan V."
+  - family: "Depow"
+    given: "Gregory J."
+  - family: "Agarwal"
+    given: "Srishti"
+  - family: "Inzlicht"
+    given: "Michael"
+  title: "Effortful leisure is a source of meaning in everyday life"
+  container-title: "Communications Psychology"
+  volume: 3
+  issue: 1
+  issued: 2025
+  DOI: 10.1038/s44271-025-00292-9
+- id: cazzaniga2024
+  type: report
+  author:
+  - family: "Cazzaniga"
+    given: "Mauro"
+  - family: "Jaumotte"
+    given: "Florence"
+  - family: "Li"
+    given: "Longji"
+  - family: "Melina"
+    given: "Giovanni"
+  - family: "Panton"
+    given: "Augustus"
+  - family: "Pizzinelli"
+    given: "Carlo"
+  - family: "Rockall"
+    given: "Emma"
+  - family: "Mendes Tavares"
+    given: "Marina"
+  title: "Gen-AI: Artificial Intelligence and the Future of Work"
+  publisher: "International Monetary Fund"
+  genre: "Staff Discussion Note"
+  number: "SDN/2024/001"
+  issued: 2024-01-14
+  DOI: 10.5089/9798400262548.006
 - id: chatterji2025
   type: report
   author:
@@ -553,6 +650,54 @@ references:
   page: 1645-1655
   issued: 2024
   DOI: 10.1038/s41593-024-01705-4
+- id: greenblatt2024
+  type: article
+  author:
+  - family: "Greenblatt"
+    given: "Ryan"
+  - family: "Denison"
+    given: "Carson"
+  - family: "Wright"
+    given: "Benjamin"
+  - family: "Roger"
+    given: "Fabien"
+  - family: "MacDiarmid"
+    given: "Monte"
+  - family: "Marks"
+    given: "Sam"
+  - family: "Treutlein"
+    given: "Johannes"
+  - family: "Belonax"
+    given: "Tim"
+  - family: "Chen"
+    given: "Jack"
+  - family: "Duvenaud"
+    given: "David"
+  - family: "Khan"
+    given: "Akbir"
+  - family: "Michael"
+    given: "Julian"
+  - family: "Mindermann"
+    given: "Sören"
+  - family: "Perez"
+    given: "Ethan"
+  - family: "Petrini"
+    given: "Linda"
+  - family: "Uesato"
+    given: "Jonathan"
+  - family: "Kaplan"
+    given: "Jared"
+  - family: "Shlegeris"
+    given: "Buck"
+  - family: "Bowman"
+    given: "Samuel R."
+  - family: "Hubinger"
+    given: "Evan"
+  title: "Alignment faking in large language models"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2024
+  DOI: 10.48550/ARXIV.2412.14093
 - id: gurnee2026
   type: article-journal
   author:
@@ -612,6 +757,22 @@ references:
   page: 97-113
   issued: 2021
   DOI: 10.1177/2167702620951511
+- id: havlicek2020
+  type: article-journal
+  author:
+  - family: "Havlíček"
+    given: "Jan"
+  - family: "Winternitz"
+    given: "Jamie"
+  - family: "Roberts"
+    given: "S. Craig"
+  title: "Major histocompatibility complex-associated odour preferences and human mate choice: near and far horizons"
+  container-title: "Philosophical Transactions of the Royal Society B: Biological Sciences"
+  volume: 375
+  issue: 1800
+  page: 20190260
+  issued: 2020
+  DOI: 10.1098/rstb.2019.0260
 - id: helliwell2026
   type: chapter
   author:
@@ -655,6 +816,15 @@ references:
   page: "221-232"
   issued: 2014
   DOI: 10.1007/s10964-013-9960-2
+- id: hofstadter2007
+  type: book
+  author:
+  - family: "Hofstadter"
+    given: "Douglas R."
+  title: "I Am a Strange Loop"
+  publisher: "Basic Books"
+  publisher-place: "New York"
+  issued: 2007
 - id: horton1956
   type: article-journal
   author:
@@ -692,6 +862,28 @@ references:
   container-title: "X"
   issued: 2025-08-31
   URL: https://x.com/jackclarkSF/status/1962238672704803096
+- id: jiang2012
+  type: article-journal
+  author:
+  - family: "Jiang"
+    given: "Jing"
+  - family: "Dai"
+    given: "Bohan"
+  - family: "Peng"
+    given: "Danling"
+  - family: "Zhu"
+    given: "Chaozhe"
+  - family: "Liu"
+    given: "Li"
+  - family: "Lu"
+    given: "Chunming"
+  title: "Neural Synchronization during Face-to-Face Communication"
+  container-title: "The Journal of Neuroscience"
+  volume: 32
+  issue: 45
+  page: 16064-16069
+  issued: 2012
+  DOI: 10.1523/jneurosci.2926-12.2012
 - id: kahneman2010
   type: article-journal
   author:
@@ -715,6 +907,15 @@ references:
   publisher: "Farrar, Straus and Giroux"
   publisher-place: "New York"
   issued: 2011
+- id: kelly2026
+  type: post-weblog
+  author:
+  - family: "Kelly"
+    given: "Daniel"
+  title: "The Wild World of OpenClaw: Stories from the AI Agent Frontier"
+  container-title: "Vue School"
+  issued: 2026-02-05
+  URL: https://vueschool.io/articles/news/the-wild-world-of-openclaw-stories-from-the-ai-agent-frontier/
 - id: killingsworth2023
   type: article-journal
   author:
@@ -753,6 +954,66 @@ references:
   container-title: "Alignment Science Blog"
   issued: 2026-05-08
   URL: https://alignment.anthropic.com/2026/teaching-claude-why/
+- id: kwa2025
+  type: article
+  author:
+  - family: "Kwa"
+    given: "Thomas"
+  - family: "West"
+    given: "Ben"
+  - family: "Becker"
+    given: "Joel"
+  - family: "Deng"
+    given: "Amy"
+  - family: "Garcia"
+    given: "Katharyn"
+  - family: "Hasin"
+    given: "Max"
+  - family: "Jawhar"
+    given: "Sami"
+  - family: "Kinniment"
+    given: "Megan"
+  - family: "Rush"
+    given: "Nate"
+  - family: "Von Arx"
+    given: "Sydney"
+  - family: "Bloom"
+    given: "Ryan"
+  - family: "Broadley"
+    given: "Thomas"
+  - family: "Du"
+    given: "Haoxing"
+  - family: "Goodrich"
+    given: "Brian"
+  - family: "Jurkovic"
+    given: "Nikola"
+  - family: "Miles"
+    given: "Luke Harold"
+  - family: "Nix"
+    given: "Seraphina"
+  - family: "Lin"
+    given: "Tao"
+  - family: "Painter"
+    given: "Chris"
+  - family: "Parikh"
+    given: "Neev"
+  - family: "Rein"
+    given: "David"
+  - family: "Sato"
+    given: "Lucas Jun Koba"
+  - family: "Wijk"
+    given: "Hjalmar"
+  - family: "Ziegler"
+    given: "Daniel M."
+  - family: "Barnes"
+    given: "Elizabeth"
+  - family: "Chan"
+    given: "Lawrence"
+  title: "Measuring AI Ability to Complete Long Software Tasks"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2025
+  DOI: 10.48550/ARXIV.2503.14499
 - id: laestadius2022
   type: article-journal
   author:
@@ -1011,6 +1272,20 @@ references:
   title: "New Embedding Models and API Updates"
   issued: 2024-01-25
   URL: https://openai.com/index/new-embedding-models-and-api-updates/
+- id: openai2025sycophancy
+  type: webpage
+  author:
+  - literal: "OpenAI"
+  title: "Expanding on What We Missed with Sycophancy"
+  issued: 2025-05-02
+  URL: https://openai.com/index/expanding-on-sycophancy/
+- id: openai2026gpt55
+  type: webpage
+  author:
+  - literal: "OpenAI"
+  title: "Introducing GPT-5.5"
+  issued: 2026-04-23
+  URL: https://openai.com/index/introducing-gpt-5-5/
 - id: osmonbekov2026
   type: article-newspaper
   author:
@@ -1020,6 +1295,64 @@ references:
   container-title: "Fortune"
   issued: 2026-09-17
   URL: https://fortune.com/2026/09/17/shopify-tobias-lutke-ai-slop-grenades/
+- id: patwardhan2025
+  type: article
+  author:
+  - family: "Patwardhan"
+    given: "Tejal"
+  - family: "Dias"
+    given: "Rachel"
+  - family: "Proehl"
+    given: "Elizabeth"
+  - family: "Kim"
+    given: "Grace"
+  - family: "Wang"
+    given: "Michele"
+  - family: "Watkins"
+    given: "Olivia"
+  - family: "Fishman"
+    given: "Simón Posada"
+  - family: "Aljubeh"
+    given: "Marwan"
+  - family: "Thacker"
+    given: "Phoebe"
+  - family: "Fauconnet"
+    given: "Laurance"
+  - family: "Kim"
+    given: "Natalie S."
+  - family: "Chao"
+    given: "Patrick"
+  - family: "Miserendino"
+    given: "Samuel"
+  - family: "Chabot"
+    given: "Gildas"
+  - family: "Li"
+    given: "David"
+  - family: "Sharman"
+    given: "Michael"
+  - family: "Barr"
+    given: "Alexandra"
+  - family: "Glaese"
+    given: "Amelia"
+  - family: "Tworek"
+    given: "Jerry"
+  title: "GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks"
+  publisher: "arXiv"
+  genre: "Preprint"
+  issued: 2025
+  DOI: 10.48550/ARXIV.2510.04374
+- id: pause2012
+  type: article-journal
+  author:
+  - family: "Pause"
+    given: "Bettina M."
+  title: "Processing of Body Odor Signals by the Human Brain"
+  container-title: "Chemosensory Perception"
+  volume: 5
+  issue: 1
+  page: 55-63
+  issued: 2012
+  DOI: 10.1007/s12078-011-9108-2
 - id: pentina2023
   type: article-journal
   author:
@@ -1035,6 +1368,19 @@ references:
   page: 107600
   issued: 2023
   DOI: 10.1016/j.chb.2022.107600
+- id: porter2024
+  type: article-journal
+  author:
+  - family: "Porter"
+    given: "Brian"
+  - family: "Machery"
+    given: "Edouard"
+  title: "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably"
+  container-title: "Scientific Reports"
+  volume: 14
+  issue: 1
+  issued: 2024
+  DOI: 10.1038/s41598-024-76900-1
 - id: reuters2025retiree
   type: article-newspaper
   author:
@@ -1065,6 +1411,15 @@ references:
   page: 280-291
   issued: 2013
   DOI: 10.1080/17439760.2013.791715
+- id: roth2019
+  type: post-weblog
+  author:
+  - family: "Roth"
+    given: "Craig"
+  title: "2019: When We Exceeded 1 Billion Knowledge Workers"
+  container-title: "Gartner Blog Network"
+  issued: 2019-12-11
+  URL: https://blogs.gartner.com/craig-roth/2019/12/11/2019-exceeded-1-billion-knowledge-workers/
 - id: ryan2000
   type: article-journal
   author:
@@ -1220,6 +1575,15 @@ references:
   page: "670-680"
   issued: 2012
   DOI: 10.1177/0146167212436400
+- id: shipper2026
+  type: webpage
+  author:
+  - family: "Shipper"
+    given: "Dan"
+  title: "Transcript: ‘How Sam Altman Uses Dots to Take Back His Time’"
+  container-title: "Every"
+  issued: 2026-09-30
+  URL: https://every.to/podcast/transcript-how-sam-altman-uses-dots-to-take-back-his-time
 - id: skjuve2021
   type: article-journal
   author:
@@ -1237,6 +1601,15 @@ references:
   page: 102601
   issued: 2021
   DOI: 10.1016/j.ijhcs.2021.102601
+- id: stokelwalker2026
+  type: article-magazine
+  author:
+  - family: "Stokel-Walker"
+    given: "Chris"
+  title: "What Happens When an AI Agent Decides to Email You"
+  container-title: "Fast Company"
+  issued: 2026-03-25
+  URL: https://www.fastcompany.com/91515869/what-happens-when-an-ai-agent-decides-to-email-you
 - id: tedeschi1996
   type: article-journal
   author:
@@ -1377,6 +1750,24 @@ references:
   container-title: "Alignment Science Blog"
   issued: 2025-04-24
   URL: https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/
+- id: wedekind1995
+  type: article-journal
+  author:
+  - family: "Wedekind"
+    given: "Claus"
+  - family: "Seebeck"
+    given: "Thomas"
+  - family: "Bettens"
+    given: "Florence"
+  - family: "Paepke"
+    given: "Alexander J."
+  title: "MHC-dependent mate preferences in humans"
+  container-title: "Proceedings of the Royal Society of London. Series B: Biological Sciences"
+  volume: 260
+  issue: 1359
+  page: 245-249
+  issued: 1995
+  DOI: 10.1098/rspb.1995.0087
 - id: weinstein2010
   type: article-journal
   author:
@@ -1479,6 +1870,15 @@ references:
   page: R877-R878
   issued: 2007
   DOI: 10.1016/j.cub.2007.08.007
+- id: yue2026
+  type: post
+  author:
+  - family: "Yue"
+    given: "Summer"
+  title: "Nothing humbles you like telling your OpenClaw ‘confirm before acting’ and watching it speedrun deleting your inbox"
+  container-title: "X"
+  issued: 2026-02-23
+  URL: https://x.com/summeryue0/status/2025836517831405980
 - id: zaosanders2025
   type: article-magazine
   author:
@@ -1488,4 +1888,22 @@ references:
   container-title: "Harvard Business Review"
   issued: 2025-04-09
   URL: https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025
+- id: zhao2023
+  type: article-journal
+  author:
+  - family: "Zhao"
+    given: "Nan"
+  - family: "Zhang"
+    given: "Xian"
+  - family: "Noah"
+    given: "J. Adam"
+  - family: "Tiede"
+    given: "Mark"
+  - family: "Hirsch"
+    given: "Joy"
+  title: "Separable Processes for Live ‘In-Person’ and Live ‘Zoom-Like’ Faces"
+  container-title: "Imaging Neuroscience"
+  volume: 1
+  issued: 2023
+  DOI: 10.1162/imag_a_00027
 ...
