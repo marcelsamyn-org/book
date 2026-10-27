@@ -224,6 +224,13 @@ Retuned 2026-08-09: `src/publish/progress.ts` target 55k → **40k**, per-part t
 
 - [x] Re-write *Captured by Consumption* so it can be driven by Superstimuli
 
+## Next edition
+
+- [ ] **Add a "what do I do on Monday" close for contributing in a world of AI**
+  - *What:* A short epilogue after the Conclusion that turns the book's argument into five moves, each linked back to the chapter that argues it. Use the best AI to make something useful today instead of starting a long project that one prompt may solve later (*Execution*, *Judgment*). Make things that shift the trajectory of mankind, with or without AI (*Responsibility*, `"How do we make power serve life?"`). Build connection with real humans, as friends and as someone people want to work with because of who you are, not your output ("Love and Connection", "Biology’s unmet hunger"). Practice presence, so that fulfillment does not depend on doing much ("Arbiters of presence", "The Mental Gym"). The first and the "be likable" half of the third are new; the rest summarizes what the book already says.
+  - *Why:* The Conclusion ends on meaning, and a reader who finishes it asks what to do next. An epilogue answers that without breaking the tension at the end of "Is that it?" (`"I know: it feels extremely meaningless."`), which Part 3 needs to resolve. "Meaningful work" in Part 2 is too early, because the reader has not yet seen the scarcity ladder that makes the advice make sense.
+  - *Your call:* "Don’t try too hard" and "avoid long projects AI might solve" pull against `"Struggle *is* the force of life."` and `"Before, having worked on something for a long time was what gave something meaning."` One possible bridge: let go of effort spent only on getting the result, and keep the struggle that changes you. Does that hold for you, or is the advice something else? And is the epilogue worth adding, or does the Conclusion already carry it?
+
 ## Deadline math, redone
 
 ~5–7k new words over ~4 writing weeks (week 5 reserved for polish) = 1.2–1.7k words/week — the pace the old plan called comfortable, but with no slack left. Steelman and Children are the designated cuts if anything slips. Everything else above is either mechanical or already half-written.
