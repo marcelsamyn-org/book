@@ -1,0 +1,20 @@
+# IngramSpark production cover
+
+Prepared 28 October 2026 from the approved v1.0.0 wrap and printer template CBP1575980 for ISBN 9789083807805, 176 pages, 6 × 9 inches, Groundwood, matte, perfect bound, blank inside covers.
+
+- `sacred-struggle-cover.pdf`: production upload, SHA-256 `e8f3dc83999a1fe1d2b60df130572d30a5698aff85d138b99d10cf50f6ac4c25`.
+- MediaBox 1080 × 864 points (15 × 12 inches), matching the supplied sheet. Template trim/fold marks and information outside the cover are retained.
+- Approved wrap placed at x166.175003, y−0.0440063 points, no resizing. The 11.227 mm spine matches the template's rounded 0.442 inch label.
+- Supplied vector ISBN barcode copied at native scale into the existing white reserve. Only 0.3 point of outer template background was clipped; bars and quiet zones remain intact. No generated barcode or price code.
+- Ghostscript 10.07.1 converted RGB to CMYK and PDF/X-1a:2001 with its default CMYK output profile. Exit 0 for this conversion. LittleCMS then applied its K-preserving 238% ink limiter to the two CMYK images; vector CMY values above the same limit were proportionally reduced while preserving K.
+- Final image ink maximum 238.4314% (8-bit rounding); vector maximum 238%. Ingram specifies a 240% maximum. All images are DeviceCMYK, 330–332 ppi. All four fonts are embedded. PDF is one page, version 1.3, with PDF/X output intent and metadata. This is local preflight, not independent certification of every PDF/X rule.
+- Rendered the entire cover and a barcode close-up after the final change; no clipping, stray template colors, or text overflow observed. CMYK soft proof is lighter than the RGB source in the darkest navy areas. Composition and wording are unchanged.
+- Uploaded to title CSS9772605 on 28 October: portal confirms `sacred-struggle-cover.pdf`, 18.57 MB, Uploaded 28-OCT-26. Interior remains the frozen 176-page `060dd4c` file.
+
+The Python scripts and PostScript prefix in the publishing release archive preserve the historical preparation recipe. They are not maintained repository build tools. They use macOS-specific runtime, repository, and temporary staging paths; run from `/Users/marcel/code/book`. `prepare_cover.py` creates the composed RGB intermediate and LittleCMS profile. Run Ghostscript with `cover-pdfx.ps`, CMYK conversion, no downsampling, and Flate color image encoding to produce `/private/tmp/sacred-struggle-v1/cover-cmyk.pdf`; then run `limit_ink.py` for the final file. Keep the current frozen output until a deliberate revision. Do not rebuild ebook/interior files during cover work.
+
+Sources: [IngramSpark file creation guide, 24 August 2026](https://www.ingramspark.com/hubfs/downloads/file-creation-guide.pdf), [Ghostscript PDF/X documentation](https://ghostscript.readthedocs.io/en/latest/VectorDevices.html#creating-a-pdf-x-document), [LittleCMS ink-limiting implementation](https://github.com/mm2/Little-CMS/blob/master/src/cmsvirt.c).
+
+A fresh read-only reviewer independently compared the final PDF, approved wrap, template, full-sheet render, and barcode close-up. No material findings: approved text was byte-identical; panel text remained within safe areas; spine type centered and legible; barcode and template marks intact. IngramSpark subsequently reported **Your title metadata has no errors!** and **Your content files have no errors!**. Complete Submission was clicked on 28 October under the author's explicit submission instruction; provider confirmation **Congratulations!** verified. It says the digital proof will arrive in 3–5 days. Eproof review and distribution remain dependent on Ingram processing. No fee or new contract was shown on submission.
+
+Post-submission title details independently confirm Creating Title Record, 176-page Groundwood matte specification, approved trade prices, and both dates 11-NOV-26. Distribution is No; the tooltip states **Title has never been in production status**. This is the remaining provider processing gate. No setup charge or paid proof order was placed.
