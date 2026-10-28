@@ -1,0 +1,97 @@
+{
+  "edition": "v1.0.0",
+  "manuscriptCommit": "ecd140a00889aa60867f388221e27ae7bb3f9d81",
+  "manuscriptBlob": "060dd4cf1a7c78949f7f98e3d2d66ebc031e9443",
+  "readerStamp": "Version 2026-10-27 · 060dd4c",
+  "retailReleaseDate": "2026-11-11",
+  "publishingSnapshotDate": "2026-10-28",
+  "paperback": {
+    "isbn": "9789083807805",
+    "pages": 176,
+    "trimInches": [
+      6,
+      9
+    ],
+    "paper": "Groundwood 38lb eggshell",
+    "binding": "perfect bound",
+    "finish": "matte",
+    "insideCovers": "blank",
+    "spineMillimetres": 11.227,
+    "templateRequest": "CBP1575980",
+    "productionCoverSheetInches": [
+      15,
+      12
+    ],
+    "distributionApproved": false
+  },
+  "files": [
+    {
+      "path": "dist-book/sacred-struggle.pdf",
+      "assetName": "sacred-struggle.pdf",
+      "bytes": 3110582,
+      "sha256": "bae533c10ddc17d865e6760a10baa43937b5f59980aa7d6e89955cb7db6b1fbc"
+    },
+    {
+      "path": "dist-book/sacred-struggle.epub",
+      "assetName": "sacred-struggle.epub",
+      "bytes": 1815827,
+      "sha256": "bb215da95ad2ca9ae0597889ddcde53cedb54c086af405c32ce089d74e57568d"
+    },
+    {
+      "path": "dist-book/sacred-struggle-interior.pdf",
+      "assetName": "sacred-struggle-interior.pdf",
+      "bytes": 3408217,
+      "sha256": "76a109f7590af583c358733b721d20a5ff202e16774d2f322435f575cb2ece77"
+    },
+    {
+      "path": "dist-book/sacred-struggle-introduction.pdf",
+      "assetName": "sacred-struggle-introduction.pdf",
+      "bytes": 263225,
+      "sha256": "f7edfac4bf842d7b7c413dbdc1fafc5362a20e9d6a2a98c9cfbeb343675e5fb2"
+    },
+    {
+      "path": "work/publishing/production-v1.0.0/sacred-struggle-cover.pdf",
+      "assetName": "sacred-struggle-cover.pdf",
+      "bytes": 19471334,
+      "sha256": "e8f3dc83999a1fe1d2b60df130572d30a5698aff85d138b99d10cf50f6ac4c25"
+    },
+    {
+      "path": "dist-book/cover.jpg",
+      "assetName": "cover.jpg",
+      "bytes": 227159,
+      "sha256": "fe046202e2d56543a1006804184b973a381f3a846c2dc24e84e7a2b42bb2c1a0"
+    }
+  ],
+  "retainedSources": [
+    {
+      "path": "work/publishing/artwork-v1.0.0/front-print.png",
+      "bytes": 5466697,
+      "sha256": "19eb4575e9f5538cfc416e271d21a69310cd198cef755a170de7348fc2a3936e"
+    },
+    {
+      "path": "work/publishing/artwork-v1.0.0/back-print.png",
+      "bytes": 6420273,
+      "sha256": "81a04d9db2f53cc2d5b5946722bda283ce665cfae68ce47b7c86be2108a17806"
+    },
+    {
+      "path": "work/publishing/artwork-v1.0.0/front-x4.png",
+      "bytes": 88741639,
+      "sha256": "1ae87420ea3d813fe7824190558ae36f5b34b7ec699dc074276e79ac44bf79ed"
+    },
+    {
+      "path": "work/publishing/artwork-v1.0.0/back-x4.png",
+      "bytes": 35760480,
+      "sha256": "e1bcb34c0327ed5b0941c9931385adfbf013633da093e8a23d624b94372f86dd"
+    },
+    {
+      "path": "work/publishing/templates/9789083807805-groundwood-176p.pdf",
+      "bytes": 644513,
+      "sha256": "32010698cdb01018423daae05266f9716666786a81340a2600f302b8fe6c84cd"
+    },
+    {
+      "path": "work/publishing/paperback-v1.0.0.yaml",
+      "bytes": 1405,
+      "sha256": "3a4938752937a41618a62f5acee977d2013d46526e8ae9fff6f39ba8c7b816cd"
+    }
+  ]
+}

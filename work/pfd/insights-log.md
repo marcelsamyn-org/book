@@ -42,3 +42,19 @@
 **Layer(s):** L0/L1/L2
 **Promote?:** no
 **Notes:** Applied with a modest increase in connected circuit detail around the repair transition.
+
+### 2026-10-26 — Sacred Struggle paperback wrap
+**Type:** image
+**Domain:** Book cover
+**Key finding:** The back needs the front's material language but a much quieter image so the blurb remains the main signal.
+**Layer(s):** L0/L1/L2/L4
+**Promote?:** no
+**Notes:** Keep printer dimensions independent from copy and artwork. The proof shows provisional geometry and barcode space; it is not a production approval.
+
+### 2026-10-26 — Book listing description and category fit
+**Type:** copy
+**Domain:** book discovery
+**Key finding:** The listing must connect AI to human meaning immediately; a generic AI-productivity pitch would attract readers looking for a different book.
+**Layer(s):** L0/L1/L2/L3/L4
+**Promote?:** no
+**Notes:** Use one opening question (Cowan, 2001), put the reader's concern first (Lindgaard et al., 2006), match the cover and manuscript language (Reber and Schwarz, 1999), set accurate expectations (Clark, 2013), and name the domains the book examines before the reader chooses it (Hertwig and Erev, 2009). Draft placements cover Generative AI, Social Aspects, and Happiness. No bestseller outcome is assumed.

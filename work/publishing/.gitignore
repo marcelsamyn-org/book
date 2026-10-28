@@ -1,0 +1,7 @@
+# Frozen generated outputs are retained in the v1.0.0 GitHub release archive.
+artwork-v1.0.0/*.png
+artwork-v1.0.0/wrap-*.pdf
+production-v1.0.0/*
+!production-v1.0.0/README.md
+templates/*-provisional.pdf
+evidence-v1.0.0/

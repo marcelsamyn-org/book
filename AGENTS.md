@@ -123,3 +123,10 @@ A release freezes one edition of the book. The tag is the edition; the attachmen
 - Attach `dist-book/sacred-struggle.pdf` and `dist-book/sacred-struggle.epub`. An edition that is still being written goes out as a pre-release, which `gh release create <tag> --prerelease --verify-tag <tag> dist-book/sacred-struggle.pdf dist-book/sacred-struggle.epub` does in one step.
 - The reader-facing version is the stamp on the copyright page: build date plus the git blob hash of `book.mdx` (`export/build.ts`, `readVersion`). Two different texts cannot share a stamp, so a passage a reader quotes traces back to one build. `bun run book:export` prints the stamp it wrote.
 - Do not rebuild a tag after the fact. `dist-book/` is gitignored, so a fresh build overwrites it with text that no longer belongs to that edition.
+
+## Publishing records and frozen assets
+
+- Start storefront work with `work/publishing/README.md` and `work/publishing/ebook-release-tracker.md`. Keep each provider's uploaded version and processing state separate.
+- The final v1.0.0 paperback uses `work/publishing/paperback-v1.0.0.yaml` and template `9789083807805-groundwood-176p.pdf`: 176 pages, Groundwood, matte, 6 × 9 inches. The default cover config remains a design concept.
+- Generated print PNGs, proofs, full-resolution upscales, exact production cover, and one-off preparation recipes belong in the v1.0.0 GitHub release publishing archive, not Git. Restore the two print PNGs using the checksum-verified commands in the publishing README before building the v1.0.0 proof. Keep the printer template in Git as a source input. Do not rebuild or move a frozen release tag to include later publishing records.
+- This repository and its release assets are public. Keep credentials, signed URLs, private financial/identity data, and tax-profile details out of publishing records.
