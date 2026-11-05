@@ -377,15 +377,15 @@
 
 // ── Exhibits (manuscript components) ────────────────────────
 
-#let exhibit(body, breakable: false) = block(
+#let exhibit(body, breakable: false, framed: true) = block(
   width: 100%,
   breakable: breakable,
   above: 1.8em,
   below: 1.8em,
-  fill: wash,
+  fill: if framed { wash } else { none },
   radius: 2.5pt,
   inset: (x: 11pt, y: 10pt),
-  stroke: 0.4pt + hairline,
+  stroke: if framed { 0.4pt + hairline } else { none },
   {
     set text(font: sans-font, size: 7.8pt, number-type: "lining", hyphenate: false, fill: ink)
     set par(justify: false, first-line-indent: 0em, leading: 0.52em, spacing: 0.75em)
@@ -792,8 +792,11 @@
   x-axis: "",
   y-axis: "",
   caption: "",
-) = exhibit(breakable: false, {
-  block(below: 7pt, eyebrow(eyebrow-text))
+) = exhibit(breakable: false, framed: not print, {
+  let label-ink = if print { ink } else { muted }
+  let main-curve = if print { ink } else { gold }
+  let other-curves = if print { muted } else { hairline.darken(28%) }
+  block(below: 7pt, eyebrow(eyebrow-text, fill: if print { ink } else { gold-ink }))
   layout(size => {
     let s = size.width / units.at(0)
     let X(v) = v * s
@@ -802,7 +805,7 @@
     let centred(x, y, width, body) = place(dx: X(x - width / 2), dy: Y(y), box(width: X(width), align(center, body)))
 
     box(width: size.width, height: Y(units.at(1)), {
-      set text(font: sans-font, size: 6.4pt, fill: muted)
+      set text(font: sans-font, size: 6.4pt, fill: label-ink)
 
       for g in grid-lines {
         place(dx: X(fr-left), dy: Y(g.at(0)), line(length: X(fr-right - fr-left), stroke: 0.35pt + hairline))
@@ -831,7 +834,7 @@
             start: (0pt, 0pt),
             end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
             stroke: (
-              paint: if lead { gold } else { hairline.darken(28%) },
+              paint: if lead { main-curve } else { other-curves },
               thickness: if lead { 1.4pt } else { 0.5pt },
             ),
           ))
@@ -839,24 +842,25 @@
         let last = pts.at(pts.len() - 1)
         place(dx: X(last.at(0) + 7), dy: Y(last.at(1) - 4), text(
           font: mono-font,
-          size: 5.8pt,
-          fill: if lead { gold-ink } else { muted },
+          size: if print { 6.1pt } else { 5.8pt },
+          fill: if print { ink } else if lead { gold-ink } else { muted },
           weight: if lead { 500 } else { "regular" },
           sr.at(1),
         ))
       }
 
       place(dx: X(fr-right - 300), dy: Y(fr-bottom + 26), box(width: X(300), align(right, text(font: mono-font, x-axis))))
-      place(dx: X(fr-left - 46), dy: Y(fr-bottom), rotate(-90deg, origin: top + left, box(
+      let axis-label-offset = if print { 60 } else { 46 }
+      place(dx: X(fr-left - axis-label-offset), dy: Y(fr-bottom), rotate(-90deg, origin: top + left, box(
         width: Y(fr-bottom - fr-top),
         align(right, text(font: mono-font, y-axis)),
       )))
     })
   })
   block(above: 10pt, below: 0pt, {
-    line(length: 100%, stroke: 0.4pt + hairline)
+    if not print { line(length: 100%, stroke: 0.4pt + hairline) }
     v(5pt)
-    text(size: 6.6pt, fill: muted, style: "italic", caption)
+    text(size: if print { 7.2pt } else { 6.6pt }, fill: label-ink, style: "italic", caption)
   })
 })
 
