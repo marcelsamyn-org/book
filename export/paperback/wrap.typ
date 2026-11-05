@@ -93,13 +93,13 @@
     }
   }))
 
-  // Match the approved front-cover type, with positions relative to trim.
-  place(top + left, dx: front-x + front-title-inset, dy: bleed + calc.max(h * (1.15 / 9), safe), block(width: w - 2 * front-title-inset, {
+  // Keep the title and subtitle grouped in the dark area above the artwork.
+  place(top + left, dx: front-x + front-title-inset, dy: bleed + calc.max(h * ((1.15in + 8mm) / 9in), safe), block(width: w - 2 * front-title-inset, {
     set align(center)
     set par(leading: 0.30em)
     text(size: 41pt * scale, weight: 600, tracking: 0.005em, metadata.title.split(" ").join(linebreak()))
   }))
-  place(top + left, dx: front-x + front-subtitle-inset, dy: bleed + calc.max(h * (2.56 / 9), safe), block(width: w - 2 * front-subtitle-inset, {
+  place(top + left, dx: front-x + front-subtitle-inset, dy: bleed + calc.max(h * ((2.56in + 5mm) / 9in), safe), block(width: w - 2 * front-subtitle-inset, {
     set align(center)
     set par(leading: 0.64em)
     text(size: 11.8pt * scale, style: "italic", fill: cream-dim, balance(metadata.subtitle))
