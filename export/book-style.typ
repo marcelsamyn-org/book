@@ -193,7 +193,7 @@
   let openers = query(heading.where(level: 1).or(heading.where(level: 2)))
   let before = openers.filter(h => h.location().page() < current)
   if before.len() > 0 and not openers.any(h => h.location().page() == current) {
-    align(center, eyebrow(part-title(before.last()), fill: muted, size: 6pt))
+    align(center, eyebrow(part-title(before.last()), fill: muted, size: if print { 6.5pt } else { 6pt }))
   }
 }
 
@@ -282,17 +282,22 @@
   body,
 ) = {
   set document(title: plain(title), author: plain(author))
-  set page(width: 6in, height: 9in, margin: (x: 0.8in, top: 0.86in, bottom: 0.92in))
+  // Move the print text away from the binding without changing its measure.
+  let side-margins = if print { (inside: 0.90in, outside: 0.70in) } else { (x: 0.80in) }
+  set page(width: 6in, height: 9in, margin: (..side-margins, top: 0.86in, bottom: 0.92in))
   set text(font: text-font, size: 10.2pt, fill: ink, lang: "en", region: "US", number-type: "old-style")
+  set text(costs: (hyphenation: 220%)) if print
   set par(justify: true, leading: 0.72em, spacing: 0.72em, first-line-indent: (amount: 1.3em, all: false))
   show strong: set text(weight: 600)
   show heading: set text(hyphenate: false)
 
-  set list(indent: 0.3em, body-indent: 0.7em, spacing: 0.55em, marker: text(fill: gold-ink)[•])
+  // In print, a new item needs more space than a wrapped line in the same item.
+  let item-spacing = if print { 0.88em } else { 0.55em }
+  set list(indent: 0.3em, body-indent: 0.7em, spacing: item-spacing, marker: text(fill: gold-ink)[•])
   set enum(
     indent: 0.1em,
     body-indent: 0.6em,
-    spacing: 0.55em,
+    spacing: item-spacing,
     numbering: (..numbers) => text(fill: gold-ink, number-type: "lining", numbers.pos().map(str).join(".") + "."),
   )
   show list: set block(above: 1.1em, below: 1.1em)
@@ -311,7 +316,7 @@
   ))
 
   set footnote.entry(separator: line(length: 2.2em, stroke: 0.5pt + gold), clearance: 1.2em, gap: 0.6em, indent: 0em)
-  show footnote.entry: set text(size: 7.6pt, number-type: "lining")
+  show footnote.entry: set text(size: if print { 8pt } else { 7.6pt }, number-type: "lining")
   show footnote.entry: set par(justify: false, leading: 0.55em, first-line-indent: 0em)
   show link: it => {
     show regex("[/.]"): separator => [#separator#sym.zws]
@@ -384,7 +389,7 @@
   {
     set text(font: sans-font, size: 7.8pt, number-type: "lining", hyphenate: false, fill: ink)
     set par(justify: false, first-line-indent: 0em, leading: 0.52em, spacing: 0.75em)
-    set list(indent: 0em, body-indent: 0.5em, spacing: 0.42em, marker: text(fill: gold-ink)[–])
+    set list(indent: 0em, body-indent: 0.5em, spacing: if print { 0.66em } else { 0.42em }, marker: text(fill: gold-ink)[–])
     show list: set block(above: 5pt, below: 0pt)
     body
   },
