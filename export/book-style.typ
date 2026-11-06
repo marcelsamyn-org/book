@@ -15,7 +15,7 @@
 #let navy = text-color(rgb("#1c2540"))
 #let deep = tone(rgb("#131a2f"))
 #let night = tone(rgb("#0a1020"))
-#let gold = if print { luma(40%) } else { rgb("#c9a574") }
+#let gold = text-color(rgb("#c9a574"))
 #let gold-ink = text-color(rgb("#94744a"))
 #let cream = tone(rgb("#f0e6d0"))
 #let cream-dim = tone(rgb("#d9c8a3"))
@@ -489,7 +489,8 @@
   template: (:),
   response: (:),
 ) = exhibit({
-  let mark-keyword(body) = highlight(fill: color.mix((gold, 50%), (white, 50%), space: rgb), extent: 1pt, body)
+  let keyword-fill = if print { luma(74%) } else { color.mix((gold, 50%), (white, 50%), space: rgb) }
+  let mark-keyword(body) = highlight(fill: keyword-fill, extent: 1pt, body)
   let mark-fragment(body) = highlight(fill: color.mix((navy, 13%), (white, 87%), space: rgb), extent: 1pt, body)
   let message(tag, body, reply: false) = block(
     width: 100%,
@@ -609,7 +610,6 @@
   key: none,
   caption: "",
 ) = exhibit(breakable: false, framed: not print, {
-  let data-ink = if print { ink } else { gold }
   block(below: 7pt, eyebrow(eyebrow-text))
   layout(size => {
     let uw = units.at(0)
@@ -651,7 +651,7 @@
           place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
             start: (0pt, 0pt),
             end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
-            stroke: (paint: data-ink, thickness: 1.3pt, cap: "round", dash: dash),
+            stroke: (paint: gold, thickness: 1.3pt, cap: "round", dash: dash),
           ))
         }
       }
@@ -668,8 +668,8 @@
         let r = 2.4pt
         place(dx: X(d.at(0)) - r, dy: Y(d.at(1)) - r, circle(
           radius: r,
-          fill: if d.at(3) { white } else { data-ink },
-          stroke: if d.at(3) { 0.8pt + data-ink } else { none },
+          fill: if d.at(3) { white } else { gold },
+          stroke: if d.at(3) { 0.8pt + gold } else { none },
         ))
         let beside = d.at(5, default: none) == "beside"
         let anchor = d.at(4)
@@ -712,7 +712,7 @@
   })
   if key != none {
     block(above: 9pt, below: 0pt, {
-      box(width: 14pt, baseline: -1.5pt, line(length: 14pt, stroke: (paint: data-ink, thickness: 1.1pt, dash: "dashed")))
+      box(width: 14pt, baseline: -1.5pt, line(length: 14pt, stroke: (paint: gold, thickness: 1.1pt, dash: "dashed")))
       h(4pt)
       text(font: mono-font, size: 6pt, fill: muted, key)
     })
@@ -768,9 +768,9 @@
         place(dx: X(b.at(0)), dy: Y(b.at(1)), rect(
           width: X(b.at(2)),
           height: Y(b.at(3)),
-          fill: if print {
-            if b.at(6) { luma(55%) } else { ink }
-          } else if b.at(6) { hairline.darken(22%) } else { gold },
+          fill: if b.at(6) {
+            if print { luma(55%) } else { hairline.darken(22%) }
+          } else { gold },
           stroke: none,
         ))
         centred(b.at(0) + b.at(2) / 2, b.at(1) - 15, 110, text(
@@ -809,8 +809,7 @@
   caption: "",
 ) = exhibit(breakable: false, framed: not print, {
   let label-ink = if print { ink } else { muted }
-  let main-curve = if print { ink } else { gold }
-  let other-curves = if print { luma(32%) } else { hairline.darken(28%) }
+  let other-curves = if print { gold } else { hairline.darken(28%) }
   block(below: 7pt, eyebrow(eyebrow-text, fill: if print { ink } else { gold-ink }))
   layout(size => {
     let s = size.width / units.at(0)
@@ -847,7 +846,7 @@
         let position(p) = (X(p.at(0)), Y(p.at(1)))
         place(curve(
           stroke: (
-            paint: if lead { main-curve } else { other-curves },
+            paint: if lead { gold } else { other-curves },
             thickness: if lead { 1.4pt } else { 0.5pt },
             cap: if print { "round" } else { "butt" },
             dash: dash,
@@ -940,7 +939,7 @@
         text(fill: if rung.abundant { muted } else { ink }, rung.note),
         eyebrow(
           if rung.abundant { "abundant" } else { "still scarce" },
-          fill: if rung.abundant { hairline.darken(30%) } else { gold-ink },
+          fill: if rung.abundant { text-color(hairline.darken(30%)) } else { gold-ink },
           size: 5.4pt,
         ),
       ),
