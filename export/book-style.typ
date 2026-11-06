@@ -7,15 +7,16 @@
 // IngramSpark wants every color and image in it converted to grayscale.
 #let print = sys.inputs.at("print", default: "false") == "true"
 #let tone(color) = if print { luma(color) } else { color }
+#let text-color(color) = if print { black } else { color }
 
 // ── Palette (taken from the cover) and fonts ────────────────
-#let ink = tone(rgb("#2a2520"))
-#let muted = tone(rgb("#776d62"))
-#let navy = tone(rgb("#1c2540"))
+#let ink = text-color(rgb("#2a2520"))
+#let muted = text-color(rgb("#776d62"))
+#let navy = text-color(rgb("#1c2540"))
 #let deep = tone(rgb("#131a2f"))
 #let night = tone(rgb("#0a1020"))
-#let gold = tone(rgb("#c9a574"))
-#let gold-ink = tone(rgb("#94744a"))
+#let gold = if print { luma(40%) } else { rgb("#c9a574") }
+#let gold-ink = text-color(rgb("#94744a"))
 #let cream = tone(rgb("#f0e6d0"))
 #let cream-dim = tone(rgb("#d9c8a3"))
 #let wash = tone(rgb("#f8f4ed"))
@@ -208,7 +209,13 @@
 }
 
 #let part-page(it) = {
-  pagebreak(weak: true)
+  if print {
+    // Apply this page style to the parity filler only.
+    set page(header: none, footer: none)
+    pagebreak(weak: true, to: "odd")
+  } else {
+    pagebreak(weak: true)
+  }
   set par(justify: false, first-line-indent: 0em)
   v(0.55in)
   align(center, {
@@ -342,7 +349,7 @@
   ))
 
   show <refs>: it => {
-    set par(hanging-indent: 1.4em, first-line-indent: 0em, justify: false, spacing: 0.8em)
+    set par(hanging-indent: 1.4em, first-line-indent: 0em, justify: false, spacing: if print { 0.55em } else { 0.8em })
     set text(size: 8.6pt, number-type: "lining")
     it
   }
@@ -367,11 +374,13 @@
   set page(header: page-header, footer: page-footer)
   counter(page).update(1)
   body
-  // Printers need an even page count, so a blank last page makes up an odd one.
-  // The marker pins the last text page; the blank page would move a bare `here()`.
+  // Reserve the printer's final page and finish on an even physical page.
   if print {
     [#metadata(none) <book-end>]
-    context if calc.odd(locate(<book-end>).page()) { page(header: none, footer: none)[] }
+    context {
+      page(header: none, footer: none)[]
+      if calc.even(locate(<book-end>).page()) { page(header: none, footer: none)[] }
+    }
   }
 }
 
@@ -599,7 +608,8 @@
   dots: (),
   key: none,
   caption: "",
-) = exhibit(breakable: false, {
+) = exhibit(breakable: false, framed: not print, {
+  let data-ink = if print { ink } else { gold }
   block(below: 7pt, eyebrow(eyebrow-text))
   layout(size => {
     let uw = units.at(0)
@@ -641,7 +651,7 @@
           place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
             start: (0pt, 0pt),
             end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
-            stroke: (paint: gold, thickness: 1.3pt, cap: "round", dash: dash),
+            stroke: (paint: data-ink, thickness: 1.3pt, cap: "round", dash: dash),
           ))
         }
       }
@@ -658,12 +668,14 @@
         let r = 2.4pt
         place(dx: X(d.at(0)) - r, dy: Y(d.at(1)) - r, circle(
           radius: r,
-          fill: if d.at(3) { white } else { gold },
-          stroke: if d.at(3) { 0.8pt + gold } else { none },
+          fill: if d.at(3) { white } else { data-ink },
+          stroke: if d.at(3) { 0.8pt + data-ink } else { none },
         ))
         let beside = d.at(5, default: none) == "beside"
         let anchor = d.at(4)
-        let wanted = if beside { d.at(1) - 4 } else { d.at(1) - 17 }
+        let near-rule = print and rules.any(r => calc.abs(r.at(0) - d.at(1)) < row-h)
+        let offset = if not beside { if print { -42 } else { -17 } } else if near-rule { 5 } else { -4 }
+        let wanted = d.at(1) + offset
         let earlier = placed.at(anchor, default: ())
         let ly = wanted
         for _ in range(earlier.len()) {
@@ -700,7 +712,7 @@
   })
   if key != none {
     block(above: 9pt, below: 0pt, {
-      box(width: 14pt, baseline: -1.5pt, line(length: 14pt, stroke: (paint: gold, thickness: 1.1pt, dash: "dashed")))
+      box(width: 14pt, baseline: -1.5pt, line(length: 14pt, stroke: (paint: data-ink, thickness: 1.1pt, dash: "dashed")))
       h(4pt)
       text(font: mono-font, size: 6pt, fill: muted, key)
     })
@@ -722,7 +734,7 @@
   axis: (0.0, 0.0, 0.0),
   bars: (),
   caption: "",
-) = exhibit(breakable: false, {
+) = exhibit(breakable: false, framed: not print, {
   block(below: 7pt, eyebrow(eyebrow-text))
   layout(size => {
     let uw = units.at(0)
@@ -742,10 +754,11 @@
 
       // The rule stops short of its own label so the dashes never cross the text.
       for r in rules {
+        let label-gutter = if print { 30 } else { 0 }
         place(
           dx: X(r.at(1)),
           dy: Y(r.at(0)),
-          line(length: X(r.at(2) - r.at(1)), stroke: (paint: muted, thickness: 0.4pt, dash: "dashed")),
+          line(length: X(r.at(2) - r.at(1) - label-gutter), stroke: (paint: muted, thickness: 0.4pt, dash: "dashed")),
         )
         place(dx: 0pt, dy: Y(r.at(0) - 4), box(width: X(r.at(4)), align(right, text(font: mono-font, r.at(3)))))
       }
@@ -755,7 +768,9 @@
         place(dx: X(b.at(0)), dy: Y(b.at(1)), rect(
           width: X(b.at(2)),
           height: Y(b.at(3)),
-          fill: if b.at(6) { hairline.darken(22%) } else { gold },
+          fill: if print {
+            if b.at(6) { luma(55%) } else { ink }
+          } else if b.at(6) { hairline.darken(22%) } else { gold },
           stroke: none,
         ))
         centred(b.at(0) + b.at(2) / 2, b.at(1) - 15, 110, text(
@@ -795,7 +810,7 @@
 ) = exhibit(breakable: false, framed: not print, {
   let label-ink = if print { ink } else { muted }
   let main-curve = if print { ink } else { gold }
-  let other-curves = if print { muted } else { hairline.darken(28%) }
+  let other-curves = if print { luma(32%) } else { hairline.darken(28%) }
   block(below: 7pt, eyebrow(eyebrow-text, fill: if print { ink } else { gold-ink }))
   layout(size => {
     let s = size.width / units.at(0)
@@ -818,27 +833,28 @@
           angle: 90deg,
           stroke: (paint: hairline.darken(12%), thickness: 0.35pt, dash: "dotted"),
         ))
-        centred(t.at(0), fr-bottom + 6, 80, text(font: mono-font, t.at(1)))
+        centred(t.at(0), fr-bottom + if print { 10 } else { 6 }, 80, text(font: mono-font, t.at(1)))
       }
 
       place(dx: X(fr-left), dy: Y(fr-bottom), line(length: X(fr-right - fr-left), stroke: 0.4pt + muted))
 
-      for sr in series {
+      let secondary-dashes = ("dashed", "dotted", (4pt, 2pt, 1pt, 2pt))
+      for (index, sr) in series.enumerate() {
         // (points, label, emphasis)
         let pts = sr.at(0)
         let lead = sr.at(2)
-        for i in range(pts.len() - 1) {
-          let a = pts.at(i)
-          let b = pts.at(i + 1)
-          place(dx: X(a.at(0)), dy: Y(a.at(1)), line(
-            start: (0pt, 0pt),
-            end: (X(b.at(0) - a.at(0)), Y(b.at(1) - a.at(1))),
-            stroke: (
-              paint: if lead { main-curve } else { other-curves },
-              thickness: if lead { 1.4pt } else { 0.5pt },
-            ),
-          ))
-        }
+        let dash = if print and not lead { secondary-dashes.at(index, default: "dashed") }
+        let position(p) = (X(p.at(0)), Y(p.at(1)))
+        place(curve(
+          stroke: (
+            paint: if lead { main-curve } else { other-curves },
+            thickness: if lead { 1.4pt } else { 0.5pt },
+            cap: if print { "round" } else { "butt" },
+            dash: dash,
+          ),
+          curve.move(position(pts.first())),
+          ..pts.slice(1).map(p => curve.line(position(p))),
+        ))
         let last = pts.at(pts.len() - 1)
         place(dx: X(last.at(0) + 7), dy: Y(last.at(1) - 4), text(
           font: mono-font,
